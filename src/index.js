@@ -19,10 +19,10 @@ const gl = isWebGLSupported();
 const glExtensionDebugRendererInfo = gl.getExtension('WEBGL_debug_renderer_info');
 const unmaskedRenderer = glExtensionDebugRendererInfo
   && gl.getParameter(glExtensionDebugRendererInfo.UNMASKED_RENDERER_WEBGL).toLowerCase();
-// const renderer = unmaskedRenderer || gl.getParameter(gl.SHADING_LANGUAGE_VERSION).toLowerCase();
+const renderer = unmaskedRenderer || gl.getParameter(gl.SHADING_LANGUAGE_VERSION).toLowerCase();
 
 // S6
-const renderer = 'Mali-T760'.toLowerCase();
+// const renderer = 'Mali-T760'.toLowerCase();
 
 // S8
 // const renderer = 'Mali-G71'.toLowerCase();
