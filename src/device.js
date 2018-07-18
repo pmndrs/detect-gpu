@@ -101,7 +101,7 @@ export default class Device {
   get ie9() {
     if (!this.matchCache.ie9) {
       if (typeof document !== 'undefined') {
-        this.matchCache.ie9 = this.windows && this._isIE(10);
+        this.matchCache.ie9 = this.windows && this._isIE(9);
       }
     }
 
