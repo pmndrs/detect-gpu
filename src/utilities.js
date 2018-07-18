@@ -11,12 +11,12 @@ export function isWebGLSupported(attributes) {
 
 // Higher or equal than a certain version number
 export function matchHigherNumericVersion(entry, version) {
-  return parseInt(entry.gpu.slice().replace(/[\D]/g, ''), 10) >= version;
+  return parseInt(entry.slice().replace(/[\D]/g, ''), 10) >= version;
 }
 
 // Lower or equal to a certain version number
 export function matchLowerNumericVersion(entry, version) {
-  return parseInt(entry.gpu.slice().replace(/[\D]/g, ''), 10) <= version;
+  return parseInt(entry.slice().replace(/[\D]/g, ''), 10) <= version;
 }
 
 // Check if the entry has a version number between a certain range (low - high)

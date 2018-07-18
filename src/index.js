@@ -17,29 +17,24 @@ const userAgent = device.getUserAgent().toLowerCase();
 
 const gl = isWebGLSupported();
 const glExtensionDebugRendererInfo = gl.getExtension('WEBGL_debug_renderer_info');
-const renderer = glExtensionDebugRendererInfo
+const unmaskedRenderer = glExtensionDebugRendererInfo
   && gl.getParameter(glExtensionDebugRendererInfo.UNMASKED_RENDERER_WEBGL).toLowerCase();
-const shaderVersion = gl.getParameter(gl.SHADING_LANGUAGE_VERSION).toLowerCase();
+const renderer = unmaskedRenderer || gl.getParameter(gl.SHADING_LANGUAGE_VERSION).toLowerCase();
 
 // S6
 // const renderer = 'Mali-T760'.toLowerCase();
-// const shaderVersion = 'WebGL GLSL ES 1.0 (OpenGL ES GLSL ES 1.0 Chromium)'.toLowerCase();
 
 // S8
 // const renderer = 'Mali-G71'.toLowerCase();
-// const shaderVersion = 'WebGL GLSL ES 1.0 (OpenGL ES GLSL ES 1.0 Chromium)'.toLowerCase();
 
 // Pixel 2
 // const renderer = 'Adreno (TM) 540'.toLowerCase();
-// const shaderVersion = 'WebGL GLSL ES 1.0 (OpenGL ES GLSL ES 1.0 Chromium)'.toLowerCase();
 
 // iPhone 5s
-// const renderer = ''.toLowerCase();
-// const shaderVersion = 'WebGL 1.0 (OpenGL ES 2.0 Apple A8 GPU - 50.6.11)'.toLowerCase();
+// const renderer = 'WebGL 1.0 (OpenGL ES 2.0 Apple A8 GPU - 50.6.11)'.toLowerCase();
 
 // iPhone 6S
 // const renderer = 'Apple A10 GPU'.toLowerCase();
-// const shaderVersion = 'WebGL 1.0 (OpenGL ES 2.0 Metal - 39.9)'.toLowerCase();
 
 function getGPUTier() {
   /*
@@ -62,13 +57,12 @@ function getGPUTier() {
 
   if (device.mobile || device.tablet) {
     // Mobile
-    const isAdreno = renderer.includes('adreno') || shaderVersion.includes('adreno');
-    const isApple = renderer.includes('apple') || shaderVersion.includes('apple');
-    const isMali = (renderer.includes('mali') && !renderer.includes('mali-t'))
-      || (shaderVersion.includes('mali') && !renderer.includes('mali-t'));
-    const isMaliT = renderer.includes('mali-t') || shaderVersion.includes('mali');
-    const isNVIDIA = renderer.includes('nvidia') || shaderVersion.includes('nvidia');
-    const isPowerVR = renderer.includes('powervr') || shaderVersion.includes('powervr');
+    const isAdreno = renderer.includes('adreno');
+    const isApple = renderer.includes('apple');
+    const isMali = renderer.includes('mali') && !renderer.includes('mali-t');
+    const isMaliT = renderer.includes('mali-t');
+    const isNVIDIA = renderer.includes('nvidia');
+    const isPowerVR = renderer.includes('powervr');
 
     console.log(BENCHMARK_SCORE_MOBILE);
 
@@ -121,49 +115,39 @@ function getGPUTier() {
   }
 
   // Desktop
-  const isIntel = renderer.includes('intel') || shaderVersion.includes('intel');
-  const isAMD = renderer.includes('amd') || shaderVersion.includes('amd');
-  const isNVIDIA = renderer.includes('nvidia') || shaderVersion.includes('nvidia');
+  const isIntel = renderer.includes('intel');
+  const isAMD = renderer.includes('amd');
+  const isNVIDIA = renderer.includes('nvidia');
 
-  console.log(isIntel);
+  console.log(isIntel, renderer);
 
-  //   console.log(BENCHMARK_SCORE_DESKTOP);
+  console.log(BENCHMARK_SCORE_DESKTOP);
 
-  //   BENCHMARK_SCORE_DESKTOP.map((entry) => {
-  //     // console.log(entry.gpu.toLowerCase());
+  // GPU_DESKTOP_TIER_0
+  // Intel HD graphics 1000 - 4000
+  if (isIntel && matchNumericRange(renderer, 1000, 4000)) {
+    return 'GPU_DESKTOP_TIER_0';
+  }
 
-  //     if (entry.gpu.toLowerCase().includes('graphics')) {
-  //       if (matchNumericRange(entry, 1000, 4000)) {
-  //         console.log(entry.score, entry.gpu);
-  //       }
-  //     }
-  //   });
+  // GPU_DESKTOP_TIER_1 - DEFAULT
+  // Everything except NVIDIA and AMD (dedicated graphics cards)
+  if (!isNVIDIA && !isAMD) {
+    return 'GPU_DESKTOP_TIER_1';
+  }
 
-  /*
-        GPU_DESKTOP_TIER_0
-        - Intel HD graphics 1000 - 4000
-    */
-  //   return 'GPU_DESKTOP_TIER_0';
+  // GPU_DESKTOP_TIER_2
+  // - NVIDIA
+  // - AMD
+  if ((isNVIDIA && !renderer.includes('titan')) || (isAMD && !renderer.includes('radeon pro'))) {
+    return 'GPU_DESKTOP_TIER_2';
+  }
 
-  /*
-      GPU_DESKTOP_TIER_1 - DEFAULT
-          - Everything except NVIDIA and AMD (dedicated graphics cards)
-      */
-  //   return 'GPU_DESKTOP_TIER_1';
-
-  /*
-      GPU_DESKTOP_TIER_2
-          - NVIDIA
-          - AMD
-      */
-  //   return 'GPU_DESKTOP_TIER_2';
-
-  /*
-      GPU_DESKTOP_TIER_3
-          - Titan
-          - AMD Radeon Pro
-      */
-  //   return 'GPU_DESKTOP_TIER_3';
+  // GPU_DESKTOP_TIER_3
+  // - Titan
+  // - AMD Radeon Pro
+  if ((isNVIDIA && renderer.includes('titan')) || (isAMD && renderer.includes('radeon pro'))) {
+    return 'GPU_DESKTOP_TIER_3';
+  }
 
   // DEFAULT
   return 'GPU_DESKTOP_TIER_1';
