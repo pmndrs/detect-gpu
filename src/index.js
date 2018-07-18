@@ -19,10 +19,10 @@ const gl = isWebGLSupported();
 const glExtensionDebugRendererInfo = gl.getExtension('WEBGL_debug_renderer_info');
 const unmaskedRenderer = glExtensionDebugRendererInfo
   && gl.getParameter(glExtensionDebugRendererInfo.UNMASKED_RENDERER_WEBGL).toLowerCase();
-const renderer = unmaskedRenderer || gl.getParameter(gl.SHADING_LANGUAGE_VERSION).toLowerCase();
+// const renderer = unmaskedRenderer || gl.getParameter(gl.SHADING_LANGUAGE_VERSION).toLowerCase();
 
 // S6
-// const renderer = 'Mali-T760'.toLowerCase();
+const renderer = 'Mali-T760'.toLowerCase();
 
 // S8
 // const renderer = 'Mali-G71'.toLowerCase();
@@ -64,7 +64,20 @@ function getGPUTier() {
     const isNVIDIA = renderer.includes('nvidia');
     const isPowerVR = renderer.includes('powervr');
 
-    console.log(BENCHMARK_SCORE_MOBILE);
+    // console.log(BENCHMARK_SCORE_MOBILE);
+
+    BENCHMARK_SCORE_MOBILE.forEach((entry) => {
+      if (
+        entry.toLowerCase().indexOf('mali') > -1
+        && !(entry.toLowerCase().indexOf('mali-t') > -1)
+      ) {
+        console.log(entry.toLowerCase());
+      }
+    });
+
+    // if (isMaliT) {
+    //   console.log(BENCHMARK_SCORE_MOBILE.includes('mali-t'));
+    // }
 
     // GPU_MOBILE_TIER_0
     // - iOS < A7
