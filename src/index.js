@@ -1,3 +1,6 @@
+// Data
+import { BENCHMARK_SCORE_DESKTOP, BENCHMARK_SCORE_MOBILE } from './data';
+
 // Device
 import Device from './device';
 
@@ -112,6 +115,10 @@ function getGPUTier() {
 
 export function register(options = {}) {
   Object.assign(this, options);
+
+  console.log(BENCHMARK_SCORE_DESKTOP);
+
+  console.log(BENCHMARK_SCORE_MOBILE);
 
   const GPU_TIER = getGPUTier();
 

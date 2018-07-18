@@ -1,0 +1,91 @@
+// 18-07-2018
+// https://www.notebookcheck.net/Mobile-Graphics-Cards-Benchmark-List.844.0.html?type=&sort=&professional=2&showClassDescription=1&deskornote=3&archive=1&perfrating=1&or=0&showBars=1&3dmark13_ice_gpu=1&3dmark13_cloud_gpu=1&3dmark13_fire_gpu=1&3dmark11_gpu=1&gpu_fullname=1&architecture=1&pixelshaders=1&vertexshaders=1&corespeed=1&boostspeed=1&memoryspeed=1&memorybus=1&memorytype=1&directx=1
+
+257 Apple A11 Bionic GPU
+258 Apple A10X Fusion GPU / PowerVR
+293 Apple A9X / PowerVR Series 7XT
+316 NVIDIA Tegra X1 Maxwell
+418 Qualcomm Adreno 630
+419 Qualcomm Adreno 540
+420 ARM Mali-G72 MP18
+421 ARM Mali-G71 MP20
+422 ARM Mali-G72 MP12
+423 ARM Mali-G71 MP8
+460 Qualcomm Adreno 530
+461 PowerVR GXA6850
+462 NVIDIA Tegra K1 Kepler GPU
+463 Apple A9 / PowerVR GT7600
+464 ARM Mali-T880 MP12
+509 ARM Mali-T760 MP8
+510 ARM Mali-G71 MP2
+515 Qualcomm Adreno 430
+534 ARM Mali-G72 MP3
+535 ARM Mali-T880 MP4
+567 ARM Mali-T760 MP6
+568 ARM Mali-T880 MP2
+578 PowerVR GX6450
+579 Qualcomm Adreno 420
+599 Qualcomm Adreno 418
+601 Intel HD Graphics (Cherry Trail)
+676 Qualcomm Adreno 512
+677 Qualcomm Adreno 510
+678 Qualcomm Adreno 330
+679 PowerVR G6430
+680 PowerVR GX6250
+681 PowerVR G6400
+682 Intel HD Graphics (Bay Trail)
+683 ARM Mali-T628 MP6
+684 ARM Mali-T760 MP4
+722 PowerVR SGX554MP4
+723 ARM Mali-T628 MP4
+724 Qualcomm Adreno 509
+725 Qualcomm Adreno 508
+726 Qualcomm Adreno 506
+727 Qualcomm Adreno 505
+731 ARM Mali-T860 MP2
+732 ARM Mali-T830 MP3
+738 ARM Mali-T604 MP4
+743 NVIDIA GeForce Tegra 4
+744 PowerVR G6200
+745 Qualcomm Adreno 405
+746 ARM Mali-T830 MP2
+773 PowerVR SGX543MP4
+774 ARM Mali-T624
+775 Qualcomm Adreno 320
+776 ARM Mali-T760 MP2
+777 PowerVR GE8100
+778 ARM Mali-T720 MP4
+779 ARM Mali-450 MP4
+780 ARM Mali-T830 MP1
+788 PowerVR SGX543MP3
+798 PowerVR SGX543MP2
+801 PowerVR SGX545
+802 PowerVR SGX544MP2
+803 ARM Mali-T720 MP2
+804 PowerVR SGX544
+805 Qualcomm Adreno 308
+806 Qualcomm Adreno 306
+807 Qualcomm Adreno 305
+808 Qualcomm Adreno 304
+809 ARM Mali-T720
+810 Vivante GC7000UL
+811 Qualcomm Adreno 302
+819 Qualcomm Adreno 225
+820 Vivante GC4000
+821 ARM Mali-400 MP4
+822 NVIDIA GeForce ULP (Tegra 3)
+823 Broadcom VideoCore-IV
+824 Qualcomm Adreno 220
+825 Vivante GC1000+ Dual-Core
+826 ARM Mali-400 MP2
+827 ARM Mali-400 MP
+828 NVIDIA GeForce ULP (Tegra 2)
+830 PowerVR SGX540
+832 Qualcomm Adreno 205
+833 Qualcomm Adreno 203
+834 Vivante GC800
+835 PowerVR SGX535
+836 PowerVR SGX531
+837 PowerVR SGX530
+838 Qualcomm Adreno 200
+839 ARM Mali-200

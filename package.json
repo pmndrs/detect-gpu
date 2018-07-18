@@ -26,6 +26,9 @@
     "webpack-cli": "^3.0.8"
   },
   "dependencies": {
-    "ua-parser-js": "^0.7.18"
+    "node-fetch": "^2.1.2",
+    "node-html-parser": "^1.1.8",
+    "ua-parser-js": "^0.7.18",
+    "xmlhttprequest": "^1.8.0"
   }
 }
