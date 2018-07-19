@@ -2,7 +2,6 @@
 
 // Native
 const fs = require('fs');
-const util = require('util');
 
 // Vendor
 const fetch = require('node-fetch');
@@ -44,7 +43,7 @@ function collectBenchmark(url) {
 
 Promise.all([collectBenchmark(BENCHMARK_DESKTOP_URL), collectBenchmark(BENCHMARK_MOBILE_URL)]).then(
   (result) => {
-    const output = './src/data.js';
+    const output = './src/benchmark.js';
     const data = `
       export const BENCHMARK_SCORE_DESKTOP = [
         ${result[0].map(entry => `\n\'${entry}\'`)}
