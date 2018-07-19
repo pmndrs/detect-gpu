@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+const util = require('util');
 
 const fetch = require('node-fetch');
 const { parse } = require('node-html-parser');
@@ -16,7 +17,7 @@ function collectBenchmarks() {
       const rawTableRows = html.match(/<tr[\s\S]*?<\/tr>/g);
       rawTableRows.forEach((entry) => {
         const tableRow = parse(entry);
-        console.log(tableRow.childNodes);
+        console.log(util.inspect(tableRow.childNodes[0].childNodes, false, null));
       });
       //   const tableRows = parse(rawTableRows);
 
