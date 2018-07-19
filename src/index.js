@@ -169,6 +169,8 @@ function getGPUTier() {
     }
   });
 
+  console.log(isIntel, isBenchmarkIntel);
+
   // GPU_DESKTOP_TIER_0
   // Intel HD graphics 1000 - 4000
 
