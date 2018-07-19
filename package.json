@@ -9,7 +9,7 @@
     "lint": "eslint src/**/*.js",
     "dist": "NODE_ENV=production webpack -p --progress --optimize-minimize --display-modules && NODE_ENV=development webpack -d --progress --display-modules",
     "deploy": "npm run dist && npm version patch && npm publish && git push origin",
-    "update-benchmarks": "node update_benchmarks.js > ./src/data.js"
+    "update-benchmarks": "node update_benchmarks.js"
   },
   "author": "Tim van Scherpenzeel",
   "license": "MIT",

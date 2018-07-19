@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 // Native
+const fs = require('fs');
 const util = require('util');
 
 // Vendor
@@ -43,7 +44,8 @@ function collectBenchmark(url) {
 
 Promise.all([collectBenchmark(BENCHMARK_DESKTOP_URL), collectBenchmark(BENCHMARK_MOBILE_URL)]).then(
   (result) => {
-    const file = `
+    const output = './src/data.js';
+    const data = `
       export const BENCHMARK_SCORE_DESKTOP = [
         ${result[0].map(entry => `\n\'${entry}\'`)}
       ];
@@ -53,6 +55,12 @@ Promise.all([collectBenchmark(BENCHMARK_DESKTOP_URL), collectBenchmark(BENCHMARK
       ];
     `;
 
-    console.log(file);
+    fs.writeFile(output, data, (error) => {
+      if (!error) {
+        console.log(`Written file to ${output}`);
+      } else {
+        console.error(error);
+      }
+    });
   },
 );
