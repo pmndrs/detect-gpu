@@ -1895,7 +1895,7 @@ hash.js@^1.0.0, hash.js@^1.0.3:
     inherits "^2.0.3"
     minimalistic-assert "^1.0.1"
 
-he@^1.1.1, he@latest:
+he@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/he/-/he-1.1.1.tgz#93410fd21b009735151f8868c2f271f3427e23fd"
 
@@ -1917,6 +1917,10 @@ home-or-tmp@^2.0.0:
 hosted-git-info@^2.1.4:
   version "2.7.1"
   resolved "https://registry.yarnpkg.com/hosted-git-info/-/hosted-git-info-2.7.1.tgz#97f236977bd6e125408930ff6de3eec6281ec047"
+
+htmlparser@^1.7.7:
+  version "1.7.7"
+  resolved "https://registry.yarnpkg.com/htmlparser/-/htmlparser-1.7.7.tgz#19e7b3997ff6fbac99ae5a7d2766489efe7e2d0e"
 
 http-proxy@^1.8.1:
   version "1.17.0"
@@ -2272,6 +2276,12 @@ json5@^0.5.0, json5@^0.5.1:
   version "0.5.1"
   resolved "https://registry.yarnpkg.com/json5/-/json5-0.5.1.tgz#1eade7acc012034ad84e2396767ead9fa5495821"
 
+jssoup@^0.0.8:
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/jssoup/-/jssoup-0.0.8.tgz#e5bc301ecd3a396d0a0a8253f01cb0bea7f26c89"
+  dependencies:
+    htmlparser "^1.7.7"
+
 kind-of@^3.0.2, kind-of@^3.0.3, kind-of@^3.2.0:
   version "3.2.2"
   resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-3.2.2.tgz#31ea21a734bab9bbb0f32466d893aea51e4a3c64"
@@ -2564,12 +2574,6 @@ nice-try@^1.0.4:
 node-fetch@^2.1.2:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.1.2.tgz#ab884e8e7e57e38a944753cec706f788d1768bb5"
-
-node-html-parser@^1.1.8:
-  version "1.1.8"
-  resolved "https://registry.yarnpkg.com/node-html-parser/-/node-html-parser-1.1.8.tgz#259c9a866e31f3a56834faa59e6dee7909ed0fed"
-  dependencies:
-    he latest
 
 node-libs-browser@^2.0.0:
   version "2.1.0"
