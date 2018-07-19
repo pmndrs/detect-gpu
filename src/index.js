@@ -64,16 +64,47 @@ function getGPUTier() {
     const isNVIDIA = renderer.includes('nvidia');
     const isPowerVR = renderer.includes('powervr');
 
-    // console.log(BENCHMARK_SCORE_MOBILE);
+    const isBenchmarkAdreno = [];
+    const isBenchmarkApple = [];
+    const isBenchmarkMali = [];
+    const isBenchmarkMaliT = [];
+    const isBenchmarkNVIDIA = [];
+    const isBenchmarkPowerVR = [];
 
-    BENCHMARK_SCORE_MOBILE.forEach((entry) => {
-      if (
-        entry.toLowerCase().indexOf('mali') > -1
-        && !(entry.toLowerCase().indexOf('mali-t') > -1)
-      ) {
-        console.log(entry.toLowerCase());
+    BENCHMARK_SCORE_MOBILE.some((rawEntry) => {
+      const entry = rawEntry.toLowerCase();
+
+      if (entry.includes('adreno')) {
+        isBenchmarkAdreno.push(entry);
+        return;
+      }
+
+      if (entry.includes('apple')) {
+        isBenchmarkApple.push(entry);
+        return;
+      }
+
+      if (entry.includes('mali') && !entry.includes('mali-t')) {
+        isBenchmarkMali.push(entry);
+        return;
+      }
+
+      if (entry.includes('mali-t')) {
+        isBenchmarkMaliT.push(entry);
+        return;
+      }
+
+      if (entry.includes('nvidia')) {
+        isBenchmarkNVIDIA.push(entry);
+        return;
+      }
+
+      if (entry.includes('powervr')) {
+        isBenchmarkPowerVR.push(entry);
       }
     });
+
+    console.log(isBenchmarkApple);
 
     // if (isMaliT) {
     //   console.log(BENCHMARK_SCORE_MOBILE.includes('mali-t'));
@@ -123,6 +154,28 @@ function getGPUTier() {
   const isIntel = renderer.includes('intel');
   const isAMD = renderer.includes('amd');
   const isNVIDIA = renderer.includes('nvidia');
+
+  const isBenchmarkIntel = [];
+  const isBenchmarkAMD = [];
+  const isBenchmarkNVIDIA = [];
+
+  BENCHMARK_SCORE_DESKTOP.some((rawEntry) => {
+    const entry = rawEntry.toLowerCase();
+
+    if (entry.includes('intel')) {
+      isBenchmarkIntel.push(entry);
+      return;
+    }
+
+    if (entry.includes('amd')) {
+      isBenchmarkAMD.push(entry);
+      return;
+    }
+
+    if (entry.includes('nvidia')) {
+      isBenchmarkNVIDIA.push(entry);
+    }
+  });
 
   // GPU_DESKTOP_TIER_0
   // Intel HD graphics 1000 - 4000
