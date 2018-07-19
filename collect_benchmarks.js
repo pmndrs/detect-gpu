@@ -1,6 +1,9 @@
 #!/usr/bin/env node
+
+// Native
 const util = require('util');
 
+// Vendor
 const fetch = require('node-fetch');
 const { parse } = require('node-html-parser');
 
