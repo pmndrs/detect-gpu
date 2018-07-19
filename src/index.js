@@ -13,16 +13,14 @@ import {
 } from './utilities';
 
 const device = new Device();
-const userAgent = device.getUserAgent().toLowerCase();
-
 const gl = isWebGLSupported();
 const glExtensionDebugRendererInfo = gl.getExtension('WEBGL_debug_renderer_info');
 const unmaskedRenderer = glExtensionDebugRendererInfo
   && gl.getParameter(glExtensionDebugRendererInfo.UNMASKED_RENDERER_WEBGL).toLowerCase();
-// const renderer = unmaskedRenderer || gl.getParameter(gl.SHADING_LANGUAGE_VERSION).toLowerCase();
+const renderer = unmaskedRenderer || gl.getParameter(gl.SHADING_LANGUAGE_VERSION).toLowerCase();
 
 // S6
-const renderer = 'Mali-T760'.toLowerCase();
+// const renderer = 'Mali-T760'.toLowerCase();
 
 // S8
 // const renderer = 'Mali-G71'.toLowerCase();
@@ -104,12 +102,6 @@ function getGPUTier() {
       }
     });
 
-    console.log(isBenchmarkApple);
-
-    // if (isMaliT) {
-    //   console.log(BENCHMARK_SCORE_MOBILE.includes('mali-t'));
-    // }
-
     // GPU_MOBILE_TIER_0
     // - iOS < A7
     // - iPhone 5s, iPad Air, iPad mini 3, iPad mini 2 - Apple A7 GPU
@@ -179,29 +171,17 @@ function getGPUTier() {
 
   // GPU_DESKTOP_TIER_0
   // Intel HD graphics 1000 - 4000
-  if (isIntel && matchNumericRange(renderer, 1000, 4000)) {
-    return 'GPU_DESKTOP_TIER_0';
-  }
 
   // GPU_DESKTOP_TIER_1 - DEFAULT
   // Everything except NVIDIA and AMD (dedicated graphics cards)
-  if (!isNVIDIA && !isAMD) {
-    return 'GPU_DESKTOP_TIER_1';
-  }
 
   // GPU_DESKTOP_TIER_2
   // - NVIDIA
   // - AMD
-  if ((isNVIDIA && !renderer.includes('titan')) || (isAMD && !renderer.includes('radeon pro'))) {
-    return 'GPU_DESKTOP_TIER_2';
-  }
 
   // GPU_DESKTOP_TIER_3
   // - Titan
   // - AMD Radeon Pro
-  if ((isNVIDIA && renderer.includes('titan')) || (isAMD && renderer.includes('radeon pro'))) {
-    return 'GPU_DESKTOP_TIER_3';
-  }
 
   // DEFAULT
   return 'GPU_DESKTOP_TIER_1';
