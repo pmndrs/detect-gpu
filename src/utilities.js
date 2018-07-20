@@ -25,3 +25,20 @@ export function matchNumericRange(entry, higherVersion, lowerVersion) {
     matchHigherNumericVersion(entry, higherVersion) && matchLowerNumericVersion(entry, lowerVersion)
   );
 }
+
+// Get benchmark entry's by percentage of the total benchmark entries
+// This is used for effectively future-proofing new GPU's
+export function getBenchmarkByPercentage(benchmark, percentages) {
+  let chunkOffset = 0;
+
+  const BENCHMARK_TIERS = percentages.map((percentage) => {
+    const chunkSize = Math.round((benchmark.length / 100) * percentage);
+    const chunk = benchmark.slice(chunkOffset, chunkOffset + chunkSize);
+
+    chunkOffset += chunkSize;
+
+    return chunk;
+  });
+
+  return BENCHMARK_TIERS;
+}

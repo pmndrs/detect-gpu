@@ -10,6 +10,7 @@ import {
   matchHigherNumericVersion,
   matchLowerNumericVersion,
   matchNumericRange,
+  getBenchmarkByPercentage,
 } from './utilities';
 
 const device = new Device();
@@ -34,24 +35,19 @@ const renderer = 'Adreno (TM) 540'.toLowerCase();
 // iPhone 6S
 // const renderer = 'Apple A10 GPU'.toLowerCase();
 
-function getBenchmarkByPercentage(benchmark, percentages) {
-  let chunkOffset = 0;
-
-  const BENCHMARK_TIERS = percentages.map((percentage) => {
-    const chunkSize = Math.round((benchmark.length / 100) * percentage);
-    const chunk = benchmark.slice(chunkOffset, chunkOffset + chunkSize);
-
-    chunkOffset += chunkSize;
-
-    return chunk;
-  });
-
-  return BENCHMARK_TIERS;
-}
-
 function getGPUTier() {
-  const mobileBenchmarkTiers = getBenchmarkByPercentage(BENCHMARK_SCORE_MOBILE, [20, 30, 35, 15]);
-  const desktopBenchmarkTiers = getBenchmarkByPercentage(BENCHMARK_SCORE_DESKTOP, [20, 30, 35, 15]);
+  const BENCHMARK_TIER_PERCENTAGES_MOBILE = [20, 30, 35, 15];
+  const BENCHMARK_TIER_PERCENTAGES_DESKTOP = [20, 30, 35, 15];
+
+  const mobileBenchmarkTiers = getBenchmarkByPercentage(
+    BENCHMARK_SCORE_MOBILE,
+    BENCHMARK_TIER_PERCENTAGES_MOBILE,
+  );
+
+  const desktopBenchmarkTiers = getBenchmarkByPercentage(
+    BENCHMARK_SCORE_DESKTOP,
+    BENCHMARK_TIER_PERCENTAGES_DESKTOP,
+  );
 
   // GPU_BLACKLIST
   // - https://wiki.mozilla.org/Blocklisting/Blocked_Graphics_Drivers
