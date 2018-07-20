@@ -1,5 +1,5 @@
 // Data
-import { BENCHMARK_SCORE_DESKTOP, BENCHMARK_SCORE_MOBILE } from './data';
+import { BENCHMARK_SCORE_DESKTOP, BENCHMARK_SCORE_MOBILE } from './benchmark';
 
 // Device
 import Device from './device';
@@ -17,7 +17,7 @@ const gl = isWebGLSupported();
 const glExtensionDebugRendererInfo = gl.getExtension('WEBGL_debug_renderer_info');
 const unmaskedRenderer = glExtensionDebugRendererInfo
   && gl.getParameter(glExtensionDebugRendererInfo.UNMASKED_RENDERER_WEBGL).toLowerCase();
-const renderer = unmaskedRenderer || gl.getParameter(gl.SHADING_LANGUAGE_VERSION).toLowerCase();
+// const renderer = unmaskedRenderer || gl.getParameter(gl.SHADING_LANGUAGE_VERSION).toLowerCase();
 
 // S6
 // const renderer = 'Mali-T760'.toLowerCase();
@@ -26,7 +26,7 @@ const renderer = unmaskedRenderer || gl.getParameter(gl.SHADING_LANGUAGE_VERSION
 // const renderer = 'Mali-G71'.toLowerCase();
 
 // Pixel 2
-// const renderer = 'Adreno (TM) 540'.toLowerCase();
+const renderer = 'Adreno (TM) 540'.toLowerCase();
 
 // iPhone 5s
 // const renderer = 'WebGL 1.0 (OpenGL ES 2.0 Apple A8 GPU - 50.6.11)'.toLowerCase();
@@ -35,12 +35,10 @@ const renderer = unmaskedRenderer || gl.getParameter(gl.SHADING_LANGUAGE_VERSION
 // const renderer = 'Apple A10 GPU'.toLowerCase();
 
 function getGPUTier() {
-  /*
-   *  GPU_BLACKLIST
-   *  - https://wiki.mozilla.org/Blocklisting/Blocked_Graphics_Drivers
-   *  - https://www.khronos.org/webgl/wiki/BlacklistsAndWhitelists
-   *  - https://chromium.googlesource.com/chromium/src/gpu/+/master/config/software_rendering_list.json
-   */
+  // GPU_BLACKLIST
+  // - https://wiki.mozilla.org/Blocklisting/Blocked_Graphics_Drivers
+  // - https://www.khronos.org/webgl/wiki/BlacklistsAndWhitelists
+  // - https://chromium.googlesource.com/chromium/src/gpu/+/master/config/software_rendering_list.json
   const GPU_BLACKLIST = /(radeon hd 6970m|radeon hd 6770m|radeon hd 6490m|radeon hd 6630m|radeon hd 6750m|radeon hd 5750|radeon hd 5670|radeon hd 4850|radeon hd 4870|radeon hd 4670|geforce 9400m|geforce 320m|geforce 330m|geforce gt 130|geforce gt 120|geforce gtx 285|geforce 8600|geforce 9600m|geforce 9400m|geforce 8800 gs|geforce 8800 gt|quadro fx 5|quadro fx 4|radeon hd 2600|radeon hd 2400|radeon hd 2600|radeon r9 200|mali-4|mali-3|mali-2)/.test(
     renderer,
   );
@@ -55,12 +53,12 @@ function getGPUTier() {
 
   if (device.mobile || device.tablet) {
     // Mobile
-    const isAdreno = renderer.includes('adreno');
-    const isApple = renderer.includes('apple');
-    const isMali = renderer.includes('mali') && !renderer.includes('mali-t');
-    const isMaliT = renderer.includes('mali-t');
-    const isNVIDIA = renderer.includes('nvidia');
-    const isPowerVR = renderer.includes('powervr');
+    const isRendererAdreno = renderer.includes('adreno');
+    const isRendererApple = renderer.includes('apple');
+    const isRendererMali = renderer.includes('mali') && !renderer.includes('mali-t');
+    const isRendererMaliT = renderer.includes('mali-t');
+    const isRendererNVIDIA = renderer.includes('nvidia');
+    const isRendererPowerVR = renderer.includes('powervr');
 
     const isBenchmarkAdreno = [];
     const isBenchmarkApple = [];
@@ -107,14 +105,28 @@ function getGPUTier() {
     // - iPhone 5s, iPad Air, iPad mini 3, iPad mini 2 - Apple A7 GPU
     // - Google Nexus 7 - Adreno 320
     // - Nexus 5 - Adreno 330
-    // return 'GPU_MOBILE_TIER_0';
+    if (
+      (isRendererApple
+        && (renderer.includes('a7')
+          || renderer.includes('a6')
+          || renderer.includes('a5')
+          || renderer.includes('a4')))
+      || (isRendererAdreno && (renderer.includes('320') || renderer.includes('330')))
+    ) {
+      return 'GPU_MOBILE_TIER_0';
+    }
 
     // GPU_MOBILE_TIER_1 - DEFAULT
     // - iOS => A7 < A9
     // - iPhone 6, iPhone 6 Plus, iPad Air 2, iPad mini 4, iPod touch (6th generation) - Apple A8 GPU
     // - Nexus 5X - Adreno 418
     // - Nexus 6P - Adreno 430
-    // return 'GPU_MOBILE_TIER_1';
+    if (
+      (isRendererApple && (renderer.includes('a8') || renderer.includes('a9')))
+      || (isRendererAdreno && (renderer.includes('418') || renderer.includes('430')))
+    ) {
+      return 'GPU_MOBILE_TIER_1';
+    }
 
     // GPU_MOBILE_TIER_2
     // - iOS => A9 <= A10
@@ -126,7 +138,14 @@ function getGPUTier() {
     // - Galaxy Note 8 - Mali G71 / Adreno 540
     // - Galaxy S8 Plus - Mali G71 Adreno 540
     // - Galaxy S8 - Mali G71 / Adreno 540
-    // return 'GPU_MOBILE_TIER_2';
+    if (
+      (isRendererApple && (renderer.includes('a9') || renderer.includes('a10')))
+      || (isRendererAdreno && (renderer.includes('530') || renderer.includes('540')))
+      || (isRendererMali && renderer.includes('g71'))
+      || (isRendererMaliT && renderer.includes('880'))
+    ) {
+      return 'GPU_MOBILE_TIER_2';
+    }
 
     // GPU_MOBILE_TIER_3
     // - iOS >= A10
@@ -136,16 +155,23 @@ function getGPUTier() {
     // - Galaxy S9 Plus - Mali G72 / Adreno 630
     // - NVIDIA Tegra - NVIDIA Maxwell GPU
     // - Pixel C - NVIDIA Maxwell GPU
-    // return 'GPU_MOBILE_TIER_3';
+    if (
+      (isRendererApple && (renderer.includes('a10') || renderer.includes('a11')))
+      || (isRendererAdreno && renderer.includes('630'))
+      || (isRendererMali && renderer.includes('g72'))
+      || (isRendererNVIDIA && renderer.includes('maxwell'))
+    ) {
+      return 'GPU_MOBILE_TIER_3';
+    }
 
     // DEFAULT
     return 'GPU_MOBILE_TIER_1';
   }
 
   // Desktop
-  const isIntel = renderer.includes('intel');
-  const isAMD = renderer.includes('amd');
-  const isNVIDIA = renderer.includes('nvidia');
+  const isRendererIntel = renderer.includes('intel');
+  const isRendererAMD = renderer.includes('amd');
+  const isRendererNVIDIA = renderer.includes('nvidia');
 
   const isBenchmarkIntel = [];
   const isBenchmarkAMD = [];
@@ -169,7 +195,7 @@ function getGPUTier() {
     }
   });
 
-  console.log(isIntel, isBenchmarkIntel);
+  console.log(isRendererIntel, isBenchmarkIntel);
 
   // GPU_DESKTOP_TIER_0
   // Intel HD graphics 1000 - 4000
