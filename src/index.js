@@ -34,7 +34,25 @@ const renderer = 'Adreno (TM) 540'.toLowerCase();
 // iPhone 6S
 // const renderer = 'Apple A10 GPU'.toLowerCase();
 
+function getBenchmarkByPercentage(benchmark, percentages) {
+  let chunkOffset = 0;
+
+  const BENCHMARK_TIERS = percentages.map((percentage) => {
+    const chunkSize = Math.round((benchmark.length / 100) * percentage);
+    const chunk = benchmark.slice(chunkOffset, chunkOffset + chunkSize);
+
+    chunkOffset += chunkSize;
+
+    return chunk;
+  });
+
+  return BENCHMARK_TIERS;
+}
+
 function getGPUTier() {
+  const mobileBenchmarkTiers = getBenchmarkByPercentage(BENCHMARK_SCORE_MOBILE, [20, 30, 35, 15]);
+  const desktopBenchmarkTiers = getBenchmarkByPercentage(BENCHMARK_SCORE_DESKTOP, [20, 30, 35, 15]);
+
   // GPU_BLACKLIST
   // - https://wiki.mozilla.org/Blocklisting/Blocked_Graphics_Drivers
   // - https://www.khronos.org/webgl/wiki/BlacklistsAndWhitelists
@@ -195,7 +213,7 @@ function getGPUTier() {
     }
   });
 
-  console.log(isRendererIntel, isBenchmarkIntel);
+  // console.log(isRendererIntel, isBenchmarkIntel);
 
   // GPU_DESKTOP_TIER_0
   // Intel HD graphics 1000 - 4000
