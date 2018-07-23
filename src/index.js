@@ -18,7 +18,7 @@ const gl = isWebGLSupported();
 const glExtensionDebugRendererInfo = gl.getExtension('WEBGL_debug_renderer_info');
 const unmaskedRenderer = glExtensionDebugRendererInfo
   && gl.getParameter(glExtensionDebugRendererInfo.UNMASKED_RENDERER_WEBGL).toLowerCase();
-// const renderer = unmaskedRenderer || gl.getParameter(gl.SHADING_LANGUAGE_VERSION).toLowerCase();
+const renderer = unmaskedRenderer || gl.getParameter(gl.SHADING_LANGUAGE_VERSION).toLowerCase();
 
 // S6
 // const renderer = 'Mali-T760'.toLowerCase();
@@ -27,7 +27,7 @@ const unmaskedRenderer = glExtensionDebugRendererInfo
 // const renderer = 'Mali-G71'.toLowerCase();
 
 // Pixel 2
-const renderer = 'Adreno (TM) 540'.toLowerCase();
+// const renderer = 'Adreno (TM) 540'.toLowerCase();
 
 // iPhone 5s
 // const renderer = 'WebGL 1.0 (OpenGL ES 2.0 Apple A8 GPU - 50.6.11)'.toLowerCase();
@@ -35,18 +35,15 @@ const renderer = 'Adreno (TM) 540'.toLowerCase();
 // iPhone 6S
 // const renderer = 'Apple A10 GPU'.toLowerCase();
 
-function getGPUTier() {
-  const BENCHMARK_TIER_PERCENTAGES_MOBILE = [20, 30, 35, 15];
-  const BENCHMARK_TIER_PERCENTAGES_DESKTOP = [20, 30, 35, 15];
-
+function getGPUTier(mobileBenchmarkPercentages, desktopBenchmarkPercentages) {
   const mobileBenchmarkTiers = getBenchmarkByPercentage(
     BENCHMARK_SCORE_MOBILE,
-    BENCHMARK_TIER_PERCENTAGES_MOBILE,
+    mobileBenchmarkPercentages,
   );
 
   const desktopBenchmarkTiers = getBenchmarkByPercentage(
     BENCHMARK_SCORE_DESKTOP,
-    BENCHMARK_TIER_PERCENTAGES_DESKTOP,
+    desktopBenchmarkPercentages,
   );
 
   // GPU_BLACKLIST
@@ -121,10 +118,7 @@ function getGPUTier() {
     // - Nexus 5 - Adreno 330
     if (
       (isRendererApple
-        && (renderer.includes('a7')
-          || renderer.includes('a6')
-          || renderer.includes('a5')
-          || renderer.includes('a4')))
+        && (renderer.includes('a6') || renderer.includes('a5') || renderer.includes('a4')))
       || (isRendererAdreno && (renderer.includes('320') || renderer.includes('330')))
     ) {
       return 'GPU_MOBILE_TIER_0';
@@ -136,7 +130,8 @@ function getGPUTier() {
     // - Nexus 5X - Adreno 418
     // - Nexus 6P - Adreno 430
     if (
-      (isRendererApple && (renderer.includes('a8') || renderer.includes('a9')))
+      (isRendererApple
+        && (renderer.includes('a7') || renderer.includes('a8') || renderer.includes('a9')))
       || (isRendererAdreno && (renderer.includes('418') || renderer.includes('430')))
     ) {
       return 'GPU_MOBILE_TIER_1';
@@ -186,28 +181,51 @@ function getGPUTier() {
   const isRendererIntel = renderer.includes('intel');
   const isRendererAMD = renderer.includes('amd');
   const isRendererNVIDIA = renderer.includes('nvidia');
+  const versionNumber = parseInt(renderer.slice().replace(/[\D]/g, ''), 10);
+  console.log(versionNumber);
 
-  const isBenchmarkIntel = [];
-  const isBenchmarkAMD = [];
-  const isBenchmarkNVIDIA = [];
+  desktopBenchmarkTiers.map((rawTier) => {
+    rawTier.map((rawEntry) => {
+      if (isRendererIntel) {
+        if (rawEntry.includes('intel')) {
+          // ?
+        }
+      }
 
-  BENCHMARK_SCORE_DESKTOP.some((rawEntry) => {
-    const entry = rawEntry.toLowerCase();
-
-    if (entry.includes('intel')) {
-      isBenchmarkIntel.push(entry);
-      return;
-    }
-
-    if (entry.includes('amd')) {
-      isBenchmarkAMD.push(entry);
-      return;
-    }
-
-    if (entry.includes('nvidia')) {
-      isBenchmarkNVIDIA.push(entry);
-    }
+      console.log(rawEntry);
+      // console.log(
+      //   parseInt(
+      //     rawEntry
+      //       .split('-')[1]
+      //       .slice()
+      //       .replace(/[\D]/g, ''),
+      //     10,
+      //   ),
+      // );
+    });
   });
+
+  // const isBenchmarkIntel = [];
+  // const isBenchmarkAMD = [];
+  // const isBenchmarkNVIDIA = [];
+
+  // BENCHMARK_SCORE_DESKTOP.some((rawEntry) => {
+  //   const entry = rawEntry.toLowerCase();
+
+  //   if (entry.includes('intel')) {
+  //     isBenchmarkIntel.push(entry);
+  //     return;
+  //   }
+
+  //   if (entry.includes('amd')) {
+  //     isBenchmarkAMD.push(entry);
+  //     return;
+  //   }
+
+  //   if (entry.includes('nvidia')) {
+  //     isBenchmarkNVIDIA.push(entry);
+  //   }
+  // });
 
   // console.log(isRendererIntel, isBenchmarkIntel);
 
@@ -232,7 +250,20 @@ function getGPUTier() {
 export function register(options = {}) {
   Object.assign(this, options);
 
-  const GPU_TIER = getGPUTier();
+  // Benchmark listing is reversed so that the array ordering
+  // matches up with the rest of the program:
+
+  // 15% TIER_0
+  // 35% TIER_1
+  // 30% TIER_2
+  // 20% TIER_3
+  this.BENCHMARK_TIER_PERCENTAGES_MOBILE = [15, 35, 30, 20];
+  this.BENCHMARK_TIER_PERCENTAGES_DESKTOP = [15, 35, 30, 20];
+
+  const GPU_TIER = getGPUTier(
+    this.BENCHMARK_TIER_PERCENTAGES_MOBILE,
+    this.BENCHMARK_TIER_PERCENTAGES_DESKTOP,
+  );
 
   return {
     GPU_TIER,
