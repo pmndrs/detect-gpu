@@ -3,10 +3,6 @@ export default class Device {
     this.setUserAgent(userAgent);
   }
 
-  _isIE(v) {
-    return RegExp(`msie${!isNaN(v) ? `\\s${v}` : ''}`, 'i').test(navigator.userAgent);
-  }
-
   match(needle) {
     if (!this.matchCache[needle]) {
       this.matchCache[needle] = this.userAgent.indexOf(needle) > -1;
@@ -26,32 +22,6 @@ export default class Device {
       this.matchCache = {};
       this.userAgent = this.userAgent.toLowerCase();
     }
-  }
-
-  get touchDevice() {
-    if (!this.matchCache.touchDevice) {
-      if (typeof document !== 'undefined') {
-        this.matchCache.touchDevice = !!(navigator && navigator.userAgent)
-          && navigator.userAgent.match(
-            /(iPhone|iPod|iPad|Android|playbook|silk|BlackBerry|BB10|Windows Phone|Tizen|Bada|webOS|IEMobile|Opera Mini)/,
-          );
-      }
-    }
-
-    return this.matchCache.touchDevice || false;
-  }
-
-  get touch() {
-    if (!this.matchCache.touch) {
-      if (typeof document !== 'undefined') {
-        this.matchCache.touch = 'ontouchstart' in window
-          || (window.DocumentTouch && document instanceof DocumentTouch)
-          || (navigator && navigator.msMaxTouchPoints > 0)
-          || (navigator && navigator.maxTouchPoints);
-      }
-    }
-
-    return this.matchCache.touch || false;
   }
 
   get ios() {
@@ -98,26 +68,6 @@ export default class Device {
     return this.match('windows');
   }
 
-  get ie9() {
-    if (!this.matchCache.ie9) {
-      if (typeof document !== 'undefined') {
-        this.matchCache.ie9 = this.windows && this._isIE(9);
-      }
-    }
-
-    return this.matchCache.ie9 || false;
-  }
-
-  get ie10() {
-    if (!this.matchCache.ie10) {
-      if (typeof document !== 'undefined') {
-        this.matchCache.ie10 = this.windows && this._isIE(10);
-      }
-    }
-
-    return this.matchCache.ie10 || false;
-  }
-
   get windowsPhone() {
     return this.windows && this.match('phone');
   }
@@ -140,14 +90,6 @@ export default class Device {
 
   get meego() {
     return this.match('meego');
-  }
-
-  get cordova() {
-    return window.cordova && location.protocol === 'file:';
-  }
-
-  get nodeWebkit() {
-    return typeof window.process === 'object';
   }
 
   get mobile() {
