@@ -130,14 +130,22 @@ function getGPUTier(mobileBenchmarkPercentages, desktopBenchmarkPercentages) {
 export function register(options = {}) {
   Object.assign(this, options);
 
-  // Benchmark listing is reversed so that the array ordering
-  // matches up with the rest of the program:
+  // Benchmark listing is reversed so that if multiple instances of a GPU is found the highest one is used
+  // Take for example G72, it is reported only as G72 to the browser but can mean G72 MP3, G72 MP12 and G72 MP18.
+  // It will in this case take the highest tier in order to be future proof (assuming G72 becomes more powerful over time)
 
+  // Desktop GPU percentages
   // 15% TIER_0
   // 35% TIER_1
   // 30% TIER_2
   // 20% TIER_3
   this.BENCHMARK_TIER_PERCENTAGES_MOBILE = [15, 35, 30, 20];
+
+  // Mobile GPU percentages
+  // 15% TIER_0
+  // 35% TIER_1
+  // 30% TIER_2
+  // 20% TIER_3
   this.BENCHMARK_TIER_PERCENTAGES_DESKTOP = [15, 35, 30, 20];
 
   const GPU_TIER = getGPUTier(
