@@ -10,9 +10,8 @@ import { isWebGLSupported, getBenchmarkByPercentage } from './utilities';
 const device = new Device();
 const gl = isWebGLSupported();
 const glExtensionDebugRendererInfo = gl.getExtension('WEBGL_debug_renderer_info');
-const unmaskedRenderer = glExtensionDebugRendererInfo
+const renderer = glExtensionDebugRendererInfo
   && gl.getParameter(glExtensionDebugRendererInfo.UNMASKED_RENDERER_WEBGL).toLowerCase();
-const renderer = unmaskedRenderer || gl.getParameter(gl.SHADING_LANGUAGE_VERSION).toLowerCase();
 const versionNumber = parseInt(renderer.slice().replace(/[\D]/g, ''), 10);
 
 // Blacklisted GPU
@@ -61,6 +60,14 @@ function getGPUTier(mobileBenchmarkPercentages, desktopBenchmarkPercentages) {
     }
 
     return 'GPU_DESKTOP_TIER_0';
+  }
+
+  if (!renderer) {
+    if (device.mobile || device.tablet) {
+      return 'GPU_MOBILE_TIER_1';
+    }
+
+    return 'GPU_DESKTOP_TIER_1';
   }
 
   if (device.mobile || device.tablet) {
