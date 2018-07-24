@@ -31,6 +31,8 @@ $ npm run lint
 $ npm run dist
 
 $ npm run deploy
+
+$ npm run update-benchmarks
 ```
 
 ## Licence
