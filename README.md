@@ -19,6 +19,8 @@ Make sure you have [Node.js](http://nodejs.org/) installed.
  $ npm install detect-gpu
 ```
 
+## Usage
+
 ## Development
 
 ```sh
@@ -38,3 +40,5 @@ $ npm run update-benchmarks
 ## Licence
 
 My work is released under the [MIT license](https://raw.githubusercontent.com/TimvanScherpenzeel/detect-gpu/master/LICENSE).
+
+`detect-gpu` uses both mobile and desktop benchmarking scores from [https://www.notebookcheck.net/](https://www.notebookcheck.net/).
