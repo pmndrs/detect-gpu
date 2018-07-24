@@ -20,6 +20,9 @@ const unmaskedRenderer = glExtensionDebugRendererInfo
   && gl.getParameter(glExtensionDebugRendererInfo.UNMASKED_RENDERER_WEBGL).toLowerCase();
 const renderer = unmaskedRenderer || gl.getParameter(gl.SHADING_LANGUAGE_VERSION).toLowerCase();
 
+// Blacklisted GPU
+// const renderer = 'radeon hd 6970m';
+
 // Example GTX 1080 Ti
 // const renderer = 'NVIDIA GeForce GTX 1080 Ti (Desktop)'.toLowerCase();
 
@@ -27,7 +30,7 @@ const renderer = unmaskedRenderer || gl.getParameter(gl.SHADING_LANGUAGE_VERSION
 // const renderer = 'Mali-T760'.toLowerCase();
 
 // S8
-// const renderer = 'Mali-G71'.toLowerCase();
+// const renderer = 'Mali-G72'.toLowerCase();
 
 // Pixel 2
 // const renderer = 'Adreno (TM) 540'.toLowerCase();
@@ -36,7 +39,7 @@ const renderer = unmaskedRenderer || gl.getParameter(gl.SHADING_LANGUAGE_VERSION
 // const renderer = 'WebGL 1.0 (OpenGL ES 2.0 Apple A8 GPU - 50.6.11)'.toLowerCase();
 
 // iPhone 6S
-// const renderer = 'Apple A10 GPU'.toLowerCase();
+// const renderer = 'Apple A11 GPU'.toLowerCase();
 
 function getGPUTier(mobileBenchmarkPercentages, desktopBenchmarkPercentages) {
   const mobileBenchmarkTiers = getBenchmarkByPercentage(
@@ -76,7 +79,7 @@ function getGPUTier(mobileBenchmarkPercentages, desktopBenchmarkPercentages) {
     const versionNumber = parseInt(renderer.slice().replace(/[\D]/g, ''), 10);
     let mobileTier;
 
-    mobileBenchmarkTiers.map((rawTier, i) => rawTier.map((rawEntry, i) => {
+    mobileBenchmarkTiers.map((rawTier, i) => rawTier.map((rawEntry) => {
         const entry = rawEntry.toLowerCase().split('- ')[1];
 
         if (
@@ -107,7 +110,7 @@ function getGPUTier(mobileBenchmarkPercentages, desktopBenchmarkPercentages) {
   const versionNumber = parseInt(renderer.slice().replace(/[\D]/g, ''), 10);
   let desktopTier;
 
-  desktopBenchmarkTiers.map((rawTier, i) => rawTier.map((rawEntry, j) => {
+  desktopBenchmarkTiers.map((rawTier, i) => rawTier.map((rawEntry) => {
       const entry = rawEntry.toLowerCase().split('- ')[1];
 
       if (
@@ -148,7 +151,6 @@ export function register(options = {}) {
 
   return {
     GPU_TIER,
-    BENCHMARK_SCORE_DESKTOP,
-    BENCHMARK_SCORE_MOBILE,
+    RENDERER: renderer,
   };
 }
