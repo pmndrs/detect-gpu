@@ -21,6 +21,24 @@ Make sure you have [Node.js](http://nodejs.org/) installed.
 
 ## Usage
 
+`detect-gpu` uses benchmarking scores in order to determine what tier should be assigned to the user's GPU. If no `WebGLContext` can be created or the GPU is blacklisted `TIER 0` is assigned. One should provide a HTML fallback page that a user should be redirected to.
+
+By default are all GPU's that have met these preconditions classified as `TIER 1`.
+
+In order to keep up to date with new GPU's coming out `detect-gpu` splits the benchmarking scores in `4 tiers` based on rough estimates of the market share.
+
+By default `detect-gpu` assumes `15%` of the lowest scores to be insufficient to run the experience and is assigned `TIER 0`. `35%` of the GPU's are considered good enough to run the experience and are assigned `TIER 1`. `30%` of the GPU's are considered powerful and are classified as `TIER 2`. The last `20%` of the GPU's are considered to be very powerful and can run the experience with all bells and whistles.
+
+You can tweak these percentages when registering the application as shown below:
+
+```js
+DetectGPU.register({
+  // [TIER_0, TIER_1, TIER_2, TIER_3]
+  BENCHMARK_TIER_PERCENTAGES_MOBILE: [15, 35, 30, 20],
+  BENCHMARK_TIER_PERCENTAGES_DESKTOP: [15, 35, 30, 20]
+});
+```
+
 ## Development
 
 ```sh
