@@ -5,13 +5,7 @@ import { BENCHMARK_SCORE_DESKTOP, BENCHMARK_SCORE_MOBILE } from './benchmark';
 import Device from './device';
 
 // Utilities
-import {
-  isWebGLSupported,
-  matchHigherNumericVersion,
-  matchLowerNumericVersion,
-  matchNumericRange,
-  getBenchmarkByPercentage,
-} from './utilities';
+import { isWebGLSupported, getBenchmarkByPercentage } from './utilities';
 
 const device = new Device();
 const gl = isWebGLSupported();

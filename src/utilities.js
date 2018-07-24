@@ -9,23 +9,6 @@ export function isWebGLSupported(attributes) {
   return gl;
 }
 
-// Higher or equal than a certain version number
-export function matchHigherNumericVersion(entry, version) {
-  return parseInt(entry.slice().replace(/[\D]/g, ''), 10) >= version;
-}
-
-// Lower or equal to a certain version number
-export function matchLowerNumericVersion(entry, version) {
-  return parseInt(entry.slice().replace(/[\D]/g, ''), 10) <= version;
-}
-
-// Check if the entry has a version number between a certain range (low - high)
-export function matchNumericRange(entry, higherVersion, lowerVersion) {
-  return (
-    matchHigherNumericVersion(entry, higherVersion) && matchLowerNumericVersion(entry, lowerVersion)
-  );
-}
-
 // Get benchmark entry's by percentage of the total benchmark entries
 // This is used for effectively future-proofing new GPU's
 export function getBenchmarkByPercentage(benchmark, percentages) {
