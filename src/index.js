@@ -73,7 +73,7 @@ function getGPUTier(mobileBenchmarkPercentages, desktopBenchmarkPercentages) {
     const versionNumber = parseInt(renderer.slice().replace(/[\D]/g, ''), 10);
     let mobileTier;
 
-    mobileBenchmarkTiers.map((rawTier, i) => rawTier.map((rawEntry) => {
+    mobileBenchmarkTiers.some((rawTier, i) => rawTier.some((rawEntry) => {
         const entry = rawEntry.toLowerCase().split('- ')[1];
 
         if (
@@ -86,13 +86,14 @@ function getGPUTier(mobileBenchmarkPercentages, desktopBenchmarkPercentages) {
         ) {
           if (entry.includes(versionNumber)) {
             mobileTier = `GPU_MOBILE_TIER_${i}`;
-          } else {
-            mobileTier = 'GPU_MOBILE_TIER_1';
           }
-        } else {
-          mobileTier = 'GPU_MOBILE_TIER_1';
         }
       }));
+
+    if (mobileTier === undefined) {
+      console.log('Matching GPU tier could not be found, using fallback: GPU_MOBILE_TIER_1');
+      mobileTier = 'GPU_MOBILE_TIER_1';
+    }
 
     return mobileTier;
   }
@@ -104,7 +105,7 @@ function getGPUTier(mobileBenchmarkPercentages, desktopBenchmarkPercentages) {
   const versionNumber = parseInt(renderer.slice().replace(/[\D]/g, ''), 10);
   let desktopTier;
 
-  desktopBenchmarkTiers.map((rawTier, i) => rawTier.map((rawEntry) => {
+  desktopBenchmarkTiers.forEach((rawTier, i) => rawTier.forEach((rawEntry) => {
       const entry = rawEntry.toLowerCase().split('- ')[1];
 
       if (
@@ -114,13 +115,14 @@ function getGPUTier(mobileBenchmarkPercentages, desktopBenchmarkPercentages) {
       ) {
         if (entry.includes(versionNumber)) {
           desktopTier = `GPU_DESKTOP_TIER_${i}`;
-        } else {
-          desktopTier = 'GPU_DESKTOP_TIER_1';
         }
-      } else {
-        desktopTier = 'GPU_DESKTOP_TIER_1';
       }
     }));
+
+  if (desktopTier === undefined) {
+    console.log('Matching GPU tier could not be found, using fallback: GPU_DESKTOP_TIER_1');
+    desktopTier = 'GPU_DESKTOP_TIER_1';
+  }
 
   return desktopTier;
 }
