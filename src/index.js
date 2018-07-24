@@ -13,6 +13,7 @@ const glExtensionDebugRendererInfo = gl.getExtension('WEBGL_debug_renderer_info'
 const unmaskedRenderer = glExtensionDebugRendererInfo
   && gl.getParameter(glExtensionDebugRendererInfo.UNMASKED_RENDERER_WEBGL).toLowerCase();
 const renderer = unmaskedRenderer || gl.getParameter(gl.SHADING_LANGUAGE_VERSION).toLowerCase();
+const versionNumber = parseInt(renderer.slice().replace(/[\D]/g, ''), 10);
 
 // Blacklisted GPU
 // const renderer = 'radeon hd 6970m';
@@ -70,7 +71,7 @@ function getGPUTier(mobileBenchmarkPercentages, desktopBenchmarkPercentages) {
     const isRendererMaliT = renderer.includes('mali-t');
     const isRendererNVIDIA = renderer.includes('nvidia');
     const isRendererPowerVR = renderer.includes('powervr');
-    const versionNumber = parseInt(renderer.slice().replace(/[\D]/g, ''), 10);
+
     let mobileTier;
 
     mobileBenchmarkTiers.some((rawTier, i) => rawTier.some((rawEntry) => {
@@ -102,7 +103,6 @@ function getGPUTier(mobileBenchmarkPercentages, desktopBenchmarkPercentages) {
   const isRendererIntel = renderer.includes('intel');
   const isRendererAMD = renderer.includes('amd');
   const isRendererNVIDIA = renderer.includes('nvidia');
-  const versionNumber = parseInt(renderer.slice().replace(/[\D]/g, ''), 10);
   let desktopTier;
 
   desktopBenchmarkTiers.forEach((rawTier, i) => rawTier.forEach((rawEntry) => {
@@ -155,6 +155,6 @@ export function register(options = {}) {
 
   return {
     GPU_TIER,
-    RENDERER: renderer,
+    DETECTED_RENDERER: renderer,
   };
 }
