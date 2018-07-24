@@ -174,8 +174,5 @@ export function register(options = {}) {
     this.BENCHMARK_TIER_PERCENTAGES_DESKTOP,
   );
 
-  return {
-    GPU_TIER,
-    DETECTED_RENDERER: renderer,
-  };
+  return GPU_TIER;
 }

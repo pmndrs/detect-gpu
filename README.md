@@ -32,7 +32,7 @@ By default `detect-gpu` assumes `15%` of the lowest scores to be insufficient to
 You can tweak these percentages when registering the application as shown below:
 
 ```js
-DetectGPU.register({
+const GPUTier = DetectGPU.register({
   // [TIER_0, TIER_1, TIER_2, TIER_3]
   BENCHMARK_TIER_PERCENTAGES_MOBILE: [15, 35, 30, 20],
   BENCHMARK_TIER_PERCENTAGES_DESKTOP: [15, 35, 30, 20]

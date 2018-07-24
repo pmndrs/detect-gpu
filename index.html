@@ -13,11 +13,12 @@
 
     <script src="./dist/detect-gpu.js"></script>
     <script>
-        const gpu = DetectGPU.register({
-            log: true,
+        const GPUTier = DetectGPU.register({
+            BENCHMARK_TIER_PERCENTAGES_MOBILE: [15, 35, 30, 20],
+            BENCHMARK_TIER_PERCENTAGES_DESKTOP: [15, 35, 30, 20]
         });
 
-        document.getElementById('app').appendChild(document.createTextNode(JSON.stringify(gpu, null, 2)));
+        document.getElementById('app').appendChild(document.createTextNode(JSON.stringify(GPUTier, null, 2)));
     </script>
 </body>
 
