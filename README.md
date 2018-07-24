@@ -16,7 +16,7 @@ Detect and report GPU's.
 Make sure you have [Node.js](http://nodejs.org/) installed.
 
 ```sh
- $ npm install
+ $ npm install detect-gpu
 ```
 
 ## Development

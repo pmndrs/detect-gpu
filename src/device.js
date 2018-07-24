@@ -24,10 +24,6 @@ export default class Device {
     }
   }
 
-  get ios() {
-    return this.iphone || this.ipod || this.ipad;
-  }
-
   get iphone() {
     return !this.windows && this.match('iphone');
   }
@@ -112,9 +108,5 @@ export default class Device {
       || this.windowsTablet
       || this.fxosTablet
     );
-  }
-
-  get desktop() {
-    return !this.tablet && !this.mobile;
   }
 }
