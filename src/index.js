@@ -12,7 +12,7 @@ const gl = isWebGLSupported();
 const glExtensionDebugRendererInfo = gl.getExtension('WEBGL_debug_renderer_info');
 const renderer = glExtensionDebugRendererInfo
   && gl.getParameter(glExtensionDebugRendererInfo.UNMASKED_RENDERER_WEBGL).toLowerCase();
-const versionNumber = parseInt(renderer.slice().replace(/[\D]/g, ''), 10);
+const versionNumber = parseInt(renderer.replace(/[\D]/g, ''), 10);
 
 // Blacklisted GPU
 // const renderer = 'radeon hd 6970m';
@@ -33,7 +33,7 @@ const versionNumber = parseInt(renderer.slice().replace(/[\D]/g, ''), 10);
 // const renderer = 'WebGL 1.0 (OpenGL ES 2.0 Apple A8 GPU - 50.6.11)'.toLowerCase();
 
 // iPhone 6S
-// const renderer = 'Apple A11 GPU'.toLowerCase();
+// const renderer = 'Apple A7 GPU'.toLowerCase();
 
 function getGPUTier(mobileBenchmarkPercentages, desktopBenchmarkPercentages) {
   const mobileBenchmarkTiers = getBenchmarkByPercentage(
@@ -46,7 +46,7 @@ function getGPUTier(mobileBenchmarkPercentages, desktopBenchmarkPercentages) {
     desktopBenchmarkPercentages,
   );
 
-  // GPU_BLACKLIST
+  // GPU BLACKLIST
   // - https://wiki.mozilla.org/Blocklisting/Blocked_Graphics_Drivers
   // - https://www.khronos.org/webgl/wiki/BlacklistsAndWhitelists
   // - https://chromium.googlesource.com/chromium/src/gpu/+/master/config/software_rendering_list.json
@@ -82,7 +82,14 @@ function getGPUTier(mobileBenchmarkPercentages, desktopBenchmarkPercentages) {
     let mobileTier;
 
     mobileBenchmarkTiers.some((rawTier, i) => rawTier.some((rawEntry) => {
-        const entry = rawEntry.toLowerCase().split('- ')[1];
+        const entry = rawEntry
+          .toLowerCase()
+          // Remove prelude score
+          .split('- ')[1]
+          // Entries like 'apple a9x / powervr series 7xt' give problems
+          // with the 7 being picked up (resulting in a tier 3 classification of A7 chip
+          // which should be tier 1).
+          .split('/')[0];
 
         if (
           (entry.includes('adreno') && isRendererAdreno)
@@ -113,7 +120,14 @@ function getGPUTier(mobileBenchmarkPercentages, desktopBenchmarkPercentages) {
   let desktopTier;
 
   desktopBenchmarkTiers.forEach((rawTier, i) => rawTier.forEach((rawEntry) => {
-      const entry = rawEntry.toLowerCase().split('- ')[1];
+      const entry = rawEntry
+        .toLowerCase()
+        // Remove prelude score
+        .split('- ')[1]
+        // Entries like 'apple a9x / powervr series 7xt' give problems
+        // with the 7 being picked up (resulting in a tier 3 classification of A7 chip
+        // which should be tier 1).
+        .split('/')[0];
 
       if (
         (entry.includes('intel') && isRendererIntel)
