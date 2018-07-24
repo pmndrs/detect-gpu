@@ -5,7 +5,7 @@
 [![dependencies](https://david-dm.org/timvanscherpenzeel/detect-gpu.svg)](https://david-dm.org/timvanscherpenzeel/detect-gpu)
 [![devDependencies](https://david-dm.org/timvanscherpenzeel/detect-gpu/dev-status.svg)](https://david-dm.org/timvanscherpenzeel/detect-gpu#info=devDependencies)
 
-Detect and report GPU's.
+Classify GPU's based on their benchmark score in order to provide an adaptive experience.
 
 ## Demo
 
