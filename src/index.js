@@ -14,27 +14,6 @@ const renderer = glExtensionDebugRendererInfo
   && gl.getParameter(glExtensionDebugRendererInfo.UNMASKED_RENDERER_WEBGL).toLowerCase();
 const versionNumber = parseInt(renderer.replace(/[\D]/g, ''), 10);
 
-// Blacklisted GPU
-// const renderer = 'radeon hd 6970m';
-
-// Example GTX 1080 Ti
-// const renderer = 'NVIDIA GeForce GTX 1080 Ti (Desktop)'.toLowerCase();
-
-// S6
-// const renderer = 'Mali-T760'.toLowerCase();
-
-// S8
-// const renderer = 'Mali-G72'.toLowerCase();
-
-// Pixel 2
-// const renderer = 'Adreno (TM) 540'.toLowerCase();
-
-// iPhone 5s
-// const renderer = 'WebGL 1.0 (OpenGL ES 2.0 Apple A8 GPU - 50.6.11)'.toLowerCase();
-
-// iPhone 6S
-// const renderer = 'Apple A7 GPU'.toLowerCase();
-
 function getGPUTier(mobileBenchmarkPercentages, desktopBenchmarkPercentages) {
   const mobileBenchmarkTiers = getBenchmarkByPercentage(
     BENCHMARK_SCORE_MOBILE,
@@ -160,18 +139,18 @@ export function register(options = {}) {
   // 35% TIER_1
   // 30% TIER_2
   // 20% TIER_3
-  this.BENCHMARK_TIER_PERCENTAGES_MOBILE = [15, 35, 30, 20];
+  this.benchmarkTierPercentagesMobile = [15, 35, 30, 20];
 
   // Mobile GPU percentages
   // 15% TIER_0
   // 35% TIER_1
   // 30% TIER_2
   // 20% TIER_3
-  this.BENCHMARK_TIER_PERCENTAGES_DESKTOP = [15, 35, 30, 20];
+  this.benchmarkTierPercentagesDesktop = [15, 35, 30, 20];
 
   const GPU_TIER = getGPUTier(
-    this.BENCHMARK_TIER_PERCENTAGES_MOBILE,
-    this.BENCHMARK_TIER_PERCENTAGES_DESKTOP,
+    this.benchmarkTierPercentagesMobile,
+    this.benchmarkTierPercentagesDesktop,
   );
 
   return GPU_TIER;
