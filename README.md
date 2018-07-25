@@ -7,6 +7,15 @@
 
 Classify GPU's based on their benchmark score in order to provide an adaptive experience.
 
+## Stability and reporting issues
+
+In the current state `detect-gpu` should be considered to be experimental and should not yet be used in production. There are many edge cases and I've only been able to test it on a small range of devices. It is very likely that some GPU's are not reported correctly. This is most likely due to entries in the benchmark test that are very similar to each other, use strange versioning schemes or the reported GPU does not expose its name and version correctly.
+
+If you are interested in helping out and improving the stability of the library feel encouraged to [open an issue](https://github.com/TimvanScherpenzeel/detect-gpu/issues/new) with the following content:
+
+- The reported GPU tier as reported by [detect-gpu](https://timvanscherpenzeel.github.io/detect-gpu/)
+- A copy of the full output of [detect-features](https://timvanscherpenzeel.github.io/detect-features/), this will include enough information for me to determine what could be wrong.
+
 ## Demo
 
 [Live demo](https://timvanscherpenzeel.github.io/detect-gpu/)
