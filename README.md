@@ -16,6 +16,8 @@ If you are interested in helping out and improving the stability of the library 
 - The reported GPU tier as reported by [detect-gpu](https://timvanscherpenzeel.github.io/detect-gpu/)
 - A copy of the full output of [detect-features](https://timvanscherpenzeel.github.io/detect-features/), this will include enough information for me to determine what could be wrong.
 
+I'm hoping that through community effort we can create a more stable version of the library. Without your input (e.g. sharing ideas, PR's and making issues) it will be very difficult to improve the library. I simply only have access to a small range of devices and GPU's myself.
+
 ## Demo
 
 [Live demo](https://timvanscherpenzeel.github.io/detect-gpu/)
