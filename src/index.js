@@ -8,13 +8,33 @@ import Device from './device';
 import { isWebGLSupported, getBenchmarkByPercentage } from './utilities';
 
 const device = new Device();
-const gl = isWebGLSupported();
+
+const gl = isWebGLSupported({
+  failIfMajorPerformanceCaveat: true,
+});
+
 const glExtensionDebugRendererInfo = gl.getExtension('WEBGL_debug_renderer_info');
-const renderer = glExtensionDebugRendererInfo
-  && gl.getParameter(glExtensionDebugRendererInfo.UNMASKED_RENDERER_WEBGL).toLowerCase();
-const versionNumber = parseInt(renderer.replace(/[\D]/g, ''), 10);
 
 function getGPUTier(mobileBenchmarkPercentages, desktopBenchmarkPercentages) {
+  if (!gl || !glExtensionDebugRendererInfo) {
+    if (device.mobile || device.tablet) {
+      return 'GPU_MOBILE_TIER_0';
+    }
+
+    return 'GPU_DESKTOP_TIER_0';
+  }
+
+  const renderer = glExtensionDebugRendererInfo
+    && gl.getParameter(glExtensionDebugRendererInfo.UNMASKED_RENDERER_WEBGL).toLowerCase();
+
+  if (!renderer) {
+    if (device.mobile || device.tablet) {
+      return 'GPU_MOBILE_TIER_1';
+    }
+
+    return 'GPU_DESKTOP_TIER_1';
+  }
+
   const mobileBenchmarkTiers = getBenchmarkByPercentage(
     BENCHMARK_SCORE_MOBILE,
     mobileBenchmarkPercentages,
@@ -33,7 +53,7 @@ function getGPUTier(mobileBenchmarkPercentages, desktopBenchmarkPercentages) {
     renderer,
   );
 
-  if (!gl || GPU_BLACKLIST) {
+  if (GPU_BLACKLIST) {
     if (device.mobile || device.tablet) {
       return 'GPU_MOBILE_TIER_0';
     }
@@ -41,13 +61,7 @@ function getGPUTier(mobileBenchmarkPercentages, desktopBenchmarkPercentages) {
     return 'GPU_DESKTOP_TIER_0';
   }
 
-  if (!renderer) {
-    if (device.mobile || device.tablet) {
-      return 'GPU_MOBILE_TIER_1';
-    }
-
-    return 'GPU_DESKTOP_TIER_1';
-  }
+  const versionNumber = parseInt(renderer.replace(/[\D]/g, ''), 10);
 
   if (device.mobile || device.tablet) {
     // Mobile
@@ -66,9 +80,8 @@ function getGPUTier(mobileBenchmarkPercentages, desktopBenchmarkPercentages) {
           // Remove prelude score
           .split('- ')[1]
           // Entries like 'apple a9x / powervr series 7xt' give problems
-          // with the 7 being picked up (resulting in a tier 3 classification of A7 chip
-          // which should be tier 1).
-          .split('/')[0];
+          // with the 7 being picked up (resulting in a tier 3 classification of A7 chip which should be tier 1).
+          .split(' /')[0];
 
         if (
           (entry.includes('adreno') && isRendererAdreno)
@@ -79,6 +92,7 @@ function getGPUTier(mobileBenchmarkPercentages, desktopBenchmarkPercentages) {
           || (entry.includes('powervr') && isRendererPowerVR)
         ) {
           if (entry.includes(versionNumber)) {
+            console.log(`Match with benchmark entry: ${entry}`);
             mobileTier = `GPU_MOBILE_TIER_${i}`;
           }
         }
@@ -104,9 +118,8 @@ function getGPUTier(mobileBenchmarkPercentages, desktopBenchmarkPercentages) {
         // Remove prelude score
         .split('- ')[1]
         // Entries like 'apple a9x / powervr series 7xt' give problems
-        // with the 7 being picked up (resulting in a tier 3 classification of A7 chip
-        // which should be tier 1).
-        .split('/')[0];
+        // with the 7 being picked up (resulting in a tier 3 classification of A7 chip which should be tier 1).
+        .split(' /')[0];
 
       if (
         (entry.includes('intel') && isRendererIntel)
@@ -114,6 +127,7 @@ function getGPUTier(mobileBenchmarkPercentages, desktopBenchmarkPercentages) {
         || (entry.includes('nvidia') && isRendererNVIDIA)
       ) {
         if (entry.includes(versionNumber)) {
+          console.log(`Match with benchmark entry: ${entry}`);
           desktopTier = `GPU_DESKTOP_TIER_${i}`;
         }
       }
