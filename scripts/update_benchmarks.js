@@ -45,13 +45,11 @@ Promise.all([collectBenchmark(BENCHMARK_DESKTOP_URL), collectBenchmark(BENCHMARK
   (result) => {
     const output = './src/benchmark.js';
     const data = `
-      /*
-       * Scraped from https://www.notebookcheck.net/
-       *
-       * Mobile GPU benchmark: ${BENCHMARK_MOBILE_URL}
-       *
-       * Desktop GPU benchmark: ${BENCHMARK_DESKTOP_URL}
-       */
+
+// Scraped from https://www.notebookcheck.net/
+// Mobile GPU benchmark: ${BENCHMARK_MOBILE_URL}
+// Desktop GPU benchmark: ${BENCHMARK_DESKTOP_URL}
+
 
       export const BENCHMARK_SCORE_DESKTOP = [
         ${result[0].map(entry => `\n\'${entry}\'`)}
