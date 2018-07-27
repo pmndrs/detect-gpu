@@ -24,11 +24,10 @@ function getGPUTier(mobileBenchmarkPercentages, desktopBenchmarkPercentages) {
     return 'GPU_DESKTOP_TIER_0';
   }
 
-  const renderer = 'Apple A7 GPU'.toLowerCase();
+  // const renderer = 'Apple A7 GPU'.toLowerCase();
   // const renderer = 'NVIDIA GeForce GTX 750 Series'.toLowerCase();
-  // const renderer =
-  //   glExtensionDebugRendererInfo &&
-  //   gl.getParameter(glExtensionDebugRendererInfo.UNMASKED_RENDERER_WEBGL).toLowerCase();
+  const renderer = glExtensionDebugRendererInfo
+    && gl.getParameter(glExtensionDebugRendererInfo.UNMASKED_RENDERER_WEBGL).toLowerCase();
   const versionNumber = parseInt(renderer.replace(/[\D]/g, ''), 10);
 
   if (!renderer) {
