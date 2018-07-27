@@ -24,8 +24,10 @@ function getGPUTier(mobileBenchmarkPercentages, desktopBenchmarkPercentages) {
     return 'GPU_DESKTOP_TIER_0';
   }
 
+  // const renderer = 'NVIDIA GeForce GTX 750 Series'.toLowerCase();
   const renderer = glExtensionDebugRendererInfo
     && gl.getParameter(glExtensionDebugRendererInfo.UNMASKED_RENDERER_WEBGL).toLowerCase();
+  const versionNumber = parseInt(renderer.replace(/[\D]/g, ''), 10);
 
   if (!renderer) {
     if (device.mobile || device.tablet) {
@@ -61,8 +63,6 @@ function getGPUTier(mobileBenchmarkPercentages, desktopBenchmarkPercentages) {
     return 'GPU_DESKTOP_TIER_0';
   }
 
-  const versionNumber = parseInt(renderer.replace(/[\D]/g, ''), 10);
-
   if (device.mobile || device.tablet) {
     // Mobile
     const isRendererAdreno = renderer.includes('adreno');
@@ -91,7 +91,7 @@ function getGPUTier(mobileBenchmarkPercentages, desktopBenchmarkPercentages) {
           || (entry.includes('nvidia') && isRendererNVIDIA)
           || (entry.includes('powervr') && isRendererPowerVR)
         ) {
-          if (entry.includes(versionNumber)) {
+          if (parseInt(entry.replace(/[\D]/g, ''), 10) === versionNumber) {
             console.log(`Match with benchmark entry: ${entry}`);
             mobileTier = `GPU_MOBILE_TIER_${i}`;
           }
@@ -126,7 +126,7 @@ function getGPUTier(mobileBenchmarkPercentages, desktopBenchmarkPercentages) {
         || (entry.includes('amd') && isRendererAMD)
         || (entry.includes('nvidia') && isRendererNVIDIA)
       ) {
-        if (entry.includes(versionNumber)) {
+        if (parseInt(entry.replace(/[\D]/g, ''), 10) === versionNumber) {
           console.log(`Match with benchmark entry: ${entry}`);
           desktopTier = `GPU_DESKTOP_TIER_${i}`;
         }
