@@ -24,9 +24,11 @@ function getGPUTier(mobileBenchmarkPercentages, desktopBenchmarkPercentages) {
     return 'GPU_DESKTOP_TIER_0';
   }
 
+  const renderer = 'Apple A7 GPU'.toLowerCase();
   // const renderer = 'NVIDIA GeForce GTX 750 Series'.toLowerCase();
-  const renderer = glExtensionDebugRendererInfo
-    && gl.getParameter(glExtensionDebugRendererInfo.UNMASKED_RENDERER_WEBGL).toLowerCase();
+  // const renderer =
+  //   glExtensionDebugRendererInfo &&
+  //   gl.getParameter(glExtensionDebugRendererInfo.UNMASKED_RENDERER_WEBGL).toLowerCase();
   const versionNumber = parseInt(renderer.replace(/[\D]/g, ''), 10);
 
   if (!renderer) {
@@ -82,6 +84,7 @@ function getGPUTier(mobileBenchmarkPercentages, desktopBenchmarkPercentages) {
           // Entries like 'apple a9x / powervr series 7xt' give problems
           // with the 7 being picked up (resulting in a tier 3 classification of A7 chip which should be tier 1).
           .split(' /')[0];
+        const entryVersion = parseInt(entry.replace(/[\D]/g, ''), 10);
 
         if (
           (entry.includes('adreno') && isRendererAdreno)
@@ -91,7 +94,7 @@ function getGPUTier(mobileBenchmarkPercentages, desktopBenchmarkPercentages) {
           || (entry.includes('nvidia') && isRendererNVIDIA)
           || (entry.includes('powervr') && isRendererPowerVR)
         ) {
-          if (parseInt(entry.replace(/[\D]/g, ''), 10) === versionNumber) {
+          if (entryVersion === versionNumber) {
             console.log(`Match with benchmark entry: ${entry}`);
             mobileTier = `GPU_MOBILE_TIER_${i}`;
           }
@@ -120,13 +123,14 @@ function getGPUTier(mobileBenchmarkPercentages, desktopBenchmarkPercentages) {
         // Entries like 'apple a9x / powervr series 7xt' give problems
         // with the 7 being picked up (resulting in a tier 3 classification of A7 chip which should be tier 1).
         .split(' /')[0];
+      const entryVersion = parseInt(entry.replace(/[\D]/g, ''), 10);
 
       if (
         (entry.includes('intel') && isRendererIntel)
         || (entry.includes('amd') && isRendererAMD)
         || (entry.includes('nvidia') && isRendererNVIDIA)
       ) {
-        if (parseInt(entry.replace(/[\D]/g, ''), 10) === versionNumber) {
+        if (entryVersion === versionNumber) {
           console.log(`Match with benchmark entry: ${entry}`);
           desktopTier = `GPU_DESKTOP_TIER_${i}`;
         }
