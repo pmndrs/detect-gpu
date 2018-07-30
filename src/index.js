@@ -15,7 +15,7 @@ const gl = isWebGLSupported({
 
 const glExtensionDebugRendererInfo = gl.getExtension('WEBGL_debug_renderer_info');
 
-function getGPUTier(mobileBenchmarkPercentages, desktopBenchmarkPercentages) {
+function getGPUTier(shouldLogToConsole, mobileBenchmarkPercentages, desktopBenchmarkPercentages) {
   if (!gl || !glExtensionDebugRendererInfo) {
     if (device.mobile || device.tablet) {
       return 'GPU_MOBILE_TIER_0';
@@ -96,14 +96,20 @@ function getGPUTier(mobileBenchmarkPercentages, desktopBenchmarkPercentages) {
           || (entry.includes('powervr') && isRendererPowerVR)
         ) {
           if (entryVersion === versionNumber) {
-            console.log(`Match with benchmark entry: ${entry}`);
+            if (shouldLogToConsole) {
+              console.log(`Match with benchmark entry: ${entry}`);
+            }
+
             mobileTier = `GPU_MOBILE_TIER_${i}`;
           }
         }
       }));
 
     if (mobileTier === undefined) {
-      console.log('Matching GPU tier could not be found, using fallback: GPU_MOBILE_TIER_1');
+      if (shouldLogToConsole) {
+        console.log('Matching GPU tier could not be found, using fallback: GPU_MOBILE_TIER_1');
+      }
+
       mobileTier = 'GPU_MOBILE_TIER_1';
     }
 
@@ -132,14 +138,20 @@ function getGPUTier(mobileBenchmarkPercentages, desktopBenchmarkPercentages) {
         || (entry.includes('nvidia') && isRendererNVIDIA)
       ) {
         if (entryVersion === versionNumber) {
-          console.log(`Match with benchmark entry: ${entry}`);
+          if (shouldLogToConsole) {
+            console.log(`Match with benchmark entry: ${entry}`);
+          }
+
           desktopTier = `GPU_DESKTOP_TIER_${i}`;
         }
       }
     }));
 
   if (desktopTier === undefined) {
-    console.log('Matching GPU tier could not be found, using fallback: GPU_DESKTOP_TIER_1');
+    if (shouldLogToConsole) {
+      console.log('Matching GPU tier could not be found, using fallback: GPU_DESKTOP_TIER_1');
+    }
+
     desktopTier = 'GPU_DESKTOP_TIER_1';
   }
 
@@ -147,7 +159,7 @@ function getGPUTier(mobileBenchmarkPercentages, desktopBenchmarkPercentages) {
 }
 
 export function register(options = {}) {
-  Object.assign(this, options);
+  this.shouldLogToConsole = false;
 
   // Benchmark listing is reversed so that if multiple instances of a GPU is found the highest one is used
   // Take for example G72, it is reported only as G72 to the browser but can mean G72 MP3, G72 MP12 and G72 MP18.
@@ -167,7 +179,10 @@ export function register(options = {}) {
   // 20% TIER_3
   this.benchmarkTierPercentagesDesktop = [15, 35, 30, 20];
 
+  Object.assign(this, options);
+
   const GPU_TIER = getGPUTier(
+    this.shouldLogToConsole,
     this.benchmarkTierPercentagesMobile,
     this.benchmarkTierPercentagesDesktop,
   );
