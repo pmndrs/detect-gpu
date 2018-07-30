@@ -24,7 +24,8 @@ function getGPUTier(mobileBenchmarkPercentages, desktopBenchmarkPercentages) {
     return 'GPU_DESKTOP_TIER_0';
   }
 
-  // const renderer = 'Apple A7 GPU'.toLowerCase();
+  // const renderer = 'AMD Radeon R9 390X'.toLowerCase();
+  // const renderer = 'Apple A11 GPU'.toLowerCase();
   // const renderer = 'NVIDIA GeForce GTX 750 Series'.toLowerCase();
   const renderer = glExtensionDebugRendererInfo
     && gl.getParameter(glExtensionDebugRendererInfo.UNMASKED_RENDERER_WEBGL).toLowerCase();
