@@ -28,7 +28,6 @@ function getGPUTier(mobileBenchmarkPercentages, desktopBenchmarkPercentages) {
   // const renderer = 'NVIDIA GeForce GTX 750 Series'.toLowerCase();
   const renderer = glExtensionDebugRendererInfo
     && gl.getParameter(glExtensionDebugRendererInfo.UNMASKED_RENDERER_WEBGL).toLowerCase();
-  const versionNumber = parseInt(renderer.replace(/[\D]/g, ''), 10);
 
   if (!renderer) {
     if (device.mobile || device.tablet) {
@@ -37,6 +36,8 @@ function getGPUTier(mobileBenchmarkPercentages, desktopBenchmarkPercentages) {
 
     return 'GPU_DESKTOP_TIER_1';
   }
+
+  const versionNumber = parseInt(renderer.replace(/[\D]/g, ''), 10);
 
   const mobileBenchmarkTiers = getBenchmarkByPercentage(
     BENCHMARK_SCORE_MOBILE,
