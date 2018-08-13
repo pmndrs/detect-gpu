@@ -72,20 +72,16 @@ export default class Device {
     return this.windows && (this.match('touch') && !this.windowsPhone);
   }
 
-  get fxos() {
+  get firefoxOS() {
     return (this.match('(mobile;') || this.match('(tablet;')) && this.match('; rv:');
   }
 
-  get fxosPhone() {
-    return this.fxos && this.match('mobile');
+  get firefoxOSPhone() {
+    return this.firefoxOS && this.match('mobile');
   }
 
-  get fxosTablet() {
-    return this.fxos && this.match('tablet');
-  }
-
-  get meego() {
-    return this.match('meego');
+  get firefoxOSTablet() {
+    return this.firefoxOS && this.match('tablet');
   }
 
   get mobile() {
@@ -95,8 +91,7 @@ export default class Device {
       || this.ipod
       || this.windowsPhone
       || this.blackberryPhone
-      || this.fxosPhone
-      || this.meego
+      || this.firefoxOSPhone
     );
   }
 
@@ -106,7 +101,7 @@ export default class Device {
       || this.androidTablet
       || this.blackberryTablet
       || this.windowsTablet
-      || this.fxosTablet
+      || this.firefoxOSTablet
     );
   }
 }
