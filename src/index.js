@@ -28,16 +28,16 @@ function getGPUTier(shouldLogToConsole, mobileBenchmarkPercentages, desktopBench
   // --------------
 
   // Samsung S9+
-  // const renderer = 'Mali-G72'.toLowerCase();
+  // const renderer = 'Mali-G72'.toLowerCase(); // Does not work
 
   // Samsung S9
-  // const renderer = 'Mali-G72'.toLowerCase();
+  // const renderer = 'Mali-G72'.toLowerCase(); // Does not work
 
   // Samsung S8
-  // const renderer = 'Mali-G71'.toLowerCase();
+  // const renderer = 'Mali-G71'.toLowerCase(); // Does not work
 
   // Samsung S8+
-  // const renderer = 'Mali-G71'.toLowerCase();
+  // const renderer = 'Mali-G71'.toLowerCase(); // Does not work
 
   // Samsung Galaxy S7
   // const renderer = 'Mali-T880'.toLowerCase();
@@ -73,7 +73,7 @@ function getGPUTier(shouldLogToConsole, mobileBenchmarkPercentages, desktopBench
   // const renderer = 'Adreno (TM) 330'.toLowerCase();
 
   // Google Nexus 9
-  // const renderer = 'NVIDIA Tegra'.toLowerCase();
+  // const renderer = 'NVIDIA Tegra'.toLowerCase(); // Does not work
 
   // Google Nexus 7
   // const renderer = 'Adreno (TM) 320'.toLowerCase();
@@ -115,7 +115,7 @@ function getGPUTier(shouldLogToConsole, mobileBenchmarkPercentages, desktopBench
   // const renderer = 'Apple A9 GPU'.toLowerCase();
 
   // iPhone 5C
-  // const renderer = 'PowerVR SGX 543'.toLowerCase();
+  // const renderer = 'PowerVR SGX 543'.toLowerCase(); // Does not work
 
   // iPhone SE
   // const renderer = 'Apple A9 GPU'.toLowerCase();
