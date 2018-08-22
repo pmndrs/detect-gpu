@@ -4,8 +4,7 @@
   "description": "Classify GPU's based on their benchmark score in order to provide an adaptive experience.",
   "main": "dist/detect-gpu.js",
   "scripts": {
-    "start": "NODE_ENV=development webpack -d --progress --watch --display-modules",
-    "serve": "http-server --cors -s -o",
+    "start": "NODE_ENV=development concurrently \"webpack -d --progress --watch --display-modules\" \"http-server --cors -s -o\" ",
     "lint": "eslint src/**/*.js",
     "dist": "NODE_ENV=production webpack -p --progress --optimize-minimize --display-modules && NODE_ENV=development webpack -d --progress --display-modules",
     "deploy": "npm run dist && npm version patch && npm publish && git push origin",
@@ -19,6 +18,7 @@
     "babel-plugin-transform-object-assign": "^6.22.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.7.0",
+    "concurrently": "^3.6.1",
     "eslint": "^5.1.0",
     "eslint-config-airbnb-base": "^13.0.0",
     "eslint-plugin-import": "^2.13.0",
