@@ -12,6 +12,7 @@
     <pre id="app"></pre>
 
     <script src="./dist/detect-gpu.js"></script>
+
     <script>
         const GPUTier = DetectGPU.register({
             verbose: true,
@@ -21,6 +22,8 @@
 
         document.getElementById('app').appendChild(document.createTextNode(JSON.stringify(GPUTier, null, 2)));
     </script>
+
+    <script defer src="https://unpkg.com/detect-gpu/scripts/analytics_embed.js"></script>
 </body>
 
 </html>
