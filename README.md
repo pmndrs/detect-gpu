@@ -9,14 +9,15 @@ Classify GPU's based on their benchmark score in order to provide an adaptive ex
 
 ## Stability and reporting issues
 
-In the current state `detect-gpu` should be considered to be experimental and should not yet be used in production. There are many edge cases and I've only been able to test it on a small range of devices. It is very likely that some GPU's are not reported correctly. This is most likely due to entries in the benchmark test that are very similar to each other, use strange versioning schemes or the reported GPU does not expose its name and version correctly.
+In the current state `detect-gpu` should be considered to be experimental and should not yet be used in production.
 
-If you are interested in helping out and improving the stability of the library feel encouraged to [open an issue](https://github.com/TimvanScherpenzeel/detect-gpu/issues/new) with the following content:
+If you are interested in helping me out to collect renderer names please add the following script tag to your webpage:
 
-- The reported GPU tier as reported by [detect-gpu](https://timvanscherpenzeel.github.io/detect-gpu/)
-- A copy of the full output of [detect-features](https://timvanscherpenzeel.github.io/detect-features/), this will include enough information for me to determine what could be wrong.
+```html
+<script defer src="https://unpkg.com/detect-gpu/scripts/analytics_embed.js"></script>
+```
 
-I'm hoping that through community effort we can create a more stable version of the library. Without your input (e.g. sharing ideas, PR's and making issues) it will be very difficult to improve the library. I simply only have access to a small range of devices and GPU's myself.
+The script simply checks the name of the users unmasked renderer and sends it as a Google Analytics event to my account. The contents of the script can be found [here](https://github.com/TimvanScherpenzeel/detect-gpu/blob/master/scripts/analytics_embed.js).
 
 ## Demo
 
