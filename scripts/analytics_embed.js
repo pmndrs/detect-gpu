@@ -1,14 +1,13 @@
+/* eslint-disable */
+
+// https://github.com/TimvanScherpenzeel/detect-gpu/blob/master/scripts/analytics_embed.js
+
 (function() {
-  if (
-    typeof window !== "undefined" &&
-    window &&
-    typeof document !== "undefined" &&
-    document
-  ) {
-    var trackingCode = "UA-112999355-1";
+  if (typeof window !== 'undefined' && window && typeof document !== 'undefined' && document) {
+    var trackingCode = 'UA-112999355-1';
 
     (function(i, s, o, g, r, a, m) {
-      i["GoogleAnalyticsObject"] = r;
+      i['GoogleAnalyticsObject'] = r;
       (i[r] =
         i[r] ||
         function() {
@@ -19,40 +18,24 @@
       a.async = 1;
       a.src = g;
       m.parentNode.insertBefore(a, m);
-    })(
-      window,
-      document,
-      "script",
-      "//www.google-analytics.com/analytics.js",
-      "$$__analytics"
-    );
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', '$$__analytics');
 
-    $$__analytics("create", trackingCode, "auto");
-    $$__analytics("send", "pageview");
+    $$__analytics('create', trackingCode, 'auto');
+    $$__analytics('send', 'pageview');
 
-    document.addEventListener("DOMContentLoaded", function() {
-      var canvas = document.createElement("canvas");
-      var gl =
-        canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
+    document.addEventListener('DOMContentLoaded', function() {
+      var canvas = document.createElement('canvas');
+      var gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
 
       if (gl) {
-        var glExtensionDebugRendererInfo = gl.getExtension(
-          "WEBGL_debug_renderer_info"
-        );
+        var glExtensionDebugRendererInfo = gl.getExtension('WEBGL_debug_renderer_info');
         var renderer =
           glExtensionDebugRendererInfo &&
           gl.getParameter(glExtensionDebugRendererInfo.UNMASKED_RENDERER_WEBGL);
 
-        $$__analytics(
-          "send",
-          "event",
-          "renderer",
-          "load",
-          renderer.toString(),
-          {
-            nonInteraction: true
-          }
-        );
+        $$__analytics('send', 'event', 'renderer', 'load', renderer.toString(), {
+          nonInteraction: true,
+        });
       }
     });
   }
