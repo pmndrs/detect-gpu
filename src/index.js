@@ -15,7 +15,7 @@ const gl = isWebGLSupported({
 
 const glExtensionDebugRendererInfo = gl.getExtension('WEBGL_debug_renderer_info');
 
-function getGPUTier(shouldLogToConsole, mobileBenchmarkPercentages, desktopBenchmarkPercentages) {
+function getGPUTier(verbose, mobileBenchmarkPercentages, desktopBenchmarkPercentages) {
   if (!gl || !glExtensionDebugRendererInfo) {
     if (device.mobile || device.tablet) {
       return 'GPU_MOBILE_TIER_0';
@@ -24,20 +24,20 @@ function getGPUTier(shouldLogToConsole, mobileBenchmarkPercentages, desktopBench
     return 'GPU_DESKTOP_TIER_0';
   }
 
-  // Mobile devices
-  // --------------
+  // Mobile devices (correct)
+  // ------------------------
 
   // Samsung S9+
-  // const renderer = 'Mali-G72'.toLowerCase(); // Does not work
+  // const renderer = 'Mali-G72'.toLowerCase();
 
   // Samsung S9
-  // const renderer = 'Mali-G72'.toLowerCase(); // Does not work
+  // const renderer = 'Mali-G72'.toLowerCase();
 
   // Samsung S8
-  // const renderer = 'Mali-G71'.toLowerCase(); // Does not work
+  // const renderer = 'Mali-G71'.toLowerCase();
 
   // Samsung S8+
-  // const renderer = 'Mali-G71'.toLowerCase(); // Does not work
+  // const renderer = 'Mali-G71'.toLowerCase();
 
   // Samsung Galaxy S7
   // const renderer = 'Mali-T880'.toLowerCase();
@@ -73,7 +73,7 @@ function getGPUTier(shouldLogToConsole, mobileBenchmarkPercentages, desktopBench
   // const renderer = 'Adreno (TM) 330'.toLowerCase();
 
   // Google Nexus 9
-  // const renderer = 'NVIDIA Tegra'.toLowerCase(); // Does not work
+  // const renderer = 'NVIDIA Tegra'.toLowerCase();
 
   // Google Nexus 7
   // const renderer = 'Adreno (TM) 320'.toLowerCase();
@@ -115,7 +115,7 @@ function getGPUTier(shouldLogToConsole, mobileBenchmarkPercentages, desktopBench
   // const renderer = 'Apple A9 GPU'.toLowerCase();
 
   // iPhone 5C
-  // const renderer = 'PowerVR SGX 543'.toLowerCase(); // Does not work
+  // const renderer = 'PowerVR SGX 543'.toLowerCase();
 
   // iPhone SE
   // const renderer = 'Apple A9 GPU'.toLowerCase();
@@ -142,8 +142,8 @@ function getGPUTier(shouldLogToConsole, mobileBenchmarkPercentages, desktopBench
   // -------
 
   // const renderer = 'AMD Radeon R9 390X'.toLowerCase();
-  // const renderer = 'Apple A11 GPU'.toLowerCase();
   // const renderer = 'NVIDIA GeForce GTX 750 Series'.toLowerCase();
+
   const renderer = glExtensionDebugRendererInfo
     && gl.getParameter(glExtensionDebugRendererInfo.UNMASKED_RENDERER_WEBGL).toLowerCase();
 
@@ -155,7 +155,11 @@ function getGPUTier(shouldLogToConsole, mobileBenchmarkPercentages, desktopBench
     return 'GPU_DESKTOP_TIER_1';
   }
 
-  const versionNumber = parseInt(renderer.replace(/[\D]/g, ''), 10);
+  const versionNumber = renderer.replace(/[\D]/g, '');
+
+  if (verbose) {
+    console.log(`Found version number: ${versionNumber}`);
+  }
 
   const mobileBenchmarkTiers = getBenchmarkByPercentage(
     BENCHMARK_SCORE_MOBILE,
@@ -197,12 +201,13 @@ function getGPUTier(shouldLogToConsole, mobileBenchmarkPercentages, desktopBench
     mobileBenchmarkTiers.some((rawTier, i) => rawTier.some((rawEntry) => {
         const entry = rawEntry
           .toLowerCase()
-          // Remove prelude score
+          // Remove prelude score (`3 - `)
           .split('- ')[1]
           // Entries like 'apple a9x / powervr series 7xt' give problems
           // with the 7 being picked up (resulting in a tier 3 classification of A7 chip which should be tier 1).
           .split(' /')[0];
-        const entryVersion = parseInt(entry.replace(/[\D]/g, ''), 10);
+
+        const entryVersion = entry.replace(/[\D]/g, '');
 
         if (
           (entry.includes('adreno') && isRendererAdreno)
@@ -212,8 +217,8 @@ function getGPUTier(shouldLogToConsole, mobileBenchmarkPercentages, desktopBench
           || (entry.includes('nvidia') && isRendererNVIDIA)
           || (entry.includes('powervr') && isRendererPowerVR)
         ) {
-          if (entryVersion === versionNumber) {
-            if (shouldLogToConsole) {
+          if (entryVersion.includes(versionNumber)) {
+            if (verbose) {
               console.log(`Match with benchmark entry: ${entry}`);
             }
 
@@ -223,7 +228,7 @@ function getGPUTier(shouldLogToConsole, mobileBenchmarkPercentages, desktopBench
       }));
 
     if (mobileTier === undefined) {
-      if (shouldLogToConsole) {
+      if (verbose) {
         console.log('Matching GPU tier could not be found, using fallback: GPU_MOBILE_TIER_1');
       }
 
@@ -247,15 +252,15 @@ function getGPUTier(shouldLogToConsole, mobileBenchmarkPercentages, desktopBench
         // Entries like 'apple a9x / powervr series 7xt' give problems
         // with the 7 being picked up (resulting in a tier 3 classification of A7 chip which should be tier 1).
         .split(' /')[0];
-      const entryVersion = parseInt(entry.replace(/[\D]/g, ''), 10);
+      const entryVersion = entry.replace(/[\D]/g, '');
 
       if (
         (entry.includes('intel') && isRendererIntel)
         || (entry.includes('amd') && isRendererAMD)
         || (entry.includes('nvidia') && isRendererNVIDIA)
       ) {
-        if (entryVersion === versionNumber) {
-          if (shouldLogToConsole) {
+        if (entryVersion.includes(versionNumber)) {
+          if (verbose) {
             console.log(`Match with benchmark entry: ${entry}`);
           }
 
@@ -265,7 +270,7 @@ function getGPUTier(shouldLogToConsole, mobileBenchmarkPercentages, desktopBench
     }));
 
   if (desktopTier === undefined) {
-    if (shouldLogToConsole) {
+    if (verbose) {
       console.log('Matching GPU tier could not be found, using fallback: GPU_DESKTOP_TIER_1');
     }
 
@@ -276,7 +281,7 @@ function getGPUTier(shouldLogToConsole, mobileBenchmarkPercentages, desktopBench
 }
 
 export function register(options = {}) {
-  this.shouldLogToConsole = false;
+  this.verbose = false;
 
   // Benchmark listing is reversed so that if multiple instances of a GPU is found the highest one is used
   // Take for example G72, it is reported only as G72 to the browser but can mean G72 MP3, G72 MP12 and G72 MP18.
@@ -299,7 +304,7 @@ export function register(options = {}) {
   Object.assign(this, options);
 
   const GPU_TIER = getGPUTier(
-    this.shouldLogToConsole,
+    this.verbose,
     this.benchmarkTierPercentagesMobile,
     this.benchmarkTierPercentagesDesktop,
   );
