@@ -44,9 +44,9 @@ You can tweak these percentages when registering the application as shown below:
 
 ```js
 const GPUTier = DetectGPU.register({
-  // [TIER_0, TIER_1, TIER_2, TIER_3]
-  benchmarkTierPercentagesMobile: [15, 35, 30, 20],
-  benchmarkTierPercentagesDesktop: [15, 35, 30, 20]
+  verbose: true, // enable logging to the console
+  benchmarkTierPercentagesMobile: [15, 35, 30, 20], // [TIER_0, TIER_1, TIER_2, TIER_3]
+  benchmarkTierPercentagesDesktop: [15, 35, 30, 20] // [TIER_0, TIER_1, TIER_2, TIER_3]
 });
 ```
 
