@@ -1,3 +1,5 @@
+// Collected using https://unpkg.com/detect-gpu/scripts/analytics_embed.js
+
 export const DESKTOP = [
   '87 - Intel(R) Iris(TM) Plus Graphics 640',
   '83 - Intel(R) HD Graphics 6000',
