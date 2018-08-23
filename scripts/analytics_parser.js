@@ -41,11 +41,22 @@ function parseAnalytics(file) {
   });
 }
 
-parseAnalytics(path.resolve('./data/analytics.csv')).then((data) => {
-  const output = './data/analytics.json';
-  const result = JSON.stringify(data, null, 2);
+parseAnalytics(path.resolve('./data/analytics.csv')).then((result) => {
+  const output = './src/renderers.js';
+  const data = `export const DESKTOP = [
+          ${result.desktopData.map(entry => `\n\'${entry}\'`)}
+        ];
 
-  fs.writeFile(path.resolve(output), result, (error) => {
+        export const TABLET = [
+          ${result.tabletData.map(entry => `\n\'${entry}\'`)}
+        ];
+
+        export const MOBILE = [
+          ${result.mobileData.map(entry => `\n\'${entry}\'`)}
+        ];
+      `;
+
+  fs.writeFile(path.resolve(output), data, (error) => {
     if (!error) {
       console.log(`Written file to ${output}`);
     } else {
