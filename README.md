@@ -11,7 +11,7 @@ Classify GPU's based on their benchmark score in order to provide an adaptive ex
 
 In the current state `detect-gpu` should be considered to be experimental and should not yet be used in production.
 
-If you are interested in helping me out to collect renderer names please add the following script tag to your webpage:
+If you are interested in helping me out collecting renderer names please add the following script tag to your webpage:
 
 ```html
 <script defer src="https://unpkg.com/detect-gpu/scripts/analytics_embed.js"></script>
