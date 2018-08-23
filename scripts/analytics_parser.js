@@ -23,7 +23,8 @@ function parseAnalytics(file) {
     csv({ noheader: true })
       .fromFile(file)
       .then((data) => {
-        const renderers = data.slice(6, data.length - 5); // Remove header information
+        // Remove static header and footer information
+        const renderers = data.slice(6, data.length - 5);
 
         const mobileData = getRendererData('mobile', renderers);
         const tabletData = getRendererData('tablet', renderers);
