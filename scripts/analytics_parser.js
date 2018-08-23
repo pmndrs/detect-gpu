@@ -48,15 +48,15 @@ parseAnalytics(path.resolve('./data/analytics.csv')).then((result) => {
   // Collected using https://unpkg.com/detect-gpu/scripts/analytics_embed.js
 
 
-        export const DESKTOP = [
+        export const RENDERER_DESKTOP = [
           ${result.desktopData.map(entry => `\n\'${entry}\'`)}
         ];
 
-        export const TABLET = [
+        export const RENDERER_TABLET = [
           ${result.tabletData.map(entry => `\n\'${entry}\'`)}
         ];
 
-        export const MOBILE = [
+        export const RENDERER_MOBILE = [
           ${result.mobileData.map(entry => `\n\'${entry}\'`)}
         ];
       `;

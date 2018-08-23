@@ -1,6 +1,6 @@
 // Collected using https://unpkg.com/detect-gpu/scripts/analytics_embed.js
 
-export const DESKTOP = [
+export const RENDERER_DESKTOP = [
   '87 - Intel(R) Iris(TM) Plus Graphics 640',
   '83 - Intel(R) HD Graphics 6000',
   '79 - Intel(R) Iris(TM) Graphics 6100',
@@ -157,7 +157,7 @@ export const DESKTOP = [
   '1 - NVIDIA GeForce GTX 960',
 ];
 
-export const TABLET = [
+export const RENDERER_TABLET = [
   '20 - Apple A10X GPU',
   '11 - PowerVR SGX 543',
   '10 - Apple A9X GPU',
@@ -170,7 +170,7 @@ export const TABLET = [
   '1 - PowerVR Rogue GX6250',
 ];
 
-export const MOBILE = [
+export const RENDERER_MOBILE = [
   '499 - Apple A11 GPU',
   '367 - Apple A10 GPU',
   '210 - Apple A9 GPU',
