@@ -12,7 +12,7 @@ function getRendererData(type, renderers) {
 
   return data.map((renderer) => {
     const name = renderer.field1;
-    const amount = renderer.field3;
+    const amount = renderer.field4;
 
     return `${amount} - ${name}`;
   });
