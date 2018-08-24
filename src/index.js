@@ -15,7 +15,12 @@ const gl = isWebGLSupported({
 
 const glExtensionDebugRendererInfo = gl.getExtension('WEBGL_debug_renderer_info');
 
-function getGPUTier(verbose, mobileBenchmarkPercentages, desktopBenchmarkPercentages) {
+function getGPUTier(
+  verbose,
+  mobileBenchmarkPercentages,
+  desktopBenchmarkPercentages,
+  forceRenderer,
+) {
   if (!gl || !glExtensionDebugRendererInfo) {
     if (device.mobile || device.tablet) {
       return 'GPU_MOBILE_TIER_0';
@@ -24,8 +29,14 @@ function getGPUTier(verbose, mobileBenchmarkPercentages, desktopBenchmarkPercent
     return 'GPU_DESKTOP_TIER_0';
   }
 
-  const renderer = glExtensionDebugRendererInfo
-    && gl.getParameter(glExtensionDebugRendererInfo.UNMASKED_RENDERER_WEBGL).toLowerCase();
+  let renderer;
+
+  if (!forceRenderer) {
+    renderer = glExtensionDebugRendererInfo
+      && gl.getParameter(glExtensionDebugRendererInfo.UNMASKED_RENDERER_WEBGL).toLowerCase();
+  } else {
+    renderer = forceRenderer;
+  }
 
   if (!renderer) {
     if (device.mobile || device.tablet) {
@@ -181,12 +192,16 @@ export function register(options = {}) {
   // 20% TIER_3
   this.benchmarkTierPercentagesDesktop = [15, 35, 30, 20];
 
+  // Only used for testing purposes
+  this.forceRenderer = '';
+
   Object.assign(this, options);
 
   const GPU_TIER = getGPUTier(
     this.verbose,
     this.benchmarkTierPercentagesMobile,
     this.benchmarkTierPercentagesDesktop,
+    this.forceRenderer,
   );
 
   return GPU_TIER;

@@ -43,7 +43,7 @@ function parseAnalytics(file) {
 }
 
 parseAnalytics(path.resolve('./data/analytics.csv')).then((result) => {
-  const output = './src/renderers.js';
+  const output = './test/renderers.js';
   const data = `
 
   // Collected using https://unpkg.com/detect-gpu/scripts/analytics_embed.js
