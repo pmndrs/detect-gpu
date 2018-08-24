@@ -4,11 +4,40 @@ import { BENCHMARK_SCORE_DESKTOP, BENCHMARK_SCORE_MOBILE } from './benchmark';
 // Device
 import Device from './device';
 
-// Utilities
-import { getWebGLContext, getBenchmarkByPercentage } from './utilities';
-
 // Device detection
 const device = new Device();
+
+// Keep reference to the canvas and context in order to clean up
+// after the necessary information has been extracted
+let canvas;
+let gl;
+
+function getWebGLContext(attributes) {
+  canvas = document.createElement('canvas');
+  gl = canvas.getContext('webgl', attributes) || canvas.getContext('experimental-webgl', attributes);
+
+  if (!gl || !(gl instanceof WebGLRenderingContext)) {
+    return false;
+  }
+
+  return gl;
+}
+
+// Get benchmark entry's by percentage of the total benchmark entries
+function getBenchmarkByPercentage(benchmark, percentages) {
+  let chunkOffset = 0;
+
+  const benchmarkTiers = percentages.map((percentage) => {
+    const chunkSize = Math.round((benchmark.length / 100) * percentage);
+    const chunk = benchmark.slice(chunkOffset, chunkOffset + chunkSize);
+
+    chunkOffset += chunkSize;
+
+    return chunk;
+  });
+
+  return benchmarkTiers;
+}
 
 function cleanEntryString(entryString) {
   return entryString
@@ -49,7 +78,9 @@ export function getGPUTier(options = {}) {
   let renderer;
 
   if (this.forceRendererString === false) {
-    const gl = getWebGLContext({
+    gl = getWebGLContext({
+      alpha: false,
+      stencil: false,
       failIfMajorPerformanceCaveat: true,
     });
 
@@ -57,6 +88,10 @@ export function getGPUTier(options = {}) {
 
     renderer = glExtensionDebugRendererInfo
       && gl.getParameter(glExtensionDebugRendererInfo.UNMASKED_RENDERER_WEBGL);
+
+    // Clean up canvas and WebGL context
+    canvas = undefined;
+    gl = undefined;
   } else {
     renderer = this.forceRendererString;
   }
@@ -166,6 +201,12 @@ export function getGPUTier(options = {}) {
             tier = `GPU_DESKTOP_TIER_${index}`;
             type = `BENCHMARK - ${entry}`;
           }
+
+          // Handle NVIDIA Titan
+          // if (isRendererNVIDIA && renderer.includes('titan')) {
+          //   tier = 'GPU_DESKTOP_TIER_3';
+          //   type = `BENCHMARK_FORCED - ${entry}`;
+          // }
         }
       }));
 
