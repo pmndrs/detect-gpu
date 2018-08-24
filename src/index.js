@@ -61,6 +61,14 @@ export function getGPUTier(options = {}) {
     renderer = this.forceRendererString;
   }
 
+  // WebGL support is missing
+  if (!renderer) {
+    return {
+      tier: 'GPU_MOBILE_TIER_0',
+      type: 'WEBGL_UNSUPPORTED',
+    };
+  }
+
   renderer = cleanRendererString(renderer);
   const rendererVersionNumber = renderer.replace(/[\D]/g, '');
 

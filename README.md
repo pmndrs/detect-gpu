@@ -44,10 +44,11 @@ By default `detect-gpu` assumes `15%` of the lowest scores to be insufficient to
 You can tweak these percentages when registering the application as shown below:
 
 ```js
-const GPUTier = DetectGPU.register({
-  verbose: true, // enable logging to the console
-  benchmarkTierPercentagesMobile: [15, 35, 30, 20], // [TIER_0, TIER_1, TIER_2, TIER_3]
-  benchmarkTierPercentagesDesktop: [15, 35, 30, 20] // [TIER_0, TIER_1, TIER_2, TIER_3]
+const GPUTier = DetectGPU.getGPUTier({
+  mobileBenchmarkPercentages: [15, 35, 30, 20], // [TIER_0, TIER_1, TIER_2, TIER_3]
+  desktopBenchmarkPercentages: [15, 35, 30, 20], // [TIER_0, TIER_1, TIER_2, TIER_3]
+  forceRendererString: "Apple A11 GPU", // (Development) Force a certain renderer string
+  forceMobile: true // (Development) Force the use of mobile benchmarking scores
 });
 ```
 
@@ -64,6 +65,8 @@ $ npm run dist
 
 $ npm run deploy
 
+$ npm run parse-analytics
+
 $ npm run update-benchmarks
 ```
 
@@ -72,3 +75,5 @@ $ npm run update-benchmarks
 My work is released under the [MIT license](https://raw.githubusercontent.com/TimvanScherpenzeel/detect-gpu/master/LICENSE).
 
 `detect-gpu` uses both mobile and desktop benchmarking scores from [https://www.notebookcheck.net/](https://www.notebookcheck.net/).
+
+The unmasked renderers have been gathered using the analytics script that one can find in `scripts/analytics_embed.js`.

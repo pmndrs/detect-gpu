@@ -25,6 +25,13 @@ function testPerDeviceType(deviceType, forceMobile = false) {
     });
 
     test(`${deviceType} -> GPUTier returns a benchmark entry`, () => {
+      if (GPUTier.type === 'WEBGL_UNSUPPORTED') {
+        console.warn(
+          `WEBGL_UNSUPPORTED -> Entry: ${rendererEntry}, Tier: ${GPUTier.tier}, Type: ${
+            GPUTier.type
+          }`,
+        );
+      }
       if (GPUTier.type === 'BLACKLISTED') {
         console.warn(
           `BLACKLISTED -> Entry: ${rendererEntry}, Tier: ${GPUTier.tier}, Type: ${GPUTier.type}`,
