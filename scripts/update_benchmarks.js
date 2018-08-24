@@ -52,11 +52,11 @@ Promise.all([collectBenchmark(BENCHMARK_DESKTOP_URL), collectBenchmark(BENCHMARK
 
 
       export const BENCHMARK_SCORE_DESKTOP = [
-        ${result[0].map(entry => `\n\'${entry}\'`)}
+        ${result[0].reverse().map(entry => `\n\'${entry}\'`)}
       ];
 
       export const BENCHMARK_SCORE_MOBILE = [
-        ${result[1].map(entry => `\n\'${entry}\'`)}
+        ${result[1].reverse().map(entry => `\n\'${entry}\'`)}
       ];
     `;
 

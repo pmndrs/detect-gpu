@@ -11,40 +11,35 @@ const mobile = stripPrefix(RENDERER_MOBILE);
 const tablet = stripPrefix(RENDERER_TABLET);
 const desktop = stripPrefix(RENDERER_DESKTOP);
 
-// the returned tier and entry don't match up and stay static even when switching out the ordering
-
-function testPerDeviceType(type, forceMobile = false) {
-  type.map((entry) => {
-    const GPUTier = DetectGPU.register({
-      verbose: false,
-      benchmarkTierPercentagesMobile: [15, 35, 30, 20],
-      benchmarkTierPercentagesDesktop: [15, 35, 30, 20],
-      forceRenderer: entry,
+function testPerDeviceType(deviceType, forceMobile = false) {
+  deviceType.map((rendererEntry) => {
+    const GPUTier = DetectGPU.getGPUTier({
+      forceRendererString: rendererEntry,
       forceMobile,
     });
 
-    test(`${type} -> GPUTier returns a valid tier`, () => {
+    test(`${deviceType} -> GPUTier returns a valid tier`, () => {
       const expected = /GPU_(MOBILE|DESKTOP)_TIER_(0|1|2|3)/;
 
       expect(GPUTier.tier).toEqual(expect.stringMatching(expected));
     });
 
-    test(`${type} -> GPUTier returns a benchmark entry`, () => {
-      if (GPUTier.entry === 'BLACKLISTED') {
-        console.warn(`BLACKLISTED -> Tier: ${GPUTier.tier}, Entry: ${entry}`);
+    test(`${deviceType} -> GPUTier returns a benchmark entry`, () => {
+      if (GPUTier.type === 'BLACKLISTED') {
+        console.warn(`BLACKLISTED -> Tier: ${GPUTier.tier}, Type: ${GPUTier.type}`);
       } else if (GPUTier.tier.match(/GPU_(MOBILE|DESKTOP)_TIER_0/)) {
-        console.warn(`TIER 0 -> Tier: ${GPUTier.tier}, Entry: ${entry}`);
+        console.warn(`TIER 0 -> Tier: ${GPUTier.tier}, Type: ${GPUTier.type}`);
       } else if (GPUTier.entry === 'FALLBACK') {
-        console.log(`FALLBACK -> Tier: ${GPUTier.tier}, Entry: ${entry}`);
+        // console.log(`FALLBACK -> Tier: ${GPUTier.tier}, Type: ${GPUTier.type}`);
       } else {
-        console.log(`SUCCESS -> Tier: ${GPUTier.tier}, Entry: ${entry}`);
+        // console.log(`SUCCESS -> Tier: ${GPUTier.tier}, Type: ${GPUTier.type}`);
       }
 
-      expect(GPUTier.entry).toBeDefined();
+      expect(GPUTier.type).toBeDefined();
     });
   });
 }
 
 testPerDeviceType(mobile, true);
-// testPerDeviceType(tablet, true);
-// testPerDeviceType(desktop, false);
+testPerDeviceType(tablet, true);
+testPerDeviceType(desktop, false);

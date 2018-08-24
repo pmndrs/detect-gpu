@@ -19,16 +19,8 @@
             // forceMobile: true,
         });
 
-//         const GPUTier = DetectGPU.register({
-//             verbose: true,
-//             benchmarkTierPercentagesMobile: [15, 35, 30, 20],
-//             benchmarkTierPercentagesDesktop: [15, 35, 30, 20]
-//         });
-
-//         console.log(GPUTier);
-
-//         document.getElementById('app').appendChild(document.createTextNode(`Tier: ${GPUTier.tier}
-// Benchmark entry: ${GPUTier.entry}`));
+        document.getElementById('app').appendChild(document.createTextNode(`Tier: ${GPUTier.tier}
+Type: ${GPUTier.type}`));
     </script>
 
     <script defer src="https://unpkg.com/detect-gpu/scripts/analytics_embed.js"></script>

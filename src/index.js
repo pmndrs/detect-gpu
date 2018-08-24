@@ -7,11 +7,33 @@ import Device from './device';
 // Utilities
 import { getWebGLContext, getBenchmarkByPercentage } from './utilities';
 
-// console.log(BENCHMARK_SCORE_DESKTOP);
-// console.log(BENCHMARK_SCORE_MOBILE);
-
 // Device detection
 const device = new Device();
+
+function cleanEntryString(entryString) {
+  return entryString
+    .toLowerCase() // Lowercase all for easier matching
+    .split('- ')[1] // Remove prelude score (`3 - `)
+    .split(' /')[0]; // Reduce 'apple a9x / powervr series 7xt' to 'apple a9x'
+}
+
+function getEntryVersionNumber(entryString) {
+  return entryString.replace(/[\D]/g, ''); // Grab and concat all digits in the string
+}
+
+function cleanRendererString(rendererString) {
+  // Strip off ANGLE and Direct3D version
+  if (rendererString.includes('angle (') && rendererString.includes('direct3d')) {
+    rendererString = rendererString.replace('angle (', '').split(' direct3d')[0];
+  }
+
+  // // Strip off the GB amount (1060 6gb was being concatenated to 10606 and because of it using the fallback)
+  if (rendererString.includes('nvidia') && rendererString.includes('gb')) {
+    rendererString = rendererString.split(/\dgb/)[0];
+  }
+
+  return rendererString.toLowerCase();
+}
 
 export function getGPUTier(options = {}) {
   this.mobileBenchmarkPercentages = [15, 35, 30, 20];
@@ -34,10 +56,13 @@ export function getGPUTier(options = {}) {
     const glExtensionDebugRendererInfo = gl.getExtension('WEBGL_debug_renderer_info');
 
     renderer = glExtensionDebugRendererInfo
-      && gl.getParameter(glExtensionDebugRendererInfo.UNMASKED_RENDERER_WEBGL).toLowerCase();
+      && gl.getParameter(glExtensionDebugRendererInfo.UNMASKED_RENDERER_WEBGL);
   } else {
     renderer = this.forceRendererString;
   }
+
+  renderer = cleanRendererString(renderer);
+  const rendererVersionNumber = renderer.replace(/[\D]/g, '');
 
   // GPU BLACKLIST
   // - https://wiki.mozilla.org/Blocklisting/Blocked_Graphics_Drivers
@@ -49,10 +74,16 @@ export function getGPUTier(options = {}) {
 
   if (isGPUBlacklisted) {
     if (isMobile) {
-      // Return GPU_MOBILE_TIER_0 and mark as blacklisted
-    } else {
-      // Return GPU_DESKTOP_TIER_0 and mark as blacklisted
+      return {
+        tier: 'GPU_MOBILE_TIER_0',
+        type: 'BLACKLISTED',
+      };
     }
+
+    return {
+      tier: 'GPU_DESKTOP_TIER_0',
+      type: 'BLACKLISTED',
+    };
   }
 
   if (isMobile) {
@@ -61,7 +92,44 @@ export function getGPUTier(options = {}) {
       this.mobileBenchmarkPercentages,
     );
 
-    console.log(mobileBenchmark);
+    const isRendererAdreno = renderer.includes('adreno');
+    const isRendererApple = renderer.includes('apple');
+    const isRendererMali = renderer.includes('mali') && !renderer.includes('mali-t');
+    const isRendererMaliT = renderer.includes('mali-t');
+    const isRendererNVIDIA = renderer.includes('nvidia');
+    const isRendererPowerVR = renderer.includes('powervr');
+
+    let tier;
+    let type;
+
+    mobileBenchmark.forEach((benchmarkTier, index) => benchmarkTier.forEach((benchmarkEntry) => {
+        const entry = cleanEntryString(benchmarkEntry);
+        const entryVersionNumber = getEntryVersionNumber(entry);
+
+        if (
+          (entry.includes('adreno') && isRendererAdreno)
+          || (entry.includes('apple') && isRendererApple)
+          || (entry.includes('mali') && !entry.includes('mali-t') && isRendererMali)
+          || (entry.includes('mali-t') && isRendererMaliT)
+          || (entry.includes('nvidia') && isRendererNVIDIA)
+          || (entry.includes('powervr') && isRendererPowerVR)
+        ) {
+          if (entryVersionNumber.includes(rendererVersionNumber)) {
+            tier = `GPU_MOBILE_TIER_${index}`;
+            type = `BENCHMARK - ${entry}`;
+          }
+        }
+      }));
+
+    if (!tier) {
+      tier = 'GPU_MOBILE_TIER_1';
+      type = 'FALLBACK';
+    }
+
+    return {
+      tier,
+      type,
+    };
   }
 
   if (isDesktop) {
@@ -70,6 +138,37 @@ export function getGPUTier(options = {}) {
       this.desktopBenchmarkPercentages,
     );
 
-    console.log(desktopBenchmark);
+    const isRendererIntel = renderer.includes('intel');
+    const isRendererAMD = renderer.includes('amd');
+    const isRendererNVIDIA = renderer.includes('nvidia');
+
+    let tier;
+    let type;
+
+    desktopBenchmark.forEach((benchmarkTier, index) => benchmarkTier.forEach((benchmarkEntry) => {
+        const entry = cleanEntryString(benchmarkEntry);
+        const entryVersionNumber = getEntryVersionNumber(entry);
+
+        if (
+          (entry.includes('intel') && isRendererIntel)
+          || (entry.includes('amd') && isRendererAMD)
+          || (entry.includes('nvidia') && isRendererNVIDIA)
+        ) {
+          if (entryVersionNumber.includes(rendererVersionNumber)) {
+            tier = `GPU_DESKTOP_TIER_${index}`;
+            type = `BENCHMARK - ${entry}`;
+          }
+        }
+      }));
+
+    if (!tier) {
+      tier = 'GPU_DESKTOP_TIER_1';
+      type = 'FALLBACK';
+    }
+
+    return {
+      tier,
+      type,
+    };
   }
 }
