@@ -20,7 +20,9 @@
             benchmarkTierPercentagesDesktop: [15, 35, 30, 20]
         });
 
-        document.getElementById('app').appendChild(document.createTextNode(JSON.stringify(GPUTier, null, 2)));
+        console.log(GPUTier);
+
+        document.getElementById('app').appendChild(document.createTextNode(JSON.stringify(GPUTier.tier, null, 2)));
     </script>
 
     <script defer src="https://unpkg.com/detect-gpu/scripts/analytics_embed.js"></script>

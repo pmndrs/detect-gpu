@@ -17,6 +17,7 @@ function getGPUTier(
   let device = {};
   let gl;
   let glExtensionDebugRendererInfo;
+  let matchedBenchmarkEntry = '';
 
   if (!forceRenderer) {
     gl = isWebGLSupported({
@@ -26,18 +27,19 @@ function getGPUTier(
     glExtensionDebugRendererInfo = gl.getExtension('WEBGL_debug_renderer_info');
   }
 
-  if (!forceMobile) {
+  if (forceMobile) {
     device.mobile = true;
+    device.tablet = true;
   } else {
     device = new Device();
   }
 
   if (!forceRenderer && (!gl || !glExtensionDebugRendererInfo)) {
     if (device.mobile || device.tablet) {
-      return 'GPU_MOBILE_TIER_0';
+      return { tier: 'GPU_MOBILE_TIER_0' };
     }
 
-    return 'GPU_DESKTOP_TIER_0';
+    return { tier: 'GPU_DESKTOP_TIER_0' };
   }
 
   let renderer;
@@ -51,10 +53,10 @@ function getGPUTier(
 
   if (!renderer) {
     if (device.mobile || device.tablet) {
-      return 'GPU_MOBILE_TIER_1';
+      return { tier: 'GPU_MOBILE_TIER_1' };
     }
 
-    return 'GPU_DESKTOP_TIER_1';
+    return { tier: 'GPU_DESKTOP_TIER_1' };
   }
 
   const versionNumber = renderer.replace(/[\D]/g, '');
@@ -83,10 +85,16 @@ function getGPUTier(
 
   if (GPU_BLACKLIST) {
     if (device.mobile || device.tablet) {
-      return 'GPU_MOBILE_TIER_0';
+      return {
+        tier: 'GPU_MOBILE_TIER_0',
+        entry: 'BLACKLISTED',
+      };
     }
 
-    return 'GPU_DESKTOP_TIER_0';
+    return {
+      tier: 'GPU_DESKTOP_TIER_0',
+      entry: 'BLACKLISTED',
+    };
   }
 
   if (device.mobile || device.tablet) {
@@ -125,6 +133,7 @@ function getGPUTier(
             }
 
             mobileTier = `GPU_MOBILE_TIER_${i}`;
+            matchedBenchmarkEntry = entry;
           }
         }
       }));
@@ -137,7 +146,10 @@ function getGPUTier(
       mobileTier = 'GPU_MOBILE_TIER_1';
     }
 
-    return mobileTier;
+    return {
+      tier: mobileTier,
+      entry: matchedBenchmarkEntry,
+    };
   }
 
   // Desktop
@@ -167,6 +179,7 @@ function getGPUTier(
           }
 
           desktopTier = `GPU_DESKTOP_TIER_${i}`;
+          matchedBenchmarkEntry = entry;
         }
       }
     }));
@@ -179,7 +192,10 @@ function getGPUTier(
     desktopTier = 'GPU_DESKTOP_TIER_1';
   }
 
-  return desktopTier;
+  return {
+    tier: desktopTier,
+    entry: matchedBenchmarkEntry,
+  };
 }
 
 export function register(options = {}) {
@@ -217,5 +233,8 @@ export function register(options = {}) {
     this.forceMobile,
   );
 
-  return GPU_TIER;
+  return {
+    tier: GPU_TIER.tier,
+    entry: GPU_TIER.entry,
+  };
 }
