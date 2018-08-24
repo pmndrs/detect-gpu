@@ -1,13 +1,15 @@
 {
-    "extends": "airbnb-base",
-    "rules": {
-      "no-tabs": 0,
-      "indent": 0,
-      "import/prefer-default-export": 0
-    },
-    "globals": {
-      "window": true,
-      "document": true,
-      "navigator": true
-    }
+  "extends": "airbnb-base",
+  "rules": {
+    "no-tabs": 0,
+    "indent": 0,
+    "import/prefer-default-export": 0
+  },
+  "globals": {
+    "window": true,
+    "document": true,
+    "navigator": true,
+    "test": true,
+    "expect": true
+  }
 }

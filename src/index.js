@@ -7,21 +7,32 @@ import Device from './device';
 // Utilities
 import { isWebGLSupported, getBenchmarkByPercentage } from './utilities';
 
-const device = new Device();
-
-const gl = isWebGLSupported({
-  failIfMajorPerformanceCaveat: true,
-});
-
-const glExtensionDebugRendererInfo = gl.getExtension('WEBGL_debug_renderer_info');
-
 function getGPUTier(
   verbose,
   mobileBenchmarkPercentages,
   desktopBenchmarkPercentages,
   forceRenderer,
+  forceMobile,
 ) {
-  if (!gl || !glExtensionDebugRendererInfo) {
+  let device = {};
+  let gl;
+  let glExtensionDebugRendererInfo;
+
+  if (!forceRenderer) {
+    gl = isWebGLSupported({
+      failIfMajorPerformanceCaveat: true,
+    });
+
+    glExtensionDebugRendererInfo = gl.getExtension('WEBGL_debug_renderer_info');
+  }
+
+  if (!forceMobile) {
+    device.mobile = true;
+  } else {
+    device = new Device();
+  }
+
+  if (!forceRenderer && (!gl || !glExtensionDebugRendererInfo)) {
     if (device.mobile || device.tablet) {
       return 'GPU_MOBILE_TIER_0';
     }
@@ -194,6 +205,7 @@ export function register(options = {}) {
 
   // Only used for testing purposes
   this.forceRenderer = '';
+  this.forceMobile = false;
 
   Object.assign(this, options);
 
@@ -202,6 +214,7 @@ export function register(options = {}) {
     this.benchmarkTierPercentagesMobile,
     this.benchmarkTierPercentagesDesktop,
     this.forceRenderer,
+    this.forceMobile,
   );
 
   return GPU_TIER;
