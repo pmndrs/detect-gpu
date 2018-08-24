@@ -11,6 +11,8 @@ const mobile = stripPrefix(RENDERER_MOBILE);
 const tablet = stripPrefix(RENDERER_TABLET);
 const desktop = stripPrefix(RENDERER_DESKTOP);
 
+// the returned tier and entry don't match up and stay static even when switching out the ordering
+
 function testPerDeviceType(type, forceMobile = false) {
   type.map((entry) => {
     const GPUTier = DetectGPU.register({
@@ -30,10 +32,12 @@ function testPerDeviceType(type, forceMobile = false) {
     test(`${type} -> GPUTier returns a benchmark entry`, () => {
       if (GPUTier.entry === 'BLACKLISTED') {
         console.warn(`BLACKLISTED -> Tier: ${GPUTier.tier}, Entry: ${entry}`);
-      }
-
-      if (GPUTier.entry === 'FALLBACK') {
+      } else if (GPUTier.tier.match(/GPU_(MOBILE|DESKTOP)_TIER_0/)) {
+        console.warn(`TIER 0 -> Tier: ${GPUTier.tier}, Entry: ${entry}`);
+      } else if (GPUTier.entry === 'FALLBACK') {
         console.log(`FALLBACK -> Tier: ${GPUTier.tier}, Entry: ${entry}`);
+      } else {
+        console.log(`SUCCESS -> Tier: ${GPUTier.tier}, Entry: ${entry}`);
       }
 
       expect(GPUTier.entry).toBeDefined();
@@ -42,5 +46,5 @@ function testPerDeviceType(type, forceMobile = false) {
 }
 
 testPerDeviceType(mobile, true);
-testPerDeviceType(tablet, true);
-testPerDeviceType(desktop, false);
+// testPerDeviceType(tablet, true);
+// testPerDeviceType(desktop, false);
