@@ -6,6 +6,8 @@
   "scripts": {
     "start": "NODE_ENV=development concurrently \"webpack -d --progress --watch --display-modules\" \"http-server --cors -s -o\" ",
     "lint": "eslint src/**/*.js",
+    "test": "jest --config=jest.config.json",
+    "test:coverage": "jest --config=jest.config.json --coverage",
     "dist": "NODE_ENV=production webpack -p --progress --optimize-minimize --display-modules && NODE_ENV=development webpack -d --progress --display-modules",
     "deploy": "npm run dist && npm version patch && npm publish && git push origin",
     "parse-analytics": "node ./scripts/analytics_parser.js",
@@ -15,6 +17,7 @@
   "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.26.3",
+    "babel-jest": "^23.4.2",
     "babel-loader": "^7.1.5",
     "babel-plugin-transform-object-assign": "^6.22.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
@@ -24,6 +27,7 @@
     "eslint-config-airbnb-base": "^13.0.0",
     "eslint-plugin-import": "^2.13.0",
     "http-server": "^0.11.1",
+    "jest": "^23.5.0",
     "prettier": "^1.13.7",
     "prettier-eslint": "^8.8.2",
     "webpack": "^4.16.0",

@@ -1,7 +1,8 @@
-// Data
-import { RENDERER_DESKTOP, RENDERER_MOBILE, RENDERER_TABLET } from '../src/renderers';
-
+// Application
 import * as DetectGPU from '../src/index';
+
+// Test data
+import { RENDERER_DESKTOP, RENDERER_MOBILE, RENDERER_TABLET } from './renderers';
 
 const stripPrefix = entries => entries.map(entry => entry.split(' - ')[1].toLowerCase());
 
