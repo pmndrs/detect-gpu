@@ -29,7 +29,7 @@ function testPerDeviceType(type, forceMobile = false) {
 
     test(`${type} -> GPUTier returns a benchmark entry`, () => {
       if (GPUTier.entry === 'BLACKLISTED') {
-        console.warn(`BLACKLISTED -> Tier: ${GPUTier.tier}, Entry: ${entry}`);
+        // console.warn(`BLACKLISTED -> Tier: ${GPUTier.tier}, Entry: ${entry}`);
       }
 
       if (GPUTier.entry === 'FALLBACK') {
@@ -41,6 +41,6 @@ function testPerDeviceType(type, forceMobile = false) {
   });
 }
 
-testPerDeviceType(mobile, true);
-testPerDeviceType(tablet, true);
+// testPerDeviceType(mobile, true);
+// testPerDeviceType(tablet, true);
 testPerDeviceType(desktop, false);

@@ -7,6 +7,24 @@ import Device from './device';
 // Utilities
 import { isWebGLSupported, getBenchmarkByPercentage } from './utilities';
 
+function cleanRendererString(rendererString) {
+  let cleanRenderer;
+
+  cleanRenderer = rendererString;
+
+  // Strip off ANGLE and Direct3D version
+  if (rendererString.includes('angle (') && rendererString.includes('direct3d')) {
+    cleanRenderer = rendererString.split('angle (')[1].split(' direct3d')[0];
+  }
+
+  // Strip off the GB amount (1060 6gb was being concatenated to 10606 and because of it using the fallback)
+  if (rendererString.includes('nvidia') && rendererString.includes('gb')) {
+    cleanRenderer = rendererString.split(/\dgb/)[0];
+  }
+
+  return cleanRenderer;
+}
+
 function getGPUTier(
   verbose,
   mobileBenchmarkPercentages,
@@ -50,6 +68,9 @@ function getGPUTier(
   } else {
     renderer = forceRenderer;
   }
+
+  // Clean off any parts that might give problems
+  renderer = cleanRendererString(renderer);
 
   if (!renderer) {
     if (device.mobile || device.tablet) {
