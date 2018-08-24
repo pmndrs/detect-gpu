@@ -27,6 +27,8 @@ function cleanRendererString(rendererString) {
     rendererString = rendererString.replace('angle (', '').split(' direct3d')[0];
   }
 
+  console.log(rendererString);
+
   // // Strip off the GB amount (1060 6gb was being concatenated to 10606 and because of it using the fallback)
   if (rendererString.includes('nvidia') && rendererString.includes('gb')) {
     rendererString = rendererString.split(/\dgb/)[0];
