@@ -22,7 +22,8 @@
 
         console.log(GPUTier);
 
-        document.getElementById('app').appendChild(document.createTextNode(JSON.stringify(GPUTier.tier, null, 2)));
+        document.getElementById('app').appendChild(document.createTextNode(`Tier: ${GPUTier.tier}
+Benchmark entry: ${GPUTier.entry}`));
     </script>
 
     <script defer src="https://unpkg.com/detect-gpu/scripts/analytics_embed.js"></script>
