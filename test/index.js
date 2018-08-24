@@ -29,7 +29,11 @@ function testPerDeviceType(type, forceMobile = false) {
 
     test(`${type} -> GPUTier returns a benchmark entry`, () => {
       if (GPUTier.entry === 'BLACKLISTED') {
-        console.log(`BLACKLISTED -> Tier: ${GPUTier.tier}, Entry: ${entry}`);
+        console.warn(`BLACKLISTED -> Tier: ${GPUTier.tier}, Entry: ${entry}`);
+      }
+
+      if (GPUTier.entry === 'FALLBACK') {
+        console.log(`FALLBACK -> Tier: ${GPUTier.tier}, Entry: ${entry}`);
       }
 
       expect(GPUTier.entry).toBeDefined();

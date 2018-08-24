@@ -144,6 +144,7 @@ function getGPUTier(
       }
 
       mobileTier = 'GPU_MOBILE_TIER_1';
+      matchedBenchmarkEntry = 'FALLBACK';
     }
 
     return {
@@ -190,6 +191,7 @@ function getGPUTier(
     }
 
     desktopTier = 'GPU_DESKTOP_TIER_1';
+    matchedBenchmarkEntry = 'FALLBACK';
   }
 
   return {
