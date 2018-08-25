@@ -47,6 +47,8 @@ export function getGPUTier(options = {}) {
   const isDesktop = !isMobile;
 
   let renderer;
+  let tier;
+  let type;
 
   if (this.forceRendererString === false) {
     renderer = getWebGLUnmaskedRenderer();
@@ -107,9 +109,6 @@ export function getGPUTier(options = {}) {
     const isRendererNVIDIA = renderer.includes('nvidia');
     const isRendererPowerVR = renderer.includes('powervr');
 
-    let tier;
-    let type;
-
     mobileBenchmark.forEach((benchmarkTier, index) => benchmarkTier.forEach((benchmarkEntry) => {
         const entry = cleanEntryString(benchmarkEntry);
         const entryVersionNumber = getEntryVersionNumber(entry);
@@ -152,9 +151,6 @@ export function getGPUTier(options = {}) {
     const isRendererAMD = renderer.includes('amd');
     const isRendererNVIDIA = renderer.includes('nvidia');
 
-    let tier;
-    let type;
-
     desktopBenchmark.forEach((benchmarkTier, index) => benchmarkTier.forEach((benchmarkEntry) => {
         const entry = cleanEntryString(benchmarkEntry);
         const entryVersionNumber = getEntryVersionNumber(entry);
@@ -189,4 +185,9 @@ export function getGPUTier(options = {}) {
       type,
     };
   }
+
+  return {
+    tier,
+    type,
+  };
 }
