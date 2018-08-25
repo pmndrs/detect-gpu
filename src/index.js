@@ -98,8 +98,15 @@ export function getGPUTier(options = {}) {
 
   // WebGL support is missing
   if (!renderer) {
+    if (isMobile) {
+      return {
+        tier: 'GPU_MOBILE_TIER_0',
+        type: 'WEBGL_UNSUPPORTED',
+      };
+    }
+
     return {
-      tier: 'GPU_MOBILE_TIER_0',
+      tier: 'GPU_DESKTOP_TIER_0',
       type: 'WEBGL_UNSUPPORTED',
     };
   }
