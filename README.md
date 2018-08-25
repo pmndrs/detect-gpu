@@ -44,7 +44,9 @@ By default `detect-gpu` assumes `15%` of the lowest scores to be insufficient to
 You can tweak these percentages when registering the application as shown below:
 
 ```js
-const GPUTier = DetectGPU.getGPUTier({
+import { getGPUTier } from "detect-gpu";
+
+const GPUTier = getGPUTier({
   mobileBenchmarkPercentages: [15, 35, 30, 20], // [TIER_0, TIER_1, TIER_2, TIER_3]
   desktopBenchmarkPercentages: [15, 35, 30, 20], // [TIER_0, TIER_1, TIER_2, TIER_3]
   forceRendererString: "Apple A11 GPU", // (Development) Force a certain renderer string
