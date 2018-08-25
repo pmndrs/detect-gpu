@@ -126,6 +126,8 @@ export function getGPUTier(options = {}) {
             tier = `GPU_MOBILE_TIER_${index}`;
             type = `BENCHMARK - ${entry}`;
           }
+
+          // Handle mobile edge cases
         }
       }));
 
@@ -167,7 +169,9 @@ export function getGPUTier(options = {}) {
             type = `BENCHMARK - ${entry}`;
           }
 
-          // Handle NVIDIA Titan
+          // Handle desktop edge cases
+
+          // NVIDIA Titan does not have a version number preventing it from being picked up
           // if (isRendererNVIDIA && renderer.includes('titan')) {
           //   tier = 'GPU_DESKTOP_TIER_3';
           //   type = `BENCHMARK_FORCED - ${entry}`;
