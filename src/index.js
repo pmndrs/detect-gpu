@@ -4,40 +4,11 @@ import { BENCHMARK_SCORE_DESKTOP, BENCHMARK_SCORE_MOBILE } from './benchmark';
 // Device
 import Device from './device';
 
-// Device detection
+// Utilities
+import { getBenchmarkByPercentage, getWebGLUnmaskedRenderer } from './utilities';
+
+// Instantiate device detection
 const device = new Device();
-
-// Keep reference to the canvas and context in order to clean up
-// after the necessary information has been extracted
-let canvas;
-let gl;
-
-function getWebGLContext(attributes) {
-  canvas = document.createElement('canvas');
-  gl = canvas.getContext('webgl', attributes) || canvas.getContext('experimental-webgl', attributes);
-
-  if (!gl || !(gl instanceof WebGLRenderingContext)) {
-    return false;
-  }
-
-  return gl;
-}
-
-// Get benchmark entry's by percentage of the total benchmark entries
-function getBenchmarkByPercentage(benchmark, percentages) {
-  let chunkOffset = 0;
-
-  const benchmarkTiers = percentages.map((percentage) => {
-    const chunkSize = Math.round((benchmark.length / 100) * percentage);
-    const chunk = benchmark.slice(chunkOffset, chunkOffset + chunkSize);
-
-    chunkOffset += chunkSize;
-
-    return chunk;
-  });
-
-  return benchmarkTiers;
-}
 
 function cleanEntryString(entryString) {
   return entryString
@@ -78,20 +49,7 @@ export function getGPUTier(options = {}) {
   let renderer;
 
   if (this.forceRendererString === false) {
-    gl = getWebGLContext({
-      alpha: false,
-      stencil: false,
-      failIfMajorPerformanceCaveat: true,
-    });
-
-    const glExtensionDebugRendererInfo = gl.getExtension('WEBGL_debug_renderer_info');
-
-    renderer = glExtensionDebugRendererInfo
-      && gl.getParameter(glExtensionDebugRendererInfo.UNMASKED_RENDERER_WEBGL);
-
-    // Clean up canvas and WebGL context
-    canvas = undefined;
-    gl = undefined;
+    renderer = getWebGLUnmaskedRenderer();
   } else {
     renderer = this.forceRendererString;
   }
