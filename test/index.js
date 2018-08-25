@@ -1,5 +1,5 @@
 // Application
-import * as DetectGPU from '../src/index';
+import { getGPUTier } from '../src/index';
 
 // Test data
 import { RENDERER_DESKTOP, RENDERER_MOBILE, RENDERER_TABLET } from './renderers';
@@ -13,7 +13,7 @@ const desktop = stripPrefix(RENDERER_DESKTOP);
 
 function testPerDeviceType(deviceType, forceMobile = false) {
   deviceType.map((rendererEntry) => {
-    const GPUTier = DetectGPU.getGPUTier({
+    const GPUTier = getGPUTier({
       forceRendererString: rendererEntry,
       forceMobile,
     });
