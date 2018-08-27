@@ -4,7 +4,7 @@
 
 (function() {
   if (typeof window !== 'undefined' && window && typeof document !== 'undefined' && document) {
-    var trackingCode = 'UA-112999355-1';
+    var trackingCode = 'UA-112999355-2';
 
     (function(i, s, o, g, r, a, m) {
       i['GoogleAnalyticsObject'] = r;
