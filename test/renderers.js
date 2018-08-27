@@ -352,8 +352,8 @@ export const RENDERER_TABLET = [
 ];
 
 export const RENDERER_MOBILE = [
-  '1,529 - Apple A11 GPU',
-  '1,259 - Apple A10 GPU',
+  '1529 - Apple A11 GPU',
+  '1259 - Apple A10 GPU',
   '789 - Apple A9 GPU',
   '328 - Apple A8 GPU',
   '99 - Mali-G71',

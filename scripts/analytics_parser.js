@@ -50,15 +50,15 @@ parseAnalytics(path.resolve('./data/analytics.csv')).then((result) => {
 
 
         export const RENDERER_DESKTOP = [
-          ${result.desktopData.map(entry => `\n\'${entry}\'`)}
+          ${result.desktopData.map(entry => `\n\'${entry.replace(',', '')}\'`)}
         ];
 
         export const RENDERER_TABLET = [
-          ${result.tabletData.map(entry => `\n\'${entry}\'`)}
+          ${result.tabletData.map(entry => `\n\'${entry.replace(',', '')}\'`)}
         ];
 
         export const RENDERER_MOBILE = [
-          ${result.mobileData.map(entry => `\n\'${entry}\'`)}
+          ${result.mobileData.map(entry => `\n\'${entry.replace(',', '')}\'`)}
         ];
       `;
 
