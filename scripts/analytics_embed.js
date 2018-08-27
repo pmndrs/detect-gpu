@@ -33,7 +33,7 @@
           glExtensionDebugRendererInfo &&
           gl.getParameter(glExtensionDebugRendererInfo.UNMASKED_RENDERER_WEBGL);
 
-        $$__analytics('send', 'event', 'renderer', 'load', renderer.toString(), {
+        $$__analytics('send', 'event', 'WebGL renderer string', 'load', renderer.toString(), {
           nonInteraction: true,
         });
       }
