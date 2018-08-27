@@ -27,7 +27,7 @@ function cleanRendererString(rendererString) {
     rendererString = rendererString.replace('angle (', '').split(' direct3d')[0];
   }
 
-  // // Strip off the GB amount (1060 6gb was being concatenated to 10606 and because of it using the fallback)
+  // Strip off the GB amount (1060 6gb was being concatenated to 10606 and because of it using the fallback)
   if (rendererString.includes('nvidia') && rendererString.includes('gb')) {
     rendererString = rendererString.split(/\dgb/)[0];
   }
@@ -37,8 +37,8 @@ function cleanRendererString(rendererString) {
 
 class GPUTier {
   constructor(options = {}) {
-    this.mobileBenchmarkPercentages = [15, 35, 30, 20];
-    this.desktopBenchmarkPercentages = [15, 35, 30, 20];
+    this.mobileBenchmarkPercentages = [10, 40, 30, 20]; // [TIER_0, TIER_1, TIER_2, TIER_3]
+    this.desktopBenchmarkPercentages = [10, 40, 30, 20]; // [TIER_0, TIER_1, TIER_2, TIER_3]
     this.forceRendererString = false;
     this.forceMobile = false;
 
@@ -167,12 +167,6 @@ class GPUTier {
             }
 
             // Handle desktop edge cases
-
-            // NVIDIA Titan does not have a version number preventing it from being picked up
-            // if (isRendererNVIDIA && renderer.includes('titan')) {
-            //   tier = 'GPU_DESKTOP_TIER_3';
-            //   type = `BENCHMARK_FORCED - ${entry}`;
-            // }
           }
         }));
 

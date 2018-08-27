@@ -1,0 +1,31 @@
+
+> detect-gpu@0.0.23 test /Users/timvanscherpenzeel/Projects/detect-gpu
+> jest --config=jest.config.json
+
+  console.log test/index.js:44
+    FALLBACK -> Entry: apple a8 gpu, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:44
+    FALLBACK -> Entry: apple a7 gpu, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
+
+  console.warn test/index.js:36
+    BLACKLISTED -> Entry: mali-400 mp, Tier: GPU_MOBILE_TIER_0, Type: BLACKLISTED
+
+  console.warn test/index.js:36
+    BLACKLISTED -> Entry: mali-450 mp, Tier: GPU_MOBILE_TIER_0, Type: BLACKLISTED
+
+  console.log test/index.js:44
+    FALLBACK -> Entry: google swiftshader, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:44
+    FALLBACK -> Entry: vivante gc7000ul, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:44
+    FALLBACK -> Entry: chromium, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:44
+    FALLBACK -> Entry: intel(r) hd graphics for baytrail, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:44
+    FALLBACK -> Entry: nvidia geforce gt 750m opengl engine, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
+
