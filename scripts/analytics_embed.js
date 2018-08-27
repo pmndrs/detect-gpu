@@ -24,12 +24,13 @@
     $$__analytics('send', 'pageview');
 
     document.addEventListener('DOMContentLoaded', function() {
-      // WebGL supported: boolean
-      // Check if WebGL is supported
+      // WebGL support: boolean
+      // Return if WebGL is supported
       var webglCanvas = document.createElement('canvas');
       var webgl = webglCanvas.getContext('webgl') || webglCanvas.getContext('experimental-webgl');
+      var isWebGLSupported = !!webgl;
 
-      $$__analytics('send', 'event', 'isWebGLSupported', 'load', !!webgl, {
+      $$__analytics('send', 'event', 'isWebGLSupported', 'load', isWebGLSupported, {
         nonInteraction: true,
       });
 
@@ -47,12 +48,13 @@
       }
 
       // WebGL2 support: boolean
-      // Check if WebGL2 is supported
+      // Return if WebGL2 is supported
       var webgl2Canvas = document.createElement('canvas');
       var webgl2 =
         webgl2Canvas.getContext('webgl2') || webgl2Canvas.getContext('experimental-webgl2');
+      var isWebGL2Supported = !!webgl2;
 
-      $$__analytics('send', 'event', 'isWebGL2Supported', 'load', !!webgl2, {
+      $$__analytics('send', 'event', 'isWebGL2Supported', 'load', isWebGL2Supported, {
         nonInteraction: true,
       });
 
