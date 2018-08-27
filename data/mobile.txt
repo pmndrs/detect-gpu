@@ -1,5 +1,5 @@
 
-> detect-gpu@0.0.23 test /Users/timvanscherpenzeel/Projects/detect-gpu
+> detect-gpu@0.0.24 test /Users/timvanscherpenzeel/Projects/detect-gpu
 > jest --config=jest.config.json
 
   console.log test/index.js:44
