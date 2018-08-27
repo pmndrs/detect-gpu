@@ -14,8 +14,8 @@
   console.log test/index.js:44
     FALLBACK -> Entry: angle (nvidia geforce gtx 660 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
-  console.warn test/index.js:36
-    BLACKLISTED -> Entry: angle (amd radeon r9 200 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_0, Type: BLACKLISTED
+  console.log test/index.js:44
+    FALLBACK -> Entry: angle (amd radeon r9 200 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:44
     FALLBACK -> Entry: angle (intel(r) hd graphics 3000 direct3d11 vs_4_1 ps_4_1), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
