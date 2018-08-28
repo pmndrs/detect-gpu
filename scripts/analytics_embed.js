@@ -5,7 +5,7 @@
 (function() {
   if (typeof window !== 'undefined' && window && typeof document !== 'undefined' && document) {
     // Configuration
-    var trackingCode = 'UA-112999355-4';
+    var trackingCode = 'UA-112999355-3';
 
     // Create Google Analytics object (registers under the global: "$$__analytics")
     (function(i, s, o, g, r, a, m) {
