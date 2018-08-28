@@ -4,8 +4,10 @@
 
 (function() {
   if (typeof window !== 'undefined' && window && typeof document !== 'undefined' && document) {
-    var trackingCode = 'UA-112999355-3';
+    // Configuration
+    var trackingCode = 'UA-112999355-4';
 
+    // Create Google Analytics object (registers under the global: "$$__analytics")
     (function(i, s, o, g, r, a, m) {
       i['GoogleAnalyticsObject'] = r;
       (i[r] =
@@ -23,6 +25,21 @@
     $$__analytics('create', trackingCode, 'auto');
     $$__analytics('send', 'pageview');
 
+    // Utilities
+    function sortArray(arr) {
+      arr.sort(function(a, b) {
+        var nameA = a.toLowerCase();
+        var nameB = b.toLowerCase();
+
+        if (nameA < nameB) return -1;
+        if (nameA > nameB) return 1;
+
+        return 0;
+      });
+
+      return arr;
+    }
+
     document.addEventListener('DOMContentLoaded', function() {
       // WebGL support: boolean
       // Return if WebGL is supported
@@ -34,9 +51,9 @@
         nonInteraction: true,
       });
 
-      // WebGL unmasked renderer: string
-      // Return unmasked renderer string (GPU driver name)
       if (webgl) {
+        // WebGL unmasked renderer: string
+        // Return unmasked renderer string (GPU driver name)
         var glExtensionDebugRendererInfo = webgl.getExtension('WEBGL_debug_renderer_info');
         var renderer =
           glExtensionDebugRendererInfo &&
@@ -45,6 +62,20 @@
         $$__analytics('send', 'event', 'webGLRenderer', 'load', renderer.toString(), {
           nonInteraction: true,
         });
+
+        // Supported WebGL extensions: [string, string, ...]
+        var extensions = webgl.getSupportedExtensions();
+
+        $$__analytics(
+          'send',
+          'event',
+          'webglSupportedExtensions',
+          'load',
+          JSON.stringify(sortArray(extensions)),
+          {
+            nonInteraction: true,
+          },
+        );
       }
 
       // WebGL2 support: boolean
@@ -58,8 +89,26 @@
         nonInteraction: true,
       });
 
+      if (webgl2) {
+        // Supported WebGL extensions: [string, string, ...]
+        var extensions = webgl2.getSupportedExtensions();
+
+        $$__analytics(
+          'send',
+          'event',
+          'webgl2SupportedExtensions',
+          'load',
+          JSON.stringify(sortArray(extensions)),
+          {
+            nonInteraction: true,
+          },
+        );
+      }
+
       // Device pixel ratio: number
       // Ratio of the resolution in physical pixels to the resolution in CSS pixels for the current display device.
+      // This value could also be interpreted as the ratio of pixel sizes: the size of one CSS pixel to the size of one physical pixel.
+      // In simpler terms, this tells the browser how many of the screen's actual pixels should be used to draw a single CSS pixel.
       var devicePixelRatio = window.devicePixelRatio || 1;
 
       $$__analytics('send', 'event', 'devicePixelRatio', 'load', devicePixelRatio, {
@@ -75,6 +124,7 @@
       });
 
       // WebVR support: boolean
+      // The WebVR API is being replaced by the WebXR Device API, but may still be available in some browsers while that API is finalized.
       // https://developer.mozilla.org/en-US/docs/Web/API/Navigator/getVRDisplays
       var isWebVRSupported = !!navigator.getVRDisplays || false;
 
@@ -83,6 +133,7 @@
       });
 
       // WebXR support: boolean
+      // WebXR is an API for accessing VR, AR, MR on the web
       // https://immersive-web.github.io/webxr/
       var isWebXRSupported = !!navigator.xr || false;
 
@@ -90,7 +141,7 @@
         nonInteraction: true,
       });
 
-      // Cleanup
+      // Cleanup created WebGL canvas and WebGL2 canvas including contexts
       webglCanvas = null;
       webgl2Canvas = null;
       webgl = null;
