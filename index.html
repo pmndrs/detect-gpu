@@ -21,11 +21,11 @@
             // forceMobile: true,
         });
 
-        document.getElementById('app').appendChild(document.createTextNode(`Tier: ${GPUTier.tier}
-Type: ${GPUTier.type}`));
+        document.getElementById('app').appendChild(document.createTextNode('Tier: ' + GPUTier.tier + '\n' +
+            'Type: ' + GPUTier.type));
     </script>
 
-    <script defer src="https://unpkg.com/detect-gpu/scripts/analytics_embed.js"></script>
+    <script defer src="./scripts/analytics_embed.js"></script>
 </body>
 
 </html>

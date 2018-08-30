@@ -1,3 +1,4 @@
+/* prettier-ignore */
 /* eslint-disable */
 
 // https://github.com/TimvanScherpenzeel/detect-gpu/blob/master/scripts/analytics_embed.js
@@ -74,7 +75,7 @@
           JSON.stringify(sortArray(extensions)),
           {
             nonInteraction: true,
-          },
+          }
         );
       }
 
@@ -101,7 +102,7 @@
           JSON.stringify(sortArray(extensions)),
           {
             nonInteraction: true,
-          },
+          }
         );
       }
 
