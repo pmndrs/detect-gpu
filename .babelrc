@@ -4,7 +4,7 @@
       "@babel/env",
       {
         "modules": false,
-        "useBuiltIns": "usage",
+        "useBuiltIns": false,
         "targets": {
           "browsers": ["> 5%", "last 2 versions", "not ie < 11"]
         }
