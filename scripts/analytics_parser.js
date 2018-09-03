@@ -28,7 +28,7 @@ function parseAnalytics(file) {
         const dateEntry = data.slice(3, 4);
         const dateRange = dateEntry[0].field1.replace('# ', '').split('-');
         const timeSpan = moment.duration(moment(dateRange[1]).diff(moment(dateRange[0]))).asDays();
-        const entries = data.slice(6, data.length - (timeSpan + 4)); // Be sure to increase - n with the number of day entries
+        const entries = data.slice(6, data.length - (timeSpan + 4));
 
         const mobileData = getRendererData('mobile', entries);
         const tabletData = getRendererData('tablet', entries);
