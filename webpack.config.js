@@ -27,6 +27,18 @@ const config = {
         loader: 'babel-loader?cacheDirectory=true',
         options: {
           plugins: ['transform-object-assign'],
+          presets: [
+            [
+              'babel-preset-env',
+              {
+                modules: false,
+                useBuiltIns: false,
+                targets: {
+                  browsers: ['> 5%', 'last 2 versions', 'not ie < 11'],
+                },
+              },
+            ],
+          ],
         },
       },
     ],
