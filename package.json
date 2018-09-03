@@ -15,6 +15,13 @@
   },
   "author": "Tim van Scherpenzeel",
   "license": "MIT",
+  "dependencies": {
+    "csvtojson": "^2.0.8",
+    "jssoup": "^0.0.9",
+    "moment": "^2.22.2",
+    "node-fetch": "^2.1.2",
+    "ua-parser-js": "^0.7.18"
+  },
   "devDependencies": {
     "@babel/core": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
@@ -31,11 +38,5 @@
     "prettier-eslint": "^8.8.2",
     "webpack": "^4.16.0",
     "webpack-cli": "^3.0.8"
-  },
-  "dependencies": {
-    "csvtojson": "^2.0.8",
-    "jssoup": "^0.0.9",
-    "node-fetch": "^2.1.2",
-    "ua-parser-js": "^0.7.18"
   }
 }
