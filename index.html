@@ -2,30 +2,30 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <title>Detect GPU</title>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <title>Detect GPU</title>
 </head>
 
 <body>
-    <pre id="app"></pre>
+  <pre id="app"></pre>
 
-    <script src="./dist/detect-gpu.js"></script>
+  <script src="./dist/detect-gpu.js"></script>
 
-    <script>
-        const GPUTier = DetectGPU.getGPUTier({
-            // mobileBenchmarkPercentages: [15, 35, 30, 20],
-            // desktopBenchmarkPercentages: [15, 35, 30, 20],
-            // forceRendererString: 'Apple A11 GPU',
-            // forceMobile: true,
-        });
+  <script>
+    const GPUTier = DetectGPU.getGPUTier({
+      // mobileBenchmarkPercentages: [15, 35, 30, 20],
+      // desktopBenchmarkPercentages: [15, 35, 30, 20],
+      // forceRendererString: 'ANGLE (NVIDIA GeForce GTX 1060 6GB Direct3D11 vs_5_0 ps_5_0)',
+      // forceMobile: true,
+    });
 
-        document.getElementById('app').appendChild(document.createTextNode('Tier: ' + GPUTier.tier + '\n' +
-            'Type: ' + GPUTier.type));
-    </script>
+    document.getElementById('app').appendChild(document.createTextNode('Tier: ' + GPUTier.tier + '\n' +
+      'Type: ' + GPUTier.type));
+  </script>
 
-    <script defer src="./scripts/analytics_embed.js"></script>
+  <script defer src="./scripts/analytics_embed.js"></script>
 </body>
 
 </html>
