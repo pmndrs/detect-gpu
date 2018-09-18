@@ -1,5 +1,5 @@
 
-> detect-gpu@0.0.31 test /Users/TVS/Projects/detect-gpu
+> detect-gpu@0.0.32 test /Users/TVS/Projects/detect-gpu
 > jest --config=jest.config.json
 
   console.log test/index.js:44
@@ -21,8 +21,26 @@
     FALLBACK -> Entry: vivante gc7000ul, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
 
   console.log test/index.js:44
+    FALLBACK -> Entry: llvmpipe (llvm 6.0 256 bits), Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:44
     FALLBACK -> Entry: amd radeon pro 560 opengl engine, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
 
   console.log test/index.js:44
     FALLBACK -> Entry: amd radeon r9 m380 opengl engine, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:44
+    FALLBACK -> Entry: gallium 0.4 on llvmpipe (llvm 3.8 256 bits), Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:44
+    FALLBACK -> Entry: gc1000 core, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:44
+    FALLBACK -> Entry: intel iris pro opengl engine, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:44
+    FALLBACK -> Entry: mali-g51, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:44
+    FALLBACK -> Entry: powervr rogue ge8320, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
 
