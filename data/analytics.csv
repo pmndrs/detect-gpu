@@ -1,655 +1,854 @@
 # ----------------------------------------
 # All Web Site Data
 # Top Events
-# 20180826-20180908
+# 20180826-20180918
 # ----------------------------------------
 
 Event Label,Device Category,Total Events,Unique Events,Event Value,Avg. Value
-Apple A11 GPU,mobile,"8,411","3,900",0,0.00
-Apple A10 GPU,mobile,"6,931","3,215",0,0.00
-Apple A9 GPU,mobile,"4,547","2,177",0,0.00
-Apple A8 GPU,mobile,"1,828",872,0,0.00
-Intel(R) HD Graphics 6000,desktop,"1,621",756,0,0.00
-Intel(R) Iris(TM) Graphics 6100,desktop,"1,070",502,0,0.00
-Intel Iris Pro OpenGL Engine,desktop,985,442,0,0.00
-Intel(R) Iris(TM) Plus Graphics 640,desktop,817,396,0,0.00
-Intel HD Graphics 4000 OpenGL Engine,desktop,730,318,0,0.00
-Mali-T830,mobile,801,314,0,0.00
-Intel HD Graphics 5000 OpenGL Engine,desktop,629,292,0,0.00
-ANGLE (Intel(R) HD Graphics 620 Direct3D11 vs_5_0 ps_5_0),desktop,683,289,0,0.00
-Intel Iris OpenGL Engine,desktop,583,275,0,0.00
-Adreno (TM) 540,mobile,714,268,0,0.00
-Mali-G71,mobile,620,258,0,0.00
-ANGLE (Intel(R) HD Graphics 520 Direct3D11 vs_5_0 ps_5_0),desktop,526,237,0,0.00
-ANGLE (Intel(R) HD Graphics 530 Direct3D11 vs_5_0 ps_5_0),desktop,536,234,0,0.00
-Mali-T880,mobile,601,234,0,0.00
-Google SwiftShader,desktop,427,227,0,0.00
-ANGLE (Intel(R) HD Graphics Direct3D11 vs_5_0 ps_5_0),desktop,506,220,0,0.00
-ANGLE (Intel(R) HD Graphics 4600 Direct3D11 vs_5_0 ps_5_0),desktop,393,203,0,0.00
-Apple A7 GPU,mobile,419,199,0,0.00
-ANGLE (Intel(R) HD Graphics 630 Direct3D11 vs_5_0 ps_5_0),desktop,376,177,0,0.00
-Intel(R) Iris(TM) Graphics 650,desktop,405,177,0,0.00
-Adreno (TM) 530,mobile,405,167,0,0.00
-Apple A8X GPU,tablet,317,155,0,0.00
-Mali-G72,mobile,362,147,0,0.00
-ANGLE (Intel(R) HD Graphics Family Direct3D11 vs_5_0 ps_5_0),desktop,353,145,0,0.00
-ANGLE (Intel(R) HD Graphics 5500 Direct3D11 vs_5_0 ps_5_0),desktop,310,140,0,0.00
-Mali-T720,mobile,314,139,0,0.00
-AMD Radeon Pro 560 OpenGL Engine,desktop,289,134,0,0.00
-ANGLE (Intel(R) UHD Graphics 620 Direct3D11 vs_5_0 ps_5_0),desktop,237,122,0,0.00
-ANGLE (Intel(R) HD Graphics 4000 Direct3D11 vs_5_0 ps_5_0),desktop,266,119,0,0.00
-NVIDIA GeForce GT 750M OpenGL Engine,desktop,200,112,0,0.00
-Adreno (TM) 630,mobile,287,111,0,0.00
-NVIDIA GeForce GT 650M OpenGL Engine,desktop,210,108,0,0.00
-Mali-T760,mobile,269,107,0,0.00
-Mesa DRI Intel(R) HD Graphics 400 (Braswell),desktop,244,105,0,0.00
-AMD Radeon Pro 555 OpenGL Engine,desktop,228,101,0,0.00
-Intel(R) Iris(TM) Graphics 550,desktop,219,101,0,0.00
-Apple A10X GPU,tablet,213,99,0,0.00
-Apple A7 GPU,tablet,209,91,0,0.00
-AMD Radeon R9 M370X OpenGL Engine,desktop,185,88,0,0.00
-Mesa DRI Intel(R) Bay Trail,desktop,173,82,0,0.00
-ANGLE (NVIDIA GeForce GTX 970 Direct3D11 vs_5_0 ps_5_0),desktop,178,78,0,0.00
-ANGLE (NVIDIA GeForce GTX 1060 6GB Direct3D11 vs_5_0 ps_5_0),desktop,161,76,0,0.00
-ANGLE (Intel(R) HD Graphics Direct3D11 vs_4_1 ps_4_1),desktop,158,75,0,0.00
-ANGLE (NVIDIA GeForce GTX 1070 Direct3D11 vs_5_0 ps_5_0),desktop,168,74,0,0.00
-Adreno (TM) 505,mobile,198,73,0,0.00
-ANGLE (NVIDIA GeForce GTX 750 Ti Direct3D11 vs_5_0 ps_5_0),desktop,184,73,0,0.00
-Adreno (TM) 506,mobile,211,72,0,0.00
-PowerVR SGX 543,mobile,150,71,0,0.00
-Adreno (TM) 308,mobile,154,70,0,0.00
-Apple A9X GPU,tablet,153,68,0,0.00
-ANGLE (NVIDIA GeForce GTX 1050 Ti Direct3D11 vs_5_0 ps_5_0),desktop,147,67,0,0.00
-ANGLE (NVIDIA GeForce GTX 960 Direct3D11 vs_5_0 ps_5_0),desktop,169,64,0,0.00
-Intel(R) Iris(TM) Pro Graphics 6200,desktop,125,63,0,0.00
-AMD Radeon R9 M390 OpenGL Engine,desktop,159,62,0,0.00
-ANGLE (Intel(R) HD Graphics Direct3D9Ex vs_3_0 ps_3_0),desktop,157,62,0,0.00
-Intel(R) Iris(TM) Graphics 540,desktop,150,62,0,0.00
-Apple A9 GPU,tablet,143,61,0,0.00
-Intel(R) HD Graphics 5300,desktop,156,59,0,0.00
-AMD Radeon Pro 450 OpenGL Engine,desktop,117,58,0,0.00
-Adreno (TM) 306,mobile,154,56,0,0.00
-ANGLE (Intel(R) HD Graphics 3000 Direct3D11 vs_4_1 ps_4_1),desktop,107,56,0,0.00
-ANGLE (NVIDIA GeForce GTX 1060 3GB Direct3D11 vs_5_0 ps_5_0),desktop,114,56,0,0.00
-Intel HD Graphics 3000 OpenGL Engine,desktop,139,55,0,0.00
-Intel(R) HD Graphics 515,desktop,104,51,0,0.00
-Intel(R) HD Graphics 630,desktop,124,50,0,0.00
-Microsoft Basic Render Driver,desktop,128,50,0,0.00
-ANGLE (Intel(R) HD Graphics Family Direct3D9Ex vs_3_0 ps_3_0),desktop,113,47,0,0.00
-AMD Radeon Pro 570 OpenGL Engine,desktop,92,44,0,0.00
-ANGLE (NVIDIA GeForce GTX 1080 Direct3D11 vs_5_0 ps_5_0),desktop,95,43,0,0.00
-AMD Radeon HD 6750M OpenGL Engine,desktop,99,41,0,0.00
-ANGLE (Intel(R) HD Graphics 4400 Direct3D11 vs_5_0 ps_5_0),desktop,83,38,0,0.00
-Apple A10 GPU,tablet,121,38,0,0.00
-Adreno (TM) 330,mobile,83,37,0,0.00
-ANGLE (NVIDIA GeForce GTX 1050 Direct3D11 vs_5_0 ps_5_0),desktop,68,37,0,0.00
-NVIDIA GeForce GTX 775M OpenGL Engine,desktop,76,37,0,0.00
-Intel(R) HD Graphics 530,desktop,65,36,0,0.00
-NVIDIA GeForce 320M OpenGL Engine,desktop,87,36,0,0.00
-Intel(R) HD Graphics,desktop,70,34,0,0.00
-NVIDIA GeForce GT 755M OpenGL Engine,desktop,74,33,0,0.00
-ANGLE (Microsoft Basic Render Driver Direct3D11 vs_5_0 ps_5_0),desktop,54,32,0,0.00
-Mali-400 MP,mobile,78,32,0,0.00
-AMD Radeon Pro 580 OpenGL Engine,desktop,60,31,0,0.00
-AMD Radeon R9 M380 OpenGL Engine,desktop,73,31,0,0.00
-ANGLE (NVIDIA GeForce GT 730 Direct3D11 vs_5_0 ps_5_0),desktop,83,30,0,0.00
-Apple A8 GPU,tablet,69,30,0,0.00
-Intel(R) HD Graphics 615,desktop,62,30,0,0.00
-Intel(R) Iris(TM) Plus Graphics 655,desktop,77,30,0,0.00
-Adreno (TM) 304,mobile,72,29,0,0.00
-AMD Radeon Pro 460 OpenGL Engine,desktop,50,27,0,0.00
-AMD Radeon R9 M395 OpenGL Engine,desktop,42,27,0,0.00
-ANGLE (AMD Radeon(TM) R5 Graphics Direct3D11 vs_5_0 ps_5_0),desktop,66,26,0,0.00
-ANGLE (Intel(R) UHD Graphics 630 Direct3D11 vs_5_0 ps_5_0),desktop,68,26,0,0.00
-Mali-T860,mobile,58,26,0,0.00
-ANGLE (Intel(R) HD Graphics 4000 Direct3D9Ex vs_3_0 ps_3_0),desktop,92,25,0,0.00
-Adreno (TM) 405,mobile,69,24,0,0.00
-Intel(R) HD Graphics 4600,desktop,62,24,0,0.00
-AMD Radeon HD 6770M OpenGL Engine,desktop,49,23,0,0.00
-AMD Radeon Pro 455 OpenGL Engine,desktop,66,22,0,0.00
-ANGLE (NVIDIA GeForce GTX 750 Direct3D11 vs_5_0 ps_5_0),desktop,61,22,0,0.00
-Google SwiftShader,mobile,20,20,0,0.00
-NVIDIA GeForce GT 640M OpenGL Engine,desktop,45,20,0,0.00
-Intel(R) HD Graphics 520,desktop,57,19,0,0.00
-AMD Radeon Pro 575 OpenGL Engine,desktop,33,18,0,0.00
-ANGLE (AMD Radeon R9 200 Series Direct3D11 vs_5_0 ps_5_0),desktop,45,18,0,0.00
-ANGLE (NVIDIA GeForce GTX 1080 Ti Direct3D11 vs_5_0 ps_5_0),desktop,39,18,0,0.00
-ANGLE (NVIDIA GeForce GTX 770 Direct3D11 vs_5_0 ps_5_0),desktop,38,18,0,0.00
-ANGLE (NVIDIA GeForce GTX 950 Direct3D11 vs_5_0 ps_5_0),desktop,58,18,0,0.00
-NVIDIA GeForce GTX 660M OpenGL Engine,desktop,30,18,0,0.00
-Adreno (TM) 430,mobile,37,17,0,0.00
-Adreno (TM) 512,mobile,50,17,0,0.00
-ANGLE (AMD Radeon R7 200 Series Direct3D11 vs_5_0 ps_5_0),desktop,44,17,0,0.00
-ANGLE (Intel(R) HD Graphics 510 Direct3D11 vs_5_0 ps_5_0),desktop,38,17,0,0.00
-ANGLE (NVIDIA GeForce GTX 760 Direct3D11 vs_5_0 ps_5_0),desktop,38,17,0,0.00
-PowerVR SGX 543,tablet,35,17,0,0.00
-Adreno (TM) 510,mobile,47,15,0,0.00
-ATI Radeon HD 4670 OpenGL Engine,desktop,45,15,0,0.00
-Intel(R) HD Graphics 620,desktop,30,15,0,0.00
-Mesa DRI Intel(R) Haswell Mobile,desktop,38,15,0,0.00
-NVIDIA GeForce GT 330M OpenGL Engine,desktop,27,15,0,0.00
-NVIDIA GeForce GTX 675MX OpenGL Engine,desktop,25,15,0,0.00
-AMD Radeon R9 M290 OpenGL Engine,desktop,32,14,0,0.00
-ANGLE (NVIDIA GeForce GT 610 Direct3D11 vs_5_0 ps_5_0),desktop,36,14,0,0.00
-Intel(R) UHD Graphics 620,desktop,31,14,0,0.00
-NVIDIA GeForce 9400M OpenGL Engine,desktop,36,14,0,0.00
-NVIDIA GeForce GTX 680MX OpenGL Engine,desktop,26,14,0,0.00
-AMD Radeon R9 M290X OpenGL Engine,desktop,22,13,0,0.00
-ANGLE (Intel(R) HD Graphics 610 Direct3D11 vs_5_0 ps_5_0),desktop,24,13,0,0.00
-ANGLE (Intel(R) HD Graphics 615 Direct3D11 vs_5_0 ps_5_0),desktop,22,13,0,0.00
-ANGLE (NVIDIA GeForce GTX 1060 Direct3D11 vs_5_0 ps_5_0),desktop,45,13,0,0.00
-ANGLE (NVIDIA GeForce GTX 650 Direct3D11 vs_5_0 ps_5_0),desktop,23,13,0,0.00
-Mali-450 MP,mobile,43,13,0,0.00
-ANGLE (AMD Radeon(TM) R4 Graphics Direct3D11 vs_5_0 ps_5_0),desktop,21,12,0,0.00
-ANGLE (Intel(R) HD Graphics 4400 Direct3D9Ex vs_3_0 ps_3_0),desktop,24,12,0,0.00
-ANGLE (Intel(R) HD Graphics 515 Direct3D11 vs_5_0 ps_5_0),desktop,33,12,0,0.00
-ANGLE (NVIDIA GeForce 405 Direct3D11 vs_4_1 ps_4_1),desktop,18,12,0,0.00
-ANGLE (NVIDIA GeForce GT 620 Direct3D11 vs_5_0 ps_5_0),desktop,32,12,0,0.00
-ANGLE (NVIDIA GeForce GTX 550 Ti Direct3D11 vs_5_0 ps_5_0),desktop,25,12,0,0.00
-Intel(R) HD Graphics Family,desktop,26,12,0,0.00
-Mesa DRI Intel(R) HD Graphics 500 (Broxton 2x6),desktop,22,12,0,0.00
-AMD Radeon HD - FirePro D500 OpenGL Engine,desktop,17,11,0,0.00
-AMD Radeon Pro 560X OpenGL Engine,desktop,24,11,0,0.00
-ANGLE (AMD Radeon(TM) R7 Graphics Direct3D11 vs_5_0 ps_5_0),desktop,25,11,0,0.00
-ANGLE (Intel(R) G41 Express Chipset Direct3D9Ex vs_3_0 ps_3_0),desktop,18,11,0,0.00
-ANGLE (Intel(R) HD Graphics 4600 Direct3D9Ex vs_3_0 ps_3_0),desktop,21,11,0,0.00
-ANGLE (NVIDIA GeForce GT 630 Direct3D11 vs_5_0 ps_5_0),desktop,21,11,0,0.00
-ANGLE (NVIDIA Quadro K620 Direct3D11 vs_5_0 ps_5_0),desktop,30,11,0,0.00
-Mesa DRI Intel(R) Broadwell GT1,desktop,42,11,0,0.00
-NVIDIA GeForce 9400 OpenGL Engine,desktop,29,11,0,0.00
-NVIDIA GeForce GTX 780M OpenGL Engine,desktop,33,11,0,0.00
-Adreno (TM) 305,mobile,30,10,0,0.00
-AMD Radeon Pro 555X OpenGL Engine,desktop,16,10,0,0.00
-ANGLE (NVIDIA GeForce GTX 660 Direct3D11 vs_5_0 ps_5_0),desktop,44,10,0,0.00
-ANGLE (NVIDIA GeForce GTX 745 Direct3D11 vs_5_0 ps_5_0),desktop,24,10,0,0.00
-ANGLE (NVIDIA GeForce GTX 750 Ti Direct3D9Ex vs_3_0 ps_3_0),desktop,17,10,0,0.00
-Adreno (TM) 509,mobile,36,9,0,0.00
-AMD Radeon R9 M295X OpenGL Engine,desktop,11,9,0,0.00
-ANGLE (AMD Radeon HD 7700 Series Direct3D11 vs_5_0 ps_5_0),desktop,17,9,0,0.00
-ANGLE (AMD Radeon HD 7800 Series Direct3D11 vs_5_0 ps_5_0),desktop,19,9,0,0.00
-ANGLE (AMD Radeon HD 8400 Direct3D11 vs_5_0 ps_5_0),desktop,19,9,0,0.00
-ANGLE (Intel(R) HD Graphics 5300 Direct3D11 vs_5_0 ps_5_0),desktop,29,9,0,0.00
-ANGLE (NVIDIA GeForce GTX 1070 Ti Direct3D11 vs_5_0 ps_5_0),desktop,21,9,0,0.00
-ANGLE (NVIDIA GeForce GTX 980 Ti Direct3D11 vs_5_0 ps_5_0),desktop,15,9,0,0.00
-ANGLE (Radeon (TM) RX 480 Graphics Direct3D11 vs_5_0 ps_5_0),desktop,16,9,0,0.00
-Mali-T604,desktop,18,9,0,0.00
-Mali-T830,tablet,16,9,0,0.00
-PowerVR SGX 554,tablet,21,9,0,0.00
-Adreno (TM) 418,mobile,15,8,0,0.00
-ANGLE (AMD Radeon (TM) R9 390 Series Direct3D11 vs_5_0 ps_5_0),desktop,19,8,0,0.00
+Apple A11 GPU,mobile,"16,167","7,401",0,0.00
+Apple A10 GPU,mobile,"13,101","6,037",0,0.00
+Apple A9 GPU,mobile,"8,375","3,904",0,0.00
+Apple A8 GPU,mobile,"3,294","1,571",0,0.00
+Intel(R) HD Graphics 6000,desktop,"3,176","1,420",0,0.00
+Intel(R) Iris(TM) Graphics 6100,desktop,"2,015",904,0,0.00
+Intel Iris Pro OpenGL Engine,desktop,"1,781",746,0,0.00
+Intel(R) Iris(TM) Plus Graphics 640,desktop,"1,602",732,0,0.00
+Intel HD Graphics 4000 OpenGL Engine,desktop,"1,368",586,0,0.00
+Mali-T830,mobile,"1,534",579,0,0.00
+Intel HD Graphics 5000 OpenGL Engine,desktop,"1,295",562,0,0.00
+Adreno (TM) 540,mobile,"1,364",527,0,0.00
+Mali-G71,mobile,"1,277",517,0,0.00
+ANGLE (Intel(R) HD Graphics 520 Direct3D11 vs_5_0 ps_5_0),desktop,"1,195",516,0,0.00
+ANGLE (Intel(R) HD Graphics 620 Direct3D11 vs_5_0 ps_5_0),desktop,"1,241",511,0,0.00
+Intel Iris OpenGL Engine,desktop,"1,018",470,0,0.00
+Google SwiftShader,desktop,922,455,0,0.00
+Mali-T880,mobile,"1,120",441,0,0.00
+ANGLE (Intel(R) HD Graphics Direct3D11 vs_5_0 ps_5_0),desktop,"1,037",430,0,0.00
+ANGLE (Intel(R) HD Graphics 4600 Direct3D11 vs_5_0 ps_5_0),desktop,953,416,0,0.00
+ANGLE (Intel(R) HD Graphics 530 Direct3D11 vs_5_0 ps_5_0),desktop,925,414,0,0.00
+Apple A7 GPU,mobile,776,359,0,0.00
+ANGLE (Intel(R) HD Graphics 630 Direct3D11 vs_5_0 ps_5_0),desktop,732,336,0,0.00
+Adreno (TM) 530,mobile,760,319,0,0.00
+Intel(R) Iris(TM) Graphics 650,desktop,722,315,0,0.00
+ANGLE (Intel(R) HD Graphics Family Direct3D11 vs_5_0 ps_5_0),desktop,692,298,0,0.00
+ANGLE (Intel(R) HD Graphics 5500 Direct3D11 vs_5_0 ps_5_0),desktop,687,284,0,0.00
+Apple A8X GPU,tablet,593,275,0,0.00
+Mali-G72,mobile,689,263,0,0.00
+Mali-T720,mobile,631,263,0,0.00
+ANGLE (Intel(R) HD Graphics 4000 Direct3D11 vs_5_0 ps_5_0),desktop,565,235,0,0.00
+ANGLE (Intel(R) UHD Graphics 620 Direct3D11 vs_5_0 ps_5_0),desktop,476,229,0,0.00
+Mali-T760,mobile,578,223,0,0.00
+Mesa DRI Intel(R) HD Graphics 400 (Braswell),desktop,464,206,0,0.00
+AMD Radeon Pro 560 OpenGL Engine,desktop,447,203,0,0.00
+Intel(R) Iris(TM) Graphics 550,desktop,444,201,0,0.00
+Adreno (TM) 630,mobile,495,199,0,0.00
+ANGLE (NVIDIA GeForce GTX 1060 6GB Direct3D11 vs_5_0 ps_5_0),desktop,436,191,0,0.00
+Apple A10X GPU,tablet,442,186,0,0.00
+NVIDIA GeForce GT 650M OpenGL Engine,desktop,412,185,0,0.00
+NVIDIA GeForce GT 750M OpenGL Engine,desktop,381,185,0,0.00
+AMD Radeon Pro 555 OpenGL Engine,desktop,405,162,0,0.00
+Adreno (TM) 308,mobile,357,160,0,0.00
+AMD Radeon R9 M370X OpenGL Engine,desktop,375,159,0,0.00
+Adreno (TM) 506,mobile,425,158,0,0.00
+Adreno (TM) 505,mobile,375,157,0,0.00
+ANGLE (NVIDIA GeForce GTX 970 Direct3D11 vs_5_0 ps_5_0),desktop,357,155,0,0.00
+Apple A7 GPU,tablet,369,155,0,0.00
+Mesa DRI Intel(R) Bay Trail,desktop,328,154,0,0.00
+ANGLE (NVIDIA GeForce GTX 1070 Direct3D11 vs_5_0 ps_5_0),desktop,324,142,0,0.00
+ANGLE (NVIDIA GeForce GTX 1050 Ti Direct3D11 vs_5_0 ps_5_0),desktop,316,133,0,0.00
+Apple A9X GPU,tablet,321,133,0,0.00
+PowerVR SGX 543,mobile,272,131,0,0.00
+ANGLE (Intel(R) HD Graphics Direct3D9Ex vs_3_0 ps_3_0),desktop,326,130,0,0.00
+ANGLE (NVIDIA GeForce GTX 750 Ti Direct3D11 vs_5_0 ps_5_0),desktop,318,130,0,0.00
+ANGLE (Intel(R) HD Graphics Direct3D11 vs_4_1 ps_4_1),desktop,272,128,0,0.00
+Intel(R) Iris(TM) Graphics 540,desktop,311,123,0,0.00
+ANGLE (NVIDIA GeForce GTX 960 Direct3D11 vs_5_0 ps_5_0),desktop,305,118,0,0.00
+ANGLE (NVIDIA GeForce GTX 1060 3GB Direct3D11 vs_5_0 ps_5_0),desktop,226,111,0,0.00
+Apple A9 GPU,tablet,290,111,0,0.00
+Adreno (TM) 306,mobile,275,105,0,0.00
+Microsoft Basic Render Driver,desktop,249,100,0,0.00
+Intel HD Graphics 3000 OpenGL Engine,desktop,238,99,0,0.00
+Intel(R) HD Graphics 5300,desktop,240,98,0,0.00
+Intel(R) HD Graphics 630,desktop,218,91,0,0.00
+Intel(R) Iris(TM) Pro Graphics 6200,desktop,196,91,0,0.00
+ANGLE (Intel(R) HD Graphics Family Direct3D9Ex vs_3_0 ps_3_0),desktop,209,90,0,0.00
+AMD Radeon R9 M390 OpenGL Engine,desktop,200,86,0,0.00
+Intel(R) HD Graphics 515,desktop,174,85,0,0.00
+AMD Radeon HD 6750M OpenGL Engine,desktop,240,84,0,0.00
+ANGLE (Intel(R) HD Graphics 3000 Direct3D11 vs_4_1 ps_4_1),desktop,158,84,0,0.00
+ANGLE (Intel(R) HD Graphics 4400 Direct3D11 vs_5_0 ps_5_0),desktop,212,81,0,0.00
+AMD Radeon Pro 450 OpenGL Engine,desktop,177,79,0,0.00
+ANGLE (NVIDIA GeForce GTX 1080 Direct3D11 vs_5_0 ps_5_0),desktop,181,78,0,0.00
+Adreno (TM) 330,mobile,165,75,0,0.00
+Mali-400 MP,mobile,178,73,0,0.00
+Intel(R) Iris(TM) Plus Graphics 655,desktop,157,72,0,0.00
+ANGLE (NVIDIA GeForce GTX 1050 Direct3D11 vs_5_0 ps_5_0),desktop,130,70,0,0.00
+Apple A10 GPU,tablet,194,70,0,0.00
+Intel(R) HD Graphics 530,desktop,141,68,0,0.00
+NVIDIA GeForce 320M OpenGL Engine,desktop,152,67,0,0.00
+AMD Radeon Pro 570 OpenGL Engine,desktop,151,66,0,0.00
+Mali-T860,mobile,155,66,0,0.00
+Intel(R) HD Graphics 615,desktop,151,64,0,0.00
+Intel(R) HD Graphics,desktop,141,62,0,0.00
+NVIDIA GeForce GTX 775M OpenGL Engine,desktop,149,59,0,0.00
+Adreno (TM) 304,mobile,134,58,0,0.00
+ANGLE (Microsoft Basic Render Driver Direct3D11 vs_5_0 ps_5_0),desktop,107,58,0,0.00
+NVIDIA GeForce GT 755M OpenGL Engine,desktop,137,58,0,0.00
+ANGLE (NVIDIA GeForce GTX 750 Direct3D11 vs_5_0 ps_5_0),desktop,141,57,0,0.00
+ANGLE (NVIDIA GeForce GT 730 Direct3D11 vs_5_0 ps_5_0),desktop,133,54,0,0.00
+AMD Radeon Pro 460 OpenGL Engine,desktop,112,53,0,0.00
+ANGLE (Intel(R) UHD Graphics 630 Direct3D11 vs_5_0 ps_5_0),desktop,118,53,0,0.00
+ANGLE (AMD Radeon(TM) R5 Graphics Direct3D11 vs_5_0 ps_5_0),desktop,131,52,0,0.00
+ANGLE (Intel(R) HD Graphics 4000 Direct3D9Ex vs_3_0 ps_3_0),desktop,140,48,0,0.00
+ANGLE (NVIDIA GeForce GTX 1080 Ti Direct3D11 vs_5_0 ps_5_0),desktop,109,48,0,0.00
+AMD Radeon R9 M380 OpenGL Engine,desktop,110,47,0,0.00
+Adreno (TM) 405,mobile,112,46,0,0.00
+Apple A8 GPU,tablet,112,46,0,0.00
+Intel(R) HD Graphics 520,desktop,116,46,0,0.00
+AMD Radeon Pro 580 OpenGL Engine,desktop,100,45,0,0.00
+Mesa DRI Intel(R) HD Graphics 500 (Broxton 2x6),desktop,80,44,0,0.00
+Adreno (TM) 430,mobile,90,42,0,0.00
+AMD Radeon Pro 455 OpenGL Engine,desktop,107,42,0,0.00
+ANGLE (AMD Radeon R9 200 Series Direct3D11 vs_5_0 ps_5_0),desktop,98,42,0,0.00
+AMD Radeon R9 M395 OpenGL Engine,desktop,81,41,0,0.00
+AMD Radeon Pro 560X OpenGL Engine,desktop,92,39,0,0.00
+Intel(R) HD Graphics 4600,desktop,89,39,0,0.00
+Adreno (TM) 510,mobile,105,38,0,0.00
+Google SwiftShader,mobile,39,36,0,0.00
+Mali-450 MP,mobile,89,36,0,0.00
+PowerVR SGX 543,tablet,81,36,0,0.00
+Adreno (TM) 512,mobile,99,35,0,0.00
+ANGLE (Intel(R) HD Graphics 510 Direct3D11 vs_5_0 ps_5_0),desktop,79,35,0,0.00
+AMD Radeon HD 6770M OpenGL Engine,desktop,76,34,0,0.00
+Intel(R) HD Graphics 620,desktop,71,32,0,0.00
+NVIDIA GeForce GT 640M OpenGL Engine,desktop,68,32,0,0.00
+ANGLE (AMD Radeon R7 200 Series Direct3D11 vs_5_0 ps_5_0),desktop,71,31,0,0.00
+ANGLE (NVIDIA GeForce GTX 950 Direct3D11 vs_5_0 ps_5_0),desktop,89,31,0,0.00
+NVIDIA GeForce GTX 660M OpenGL Engine,desktop,54,31,0,0.00
+ANGLE (NVIDIA GeForce GTX 650 Direct3D11 vs_5_0 ps_5_0),desktop,60,30,0,0.00
+ANGLE (AMD Radeon(TM) R7 Graphics Direct3D11 vs_5_0 ps_5_0),desktop,73,29,0,0.00
+ANGLE (NVIDIA GeForce GTX 760 Direct3D11 vs_5_0 ps_5_0),desktop,57,29,0,0.00
+ATI Radeon HD 4670 OpenGL Engine,desktop,80,28,0,0.00
+NVIDIA GeForce GTX 675MX OpenGL Engine,desktop,49,28,0,0.00
+ANGLE (AMD Radeon(TM) R4 Graphics Direct3D11 vs_5_0 ps_5_0),desktop,58,27,0,0.00
+NVIDIA GeForce 9400 OpenGL Engine,desktop,66,27,0,0.00
+ANGLE (NVIDIA GeForce GTX 1060 Direct3D11 vs_5_0 ps_5_0),desktop,75,26,0,0.00
+AMD Radeon R9 M290X OpenGL Engine,desktop,46,25,0,0.00
+ANGLE (Intel(R) HD Graphics 610 Direct3D11 vs_5_0 ps_5_0),desktop,56,25,0,0.00
+Mesa DRI Intel(R) Haswell Mobile,desktop,69,25,0,0.00
+NVIDIA GeForce GT 330M OpenGL Engine,desktop,51,25,0,0.00
+AMD Radeon Pro 575 OpenGL Engine,desktop,44,24,0,0.00
+ANGLE (Intel(R) HD Graphics 615 Direct3D11 vs_5_0 ps_5_0),desktop,54,24,0,0.00
+ANGLE (NVIDIA GeForce GT 620 Direct3D11 vs_5_0 ps_5_0),desktop,58,24,0,0.00
+ANGLE (NVIDIA GeForce GTX 770 Direct3D11 vs_5_0 ps_5_0),desktop,48,24,0,0.00
+Intel(R) UHD Graphics 620,desktop,63,24,0,0.00
+PowerVR SGX 554,tablet,50,24,0,0.00
+ANGLE (Intel(R) HD Graphics 515 Direct3D11 vs_5_0 ps_5_0),desktop,61,23,0,0.00
+ANGLE (NVIDIA Quadro K620 Direct3D11 vs_5_0 ps_5_0),desktop,66,23,0,0.00
+Intel(R) HD Graphics Family,desktop,53,23,0,0.00
+Intel(R) UHD Graphics 630,desktop,51,22,0,0.00
+Adreno (TM) 509,mobile,57,21,0,0.00
+ANGLE (NVIDIA GeForce GT 610 Direct3D11 vs_5_0 ps_5_0),desktop,51,21,0,0.00
+ANGLE (NVIDIA GeForce GTX 660 Direct3D11 vs_5_0 ps_5_0),desktop,68,21,0,0.00
+Intel(R) HD Graphics 5500,desktop,35,21,0,0.00
+NVIDIA GeForce GTX 680MX OpenGL Engine,desktop,39,21,0,0.00
+ANGLE (NVIDIA GeForce GTX 1070 Ti Direct3D11 vs_5_0 ps_5_0),desktop,42,20,0,0.00
+NVIDIA GeForce 9400M OpenGL Engine,desktop,55,20,0,0.00
+Adreno (TM) 418,mobile,40,19,0,0.00
+ATI Radeon HD 2600 PRO OpenGL Engine,desktop,49,19,0,0.00
+Mesa DRI Intel(R) Broadwell GT1,desktop,69,19,0,0.00
+NVIDIA GeForce GTX 780M OpenGL Engine,desktop,49,19,0,0.00
+Adreno (TM) 305,mobile,44,18,0,0.00
+ANGLE (AMD Radeon (TM) R9 390 Series Direct3D11 vs_5_0 ps_5_0),desktop,34,18,0,0.00
+ANGLE (Intel(R) G41 Express Chipset Direct3D9Ex vs_3_0 ps_3_0),desktop,44,18,0,0.00
+ANGLE (Intel(R) HD Graphics 4600 Direct3D9Ex vs_3_0 ps_3_0),desktop,35,18,0,0.00
+ANGLE (NVIDIA GeForce 210 Direct3D11 vs_4_1 ps_4_1),desktop,41,18,0,0.00
+ANGLE (NVIDIA GeForce GT 630 Direct3D11 vs_5_0 ps_5_0),desktop,34,18,0,0.00
+ANGLE (NVIDIA GeForce GT 640 Direct3D11 vs_5_0 ps_5_0),desktop,53,18,0,0.00
+ANGLE (NVIDIA GeForce GTX 550 Ti Direct3D11 vs_5_0 ps_5_0),desktop,36,18,0,0.00
+ANGLE (NVIDIA Quadro K2200 Direct3D11 vs_5_0 ps_5_0),desktop,36,18,0,0.00
+AMD Radeon Pro 555X OpenGL Engine,desktop,32,17,0,0.00
+Mali-T830,tablet,42,17,0,0.00
+ANGLE (Intel(R) HD Graphics 5500 Direct3D9Ex vs_3_0 ps_3_0),desktop,34,16,0,0.00
+ANGLE (NVIDIA GeForce GTX 670 Direct3D11 vs_5_0 ps_5_0),desktop,36,16,0,0.00
+ANGLE (NVIDIA GeForce GTX 745 Direct3D11 vs_5_0 ps_5_0),desktop,37,16,0,0.00
+Mali-T604,desktop,31,16,0,0.00
+AMD Radeon HD 6970M OpenGL Engine,desktop,38,15,0,0.00
+AMD Radeon R9 M290 OpenGL Engine,desktop,36,15,0,0.00
+ANGLE (Intel(R) HD Graphics 4400 Direct3D9Ex vs_3_0 ps_3_0),desktop,31,15,0,0.00
+ANGLE (Intel(R) Iris(TM) Graphics 540 Direct3D11 vs_5_0 ps_5_0),desktop,33,15,0,0.00
+ANGLE (NVIDIA GeForce 405 Direct3D11 vs_4_1 ps_4_1),desktop,23,15,0,0.00
+ANGLE (AMD Radeon HD 7800 Series Direct3D11 vs_5_0 ps_5_0),desktop,28,14,0,0.00
+ANGLE (Radeon (TM) RX 480 Graphics Direct3D11 vs_5_0 ps_5_0),desktop,24,14,0,0.00
+ANGLE (AMD Radeon HD 7700 Series Direct3D11 vs_5_0 ps_5_0),desktop,26,13,0,0.00
+ANGLE (Intel(R) HD Graphics 520 Direct3D9Ex vs_3_0 ps_3_0),desktop,31,13,0,0.00
+ANGLE (Intel(R) Q45/Q43 Express Chipset Direct3D9Ex vs_3_0 ps_3_0),desktop,20,13,0,0.00
+ANGLE (NVIDIA GeForce GT 1030 Direct3D11 vs_5_0 ps_5_0),desktop,23,13,0,0.00
+ANGLE (NVIDIA GeForce GTS 450 Direct3D11 vs_5_0 ps_5_0),desktop,36,13,0,0.00
+AMD Radeon HD - FirePro D500 OpenGL Engine,desktop,18,12,0,0.00
+ANGLE (AMD Radeon R7 Graphics Direct3D11 vs_5_0 ps_5_0),desktop,33,12,0,0.00
+ANGLE (AMD Radeon(TM) R2 Graphics Direct3D11 vs_5_0 ps_5_0),desktop,27,12,0,0.00
+ANGLE (Intel(R) HD Graphics 3000 Direct3D9Ex vs_3_0 ps_3_0),desktop,30,12,0,0.00
+ANGLE (Intel(R) HD Graphics 5300 Direct3D11 vs_5_0 ps_5_0),desktop,36,12,0,0.00
+ANGLE (Mobile Intel(R) 4 Series Express Chipset Family Direct3D9Ex vs_3_0 ps_3_0),desktop,27,12,0,0.00
+ANGLE (NVIDIA GeForce GTX 980 Ti Direct3D11 vs_5_0 ps_5_0),desktop,21,12,0,0.00
+Mali-400 MP,tablet,27,12,0,0.00
+Mali-T624,mobile,34,12,0,0.00
+Mali-T760,desktop,26,12,0,0.00
+NVIDIA GeForce GTX 1060 3GB,desktop,17,12,0,0.00
+Adreno (TM) 508,mobile,35,11,0,0.00
+Adreno (TM) 540,tablet,22,11,0,0.00
+AMD Radeon R9 M295X OpenGL Engine,desktop,13,11,0,0.00
+ANGLE (AMD Radeon (TM) R9 380 Series Direct3D11 vs_5_0 ps_5_0),desktop,19,11,0,0.00
+ANGLE (AMD Radeon HD 8400 Direct3D11 vs_5_0 ps_5_0),desktop,22,11,0,0.00
+ANGLE (Intel(R) UHD Graphics 600 Direct3D11 vs_5_0 ps_5_0),desktop,25,11,0,0.00
+ANGLE (NVIDIA GeForce GT 530 Direct3D11 vs_5_0 ps_5_0),desktop,27,11,0,0.00
+ANGLE (NVIDIA GeForce GTX 750 Ti Direct3D9Ex vs_3_0 ps_3_0),desktop,18,11,0,0.00
+Intel(R) HD Graphics 4400,desktop,38,11,0,0.00
+NVIDIA GeForce GTX 1050 Ti,desktop,13,11,0,0.00
+PowerVR Rogue GX6250,desktop,25,11,0,0.00
+Vivante GC7000UL,mobile,24,11,0,0.00
+ANGLE (NVIDIA GeForce GT 720 Direct3D11 vs_5_0 ps_5_0),desktop,21,10,0,0.00
+ANGLE (NVIDIA GeForce GT 740 Direct3D11 vs_5_0 ps_5_0),desktop,37,10,0,0.00
+ANGLE (NVIDIA GeForce GTX 650 Ti Direct3D11 vs_5_0 ps_5_0),desktop,25,10,0,0.00
+ANGLE (Radeon RX 580 Series Direct3D11 vs_5_0 ps_5_0),desktop,32,10,0,0.00
+NVIDIA GeForce GTX 1050,desktop,21,10,0,0.00
+Adreno (TM) 304,tablet,15,9,0,0.00
+AMD Radeon HD - FirePro D300 OpenGL Engine,desktop,21,9,0,0.00
+ANGLE (AMD Radeon HD 6450 Direct3D11 vs_5_0 ps_5_0),desktop,21,9,0,0.00
+ANGLE (NVIDIA GeForce 9500 GT Direct3D11 vs_4_0 ps_4_0),desktop,14,9,0,0.00
+ANGLE (NVIDIA GeForce GT 430 Direct3D11 vs_5_0 ps_5_0),desktop,29,9,0,0.00
+ANGLE (NVIDIA GeForce GT 710 Direct3D11 vs_5_0 ps_5_0),desktop,23,9,0,0.00
+ANGLE (NVIDIA GeForce GTX 1050 Direct3D9Ex vs_3_0 ps_3_0),desktop,22,9,0,0.00
+ANGLE (NVIDIA GeForce GTX 780 Direct3D11 vs_5_0 ps_5_0),desktop,27,9,0,0.00
+ATI Radeon HD 5750 OpenGL Engine,desktop,27,9,0,0.00
+Intel(R) HD Graphics 4000,desktop,20,9,0,0.00
+Mesa DRI Intel(R) HD Graphics 620 (Kaby Lake GT2),desktop,21,9,0,0.00
+Adreno (TM) 510,tablet,21,8,0,0.00
+ANGLE (AMD Radeon (TM) R9 200 Series Direct3D11 vs_5_0 ps_5_0),desktop,13,8,0,0.00
+ANGLE (AMD Radeon HD 5450 Direct3D11 vs_5_0 ps_5_0),desktop,28,8,0,0.00
+ANGLE (AMD Radeon HD 6310 Graphics Direct3D11 vs_5_0 ps_5_0),desktop,19,8,0,0.00
+ANGLE (AMD Radeon HD 7310 Graphics Direct3D11 vs_5_0 ps_5_0),desktop,9,8,0,0.00
+ANGLE (AMD Radeon R7 200 Series Direct3D9Ex vs_3_0 ps_3_0),desktop,14,8,0,0.00
+ANGLE (AMD Radeon(TM) R3 Graphics Direct3D11 vs_5_0 ps_5_0),desktop,18,8,0,0.00
+ANGLE (AMD Radeon(TM) R6 Graphics Direct3D11 vs_5_0 ps_5_0),desktop,21,8,0,0.00
 ANGLE (Intel(R) 4 Series Internal Chipset Direct3D9Ex vs_3_0 ps_3_0),desktop,15,8,0,0.00
-ANGLE (Intel(R) HD Graphics 3000 Direct3D9Ex vs_3_0 ps_3_0),desktop,22,8,0,0.00
-ANGLE (Intel(R) HD Graphics 520 Direct3D9Ex vs_3_0 ps_3_0),desktop,22,8,0,0.00
-ANGLE (NVIDIA GeForce GT 530 Direct3D11 vs_5_0 ps_5_0),desktop,19,8,0,0.00
-ANGLE (NVIDIA GeForce GT 640 Direct3D11 vs_5_0 ps_5_0),desktop,23,8,0,0.00
-ANGLE (NVIDIA GeForce GTS 450 Direct3D11 vs_5_0 ps_5_0),desktop,23,8,0,0.00
-ANGLE (NVIDIA GeForce GTX 780 Direct3D11 vs_5_0 ps_5_0),desktop,25,8,0,0.00
-Intel(R) HD Graphics 5500,desktop,15,8,0,0.00
-Mali-400 MP,tablet,13,8,0,0.00
-Mali-T624,mobile,26,8,0,0.00
-Mali-T760,desktop,16,8,0,0.00
-Vivante GC7000UL,mobile,21,8,0,0.00
-AMD Radeon HD 6970M OpenGL Engine,desktop,12,7,0,0.00
-ANGLE (AMD Radeon HD 6310 Graphics Direct3D11 vs_5_0 ps_5_0),desktop,17,7,0,0.00
+ANGLE (Intel(R) HD Graphics 530 Direct3D9Ex vs_3_0 ps_3_0),desktop,19,8,0,0.00
+ANGLE (Intel(R) HD Graphics Direct3D11 vs_4_0 ps_4_0),desktop,20,8,0,0.00
+ANGLE (Intel(R) Q45/Q43 Express Chipset (Microsoft Corporation - WDDM 1.1) Direct3D9Ex vs_3_0 ps_3_0),desktop,12,8,0,0.00
+ANGLE (Mobile Intel(R) 4 Series Express Chipset Family (Microsoft Corporation - WDDM 1.1) Direct3D9Ex vs_3_0 ps_3_0),desktop,16,8,0,0.00
+ANGLE (NVIDIA GeForce GT 240 Direct3D11 vs_4_1 ps_4_1),desktop,22,8,0,0.00
+ANGLE (NVIDIA GeForce GT 730 Direct3D9Ex vs_3_0 ps_3_0),desktop,13,8,0,0.00
+ANGLE (NVIDIA Quadro K420 Direct3D11 vs_5_0 ps_5_0),desktop,23,8,0,0.00
+ANGLE (Radeon (TM) RX 470 Graphics Direct3D11 vs_5_0 ps_5_0),desktop,15,8,0,0.00
+NVIDIA GeForce GT 730,desktop,9,8,0,0.00
+NVIDIA GeForce GTX 750 Ti,desktop,13,8,0,0.00
+NVIDIA GeForce GTX 960,desktop,15,8,0,0.00
+Adreno (TM) 306,tablet,12,7,0,0.00
+Adreno (TM) 420,mobile,12,7,0,0.00
+ANGLE (AMD 760G Direct3D9Ex vs_3_0 ps_3_0),desktop,20,7,0,0.00
+ANGLE (AMD Radeon HD 6350 Direct3D11 vs_5_0 ps_5_0),desktop,13,7,0,0.00
+ANGLE (AMD Radeon HD 6700 Series Direct3D11 vs_5_0 ps_5_0),desktop,24,7,0,0.00
+ANGLE (AMD Radeon HD 7470 Direct3D11 vs_5_0 ps_5_0),desktop,29,7,0,0.00
+ANGLE (AMD Radeon HD 8330 Direct3D11 vs_5_0 ps_5_0),desktop,14,7,0,0.00
 ANGLE (AMD Radeon R5 Graphics Direct3D11 vs_5_0 ps_5_0),desktop,10,7,0,0.00
-ANGLE (Intel(R) HD Graphics 5500 Direct3D9Ex vs_3_0 ps_3_0),desktop,14,7,0,0.00
-ANGLE (NVIDIA GeForce 210 Direct3D11 vs_4_1 ps_4_1),desktop,23,7,0,0.00
-ANGLE (NVIDIA GeForce GTX 1050 Direct3D9Ex vs_3_0 ps_3_0),desktop,17,7,0,0.00
-ANGLE (NVIDIA Quadro K2200 Direct3D11 vs_5_0 ps_5_0),desktop,15,7,0,0.00
-ANGLE (Radeon (TM) RX 470 Graphics Direct3D11 vs_5_0 ps_5_0),desktop,14,7,0,0.00
-ATI Radeon HD 2600 PRO OpenGL Engine,desktop,21,7,0,0.00
-Intel(R) HD Graphics 4000,desktop,15,7,0,0.00
-NVIDIA GeForce GT 730,desktop,8,7,0,0.00
-NVIDIA GeForce GTX 1050,desktop,13,7,0,0.00
-NVIDIA GeForce GTX 1050 Ti,desktop,8,7,0,0.00
-Adreno (TM) 304,tablet,8,6,0,0.00
-Adreno (TM) 420,mobile,11,6,0,0.00
-ANGLE (AMD Radeon HD 6450 Direct3D11 vs_5_0 ps_5_0),desktop,15,6,0,0.00
-ANGLE (AMD Radeon HD 6700 Series Direct3D11 vs_5_0 ps_5_0),desktop,20,6,0,0.00
+ANGLE (ATI Radeon HD 4200 Direct3D11 vs_4_1 ps_4_1),desktop,10,7,0,0.00
+ANGLE (Intel(R) Iris(TM) Graphics 5100 Direct3D11 vs_5_0 ps_5_0),desktop,13,7,0,0.00
+ANGLE (Intel(R) Iris(TM) Plus Graphics 640 Direct3D11 vs_5_0 ps_5_0),desktop,21,7,0,0.00
+ANGLE (Intel(R) UHD Graphics 605 Direct3D11 vs_5_0 ps_5_0),desktop,16,7,0,0.00
+ANGLE (NVIDIA GeForce GTX 560 Ti Direct3D11 vs_5_0 ps_5_0),desktop,12,7,0,0.00
+ANGLE (NVIDIA GeForce GTX 660 Ti Direct3D11 vs_5_0 ps_5_0),desktop,15,7,0,0.00
+ANGLE (NVIDIA GeForce GTX 680 Direct3D11 vs_5_0 ps_5_0),desktop,12,7,0,0.00
+ANGLE (NVIDIA Quadro K600 Direct3D11 vs_5_0 ps_5_0),desktop,29,7,0,0.00
+ANGLE (Radeon(TM) RX 460 Graphics Direct3D11 vs_5_0 ps_5_0),desktop,11,7,0,0.00
+ANGLE (Software Adapter Direct3D11 vs_5_0 ps_5_0),desktop,19,7,0,0.00
+ATI Radeon HD 5770 OpenGL Engine,desktop,16,7,0,0.00
+Mali-G72 MP3,mobile,13,7,0,0.00
+NVIDIA GeForce GTX 1060 6GB,desktop,21,7,0,0.00
+AMD Radeon R9 M395X OpenGL Engine,desktop,15,6,0,0.00
+ANGLE (AMD Radeon HD 7570 Direct3D11 vs_5_0 ps_5_0),desktop,11,6,0,0.00
+ANGLE (AMD Radeon HD 7700 Series Direct3D9Ex vs_3_0 ps_3_0),desktop,14,6,0,0.00
 ANGLE (AMD Radeon HD 8570D Direct3D11 vs_5_0 ps_5_0),desktop,9,6,0,0.00
-ANGLE (AMD Radeon R7 Graphics Direct3D11 vs_5_0 ps_5_0),desktop,22,6,0,0.00
-ANGLE (AMD Radeon(TM) R2 Graphics Direct3D11 vs_5_0 ps_5_0),desktop,10,6,0,0.00
-ANGLE (Intel(R) Iris(TM) Graphics 540 Direct3D11 vs_5_0 ps_5_0),desktop,12,6,0,0.00
-ANGLE (Intel(R) Q45/Q43 Express Chipset (Microsoft Corporation - WDDM 1.1) Direct3D9Ex vs_3_0 ps_3_0),desktop,10,6,0,0.00
-ANGLE (Intel(R) Q45/Q43 Express Chipset Direct3D9Ex vs_3_0 ps_3_0),desktop,11,6,0,0.00
-ANGLE (Mobile Intel(R) 4 Series Express Chipset Family (Microsoft Corporation - WDDM 1.1) Direct3D9Ex vs_3_0 ps_3_0),desktop,13,6,0,0.00
-ANGLE (NVIDIA GeForce GT 710 Direct3D11 vs_5_0 ps_5_0),desktop,18,6,0,0.00
-ANGLE (NVIDIA GeForce GT 740 Direct3D11 vs_5_0 ps_5_0),desktop,24,6,0,0.00
-ANGLE (NVIDIA Quadro K420 Direct3D11 vs_5_0 ps_5_0),desktop,17,6,0,0.00
-ANGLE (Radeon RX 580 Series Direct3D11 vs_5_0 ps_5_0),desktop,17,6,0,0.00
-Intel(R) HD Graphics 4400,desktop,25,6,0,0.00
-Mesa DRI Intel(R) HD Graphics 620 (Kaby Lake GT2),desktop,15,6,0,0.00
-NVIDIA GeForce GTX 1060 3GB,desktop,9,6,0,0.00
-Adreno (TM) 508,mobile,14,5,0,0.00
-Adreno (TM) 510,tablet,8,5,0,0.00
-Adreno (TM) 540,tablet,9,5,0,0.00
-AMD Radeon R9 M395X OpenGL Engine,desktop,13,5,0,0.00
-ANGLE (AMD 760G Direct3D9Ex vs_3_0 ps_3_0),desktop,11,5,0,0.00
-ANGLE (AMD Radeon HD 7310 Graphics Direct3D11 vs_5_0 ps_5_0),desktop,5,5,0,0.00
-ANGLE (AMD Radeon HD 7570 Direct3D11 vs_5_0 ps_5_0),desktop,10,5,0,0.00
-ANGLE (Intel(R) HD Graphics 6000 Direct3D11 vs_5_0 ps_5_0),desktop,13,5,0,0.00
-ANGLE (Intel(R) Iris(TM) Pro Graphics 5200 Direct3D11 vs_5_0 ps_5_0),desktop,11,5,0,0.00
+ANGLE (Intel(R) HD Graphics 6000 Direct3D11 vs_5_0 ps_5_0),desktop,14,6,0,0.00
+ANGLE (Intel(R) HD Graphics 630 Direct3D9Ex vs_3_0 ps_3_0),desktop,15,6,0,0.00
+ANGLE (Intel(R) Iris(TM) Pro Graphics 5200 Direct3D11 vs_5_0 ps_5_0),desktop,12,6,0,0.00
+ANGLE (NVIDIA GeForce GT 220 Direct3D11 vs_4_1 ps_4_1),desktop,12,6,0,0.00
+ANGLE (NVIDIA GeForce GT 625 (OEM) Direct3D11 vs_5_0 ps_5_0),desktop,16,6,0,0.00
+ANGLE (NVIDIA GeForce GTX 645 Direct3D11 vs_5_0 ps_5_0),desktop,19,6,0,0.00
+ANGLE (NVIDIA GeForce GTX 760 (192-bit) Direct3D11 vs_5_0 ps_5_0),desktop,10,6,0,0.00
+ANGLE (NVIDIA GeForce GTX 970M Direct3D11 vs_5_0 ps_5_0),desktop,15,6,0,0.00
+ANGLE (NVIDIA NVS 315 Direct3D11 vs_5_0 ps_5_0),desktop,24,6,0,0.00
+ANGLE (SraKmd Direct3D11 vs_4_0 ps_4_0),desktop,11,6,0,0.00
+ATI Radeon HD 4850 OpenGL Engine,desktop,15,6,0,0.00
+Intel(R) HD Graphics 520,tablet,11,6,0,0.00
+"llvmpipe (LLVM 6.0, 256 bits)",mobile,6,6,0,0.00
+NVIDIA GeForce GTX 650,desktop,11,6,0,0.00
+Adreno (TM) 308,tablet,9,5,0,0.00
+ANGLE (AMD Radeon HD 5700 Series Direct3D11 vs_5_0 ps_5_0),desktop,10,5,0,0.00
+ANGLE (AMD Radeon HD 6670 Direct3D11 vs_5_0 ps_5_0),desktop,6,5,0,0.00
+ANGLE (AMD Radeon HD 7000 series Direct3D11 vs_5_0 ps_5_0),desktop,8,5,0,0.00
+ANGLE (AMD Radeon HD 7480D Direct3D11 vs_5_0 ps_5_0),desktop,9,5,0,0.00
+ANGLE (AMD Radeon HD 7560D Direct3D11 vs_5_0 ps_5_0),desktop,14,5,0,0.00
+ANGLE (AMD Radeon HD 7900 Series Direct3D11 vs_5_0 ps_5_0),desktop,12,5,0,0.00
+ANGLE (AMD Radeon HD 8250 Direct3D11 vs_5_0 ps_5_0),desktop,9,5,0,0.00
+ANGLE (AMD Radeon(TM) R5 240 Direct3D11 vs_5_0 ps_5_0),desktop,7,5,0,0.00
+ANGLE (AMD Radeon(TM) Vega 8 Graphics Direct3D11 vs_5_0 ps_5_0),desktop,9,5,0,0.00
+ANGLE (ATI Radeon HD 5450 Direct3D11 vs_5_0 ps_5_0),desktop,10,5,0,0.00
+ANGLE (Intel(R) Iris(R) Plus Graphics 640 Direct3D11 vs_5_0 ps_5_0),desktop,8,5,0,0.00
+ANGLE (Intel(R) Iris(TM) Graphics 6100 Direct3D11 vs_5_0 ps_5_0),desktop,13,5,0,0.00
+ANGLE (NVIDIA GeForce 315M Direct3D9Ex vs_3_0 ps_3_0),desktop,12,5,0,0.00
 ANGLE (NVIDIA GeForce 410M Direct3D11 vs_5_0 ps_5_0),desktop,10,5,0,0.00
-ANGLE (NVIDIA GeForce GT 1030 Direct3D11 vs_5_0 ps_5_0),desktop,8,5,0,0.00
+ANGLE (NVIDIA GeForce 9600 GT Direct3D11 vs_4_0 ps_4_0),desktop,7,5,0,0.00
+ANGLE (NVIDIA GeForce 9800 GT Direct3D11 vs_4_0 ps_4_0),desktop,6,5,0,0.00
 ANGLE (NVIDIA GeForce GT 620 Direct3D9Ex vs_3_0 ps_3_0),desktop,8,5,0,0.00
-ANGLE (NVIDIA GeForce GT 720 Direct3D11 vs_5_0 ps_5_0),desktop,8,5,0,0.00
-ANGLE (NVIDIA GeForce GTX 670 Direct3D11 vs_5_0 ps_5_0),desktop,11,5,0,0.00
-ANGLE (NVIDIA GeForce GTX 680 Direct3D11 vs_5_0 ps_5_0),desktop,10,5,0,0.00
-ATI Radeon HD 5770 OpenGL Engine,desktop,12,5,0,0.00
-Intel(R) UHD Graphics 630,desktop,10,5,0,0.00
-NVIDIA GeForce GTX 650,desktop,9,5,0,0.00
-PowerVR Rogue GX6250,desktop,9,5,0,0.00
-Adreno (TM) 306,tablet,8,4,0,0.00
-AMD Radeon HD - FirePro D300 OpenGL Engine,desktop,10,4,0,0.00
+ANGLE (NVIDIA GeForce GT 705 Direct3D11 vs_5_0 ps_5_0),desktop,12,5,0,0.00
+ANGLE (NVIDIA GeForce GTX 560 Direct3D11 vs_5_0 ps_5_0),desktop,12,5,0,0.00
+ANGLE (NVIDIA GeForce GTX TITAN X Direct3D11 vs_5_0 ps_5_0),desktop,7,5,0,0.00
+ANGLE (NVIDIA NVS 310 Direct3D11 vs_5_0 ps_5_0),desktop,6,5,0,0.00
+Mali-450 MP,tablet,18,5,0,0.00
+Mali-T628,mobile,13,5,0,0.00
+Mesa DRI Intel(R) HD Graphics 515 (Skylake GT2),desktop,9,5,0,0.00
+NVIDIA GeForce GT 120 OpenGL Engine,desktop,10,5,0,0.00
+NVIDIA GeForce GTX 1050 OpenGL Engine,desktop,8,5,0,0.00
+NVIDIA GeForce GTX 1060 5GB,desktop,5,5,0,0.00
+Adreno (TM) 305,tablet,8,4,0,0.00
+Adreno (TM) 405,tablet,6,4,0,0.00
+Adreno (TM) 530,tablet,5,4,0,0.00
 AMD Radeon HD - FirePro D700 OpenGL Engine,desktop,8,4,0,0.00
-ANGLE (AMD Radeon (TM) R9 200 Series Direct3D11 vs_5_0 ps_5_0),desktop,6,4,0,0.00
-ANGLE (AMD Radeon HD 5450 Direct3D11 vs_5_0 ps_5_0),desktop,13,4,0,0.00
-ANGLE (AMD Radeon HD 7560D Direct3D11 vs_5_0 ps_5_0),desktop,13,4,0,0.00
-ANGLE (AMD Radeon HD 7700 Series Direct3D9Ex vs_3_0 ps_3_0),desktop,10,4,0,0.00
-ANGLE (AMD Radeon HD 7900 Series Direct3D11 vs_5_0 ps_5_0),desktop,4,4,0,0.00
-ANGLE (AMD Radeon HD 8330 Direct3D11 vs_5_0 ps_5_0),desktop,7,4,0,0.00
-ANGLE (ATI Radeon HD 5450 Direct3D11 vs_5_0 ps_5_0),desktop,7,4,0,0.00
+AMD Radeon HD 6490M OpenGL Engine,desktop,7,4,0,0.00
+ANGLE (AMD Radeon (TM) R7 370 Series Direct3D11 vs_5_0 ps_5_0),desktop,9,4,0,0.00
+ANGLE (AMD RADEON HD 6350 Direct3D9Ex vs_3_0 ps_3_0),desktop,10,4,0,0.00
+ANGLE (AMD Radeon HD 7520G Direct3D11 vs_5_0 ps_5_0),desktop,6,4,0,0.00
+ANGLE (AMD Radeon HD 7570M Direct3D11 vs_5_0 ps_5_0),desktop,20,4,0,0.00
+ANGLE (AMD Radeon HD 8400 / R3 Series Direct3D11 vs_5_0 ps_5_0),desktop,7,4,0,0.00
+ANGLE (AMD Radeon R7 Series Direct3D11 vs_5_0 ps_5_0),desktop,8,4,0,0.00
+ANGLE (AMD Radeon R9 200 / HD 7900 Series Direct3D11 vs_5_0 ps_5_0),desktop,8,4,0,0.00
+ANGLE (ASUS EAH5450 Series Direct3D11 vs_5_0 ps_5_0),desktop,9,4,0,0.00
+ANGLE (ATI Radeon HD 3450 Direct3D11 vs_4_1 ps_4_1),desktop,5,4,0,0.00
+ANGLE (ATI Radeon HD 4250 Direct3D11 vs_4_1 ps_4_1),desktop,6,4,0,0.00
+ANGLE (Intel(R) G41 Express Chipset (Microsoft Corporation - WDDM 1.1) Direct3D11 vs_4_0 ps_4_0),desktop,14,4,0,0.00
+ANGLE (Intel(R) G41 Express Chipset (Microsoft Corporation - WDDM 1.1) Direct3D9Ex vs_3_0 ps_3_0),desktop,15,4,0,0.00
 ANGLE (Intel(R) Graphics Media Accelerator 3600 Series Direct3D9Ex vs_3_0 ps_3_0),desktop,6,4,0,0.00
-ANGLE (Intel(R) HD Graphics Direct3D11 vs_4_0 ps_4_0),desktop,6,4,0,0.00
-ANGLE (Intel(R) UHD Graphics 600 Direct3D11 vs_5_0 ps_5_0),desktop,10,4,0,0.00
+ANGLE (Intel(R) HD Graphics 5000 Direct3D11 vs_5_0 ps_5_0),desktop,11,4,0,0.00
+ANGLE (Intel(R) HD Graphics 5000 Direct3D9Ex vs_3_0 ps_3_0),desktop,7,4,0,0.00
+ANGLE (Intel(R) HD Graphics Family Direct3D11 vs_4_1 ps_4_1),desktop,7,4,0,0.00
+ANGLE (Intel(R) Iris(R) Graphics 540 Direct3D11 vs_5_0 ps_5_0),desktop,10,4,0,0.00
+ANGLE (Intel(R) Iris(TM) Graphics 550 Direct3D11 vs_5_0 ps_5_0),desktop,11,4,0,0.00
+ANGLE (Intel(R) Q45/Q43 Express Chipset (Microsoft Corporation - WDDM 1.1) Direct3D11 vs_4_0 ps_4_0),desktop,7,4,0,0.00
+ANGLE (NVIDIA GeForce 310M Direct3D9Ex vs_3_0 ps_3_0),desktop,15,4,0,0.00
+ANGLE (NVIDIA GeForce 6150SE nForce 430 Direct3D9Ex vs_3_0 ps_3_0),desktop,9,4,0,0.00
+ANGLE (NVIDIA GeForce 9600 GT (Microsoft Corporation - WDDM v1.1) Direct3D9Ex vs_3_0 ps_3_0),desktop,9,4,0,0.00
+ANGLE (NVIDIA GeForce GT 440 Direct3D11 vs_5_0 ps_5_0),desktop,8,4,0,0.00
 ANGLE (NVIDIA GeForce GT 640M Direct3D11 vs_5_0 ps_5_0),desktop,8,4,0,0.00
-ANGLE (NVIDIA GeForce GT 705 Direct3D11 vs_5_0 ps_5_0),desktop,11,4,0,0.00
-ANGLE (NVIDIA GeForce GTX 560 Direct3D11 vs_5_0 ps_5_0),desktop,11,4,0,0.00
-ANGLE (NVIDIA GeForce GTX 560 Ti Direct3D11 vs_5_0 ps_5_0),desktop,6,4,0,0.00
-ANGLE (NVIDIA GeForce GTX 645 Direct3D11 vs_5_0 ps_5_0),desktop,14,4,0,0.00
-ANGLE (NVIDIA GeForce GTX 760 (192-bit) Direct3D11 vs_5_0 ps_5_0),desktop,7,4,0,0.00
-ANGLE (NVIDIA NVS 310 Direct3D11 vs_5_0 ps_5_0),desktop,5,4,0,0.00
+ANGLE (NVIDIA GeForce GTS 250 Direct3D11 vs_4_0 ps_4_0),desktop,6,4,0,0.00
+ANGLE (NVIDIA GeForce GTX 750 Direct3D9Ex vs_3_0 ps_3_0),desktop,11,4,0,0.00
+ANGLE (NVIDIA GeForce GTX 965M Direct3D11 vs_5_0 ps_5_0),desktop,7,4,0,0.00
+ANGLE (NVIDIA GeForce GTX 980 Direct3D11 vs_5_0 ps_5_0),desktop,10,4,0,0.00
 ANGLE (NVIDIA Quadro 2000 Direct3D11 vs_5_0 ps_5_0),desktop,9,4,0,0.00
-ANGLE (NVIDIA Quadro K600 Direct3D11 vs_5_0 ps_5_0),desktop,13,4,0,0.00
-ANGLE (Radeon(TM) RX 460 Graphics Direct3D11 vs_5_0 ps_5_0),desktop,6,4,0,0.00
-ATI Radeon HD 4850 OpenGL Engine,desktop,10,4,0,0.00
+ANGLE (NVIDIA Quadro 4000 Direct3D11 vs_5_0 ps_5_0),desktop,7,4,0,0.00
+ANGLE (NVIDIA Quadro K1200 Direct3D11 vs_5_0 ps_5_0),desktop,8,4,0,0.00
+ANGLE (NVIDIA Quadro M4000 Direct3D11 vs_5_0 ps_5_0),desktop,8,4,0,0.00
+ANGLE (NVIDIA Quadro P2000 Direct3D11 vs_5_0 ps_5_0),desktop,6,4,0,0.00
+ANGLE (NVIDIA Quadro P600 Direct3D11 vs_5_0 ps_5_0),desktop,10,4,0,0.00
+ANGLE (Radeon RX 550 Series Direct3D11 vs_5_0 ps_5_0),desktop,9,4,0,0.00
 Intel(R) HD Graphics 3000,desktop,7,4,0,0.00
-Intel(R) HD Graphics 520,tablet,7,4,0,0.00
-Mali-450 MP,tablet,15,4,0,0.00
+Intel(R) HD Graphics 510,desktop,6,4,0,0.00
+Mali-T720,tablet,12,4,0,0.00
+Mali-T760,tablet,10,4,0,0.00
+Mesa DRI Intel(R) HD Graphics 405 (Braswell),desktop,7,4,0,0.00
 Mesa DRI Intel(R) HD Graphics 615 (Kaby Lake GT2),desktop,7,4,0,0.00
-NVIDIA GeForce GTX 1060 5GB,desktop,4,4,0,0.00
-NVIDIA GeForce GTX 750 Ti,desktop,9,4,0,0.00
-Adreno (TM) 308,tablet,6,3,0,0.00
-Adreno (TM) 405,tablet,5,3,0,0.00
-Adreno (TM) 530,tablet,4,3,0,0.00
+Mesa DRI Intel(R) UHD Graphics 620 (Kabylake GT2),desktop,16,4,0,0.00
+Microsoft Basic Render Driver,tablet,20,4,0,0.00
+NVIDIA GeForce GT 625 (OEM),desktop,8,4,0,0.00
+NVIDIA GeForce GTX 750,desktop,5,4,0,0.00
+PowerVR Rogue G6200,mobile,7,4,0,0.00
+Adreno (TM) 320,mobile,5,3,0,0.00
+AMD Radeon(TM) R7 Graphics,desktop,6,3,0,0.00
 "AMD STONEY (DRM 3.23.0 / 4.15.0-23-generic, LLVM 5.0.1)",desktop,5,3,0,0.00
-ANGLE (AMD Radeon (TM) R9 380 Series Direct3D11 vs_5_0 ps_5_0),desktop,4,3,0,0.00
-ANGLE (AMD Radeon HD 6350 Direct3D11 vs_5_0 ps_5_0),desktop,5,3,0,0.00
-ANGLE (AMD RADEON HD 6350 Direct3D9Ex vs_3_0 ps_3_0),desktop,8,3,0,0.00
+ANGLE (AMD Mobility Radeon HD 5000 Series Direct3D11 vs_5_0 ps_5_0),desktop,6,3,0,0.00
+ANGLE (AMD Radeon (TM) R7 360 Series Direct3D11 vs_5_0 ps_5_0),desktop,14,3,0,0.00
+ANGLE (AMD Radeon (TM) R9 Fury Series Direct3D11 vs_5_0 ps_5_0),desktop,5,3,0,0.00
+ANGLE (AMD Radeon HD 5450 Direct3D9Ex vs_3_0 ps_3_0),desktop,6,3,0,0.00
+ANGLE (AMD Radeon HD 5570 Direct3D11 vs_5_0 ps_5_0),desktop,6,3,0,0.00
+ANGLE (AMD Radeon HD 5670 Direct3D11 vs_5_0 ps_5_0),desktop,9,3,0,0.00
+ANGLE (AMD Radeon HD 5800 Series Direct3D11 vs_5_0 ps_5_0),desktop,11,3,0,0.00
+ANGLE (AMD Radeon HD 6320 Graphics Direct3D11 vs_5_0 ps_5_0),desktop,5,3,0,0.00
+ANGLE (AMD Radeon HD 6480G Direct3D11 vs_5_0 ps_5_0),desktop,17,3,0,0.00
+ANGLE (AMD Radeon HD 6550D Direct3D11 vs_5_0 ps_5_0),desktop,9,3,0,0.00
+ANGLE (AMD Radeon HD 6570 Direct3D11 vs_5_0 ps_5_0),desktop,5,3,0,0.00
+ANGLE (AMD Radeon HD 6800 Series Direct3D9Ex vs_3_0 ps_3_0),desktop,7,3,0,0.00
 ANGLE (AMD Radeon HD 6900 Series Direct3D11 vs_5_0 ps_5_0),desktop,4,3,0,0.00
 ANGLE (AMD Radeon HD 7400M Series Direct3D11 vs_5_0 ps_5_0),desktop,4,3,0,0.00
-ANGLE (AMD Radeon HD 7520G Direct3D11 vs_5_0 ps_5_0),desktop,5,3,0,0.00
-ANGLE (AMD Radeon HD 7570M Direct3D11 vs_5_0 ps_5_0),desktop,13,3,0,0.00
-ANGLE (AMD Radeon R7 200 Series Direct3D9Ex vs_3_0 ps_3_0),desktop,4,3,0,0.00
-ANGLE (AMD Radeon(TM) R5 240 Direct3D11 vs_5_0 ps_5_0),desktop,4,3,0,0.00
+ANGLE (AMD Radeon HD 7500 Series Direct3D11 vs_5_0 ps_5_0),desktop,10,3,0,0.00
+ANGLE (AMD Radeon HD 7500/7600 Series Direct3D11 vs_5_0 ps_5_0),desktop,8,3,0,0.00
+ANGLE (AMD Radeon HD 7500M/7600M Series Direct3D11 vs_5_0 ps_5_0),desktop,11,3,0,0.00
+ANGLE (AMD Radeon HD 8240 Direct3D11 vs_5_0 ps_5_0),desktop,8,3,0,0.00
+ANGLE (AMD Radeon HD 8670D Direct3D11 vs_5_0 ps_5_0),desktop,8,3,0,0.00
+ANGLE (AMD Radeon R5 310 Direct3D11 vs_5_0 ps_5_0),desktop,9,3,0,0.00
+ANGLE (AMD Radeon R7 240 Direct3D11 vs_5_0 ps_5_0),desktop,12,3,0,0.00
+ANGLE (AMD Radeon(TM) HD 6520G Direct3D11 vs_5_0 ps_5_0),desktop,9,3,0,0.00
+ANGLE (AMD Radeon(TM) R7 250 Direct3D11 vs_5_0 ps_5_0),desktop,9,3,0,0.00
 ANGLE (ATI Mobility Radeon HD 4500 Series Direct3D11 vs_4_1 ps_4_1),desktop,8,3,0,0.00
-ANGLE (ATI Radeon HD 3450 Direct3D11 vs_4_1 ps_4_1),desktop,3,3,0,0.00
+ANGLE (ATI Radeon HD 3870 Direct3D11 vs_4_1 ps_4_1),desktop,7,3,0,0.00
 ANGLE (ATI Radeon HD 4800 Series Direct3D9Ex vs_3_0 ps_3_0),desktop,5,3,0,0.00
 ANGLE (ATI Radeon HD 5400 Series Direct3D11 vs_5_0 ps_5_0),desktop,8,3,0,0.00
-ANGLE (Intel(R) HD Graphics 530 Direct3D9Ex vs_3_0 ps_3_0),desktop,8,3,0,0.00
-ANGLE (Intel(R) HD Graphics Family Direct3D11 vs_4_1 ps_4_1),desktop,3,3,0,0.00
-ANGLE (Intel(R) Iris(R) Plus Graphics 640 Direct3D11 vs_5_0 ps_5_0),desktop,5,3,0,0.00
-ANGLE (Intel(R) Iris(TM) Graphics 550 Direct3D11 vs_5_0 ps_5_0),desktop,6,3,0,0.00
-ANGLE (Intel(R) Iris(TM) Plus Graphics 640 Direct3D11 vs_5_0 ps_5_0),desktop,6,3,0,0.00
-ANGLE (NVIDIA GeForce 9500 GT Direct3D11 vs_4_0 ps_4_0),desktop,5,3,0,0.00
-ANGLE (NVIDIA GeForce 9600 GT (Microsoft Corporation - WDDM v1.1) Direct3D9Ex vs_3_0 ps_3_0),desktop,3,3,0,0.00
-ANGLE (NVIDIA GeForce 9800 GT Direct3D11 vs_4_0 ps_4_0),desktop,4,3,0,0.00
-ANGLE (NVIDIA GeForce GT 220 Direct3D11 vs_4_1 ps_4_1),desktop,4,3,0,0.00
+ANGLE (Intel(R) G45/G43 Express Chipset (Microsoft Corporation - WDDM 1.1) Direct3D9Ex vs_3_0 ps_3_0),desktop,5,3,0,0.00
+ANGLE (Intel(R) HD Graphics 5600 Direct3D11 vs_5_0 ps_5_0),desktop,7,3,0,0.00
+ANGLE (NVIDIA GeForce 210 Direct3D9Ex vs_3_0 ps_3_0),desktop,9,3,0,0.00
+ANGLE (NVIDIA GeForce 410M Direct3D9Ex vs_3_0 ps_3_0),desktop,9,3,0,0.00
+ANGLE (NVIDIA GeForce 6150SE nForce 430 (Microsoft Corporation - WDDM) Direct3D9Ex vs_3_0 ps_3_0),desktop,6,3,0,0.00
+ANGLE (NVIDIA GeForce 8600 GT Direct3D11 vs_4_0 ps_4_0),desktop,3,3,0,0.00
+ANGLE (NVIDIA GeForce 9600 GSO 512 Direct3D11 vs_4_0 ps_4_0),desktop,4,3,0,0.00
+ANGLE (NVIDIA GeForce G210 Direct3D11 vs_4_0 ps_4_0),desktop,7,3,0,0.00
+ANGLE (NVIDIA GeForce GT 240 Direct3D9Ex vs_3_0 ps_3_0),desktop,7,3,0,0.00
 ANGLE (NVIDIA GeForce GT 320M Direct3D11 vs_4_1 ps_4_1),desktop,10,3,0,0.00
-ANGLE (NVIDIA GeForce GT 430 Direct3D11 vs_5_0 ps_5_0),desktop,10,3,0,0.00
+ANGLE (NVIDIA GeForce GT 420M Direct3D9Ex vs_3_0 ps_3_0),desktop,4,3,0,0.00
+ANGLE (NVIDIA GeForce GT 520 Direct3D11 vs_5_0 ps_5_0),desktop,6,3,0,0.00
+ANGLE (NVIDIA GeForce GT 540M Direct3D11 vs_5_0 ps_5_0),desktop,7,3,0,0.00
+ANGLE (NVIDIA GeForce GT 630 Direct3D9Ex vs_3_0 ps_3_0),desktop,5,3,0,0.00
+ANGLE (NVIDIA GeForce GT 650M Direct3D11 vs_5_0 ps_5_0),desktop,8,3,0,0.00
 ANGLE (NVIDIA GeForce GT 705 Direct3D9Ex vs_3_0 ps_3_0),desktop,8,3,0,0.00
-ANGLE (NVIDIA GeForce GT 730 Direct3D9Ex vs_3_0 ps_3_0),desktop,4,3,0,0.00
+ANGLE (NVIDIA GeForce GT 710 Direct3D9Ex vs_3_0 ps_3_0),desktop,7,3,0,0.00
+ANGLE (NVIDIA GeForce GT 750M Direct3D11 vs_5_0 ps_5_0),desktop,4,3,0,0.00
+ANGLE (NVIDIA GeForce GT 755M Direct3D11 vs_5_0 ps_5_0),desktop,10,3,0,0.00
 ANGLE (NVIDIA GeForce GTX 260 Direct3D11 vs_4_0 ps_4_0),desktop,4,3,0,0.00
 ANGLE (NVIDIA GeForce GTX 570 Direct3D11 vs_5_0 ps_5_0),desktop,8,3,0,0.00
-ANGLE (NVIDIA GeForce GTX 650 Ti Direct3D11 vs_5_0 ps_5_0),desktop,5,3,0,0.00
-ANGLE (NVIDIA GeForce GTX 660 Ti Direct3D11 vs_5_0 ps_5_0),desktop,5,3,0,0.00
-ANGLE (NVIDIA GeForce GTX 980 Direct3D11 vs_5_0 ps_5_0),desktop,7,3,0,0.00
-ANGLE (NVIDIA Quadro K1200 Direct3D11 vs_5_0 ps_5_0),desktop,6,3,0,0.00
-ANGLE (NVIDIA Quadro P2000 Direct3D11 vs_5_0 ps_5_0),desktop,4,3,0,0.00
-ANGLE (Radeon RX 550 Series Direct3D11 vs_5_0 ps_5_0),desktop,5,3,0,0.00
+ANGLE (NVIDIA GeForce GTX 760 Direct3D9Ex vs_3_0 ps_3_0),desktop,11,3,0,0.00
+ANGLE (NVIDIA GeForce GTX 780 Ti Direct3D11 vs_5_0 ps_5_0),desktop,6,3,0,0.00
+ANGLE (NVIDIA GeForce GTX 970 Direct3D9Ex vs_3_0 ps_3_0),desktop,6,3,0,0.00
+ANGLE (NVIDIA GeForce GTX TITAN Direct3D11 vs_5_0 ps_5_0),desktop,5,3,0,0.00
+ANGLE (NVIDIA NVS 5100M Direct3D11 vs_4_1 ps_4_1),desktop,7,3,0,0.00
+ANGLE (NVIDIA Quadro 600 Direct3D11 vs_5_0 ps_5_0),desktop,4,3,0,0.00
+ANGLE (NVIDIA Quadro K2100M Direct3D11 vs_5_0 ps_5_0),desktop,5,3,0,0.00
+ANGLE (NVIDIA Quadro K4000 Direct3D11 vs_5_0 ps_5_0),desktop,10,3,0,0.00
+ANGLE (NVIDIA Quadro NVS 295 Direct3D11 vs_4_0 ps_4_0),desktop,4,3,0,0.00
+ANGLE (NVIDIA Quadro P400 Direct3D11 vs_5_0 ps_5_0),desktop,4,3,0,0.00
 ANGLE (Radeon RX 560 Series Direct3D11 vs_5_0 ps_5_0),desktop,5,3,0,0.00
 ANGLE (Radeon RX 570 Series Direct3D11 vs_5_0 ps_5_0),desktop,6,3,0,0.00
-ANGLE (SraKmd Direct3D11 vs_4_0 ps_4_0),desktop,6,3,0,0.00
-ATI Radeon HD 5750 OpenGL Engine,desktop,6,3,0,0.00
+ANGLE (Radeon RX Vega Direct3D11 vs_5_0 ps_5_0),desktop,7,3,0,0.00
+ATI Radeon HD 2400 XT OpenGL Engine,desktop,9,3,0,0.00
+Intel(R) G41 Express Chipset,desktop,7,3,0,0.00
+Intel(R) HD Graphics,tablet,5,3,0,0.00
+Intel(R) HD Graphics 530,tablet,13,3,0,0.00
+Intel(R) HD Graphics 610,desktop,7,3,0,0.00
 Intel(R) HD Graphics 620,tablet,10,3,0,0.00
 Intel(R) HD Graphics for Atom(TM) x5/x7,tablet,5,3,0,0.00
+Intel(R) Q45/Q43 Express Chipset,desktop,8,3,0,0.00
 Intel(R) UHD Graphics 620,tablet,12,3,0,0.00
-Mali-G72 MP3,mobile,5,3,0,0.00
+Mali-T628,tablet,12,3,0,0.00
 Mali-T860,desktop,9,3,0,0.00
-NVIDIA GeForce GTX 1060 6GB,desktop,4,3,0,0.00
-NVIDIA GeForce GTX 960,desktop,7,3,0,0.00
+Mesa DRI Intel(R) HD Graphics 5500 (Broadwell GT2),desktop,3,3,0,0.00
+Mesa DRI Intel(R) Ivybridge Mobile,desktop,8,3,0,0.00
+NVIDIA GeForce GT 620,desktop,6,3,0,0.00
+NVIDIA GeForce GT 710,desktop,8,3,0,0.00
+NVIDIA GeForce GTX 1080,desktop,6,3,0,0.00
+NVIDIA GeForce GTX 650 Ti,desktop,4,3,0,0.00
+NVIDIA GeForce GTX 750 Ti OpenGL Engine,desktop,6,3,0,0.00
 NVIDIA Quadro K620,desktop,9,3,0,0.00
-PowerVR Rogue G6200,mobile,5,3,0,0.00
+NVIDIA Tegra K1 (nvgpu)/integrated,desktop,6,3,0,0.00
+PowerVR Rogue GX6250,tablet,15,3,0,0.00
 Adreno (TM) 320,tablet,8,2,0,0.00
-AMD Radeon HD 6490M OpenGL Engine,desktop,2,2,0,0.00
+Adreno (TM) 330,desktop,4,2,0,0.00
+Adreno (TM) 330,tablet,4,2,0,0.00
+Adreno (TM) 430,desktop,2,2,0,0.00
+AMD Radeon HD 6630M OpenGL Engine,desktop,15,2,0,0.00
 AMD Radeon HD 7400M Series,desktop,10,2,0,0.00
+AMD Radeon HD 8570,desktop,4,2,0,0.00
 AMD Radeon Pro Vega 56 OpenGL Engine,desktop,8,2,0,0.00
+AMD Radeon Pro Vega 64 OpenGL Engine,desktop,4,2,0,0.00
+AMD Radeon(TM) R2 Graphics,desktop,6,2,0,0.00
 AMD Radeon(TM) R5 Graphics,desktop,10,2,0,0.00
-AMD Radeon(TM) R7 Graphics,desktop,4,2,0,0.00
-ANGLE (AMD Mobility Radeon HD 5000 Series Direct3D11 vs_5_0 ps_5_0),desktop,3,2,0,0.00
-ANGLE (AMD Radeon (TM) R7 370 Series Direct3D11 vs_5_0 ps_5_0),desktop,3,2,0,0.00
-ANGLE (AMD Radeon (TM) R9 Fury Series Direct3D11 vs_5_0 ps_5_0),desktop,4,2,0,0.00
-ANGLE (AMD Radeon HD 5450 Direct3D9Ex vs_3_0 ps_3_0),desktop,4,2,0,0.00
-ANGLE (AMD Radeon HD 5800 Series Direct3D11 vs_5_0 ps_5_0),desktop,9,2,0,0.00
+ANGLE (AMD Radeon (TM) R9 360 Direct3D11 vs_5_0 ps_5_0),desktop,2,2,0,0.00
+ANGLE (AMD Radeon HD 5500 Series Direct3D11 vs_5_0 ps_5_0),desktop,7,2,0,0.00
 ANGLE (AMD Radeon HD 6250 Graphics Direct3D11 vs_5_0 ps_5_0),desktop,2,2,0,0.00
 ANGLE (AMD RADEON HD 6350 Direct3D11 vs_5_0 ps_5_0),desktop,4,2,0,0.00
-ANGLE (AMD Radeon HD 6480G Direct3D11 vs_5_0 ps_5_0),desktop,14,2,0,0.00
 ANGLE (AMD Radeon HD 6530D Direct3D11 vs_5_0 ps_5_0),desktop,4,2,0,0.00
-ANGLE (AMD Radeon HD 6570 Direct3D11 vs_5_0 ps_5_0),desktop,3,2,0,0.00
-ANGLE (AMD Radeon HD 6670 Direct3D11 vs_5_0 ps_5_0),desktop,2,2,0,0.00
-ANGLE (AMD Radeon HD 7000 series Direct3D11 vs_5_0 ps_5_0),desktop,3,2,0,0.00
+ANGLE (AMD Radeon HD 6600 Series Direct3D11 vs_5_0 ps_5_0),desktop,9,2,0,0.00
 ANGLE (AMD Radeon HD 7450 Direct3D11 vs_5_0 ps_5_0),desktop,5,2,0,0.00
 ANGLE (AMD Radeon HD 7450 Graphics Direct3D11 vs_5_0 ps_5_0),desktop,4,2,0,0.00
-ANGLE (AMD Radeon HD 7500/7600 Series Direct3D11 vs_5_0 ps_5_0),desktop,6,2,0,0.00
-ANGLE (AMD Radeon HD 7500M/7600M Series Direct3D11 vs_5_0 ps_5_0),desktop,4,2,0,0.00
-ANGLE (AMD Radeon HD 8240 Direct3D11 vs_5_0 ps_5_0),desktop,3,2,0,0.00
-ANGLE (AMD Radeon HD 8250 Direct3D11 vs_5_0 ps_5_0),desktop,3,2,0,0.00
-ANGLE (AMD Radeon HD 8400 / R3 Series Direct3D11 vs_5_0 ps_5_0),desktop,5,2,0,0.00
+ANGLE (AMD Radeon HD 7500G Direct3D11 vs_5_0 ps_5_0),desktop,4,2,0,0.00
+ANGLE (AMD Radeon HD 7600G Direct3D11 vs_5_0 ps_5_0),desktop,5,2,0,0.00
+ANGLE (AMD Radeon HD 7600M Series Direct3D11 vs_5_0 ps_5_0),desktop,6,2,0,0.00
+ANGLE (AMD Radeon HD 7690M Direct3D11 vs_5_0 ps_5_0),desktop,3,2,0,0.00
+ANGLE (AMD Radeon HD 8350 Direct3D9Ex vs_3_0 ps_3_0),desktop,4,2,0,0.00
+ANGLE (AMD Radeon HD 8570 Direct3D11 vs_5_0 ps_5_0),desktop,4,2,0,0.00
 ANGLE (AMD Radeon HD 8570 Graphics Direct3D11 vs_5_0 ps_5_0),desktop,3,2,0,0.00
 ANGLE (AMD Radeon HD 8650G + HD 8600M Dual Graphics Direct3D9Ex vs_3_0 ps_3_0),desktop,6,2,0,0.00
+ANGLE (AMD Radeon HD6370D Graphics Direct3D11 vs_5_0 ps_5_0),desktop,6,2,0,0.00
 ANGLE (AMD Radeon Pro 450 Direct3D11 vs_5_0 ps_5_0),desktop,4,2,0,0.00
+ANGLE (AMD Radeon R4 Graphics Direct3D11 vs_5_0 ps_5_0),desktop,4,2,0,0.00
 ANGLE (AMD Radeon R5 235 Direct3D11 vs_5_0 ps_5_0),desktop,2,2,0,0.00
 ANGLE (AMD Radeon R5 430 Direct3D11 vs_5_0 ps_5_0),desktop,4,2,0,0.00
 ANGLE (AMD Radeon R7 450 Direct3D11 vs_5_0 ps_5_0),desktop,8,2,0,0.00
-ANGLE (AMD Radeon R7 Series Direct3D11 vs_5_0 ps_5_0),desktop,4,2,0,0.00
 ANGLE (AMD Radeon(TM) HD 7650A Graphics Direct3D11 vs_5_0 ps_5_0),desktop,7,2,0,0.00
+ANGLE (AMD Radeon(TM) HD 8350 Direct3D11 vs_5_0 ps_5_0),desktop,5,2,0,0.00
 ANGLE (AMD Radeon(TM) HD 8610G Direct3D11 vs_5_0 ps_5_0),desktop,3,2,0,0.00
-ANGLE (AMD Radeon(TM) R3 Graphics Direct3D11 vs_5_0 ps_5_0),desktop,4,2,0,0.00
-ANGLE (AMD Radeon(TM) R6 Graphics Direct3D11 vs_5_0 ps_5_0),desktop,2,2,0,0.00
-ANGLE (AMD Radeon(TM) Vega 8 Graphics Direct3D11 vs_5_0 ps_5_0),desktop,2,2,0,0.00
-ANGLE (ASUS EAH5450 Series Direct3D11 vs_5_0 ps_5_0),desktop,4,2,0,0.00
+ANGLE (AMD Radeon(TM) R5 340X Direct3D11 vs_5_0 ps_5_0),desktop,15,2,0,0.00
+ANGLE (AMD Radeon(TM) Vega 3 Graphics Direct3D11 vs_5_0 ps_5_0),desktop,10,2,0,0.00
+ANGLE (AMD Radeon(TM) Vega 6 Graphics Direct3D11 vs_5_0 ps_5_0),desktop,8,2,0,0.00
 ANGLE (ASUS Radeon RX 580 Series Direct3D11 vs_5_0 ps_5_0),desktop,4,2,0,0.00
+ANGLE (ATI FirePro V (FireGL V) Graphics Adapter Direct3D11 vs_5_0 ps_5_0),desktop,4,2,0,0.00
 ANGLE (ATI Mobility Radeon HD 5470 Direct3D11 vs_5_0 ps_5_0),desktop,2,2,0,0.00
-ANGLE (ATI Radeon HD 4200 Direct3D11 vs_4_1 ps_4_1),desktop,2,2,0,0.00
+ANGLE (ATI Mobility Radeon HD 5470 Direct3D9Ex vs_3_0 ps_3_0),desktop,7,2,0,0.00
+ANGLE (ATI Radeon 3000 Graphics Direct3D11 vs_4_0 ps_4_0),desktop,6,2,0,0.00
+ANGLE (ATI Radeon HD 3400 Series Direct3D11 vs_4_1 ps_4_1),desktop,4,2,0,0.00
+ANGLE (ATI Radeon HD 3450 Direct3D9Ex vs_3_0 ps_3_0),desktop,6,2,0,0.00
+ANGLE (ATI Radeon HD 4200 Direct3D9Ex vs_3_0 ps_3_0),desktop,8,2,0,0.00
 ANGLE (ATI Radeon HD 4550 Direct3D11 vs_4_1 ps_4_1),desktop,3,2,0,0.00
 ANGLE (ATI Radeon HD 4600 Series Direct3D11 vs_4_1 ps_4_1),desktop,3,2,0,0.00
 ANGLE (ATI Radeon HD 4800 Series Direct3D11 vs_4_1 ps_4_1),desktop,4,2,0,0.00
-ANGLE (Intel(R) G41 Express Chipset (Microsoft Corporation - WDDM 1.1) Direct3D11 vs_4_0 ps_4_0),desktop,11,2,0,0.00
-ANGLE (Intel(R) G41 Express Chipset (Microsoft Corporation - WDDM 1.1) Direct3D9Ex vs_3_0 ps_3_0),desktop,8,2,0,0.00
-ANGLE (Intel(R) HD Graphics 5000 Direct3D9Ex vs_3_0 ps_3_0),desktop,4,2,0,0.00
-ANGLE (Intel(R) HD Graphics 5600 Direct3D11 vs_5_0 ps_5_0),desktop,6,2,0,0.00
+ANGLE (Intel(R) Atom(TM) Processor E3800 Series/Intel(R) Celeron(R) Processor N2920/J1900 Direct3D9Ex vs_3_0 ps_3_0),desktop,5,2,0,0.00
+ANGLE (Intel(R) G41 Express Chipset Direct3D11 vs_4_0 ps_4_0),desktop,5,2,0,0.00
+ANGLE (Intel(R) Graphics Media Accelerator HD Direct3D9Ex vs_3_0 ps_3_0),desktop,4,2,0,0.00
+ANGLE (Intel(R) HD Graphics 610 Direct3D9Ex vs_3_0 ps_3_0),desktop,3,2,0,0.00
 ANGLE (Intel(R) HD Graphics 620 Direct3D9Ex vs_3_0 ps_3_0),desktop,16,2,0,0.00
-ANGLE (Intel(R) HD Graphics 630 Direct3D9Ex vs_3_0 ps_3_0),desktop,3,2,0,0.00
 ANGLE (Intel(R) HD Graphics P630 Direct3D11 vs_5_0 ps_5_0),desktop,5,2,0,0.00
-ANGLE (Intel(R) Iris(R) Graphics 540 Direct3D11 vs_5_0 ps_5_0),desktop,6,2,0,0.00
-ANGLE (Intel(R) Iris(TM) Graphics 6100 Direct3D11 vs_5_0 ps_5_0),desktop,7,2,0,0.00
-ANGLE (Intel(R) UHD Graphics 605 Direct3D11 vs_5_0 ps_5_0),desktop,5,2,0,0.00
-ANGLE (Mobile Intel(R) 4 Series Express Chipset Family Direct3D9Ex vs_3_0 ps_3_0),desktop,4,2,0,0.00
+ANGLE (Intel(R) Iris(R) Plus Graphics 650 Direct3D11 vs_5_0 ps_5_0),desktop,10,2,0,0.00
+ANGLE (Intel(R) Iris(TM) Graphics 6100 Direct3D9Ex vs_3_0 ps_3_0),desktop,4,2,0,0.00
 ANGLE (Mobile Intel(R) 965 Express Chipset Family Direct3D9Ex vs_3_0 ps_3_0),desktop,3,2,0,0.00
-ANGLE (NVIDIA GeForce 310M Direct3D9Ex vs_3_0 ps_3_0),desktop,12,2,0,0.00
-ANGLE (NVIDIA GeForce 6150SE nForce 430 Direct3D9Ex vs_3_0 ps_3_0),desktop,5,2,0,0.00
+ANGLE (NVIDIA GeForce 310M Direct3D11 vs_4_1 ps_4_1),desktop,8,2,0,0.00
+ANGLE (NVIDIA GeForce 8200 Direct3D11 vs_4_0 ps_4_0),desktop,2,2,0,0.00
+ANGLE (NVIDIA GeForce 9300M GS Direct3D11 vs_4_0 ps_4_0),desktop,13,2,0,0.00
 ANGLE (NVIDIA GeForce 940MX Direct3D11 vs_5_0 ps_5_0),desktop,2,2,0,0.00
-ANGLE (NVIDIA GeForce 9600 GT Direct3D11 vs_4_0 ps_4_0),desktop,4,2,0,0.00
-ANGLE (NVIDIA GeForce G210 Direct3D11 vs_4_0 ps_4_0),desktop,4,2,0,0.00
+ANGLE (NVIDIA GeForce G210 Direct3D11 vs_4_1 ps_4_1),desktop,4,2,0,0.00
+ANGLE (NVIDIA GeForce G210M Direct3D11 vs_4_1 ps_4_1),desktop,3,2,0,0.00
 ANGLE (NVIDIA GeForce Go 7950 GTX Direct3D9Ex vs_3_0 ps_3_0),desktop,3,2,0,0.00
-ANGLE (NVIDIA GeForce GT 440 Direct3D11 vs_5_0 ps_5_0),desktop,6,2,0,0.00
-ANGLE (NVIDIA GeForce GT 540M Direct3D11 vs_5_0 ps_5_0),desktop,4,2,0,0.00
-ANGLE (NVIDIA GeForce GT 630 Direct3D9Ex vs_3_0 ps_3_0),desktop,3,2,0,0.00
+ANGLE (NVIDIA GeForce GT 330 Direct3D11 vs_4_0 ps_4_0),desktop,3,2,0,0.00
+ANGLE (NVIDIA GeForce GT 330M Direct3D11 vs_4_1 ps_4_1),desktop,10,2,0,0.00
+ANGLE (NVIDIA GeForce GT 425M Direct3D11 vs_5_0 ps_5_0),desktop,3,2,0,0.00
+ANGLE (NVIDIA GeForce GT 520 Direct3D9Ex vs_3_0 ps_3_0),desktop,21,2,0,0.00
+ANGLE (NVIDIA GeForce GT 635 Direct3D11 vs_5_0 ps_5_0),desktop,4,2,0,0.00
 ANGLE (NVIDIA GeForce GT 640 Direct3D9Ex vs_3_0 ps_3_0),desktop,5,2,0,0.00
-ANGLE (NVIDIA GeForce GT 755M Direct3D11 vs_5_0 ps_5_0),desktop,3,2,0,0.00
+ANGLE (NVIDIA GeForce GT 740 Direct3D9Ex vs_3_0 ps_3_0),desktop,9,2,0,0.00
+ANGLE (NVIDIA GeForce GTX 1060 3GB Direct3D9Ex vs_3_0 ps_3_0),desktop,10,2,0,0.00
+ANGLE (NVIDIA GeForce GTX 285 Direct3D11 vs_4_0 ps_4_0),desktop,5,2,0,0.00
 ANGLE (NVIDIA GeForce GTX 460 Direct3D11 vs_5_0 ps_5_0),desktop,7,2,0,0.00
 ANGLE (NVIDIA GeForce GTX 480 Direct3D11 vs_5_0 ps_5_0),desktop,6,2,0,0.00
+ANGLE (NVIDIA GeForce GTX 580 Direct3D11 vs_5_0 ps_5_0),desktop,2,2,0,0.00
+ANGLE (NVIDIA GeForce GTX 765M Direct3D11 vs_5_0 ps_5_0),desktop,5,2,0,0.00
 ANGLE (NVIDIA GeForce GTX 850M Direct3D11 vs_5_0 ps_5_0),desktop,5,2,0,0.00
-ANGLE (NVIDIA GeForce GTX 970M Direct3D11 vs_5_0 ps_5_0),desktop,7,2,0,0.00
-ANGLE (NVIDIA GeForce GTX TITAN Direct3D11 vs_5_0 ps_5_0),desktop,2,2,0,0.00
-ANGLE (NVIDIA GeForce GTX TITAN X Direct3D11 vs_5_0 ps_5_0),desktop,2,2,0,0.00
-ANGLE (NVIDIA Quadro 4000 Direct3D11 vs_5_0 ps_5_0),desktop,2,2,0,0.00
+ANGLE (NVIDIA GeForce GTX 950M Direct3D11 vs_5_0 ps_5_0),desktop,4,2,0,0.00
+ANGLE (NVIDIA GeForce GTX 960 Direct3D9Ex vs_3_0 ps_3_0),desktop,3,2,0,0.00
+ANGLE (NVIDIA GeForce GTX 980M Direct3D11 vs_5_0 ps_5_0),desktop,4,2,0,0.00
+ANGLE (NVIDIA NVS 3100M Direct3D11 vs_4_1 ps_4_1),desktop,5,2,0,0.00
+ANGLE (NVIDIA Quadro 600 Direct3D9Ex vs_3_0 ps_3_0),desktop,5,2,0,0.00
+ANGLE (NVIDIA Quadro FX 1800 Direct3D11 vs_4_0 ps_4_0),desktop,2,2,0,0.00
 ANGLE (NVIDIA Quadro K2200 Direct3D9Ex vs_3_0 ps_3_0),desktop,3,2,0,0.00
-ANGLE (NVIDIA Quadro K4000 Direct3D11 vs_5_0 ps_5_0),desktop,8,2,0,0.00
+ANGLE (NVIDIA Quadro K620 Direct3D9Ex vs_3_0 ps_3_0),desktop,5,2,0,0.00
 ANGLE (NVIDIA Quadro M2000M Direct3D11 vs_5_0 ps_5_0),desktop,6,2,0,0.00
-ANGLE (NVIDIA Quadro P600 Direct3D11 vs_5_0 ps_5_0),desktop,3,2,0,0.00
+ANGLE (NVIDIA Quadro NVS 290 Direct3D11 vs_4_0 ps_4_0),desktop,3,2,0,0.00
+ANGLE (NVIDIA Quadro P1000 Direct3D11 vs_5_0 ps_5_0),desktop,7,2,0,0.00
+ANGLE (NVIDIA Quadro P620 Direct3D11 vs_5_0 ps_5_0),desktop,5,2,0,0.00
 ANGLE (Radeon (TM) HD 6770M Direct3D11 vs_5_0 ps_5_0),desktop,4,2,0,0.00
+ANGLE (Radeon (TM) Pro WX 4100 Direct3D11 vs_5_0 ps_5_0),desktop,4,2,0,0.00
 ANGLE (Radeon (TM) Pro WX 7100 Graphics Direct3D11 vs_5_0 ps_5_0),desktop,5,2,0,0.00
-ANGLE (Radeon RX Vega Direct3D11 vs_5_0 ps_5_0),desktop,5,2,0,0.00
 ANGLE (Software Adapter Direct3D11 vs_4_1 ps_4_1),desktop,2,2,0,0.00
 ATI Radeon HD 2600 OpenGL Engine,desktop,2,2,0,0.00
-Intel(R) G41 Express Chipset,desktop,5,2,0,0.00
-Mesa DRI Intel(R) HD Graphics 405 (Braswell),desktop,3,2,0,0.00
-Mesa DRI Intel(R) HD Graphics 515 (Skylake GT2),desktop,3,2,0,0.00
-Mesa DRI Intel(R) HD Graphics 5500 (Broadwell GT2),desktop,2,2,0,0.00
+ATI Radeon HD 5670 OpenGL Engine,desktop,5,2,0,0.00
+GeForce GTX 1050/PCIe/SSE2,desktop,4,2,0,0.00
+Intel(R) HD Graphics 4600,tablet,3,2,0,0.00
+Mesa DRI Intel(R) HD Graphics 520 (Skylake GT2),desktop,7,2,0,0.00
+Mesa DRI Intel(R) HD Graphics 530 (Skylake GT2),desktop,14,2,0,0.00
 Mesa DRI Intel(R) Ivybridge Desktop,desktop,5,2,0,0.00
-Mesa DRI Intel(R) Ivybridge Mobile,desktop,6,2,0,0.00
+Mobile Intel(R) 4 Series Express Chipset Family,desktop,12,2,0,0.00
+NVIDIA GeForce 8600M GT OpenGL Engine,desktop,3,2,0,0.00
 NVIDIA GeForce GT 130 OpenGL Engine,desktop,9,2,0,0.00
-NVIDIA GeForce GT 710,desktop,6,2,0,0.00
+NVIDIA GeForce GT 520,desktop,7,2,0,0.00
+NVIDIA GeForce GT 530,desktop,2,2,0,0.00
+NVIDIA GeForce GT 630,desktop,4,2,0,0.00
 NVIDIA GeForce GT 720,desktop,2,2,0,0.00
-NVIDIA GeForce GTX 1080,desktop,3,2,0,0.00
+NVIDIA GeForce GTX 1080 Ti,desktop,5,2,0,0.00
+NVIDIA GeForce GTX 950,desktop,3,2,0,0.00
+NVIDIA NVS 310,desktop,3,2,0,0.00
+NVIDIA Quadro K5000,desktop,4,2,0,0.00
+NVIDIA Quadro M1200,desktop,6,2,0,0.00
+PowerVR Rogue G6430,mobile,2,2,0,0.00
+PowerVR Rogue GE8100,mobile,4,2,0,0.00
 PowerVR SGX 544MP,mobile,16,2,0,0.00
+Qualcomm Adreno 305,mobile,2,2,0,0.00
 SKL Graphics,desktop,5,2,0,0.00
-Adreno (TM) 305,tablet,3,1,0,0.00
-Adreno (TM) 320,mobile,1,1,0,0.00
-Adreno (TM) 330,tablet,3,1,0,0.00
-Adreno (TM) 430,desktop,1,1,0,0.00
 Adreno (TM) 430,tablet,1,1,0,0.00
+Adreno (TM) 505,desktop,2,1,0,0.00
 Adreno (TM) 505,tablet,1,1,0,0.00
 Adreno (TM) 530,desktop,3,1,0,0.00
 AMD FirePro W4100 Graphics Adapter,desktop,4,1,0,0.00
 "AMD Radeon (TM) R9 380 Series (TONGA / DRM 3.23.0 / 4.15.0-20-generic, LLVM 6.0.0)",desktop,1,1,0,0.00
-AMD Radeon HD 6630M OpenGL Engine,desktop,8,1,0,0.00
+"AMD Radeon (TM) RX 460 Graphics (POLARIS11, DRM 3.26.0, 4.18.6-arch1-1-ARCH, LLVM 6.0.1)",desktop,4,1,0,0.00
 AMD Radeon HD 7000 series,desktop,2,1,0,0.00
+AMD Radeon HD 7310 Graphics,desktop,2,1,0,0.00
+AMD Radeon HD 7340 Graphics,desktop,3,1,0,0.00
+AMD Radeon HD 7700 Series,desktop,2,1,0,0.00
+AMD Radeon HD 8650G,desktop,6,1,0,0.00
 AMD Radeon Pro 560 OpenGL Engine,mobile,1,1,0,0.00
-AMD Radeon Pro Vega 64 OpenGL Engine,desktop,3,1,0,0.00
+AMD Radeon R7 Series,desktop,2,1,0,0.00
+AMD Radeon R9 M370X,desktop,2,1,0,0.00
 AMD Radeon R9 M380 OpenGL Engine,mobile,3,1,0,0.00
 AMD Radeon(TM) R5 Graphics,tablet,2,1,0,0.00
+AMD RadeonT R5 430,desktop,3,1,0,0.00
+ANGLE ((PE64) ATI Radeon 3000 Graphics Direct3D11 vs_4_0 ps_4_0),desktop,1,1,0,0.00
+ANGLE (67EF:CF Direct3D11 vs_5_0 ps_5_0),desktop,4,1,0,0.00
 ANGLE (AMD FirePro M4000 Direct3D11 vs_5_0 ps_5_0),desktop,1,1,0,0.00
 ANGLE (AMD Firepro M5100 Direct3D11 vs_5_0 ps_5_0),desktop,1,1,0,0.00
+ANGLE (AMD FirePro W2100 (FireGL V) Direct3D9Ex vs_3_0 ps_3_0),desktop,1,1,0,0.00
+ANGLE (AMD FirePro W2100 (FireGL V) Graphics Adapter Direct3D11 vs_5_0 ps_5_0),desktop,4,1,0,0.00
 ANGLE (AMD FirePro W4100 Graphics Adapter Direct3D11 vs_5_0 ps_5_0),desktop,2,1,0,0.00
+ANGLE (AMD FirePro W5000 (FireGL V) Graphics Adapter Direct3D11 vs_5_0 ps_5_0),desktop,3,1,0,0.00
+ANGLE (AMD FirePro W7100 Direct3D11 vs_5_0 ps_5_0),desktop,1,1,0,0.00
 ANGLE (AMD Mobility Radeon HD 5800 Series Direct3D11 vs_5_0 ps_5_0),desktop,1,1,0,0.00
+ANGLE (AMD Radeon (TM) R5 Graphics Direct3D11 vs_5_0 ps_5_0),desktop,2,1,0,0.00
 ANGLE (AMD Radeon (TM) R6 Graphics Direct3D11 vs_5_0 ps_5_0),desktop,1,1,0,0.00
-ANGLE (AMD Radeon (TM) R7 360 Series Direct3D11 vs_5_0 ps_5_0),desktop,6,1,0,0.00
 ANGLE (AMD Radeon (TM) R7 370 Series Direct3D9Ex vs_3_0 ps_3_0),desktop,3,1,0,0.00
-ANGLE (AMD Radeon (TM) R9 360 Direct3D11 vs_5_0 ps_5_0),desktop,1,1,0,0.00
+ANGLE (AMD Radeon (TM) R9 360 Series Direct3D11 vs_5_0 ps_5_0),desktop,2,1,0,0.00
 ANGLE (AMD Radeon (TM) R9 370 Series Direct3D11 vs_5_0 ps_5_0),desktop,1,1,0,0.00
 ANGLE (AMD Radeon (TM) RX 580 Direct3D11 vs_5_0 ps_5_0),desktop,2,1,0,0.00
-ANGLE (AMD Radeon HD 5500 Series Direct3D11 vs_5_0 ps_5_0),desktop,5,1,0,0.00
-ANGLE (AMD Radeon HD 5670 Direct3D11 vs_5_0 ps_5_0),desktop,6,1,0,0.00
+ANGLE (AMD Radeon 6600M and 6700M Series Direct3D11 vs_5_0 ps_5_0),desktop,2,1,0,0.00
+ANGLE (AMD Radeon HD 6310 Graphics Direct3D9Ex vs_3_0 ps_3_0),desktop,7,1,0,0.00
 ANGLE (AMD Radeon HD 6320 Direct3D11 vs_5_0 ps_5_0),desktop,1,1,0,0.00
+ANGLE (AMD Radeon HD 6370M Direct3D9Ex vs_3_0 ps_3_0),desktop,1,1,0,0.00
 ANGLE (AMD Radeon HD 6410D Direct3D11 vs_5_0 ps_5_0),desktop,1,1,0,0.00
+ANGLE (AMD RADEON HD 6450 Direct3D11 vs_5_0 ps_5_0),desktop,3,1,0,0.00
+ANGLE (AMD Radeon HD 6450 Direct3D9Ex vs_3_0 ps_3_0),desktop,2,1,0,0.00
+ANGLE (AMD RADEON HD 6450 Direct3D9Ex vs_3_0 ps_3_0),desktop,4,1,0,0.00
 ANGLE (AMD Radeon HD 6470M Direct3D11 vs_5_0 ps_5_0),desktop,2,1,0,0.00
+ANGLE (AMD Radeon HD 6500 Series Direct3D11 vs_5_0 ps_5_0),desktop,1,1,0,0.00
 ANGLE (AMD Radeon HD 6520G Direct3D11 vs_5_0 ps_5_0),desktop,2,1,0,0.00
 ANGLE (AMD Radeon HD 6670 Direct3D9Ex vs_3_0 ps_3_0),desktop,1,1,0,0.00
 ANGLE (AMD Radeon HD 6700 Series Direct3D9Ex vs_3_0 ps_3_0),desktop,1,1,0,0.00
 ANGLE (AMD Radeon HD 6730M Direct3D11 vs_5_0 ps_5_0),desktop,1,1,0,0.00
 ANGLE (AMD Radeon HD 6770M Direct3D11 vs_5_0 ps_5_0),desktop,3,1,0,0.00
-ANGLE (AMD Radeon HD 6800 Series Direct3D9Ex vs_3_0 ps_3_0),desktop,2,1,0,0.00
+ANGLE (AMD Radeon HD 6800 Series Direct3D11 vs_5_0 ps_5_0),desktop,6,1,0,0.00
 ANGLE (AMD Radeon HD 6900M Series Direct3D11 vs_5_0 ps_5_0),desktop,2,1,0,0.00
 ANGLE (AMD Radeon HD 7340 Direct3D9Ex vs_3_0 ps_3_0),desktop,1,1,0,0.00
-ANGLE (AMD Radeon HD 7470 Direct3D11 vs_5_0 ps_5_0),desktop,1,1,0,0.00
-ANGLE (AMD Radeon HD 7480D Direct3D11 vs_5_0 ps_5_0),desktop,1,1,0,0.00
-ANGLE (AMD Radeon HD 7500 Series Direct3D11 vs_5_0 ps_5_0),desktop,3,1,0,0.00
-ANGLE (AMD Radeon HD 7500G Direct3D11 vs_5_0 ps_5_0),desktop,2,1,0,0.00
+ANGLE (AMD Radeon HD 7340 Graphics Direct3D11 vs_5_0 ps_5_0),desktop,2,1,0,0.00
+ANGLE (AMD Radeon HD 7400 Series Direct3D11 vs_5_0 ps_5_0),desktop,1,1,0,0.00
+ANGLE (AMD Radeon HD 7420G Direct3D11 vs_5_0 ps_5_0),desktop,1,1,0,0.00
+ANGLE (AMD Radeon HD 7500G Direct3D9Ex vs_3_0 ps_3_0),desktop,4,1,0,0.00
 ANGLE (AMD Radeon HD 7600 Series Direct3D11 vs_5_0 ps_5_0),desktop,2,1,0,0.00
-ANGLE (AMD Radeon HD 7600M Series Direct3D11 vs_5_0 ps_5_0),desktop,2,1,0,0.00
 ANGLE (AMD Radeon HD 7610M Direct3D11 vs_5_0 ps_5_0),desktop,1,1,0,0.00
 ANGLE (AMD Radeon HD 7620G Direct3D11 vs_5_0 ps_5_0),desktop,2,1,0,0.00
 ANGLE (AMD Radeon HD 7640G + 7670M Dual Graphics Direct3D11 vs_5_0 ps_5_0),desktop,3,1,0,0.00
 ANGLE (AMD Radeon HD 7650M Series Direct3D11 vs_5_0 ps_5_0),desktop,2,1,0,0.00
 ANGLE (AMD Radeon HD 7660G + HD 7600M Dual Graphics Direct3D11 vs_5_0 ps_5_0),desktop,1,1,0,0.00
+ANGLE (AMD Radeon HD 7660G Direct3D11 vs_5_0 ps_5_0),desktop,1,1,0,0.00
 ANGLE (AMD Radeon HD 7670M Direct3D11 vs_5_0 ps_5_0),desktop,1,1,0,0.00
+ANGLE (AMD Radeon HD 7770 GHz Edition Direct3D11 vs_5_0 ps_5_0),desktop,2,1,0,0.00
 ANGLE (AMD Radeon HD 8370D Direct3D11 vs_5_0 ps_5_0),desktop,9,1,0,0.00
 ANGLE (AMD Radeon HD 8370D Direct3D9Ex vs_3_0 ps_3_0),desktop,13,1,0,0.00
-ANGLE (AMD Radeon HD 8570 Direct3D11 vs_5_0 ps_5_0),desktop,2,1,0,0.00
-ANGLE (AMD Radeon HD 8670D Direct3D11 vs_5_0 ps_5_0),desktop,2,1,0,0.00
+ANGLE (AMD Radeon HD 8470 Direct3D11 vs_5_0 ps_5_0),desktop,4,1,0,0.00
+ANGLE (AMD Radeon HD 8470D Direct3D11 vs_5_0 ps_5_0),desktop,1,1,0,0.00
+ANGLE (AMD Radeon HD 8490 Direct3D11 vs_5_0 ps_5_0),desktop,6,1,0,0.00
+ANGLE (AMD Radeon HD 8550G + HD 8750M Dual Graphics Direct3D11 vs_5_0 ps_5_0),desktop,2,1,0,0.00
+ANGLE (AMD Radeon HD 8550G Direct3D11 vs_5_0 ps_5_0),desktop,1,1,0,0.00
 ANGLE (AMD Radeon R5 220 Direct3D11 vs_5_0 ps_5_0),desktop,3,1,0,0.00
 ANGLE (AMD Radeon R5 Direct3D11 vs_5_0 ps_5_0),desktop,4,1,0,0.00
 ANGLE (AMD Radeon R6 Graphics Direct3D11 vs_5_0 ps_5_0),desktop,1,1,0,0.00
-ANGLE (AMD Radeon R7 240 Direct3D11 vs_5_0 ps_5_0),desktop,3,1,0,0.00
-ANGLE (AMD Radeon R9 200 / HD 7900 Series Direct3D11 vs_5_0 ps_5_0),desktop,3,1,0,0.00
+ANGLE (AMD Radeon R9 200 Series Direct3D9Ex vs_3_0 ps_3_0),desktop,1,1,0,0.00
 ANGLE (AMD Radeon R9 360 Direct3D11 vs_5_0 ps_5_0),desktop,2,1,0,0.00
 ANGLE (AMD Radeon R9 M370X Direct3D11 vs_5_0 ps_5_0),desktop,1,1,0,0.00
 ANGLE (AMD RADEON R9 M390 Direct3D11 vs_5_0 ps_5_0),desktop,1,1,0,0.00
+ANGLE (AMD Radeon RX 550 Direct3D11 vs_5_0 ps_5_0),desktop,2,1,0,0.00
 ANGLE (AMD Radeon(TM) Graphics Direct3D9Ex vs_3_0 ps_3_0),desktop,1,1,0,0.00
 ANGLE (AMD Radeon(TM) HD 6380G Direct3D11 vs_5_0 ps_5_0),desktop,3,1,0,0.00
+ANGLE (AMD Radeon(TM) HD 6480G Direct3D11 vs_5_0 ps_5_0),desktop,2,1,0,0.00
+ANGLE (AMD Radeon(TM) HD 6480G Direct3D9Ex vs_3_0 ps_3_0),desktop,2,1,0,0.00
+ANGLE (AMD Radeon(TM) HD 6620G Direct3D11 vs_5_0 ps_5_0),desktop,3,1,0,0.00
 ANGLE (AMD Radeon(TM) HD 8280E Direct3D11 vs_5_0 ps_5_0),desktop,1,1,0,0.00
 ANGLE (AMD Radeon(TM) HD 8490 Direct3D11 vs_5_0 ps_5_0),desktop,1,1,0,0.00
 ANGLE (AMD Radeon(TM) HD 8510G Direct3D11 vs_5_0 ps_5_0),desktop,1,1,0,0.00
+ANGLE (AMD Radeon(TM) HD8490 Direct3D11 vs_5_0 ps_5_0),desktop,2,1,0,0.00
 ANGLE (AMD Radeon(TM) R6 Graphics Direct3D9Ex vs_3_0 ps_3_0),desktop,1,1,0,0.00
 ANGLE (AMD Radeon(TM) R7 200 Series Graphics Direct3D11 vs_5_0 ps_5_0),desktop,5,1,0,0.00
-ANGLE (AMD Radeon(TM) R7 250 Direct3D11 vs_5_0 ps_5_0),desktop,7,1,0,0.00
+ANGLE (AMD Radeon(TM) R7 360 Series Direct3D11 vs_5_0 ps_5_0),desktop,2,1,0,0.00
 ANGLE (AMD Radeon(TM) R9 290X Direct3D11 vs_5_0 ps_5_0),desktop,4,1,0,0.00
 ANGLE (AMD Radeon(TM) RX 560 Series Direct3D11 vs_5_0 ps_5_0),desktop,3,1,0,0.00
-ANGLE (AMD Radeon(TM) Vega 6 Graphics Direct3D11 vs_5_0 ps_5_0),desktop,4,1,0,0.00
 ANGLE (AMD Radeon(TM) Vega 8 Mobile Graphics Direct3D11 vs_5_0 ps_5_0),desktop,1,1,0,0.00
+ANGLE (ASUS EAH5830 Series Direct3D11 vs_5_0 ps_5_0),desktop,2,1,0,0.00
 ANGLE (ASUS R9 280 Series Direct3D11 vs_5_0 ps_5_0),desktop,1,1,0,0.00
+ANGLE (ATI FirePro 2260 Direct3D11 vs_4_1 ps_4_1),desktop,2,1,0,0.00
+ANGLE (ATI FirePro V3700 (FireGL) Direct3D11 vs_4_1 ps_4_1),desktop,7,1,0,0.00
 ANGLE (ATI Mobility Radeon HD 3400 Series Direct3D9Ex vs_3_0 ps_3_0),desktop,1,1,0,0.00
 ANGLE (ATI Mobility Radeon HD 4200 Series Direct3D11 vs_4_1 ps_4_1),desktop,2,1,0,0.00
+ANGLE (ATI Mobility Radeon HD 5400 Series Direct3D9Ex vs_3_0 ps_3_0),desktop,1,1,0,0.00
 ANGLE (ATI Mobility Radeon HD 545v Direct3D9Ex vs_3_0 ps_3_0),desktop,1,1,0,0.00
-ANGLE (ATI Mobility Radeon HD 5470 Direct3D9Ex vs_3_0 ps_3_0),desktop,5,1,0,0.00
+ANGLE (ATI Mobility Radeon HD 5650 Direct3D9Ex vs_3_0 ps_3_0),desktop,1,1,0,0.00
+ANGLE (ATI Mobility Radeon HD 6370 Direct3D9Ex vs_3_0 ps_3_0),desktop,1,1,0,0.00
+ANGLE (ATI Radeon 3000 Graphics (Microsoft Corporation - WDDM v1.1) Direct3D11 vs_4_0 ps_4_0),desktop,2,1,0,0.00
+ANGLE (ATI Radeon 3100 Graphics Direct3D9Ex vs_3_0 ps_3_0),desktop,1,1,0,0.00
 ANGLE (ATI Radeon HD 2400 PRO (Microsoft Corporation WDDM 1.1) Direct3D9Ex vs_3_0 ps_3_0),desktop,1,1,0,0.00
 ANGLE (ATI Radeon HD 2600 Pro Direct3D9Ex vs_3_0 ps_3_0),desktop,1,1,0,0.00
-ANGLE (ATI Radeon HD 3400 Series Direct3D11 vs_4_1 ps_4_1),desktop,2,1,0,0.00
+ANGLE (ATI Radeon HD 3200 Graphics Direct3D11 vs_4_0 ps_4_0),desktop,1,1,0,0.00
 ANGLE (ATI Radeon HD 3450 - Dell Optiplex Direct3D9Ex vs_3_0 ps_3_0),desktop,1,1,0,0.00
-ANGLE (ATI Radeon HD 3450 Direct3D9Ex vs_3_0 ps_3_0),desktop,3,1,0,0.00
 ANGLE (ATI Radeon HD 3850 Direct3D11 vs_4_1 ps_4_1),desktop,1,1,0,0.00
-ANGLE (ATI Radeon HD 4200 Direct3D9Ex vs_3_0 ps_3_0),desktop,4,1,0,0.00
-ANGLE (ATI Radeon HD 4250 Direct3D11 vs_4_1 ps_4_1),desktop,2,1,0,0.00
+ANGLE (ATI Radeon HD 4250 Graphics Direct3D9Ex vs_3_0 ps_3_0),desktop,2,1,0,0.00
 ANGLE (ATI Radeon HD 4270 Direct3D9Ex vs_3_0 ps_3_0),desktop,1,1,0,0.00
+ANGLE (ATI Radeon HD 4300/4500 Series Direct3D11 vs_4_1 ps_4_1),desktop,3,1,0,0.00
+ANGLE (ATI Radeon HD 4300/4500 Series Direct3D9Ex vs_3_0 ps_3_0),desktop,4,1,0,0.00
 ANGLE (ATI Radeon HD 4550 (Microsoft Corporation WDDM 1.1) Direct3D9Ex vs_3_0 ps_3_0),desktop,2,1,0,0.00
 ANGLE (ATI Radeon HD 4670 Direct3D11 vs_4_1 ps_4_1),desktop,1,1,0,0.00
 ANGLE (ATI Radeon HD 5450 Direct3D9Ex vs_3_0 ps_3_0),desktop,1,1,0,0.00
 ANGLE (ATI Radeon HD 5570 Direct3D9Ex vs_3_0 ps_3_0),desktop,2,1,0,0.00
+ANGLE (ATI Radeon HD 6510 Direct3D9Ex vs_3_0 ps_3_0),desktop,1,1,0,0.00
 ANGLE (Intel(R) Atom(TM) Processor E3800 Series/Intel(R) Celeron(R) Processor N2920/J1900 Direct3D11 vs_5_0 ps_5_0),desktop,1,1,0,0.00
-ANGLE (Intel(R) Atom(TM) Processor E3800 Series/Intel(R) Celeron(R) Processor N2920/J1900 Direct3D9Ex vs_3_0 ps_3_0),desktop,3,1,0,0.00
-ANGLE (Intel(R) G41 Express Chipset Direct3D11 vs_4_0 ps_4_0),desktop,2,1,0,0.00
 ANGLE (Intel(R) G45/G43 Express Chipset Direct3D11 vs_4_0 ps_4_0),desktop,3,1,0,0.00
-ANGLE (Intel(R) Graphics Media Accelerator HD Direct3D9Ex vs_3_0 ps_3_0),desktop,2,1,0,0.00
-ANGLE (Intel(R) HD Graphics 5000 Direct3D11 vs_5_0 ps_5_0),desktop,2,1,0,0.00
 ANGLE (Intel(R) HD Graphics 510 Direct3D9Ex vs_3_0 ps_3_0),desktop,8,1,0,0.00
-ANGLE (Intel(R) HD Graphics 610 Direct3D9Ex vs_3_0 ps_3_0),desktop,1,1,0,0.00
 ANGLE (Intel(R) HD Graphics P4600/P4700 Direct3D11 vs_5_0 ps_5_0),desktop,5,1,0,0.00
-ANGLE (Intel(R) Iris(TM) Graphics 5100 Direct3D11 vs_5_0 ps_5_0),desktop,2,1,0,0.00
+ANGLE (Intel(R) HD Graphics P530 Direct3D11 vs_5_0 ps_5_0),desktop,2,1,0,0.00
+ANGLE (Intel(R) Iris(R) Graphics 550 Direct3D11 vs_5_0 ps_5_0),desktop,7,1,0,0.00
 ANGLE (Intel(R) Iris(TM) Pro Graphics 6200 Direct3D11 vs_5_0 ps_5_0),desktop,2,1,0,0.00
 ANGLE (Intel(R) UHD Graphics 610 Direct3D11 vs_5_0 ps_5_0),desktop,4,1,0,0.00
+ANGLE (Intel(R) UHD Graphics 620 Direct3D9Ex vs_3_0 ps_3_0),desktop,5,1,0,0.00
 ANGLE (Intel(R) UHD Graphics 630 Direct3D9Ex vs_3_0 ps_3_0),desktop,4,1,0,0.00
 ANGLE (Mobile Intel(R) 4 Series Express Chipset Family (Microsoft Corporation - WDDM 1.1) Direct3D11 vs_4_0 ps_4_0),desktop,1,1,0,0.00
-ANGLE (NVIDIA GeForce 210 Direct3D9Ex vs_3_0 ps_3_0),desktop,1,1,0,0.00
-ANGLE (NVIDIA GeForce 310M Direct3D11 vs_4_1 ps_4_1),desktop,3,1,0,0.00
+ANGLE (NVIDIA GeForce 315 Direct3D11 vs_4_1 ps_4_1),desktop,2,1,0,0.00
 ANGLE (NVIDIA GeForce 315 Direct3D9Ex vs_3_0 ps_3_0),desktop,2,1,0,0.00
 ANGLE (NVIDIA GeForce 315M Direct3D11 vs_4_1 ps_4_1),desktop,3,1,0,0.00
-ANGLE (NVIDIA GeForce 410M Direct3D9Ex vs_3_0 ps_3_0),desktop,5,1,0,0.00
-ANGLE (NVIDIA GeForce 6150SE nForce 430 (Microsoft Corporation - WDDM) Direct3D9Ex vs_3_0 ps_3_0),desktop,3,1,0,0.00
+ANGLE (NVIDIA GeForce 615 Direct3D11 vs_5_0 ps_5_0),desktop,2,1,0,0.00
+ANGLE (NVIDIA GeForce 7100 GS (Microsoft Corporation - WDDM) Direct3D9Ex vs_3_0 ps_3_0),desktop,13,1,0,0.00
+ANGLE (NVIDIA GeForce 7300 LE (Microsoft Corporation - WDDM) Direct3D9Ex vs_3_0 ps_3_0),desktop,1,1,0,0.00
 ANGLE (NVIDIA GeForce 7600 GS Direct3D9Ex vs_3_0 ps_3_0),desktop,11,1,0,0.00
 ANGLE (NVIDIA GeForce 7600 GT Direct3D9Ex vs_3_0 ps_3_0),desktop,1,1,0,0.00
 ANGLE (NVIDIA GeForce 8400GS Direct3D11 vs_4_1 ps_4_1),desktop,1,1,0,0.00
 ANGLE (NVIDIA GeForce 8400GS Direct3D9Ex vs_3_0 ps_3_0),desktop,2,1,0,0.00
+ANGLE (NVIDIA GeForce 8500 GT Direct3D11 vs_4_0 ps_4_0),desktop,2,1,0,0.00
 ANGLE (NVIDIA GeForce 8800 GT Direct3D11 vs_4_0 ps_4_0),desktop,2,1,0,0.00
+ANGLE (NVIDIA GeForce 8800 GT Direct3D9Ex vs_3_0 ps_3_0),desktop,1,1,0,0.00
 ANGLE (NVIDIA GeForce 9200 Direct3D11 vs_4_0 ps_4_0),desktop,4,1,0,0.00
 ANGLE (NVIDIA GeForce 9300 GE Direct3D11 vs_4_0 ps_4_0),desktop,2,1,0,0.00
 ANGLE (NVIDIA GeForce 9400 Direct3D9Ex vs_3_0 ps_3_0),desktop,6,1,0,0.00
 ANGLE (NVIDIA GeForce 940M Direct3D11 vs_5_0 ps_5_0),desktop,4,1,0,0.00
 ANGLE (NVIDIA GeForce 9500 GS Direct3D11 vs_4_0 ps_4_0),desktop,2,1,0,0.00
 ANGLE (NVIDIA GeForce 9600M GT Direct3D11 vs_4_0 ps_4_0),desktop,2,1,0,0.00
+ANGLE (NVIDIA GeForce 9800 GT Direct3D9Ex vs_3_0 ps_3_0),desktop,2,1,0,0.00
 ANGLE (NVIDIA GeForce G 103M Direct3D11 vs_4_0 ps_4_0),desktop,2,1,0,0.00
 ANGLE (NVIDIA GeForce G105M Direct3D9Ex vs_3_0 ps_3_0),desktop,1,1,0,0.00
-ANGLE (NVIDIA GeForce G210M Direct3D11 vs_4_1 ps_4_1),desktop,1,1,0,0.00
+ANGLE (NVIDIA GeForce G210 Direct3D9Ex vs_3_0 ps_3_0),desktop,1,1,0,0.00
+ANGLE (NVIDIA GeForce G210M Direct3D9Ex vs_3_0 ps_3_0),desktop,2,1,0,0.00
 ANGLE (NVIDIA GeForce GPU Direct3D11 vs_5_0 ps_5_0),desktop,1,1,0,0.00
 ANGLE (NVIDIA GeForce GT 120 Direct3D11 vs_4_0 ps_4_0),desktop,1,1,0,0.00
-ANGLE (NVIDIA GeForce GT 240 Direct3D11 vs_4_1 ps_4_1),desktop,2,1,0,0.00
-ANGLE (NVIDIA GeForce GT 240 Direct3D9Ex vs_3_0 ps_3_0),desktop,1,1,0,0.00
+ANGLE (NVIDIA GeForce GT 220 Direct3D9Ex vs_3_0 ps_3_0),desktop,3,1,0,0.00
+ANGLE (NVIDIA GeForce GT 230 Direct3D11 vs_4_0 ps_4_0),desktop,2,1,0,0.00
 ANGLE (NVIDIA GeForce GT 320M Direct3D9Ex vs_3_0 ps_3_0),desktop,2,1,0,0.00
-ANGLE (NVIDIA GeForce GT 330 Direct3D11 vs_4_0 ps_4_0),desktop,2,1,0,0.00
 ANGLE (NVIDIA GeForce GT 330 Direct3D9Ex vs_3_0 ps_3_0),desktop,2,1,0,0.00
 ANGLE (NVIDIA GeForce GT 330M Direct3D9Ex vs_3_0 ps_3_0),desktop,3,1,0,0.00
-ANGLE (NVIDIA GeForce GT 425M Direct3D11 vs_5_0 ps_5_0),desktop,1,1,0,0.00
-ANGLE (NVIDIA GeForce GT 520 Direct3D11 vs_5_0 ps_5_0),desktop,3,1,0,0.00
 ANGLE (NVIDIA GeForce GT 540M Direct3D9Ex vs_3_0 ps_3_0),desktop,4,1,0,0.00
-ANGLE (NVIDIA GeForce GT 625 (OEM) Direct3D11 vs_5_0 ps_5_0),desktop,1,1,0,0.00
+ANGLE (NVIDIA GeForce GT 555M Direct3D11 vs_5_0 ps_5_0),desktop,2,1,0,0.00
+ANGLE (NVIDIA GeForce GT 610 Direct3D9Ex vs_3_0 ps_3_0),desktop,2,1,0,0.00
 ANGLE (NVIDIA GeForce GT 625 Direct3D9Ex vs_3_0 ps_3_0),desktop,1,1,0,0.00
-ANGLE (NVIDIA GeForce GT 635 Direct3D11 vs_5_0 ps_5_0),desktop,2,1,0,0.00
-ANGLE (NVIDIA GeForce GT 710 Direct3D9Ex vs_3_0 ps_3_0),desktop,1,1,0,0.00
-ANGLE (NVIDIA GeForce GT 740 Direct3D9Ex vs_3_0 ps_3_0),desktop,3,1,0,0.00
 ANGLE (NVIDIA GeForce GTS 250 (Microsoft Corporation - WDDM v1.1) Direct3D9Ex vs_3_0 ps_3_0),desktop,3,1,0,0.00
-ANGLE (NVIDIA GeForce GTS 250 Direct3D11 vs_4_0 ps_4_0),desktop,1,1,0,0.00
 ANGLE (NVIDIA GeForce GTX 1050 Ti Direct3D9Ex vs_3_0 ps_3_0),desktop,2,1,0,0.00
-ANGLE (NVIDIA GeForce GTX 1060 3GB Direct3D9Ex vs_3_0 ps_3_0),desktop,5,1,0,0.00
+ANGLE (NVIDIA GeForce GTX 1060 6GB Direct3D9Ex vs_3_0 ps_3_0),desktop,2,1,0,0.00
 ANGLE (NVIDIA GeForce GTX 1070 with Max-Q Design Direct3D11 vs_5_0 ps_5_0),desktop,2,1,0,0.00
 ANGLE (NVIDIA GeForce GTX 1080 Direct3D9Ex vs_3_0 ps_3_0),desktop,1,1,0,0.00
-ANGLE (NVIDIA GeForce GTX 285 Direct3D11 vs_4_0 ps_4_0),desktop,1,1,0,0.00
+ANGLE (NVIDIA GeForce GTX 260M Direct3D11 vs_4_0 ps_4_0),desktop,1,1,0,0.00
 ANGLE (NVIDIA GeForce GTX 480 Direct3D9Ex vs_3_0 ps_3_0),desktop,1,1,0,0.00
 ANGLE (NVIDIA GeForce GTX 560 SE Direct3D11 vs_5_0 ps_5_0),desktop,2,1,0,0.00
-ANGLE (NVIDIA GeForce GTX 580 Direct3D11 vs_5_0 ps_5_0),desktop,1,1,0,0.00
+ANGLE (NVIDIA GeForce GTX 650 Direct3D9Ex vs_3_0 ps_3_0),desktop,2,1,0,0.00
+ANGLE (NVIDIA GeForce GTX 650 Ti BOOST Direct3D11 vs_5_0 ps_5_0),desktop,2,1,0,0.00
 ANGLE (NVIDIA GeForce GTX 650 Ti Direct3D9Ex vs_3_0 ps_3_0),desktop,1,1,0,0.00
+ANGLE (NVIDIA GeForce GTX 660 Direct3D9Ex vs_3_0 ps_3_0),desktop,2,1,0,0.00
+ANGLE (NVIDIA GeForce GTX 660 Ti Direct3D9Ex vs_3_0 ps_3_0),desktop,1,1,0,0.00
 ANGLE (NVIDIA GeForce GTX 675MX Direct3D11 vs_5_0 ps_5_0),desktop,1,1,0,0.00
-ANGLE (NVIDIA GeForce GTX 765M Direct3D11 vs_5_0 ps_5_0),desktop,3,1,0,0.00
-ANGLE (NVIDIA GeForce GTX 780 Ti Direct3D11 vs_5_0 ps_5_0),desktop,2,1,0,0.00
+ANGLE (NVIDIA GeForce GTX 770M Direct3D11 vs_5_0 ps_5_0),desktop,1,1,0,0.00
 ANGLE (NVIDIA GeForce GTX 950 Direct3D9Ex vs_3_0 ps_3_0),desktop,1,1,0,0.00
-ANGLE (NVIDIA GeForce GTX 965M Direct3D11 vs_5_0 ps_5_0),desktop,1,1,0,0.00
-ANGLE (NVIDIA GeForce GTX 970 Direct3D9Ex vs_3_0 ps_3_0),desktop,1,1,0,0.00
-ANGLE (NVIDIA GeForce GTX 980M Direct3D11 vs_5_0 ps_5_0),desktop,2,1,0,0.00
+ANGLE (NVIDIA GRID M10-1B Direct3D11 vs_5_0 ps_5_0),desktop,1,1,0,0.00
 ANGLE (NVIDIA NVS 300 Direct3D11 vs_4_1 ps_4_1),desktop,1,1,0,0.00
-ANGLE (NVIDIA NVS 3100M Direct3D11 vs_4_1 ps_4_1),desktop,4,1,0,0.00
+ANGLE (NVIDIA NVS 510 Direct3D11 vs_5_0 ps_5_0),desktop,1,1,0,0.00
+ANGLE (NVIDIA Quadro 1000M Direct3D11 vs_5_0 ps_5_0),desktop,1,1,0,0.00
 ANGLE (NVIDIA Quadro 2000 Direct3D9Ex vs_3_0 ps_3_0),desktop,2,1,0,0.00
-ANGLE (NVIDIA Quadro FX 1800 Direct3D11 vs_4_0 ps_4_0),desktop,1,1,0,0.00
+ANGLE (NVIDIA Quadro 5000 Direct3D11 vs_5_0 ps_5_0),desktop,2,1,0,0.00
 ANGLE (NVIDIA Quadro FX 2700M Direct3D11 vs_4_0 ps_4_0),desktop,2,1,0,0.00
 ANGLE (NVIDIA Quadro FX 880M Direct3D11 vs_4_1 ps_4_1),desktop,2,1,0,0.00
+ANGLE (NVIDIA Quadro K2000 Direct3D11 vs_5_0 ps_5_0),desktop,5,1,0,0.00
 ANGLE (NVIDIA Quadro K2000D Direct3D11 vs_5_0 ps_5_0),desktop,4,1,0,0.00
 ANGLE (NVIDIA Quadro K2000M Direct3D11 vs_5_0 ps_5_0),desktop,4,1,0,0.00
 ANGLE (NVIDIA Quadro K6000 Direct3D11 vs_5_0 ps_5_0),desktop,1,1,0,0.00
-ANGLE (NVIDIA Quadro K620 Direct3D9Ex vs_3_0 ps_3_0),desktop,1,1,0,0.00
+ANGLE (NVIDIA Quadro M1000M Direct3D11 vs_5_0 ps_5_0),desktop,3,1,0,0.00
 ANGLE (NVIDIA Quadro M2000 Direct3D11 vs_5_0 ps_5_0),desktop,1,1,0,0.00
-ANGLE (NVIDIA Quadro P1000 Direct3D11 vs_5_0 ps_5_0),desktop,4,1,0,0.00
-ANGLE (NVIDIA Quadro P400 Direct3D11 vs_5_0 ps_5_0),desktop,1,1,0,0.00
+ANGLE (NVIDIA Quadro NVS 130M Direct3D11 vs_4_0 ps_4_0),desktop,1,1,0,0.00
+ANGLE (NVIDIA Quadro NVS 135M Direct3D9Ex vs_3_0 ps_3_0),desktop,2,1,0,0.00
+ANGLE (NVIDIA Quadro P5000 Direct3D11 vs_5_0 ps_5_0),desktop,5,1,0,0.00
+ANGLE (Radeon (TM) R9 M470X Direct3D11 vs_5_0 ps_5_0),desktop,2,1,0,0.00
+ANGLE (Radeon (TM) RX 470 Graphics Direct3D9Ex vs_3_0 ps_3_0),desktop,1,1,0,0.00
 ANGLE (Radeon 500 Series Direct3D11 vs_5_0 ps_5_0),desktop,2,1,0,0.00
+ANGLE (Radeon Pro 555 Direct3D11 vs_5_0 ps_5_0),desktop,4,1,0,0.00
 ANGLE (Radeon Pro 560 Direct3D11 vs_5_0 ps_5_0),desktop,1,1,0,0.00
-ANGLE (Software Adapter Direct3D11 vs_5_0 ps_5_0),desktop,3,1,0,0.00
+ANGLE (Radeon Pro 580 Direct3D11 vs_5_0 ps_5_0),desktop,3,1,0,0.00
+ANGLE (Radeon Pro WX3100 Direct3D11 vs_5_0 ps_5_0),desktop,5,1,0,0.00
+ANGLE (Radeon RX 560 Series Direct3D9Ex vs_3_0 ps_3_0),desktop,2,1,0,0.00
+ANGLE (Radeon RX 580 Series Direct3D9Ex vs_3_0 ps_3_0),desktop,2,1,0,0.00
+ANGLE (Radeon(TM) RX 480 Direct3D11 vs_5_0 ps_5_0),desktop,1,1,0,0.00
+ANGLE (Radeon(TM) RX 550 Direct3D11 vs_5_0 ps_5_0),desktop,1,1,0,0.00
+ANGLE (Radeon(TM) RX 580 Direct3D11 vs_5_0 ps_5_0),desktop,1,1,0,0.00
 ANGLE (VMware SVGA 3D Direct3D9Ex vs_3_0 ps_3_0),desktop,4,1,0,0.00
+Apple Software Renderer,desktop,2,1,0,0.00
+ATI FirePro 3800 (FireGL) Graphics Adapter,desktop,2,1,0,0.00
+ATI Radeon HD 2400 OpenGL Engine,desktop,2,1,0,0.00
 ATI Radeon HD 4870 OpenGL Engine,desktop,1,1,0,0.00
-ATI Radeon HD 5670 OpenGL Engine,desktop,1,1,0,0.00
+ATI Radeon HD 5870 OpenGL Engine,desktop,2,1,0,0.00
+ATI Radeon X1600 OpenGL Engine,desktop,1,1,0,0.00
 "Gallium 0.4 on AMD STONEY (DRM 3.20.0 / 4.13.0-32-generic, LLVM 3.9.1)",desktop,5,1,0,0.00
+"Gallium 0.4 on llvmpipe (LLVM 3.8, 256 bits)",mobile,1,1,0,0.00
 Gallium 0.4 on NV86,desktop,2,1,0,0.00
 GC1000 core,mobile,1,1,0,0.00
 GeForce 940MX/PCIe/SSE2,desktop,2,1,0,0.00
-GeForce GTX 1050/PCIe/SSE2,desktop,1,1,0,0.00
 Google SwiftShader,tablet,2,1,0,0.00
+i915 (chipset: G33),desktop,1,1,0,0.00
+Intel Iris Pro OpenGL Engine,mobile,2,1,0,0.00
 Intel(R) B43 Express Chipset,desktop,3,1,0,0.00
-Intel(R) HD Graphics 510,desktop,1,1,0,0.00
-Intel(R) HD Graphics 530,tablet,2,1,0,0.00
+Intel(R) Graphics Media Accelerator HD,desktop,1,1,0,0.00
+Intel(R) HD Graphics 4000,tablet,7,1,0,0.00
+Intel(R) HD Graphics 5300,tablet,5,1,0,0.00
 Intel(R) HD Graphics 6000,tablet,1,1,0,0.00
 Intel(R) HD Graphics Family,tablet,2,1,0,0.00
+Intel(R) HD Graphics P4600/P4700,desktop,2,1,0,0.00
 Intel(R) UHD Graphics 600,desktop,4,1,0,0.00
 Intel(R) UHD Graphics 605,desktop,1,1,0,0.00
-"llvmpipe (LLVM 6.0, 256 bits)",mobile,1,1,0,0.00
+Mali-G51,mobile,1,1,0,0.00
 Mali-G72,desktop,1,1,0,0.00
 Mali-G72,tablet,2,1,0,0.00
 Mali-T628,desktop,1,1,0,0.00
-Mali-T628,tablet,7,1,0,0.00
-Mali-T720,tablet,4,1,0,0.00
-Mali-T760,tablet,3,1,0,0.00
+Mali-T830,desktop,2,1,0,0.00
+Mali-T880,desktop,1,1,0,0.00
 Mali-T880,tablet,3,1,0,0.00
+Mesa DRI Intel(R) Haswell Desktop,desktop,2,1,0,0.00
 Mesa DRI Intel(R) HD Graphics 505 (Broxton),desktop,1,1,0,0.00
-Microsoft Basic Render Driver,tablet,13,1,0,0.00
-Mobile Intel(R) 4 Series Express Chipset Family,desktop,10,1,0,0.00
-NVIDIA GeForce 8600M GT OpenGL Engine,desktop,1,1,0,0.00
-NVIDIA GeForce GT 620,desktop,3,1,0,0.00
-NVIDIA GeForce GT 630,desktop,3,1,0,0.00
+Mesa DRI Intel(R) HD Graphics 510 (Skylake GT1),desktop,1,1,0,0.00
+Mesa DRI Intel(R) Sandybridge Mobile,desktop,8,1,0,0.00
+NVIDIA GeForce 8800 GT OpenGL Engine,desktop,1,1,0,0.00
+NVIDIA GeForce GT 430,desktop,2,1,0,0.00
 NVIDIA GeForce GT 640,desktop,1,1,0,0.00
-NVIDIA GeForce GTX 1050 OpenGL Engine,desktop,1,1,0,0.00
+NVIDIA GeForce GTX 1070,desktop,1,1,0,0.00
 NVIDIA GeForce GTX 1070 OpenGL Engine,desktop,5,1,0,0.00
-NVIDIA GeForce GTX 1080 Ti,desktop,2,1,0,0.00
+NVIDIA GeForce GTX 1080 OpenGL Engine,desktop,2,1,0,0.00
 NVIDIA GeForce GTX 560 SE,desktop,2,1,0,0.00
+NVIDIA GeForce GTX 580,desktop,2,1,0,0.00
 NVIDIA GeForce GTX 650 OpenGL Engine,desktop,1,1,0,0.00
 NVIDIA GeForce GTX 650 Ti BOOST,desktop,2,1,0,0.00
 NVIDIA GeForce GTX 660,desktop,2,1,0,0.00
-NVIDIA GeForce GTX 750,desktop,1,1,0,0.00
+NVIDIA GeForce GTX 675MX,desktop,5,1,0,0.00
+NVIDIA GeForce GTX 750 OpenGL Engine,desktop,2,1,0,0.00
 NVIDIA GeForce GTX 760,desktop,1,1,0,0.00
 NVIDIA GeForce GTX 980 Ti OpenGL Engine,desktop,3,1,0,0.00
+NVIDIA GeForce GTX TITAN OpenGL Engine,desktop,4,1,0,0.00
 NVIDIA GeForce GTX TITAN X,desktop,4,1,0,0.00
 NVIDIA GRID M10-0B,desktop,3,1,0,0.00
-NVIDIA NVS 310,desktop,1,1,0,0.00
+NVIDIA NVS 315,desktop,2,1,0,0.00
 NVIDIA Quadro K4200,desktop,2,1,0,0.00
-NVIDIA Quadro K5000,desktop,2,1,0,0.00
-NVIDIA Quadro M1200,desktop,5,1,0,0.00
 NVIDIA Quadro M4000,desktop,1,1,0,0.00
 NVIDIA Tegra,tablet,2,1,0,0.00
-NVIDIA Tegra K1 (nvgpu)/integrated,desktop,2,1,0,0.00
-PowerVR Rogue G6430,mobile,1,1,0,0.00
+NVIDIA Tegra 4,tablet,1,1,0,0.00
+PowerVR Rogue G6200,tablet,5,1,0,0.00
 PowerVR Rogue GE8300,tablet,3,1,0,0.00
-PowerVR Rogue GX6250,tablet,8,1,0,0.00
+PowerVR Rogue GE8320,mobile,2,1,0,0.00
+PowerVR Rogue GX6250,mobile,2,1,0,0.00
 PowerVR SGX 540,tablet,3,1,0,0.00
 PowerVR SGX 544MP2,mobile,2,1,0,0.00
 Qualcomm Adreno 304,mobile,2,1,0,0.00
 Qualcomm Adreno 430,mobile,2,1,0,0.00
+Radeon (TM) Pro WX 5100 Graphics,desktop,5,1,0,0.00
 Radeon(TM) RX 460 Graphics,desktop,1,1,0,0.00
-,,"51,278","23,239",0,0.00
+Vivante GC1000,tablet,5,1,0,0.00
+,,"97,935","43,428",0,0.00
 
 Day Index,Total Events
 26/08/2018,0
@@ -665,5 +864,15 @@ Day Index,Total Events
 05/09/2018,"4,762"
 06/09/2018,"4,286"
 07/09/2018,"4,269"
-08/09/2018,"1,369"
-,"51,278"
+08/09/2018,"3,506"
+09/09/2018,"4,035"
+10/09/2018,"4,462"
+11/09/2018,"4,490"
+12/09/2018,"4,847"
+13/09/2018,"4,919"
+14/09/2018,"4,549"
+15/09/2018,"3,864"
+16/09/2018,"4,448"
+17/09/2018,"5,337"
+18/09/2018,"3,569"
+,"97,935"
