@@ -114,25 +114,25 @@ class GPUTier {
       const isRendererPowerVR = renderer.includes('powervr');
 
       mobileBenchmark.forEach((benchmarkTier, index) => benchmarkTier.forEach((benchmarkEntry) => {
-          const entry = cleanEntryString(benchmarkEntry);
-          const entryVersionNumber = getEntryVersionNumber(entry);
+        const entry = cleanEntryString(benchmarkEntry);
+        const entryVersionNumber = getEntryVersionNumber(entry);
 
-          if (
-            (entry.includes('adreno') && isRendererAdreno)
+        if (
+          (entry.includes('adreno') && isRendererAdreno)
             || (entry.includes('apple') && isRendererApple)
             || (entry.includes('mali') && !entry.includes('mali-t') && isRendererMali)
             || (entry.includes('mali-t') && isRendererMaliT)
             || (entry.includes('nvidia') && isRendererNVIDIA)
             || (entry.includes('powervr') && isRendererPowerVR)
-          ) {
-            if (entryVersionNumber.includes(rendererVersionNumber)) {
-              tier = `GPU_MOBILE_TIER_${index}`;
-              type = `BENCHMARK - ${entry}`;
-            }
-
-            // Handle mobile edge cases
+        ) {
+          if (entryVersionNumber.includes(rendererVersionNumber)) {
+            tier = `GPU_MOBILE_TIER_${index}`;
+            type = `BENCHMARK - ${entry}`;
           }
-        }));
+
+          // Handle mobile edge cases
+        }
+      }));
 
       if (!tier) {
         tier = 'GPU_MOBILE_TIER_1';
@@ -156,22 +156,22 @@ class GPUTier {
       const isRendererNVIDIA = renderer.includes('nvidia');
 
       desktopBenchmark.forEach((benchmarkTier, index) => benchmarkTier.forEach((benchmarkEntry) => {
-          const entry = cleanEntryString(benchmarkEntry);
-          const entryVersionNumber = getEntryVersionNumber(entry);
+        const entry = cleanEntryString(benchmarkEntry);
+        const entryVersionNumber = getEntryVersionNumber(entry);
 
-          if (
-            (entry.includes('intel') && isRendererIntel)
+        if (
+          (entry.includes('intel') && isRendererIntel)
             || (entry.includes('amd') && isRendererAMD)
             || (entry.includes('nvidia') && isRendererNVIDIA)
-          ) {
-            if (entryVersionNumber.includes(rendererVersionNumber)) {
-              tier = `GPU_DESKTOP_TIER_${index}`;
-              type = `BENCHMARK - ${entry}`;
-            }
-
-            // Handle desktop edge cases
+        ) {
+          if (entryVersionNumber.includes(rendererVersionNumber)) {
+            tier = `GPU_DESKTOP_TIER_${index}`;
+            type = `BENCHMARK - ${entry}`;
           }
-        }));
+
+          // Handle desktop edge cases
+        }
+      }));
 
       if (!tier) {
         tier = 'GPU_DESKTOP_TIER_1';

@@ -15,30 +15,30 @@ const BENCHMARK_DESKTOP_URL = 'https://www.notebookcheck.net/Mobile-Graphics-Car
 
 function collectBenchmark(url) {
   return new Promise((resolve, reject) => fetch(url)
-      .then(response => response.text())
-      .then((html) => {
-        const soup = new JSSoup(html.replace('<!DOCTYPE html>', ''));
-        const table = soup.find('table');
-        const inputs = table.findAll('input');
+    .then(response => response.text())
+    .then((html) => {
+      const soup = new JSSoup(html.replace('<!DOCTYPE html>', ''));
+      const table = soup.find('table');
+      const inputs = table.findAll('input');
 
-        const benchmark = inputs.map((input) => {
-          const score = input.previousElement.text.replace('&nbsp;', '').replace('*', '');
-          let name = '';
+      const benchmark = inputs.map((input) => {
+        const score = input.previousElement.text.replace('&nbsp;', '').replace('*', '');
+        let name = '';
 
-          input.previousElement.contents.forEach((row) => {
-            if (row.nextElement.text) {
-              name = row.nextElement.text;
-            }
-          });
-
-          return `${score} - ${name}`;
+        input.previousElement.contents.forEach((row) => {
+          if (row.nextElement.text) {
+            name = row.nextElement.text;
+          }
         });
 
-        resolve(benchmark);
-      })
-      .catch((error) => {
-        reject(new Error(error.message));
-      }));
+        return `${score} - ${name}`;
+      });
+
+      resolve(benchmark);
+    })
+    .catch((error) => {
+      reject(new Error(error.message));
+    }));
 }
 
 Promise.all([collectBenchmark(BENCHMARK_DESKTOP_URL), collectBenchmark(BENCHMARK_MOBILE_URL)]).then(
