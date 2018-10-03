@@ -1,5 +1,5 @@
 
-> detect-gpu@0.0.32 test /Users/TVS/Projects/detect-gpu
+> detect-gpu@0.0.33 test /Users/timvanscherpenzeel/Projects/detect-gpu
 > jest --config=jest.config.json
 
   console.log test/index.js:44
@@ -21,16 +21,19 @@
     BLACKLISTED -> Entry: mali-450 mp, Tier: GPU_MOBILE_TIER_0, Type: BLACKLISTED
 
   console.log test/index.js:44
-    FALLBACK -> Entry: microsoft basic render driver, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:44
-    FALLBACK -> Entry: intel(r) hd graphics, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:44
     FALLBACK -> Entry: intel(r) hd graphics 530, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
 
   console.log test/index.js:44
     FALLBACK -> Entry: intel(r) hd graphics 620, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:44
+    FALLBACK -> Entry: microsoft basic render driver, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
+
+  console.warn test/index.js:40
+    TIER 0 -> Entry: powervr sgx 540, Tier: GPU_MOBILE_TIER_0, Type: BENCHMARK - powervr sgx540
+
+  console.log test/index.js:44
+    FALLBACK -> Entry: intel(r) hd graphics, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
 
   console.log test/index.js:44
     FALLBACK -> Entry: intel(r) hd graphics for atom(tm) x5/x7, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
@@ -39,7 +42,16 @@
     FALLBACK -> Entry: intel(r) uhd graphics 620, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
 
   console.log test/index.js:44
+    FALLBACK -> Entry: intel(r) hd graphics 4000, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:44
     FALLBACK -> Entry: intel(r) hd graphics 4600, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:44
+    FALLBACK -> Entry: intel(r) hd graphics family, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:44
+    FALLBACK -> Entry: vivante gc1000, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
 
   console.log test/index.js:44
     FALLBACK -> Entry: amd radeon(tm) r5 graphics, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
@@ -48,23 +60,14 @@
     FALLBACK -> Entry: google swiftshader, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
 
   console.log test/index.js:44
-    FALLBACK -> Entry: intel(r) hd graphics 4000, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:44
     FALLBACK -> Entry: intel(r) hd graphics 5300, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
 
   console.log test/index.js:44
     FALLBACK -> Entry: intel(r) hd graphics 6000, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
 
   console.log test/index.js:44
-    FALLBACK -> Entry: intel(r) hd graphics family, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: intel(r) hd graphics 630, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
 
   console.log test/index.js:44
     FALLBACK -> Entry: powervr rogue ge8300, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
-
-  console.warn test/index.js:40
-    TIER 0 -> Entry: powervr sgx 540, Tier: GPU_MOBILE_TIER_0, Type: BENCHMARK - powervr sgx540
-
-  console.log test/index.js:44
-    FALLBACK -> Entry: vivante gc1000, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
 

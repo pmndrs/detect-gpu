@@ -1,5 +1,5 @@
 
-> detect-gpu@0.0.32 test /Users/TVS/Projects/detect-gpu
+> detect-gpu@0.0.33 test /Users/timvanscherpenzeel/Projects/detect-gpu
 > jest --config=jest.config.json
 
   console.log test/index.js:44
@@ -8,14 +8,17 @@
   console.log test/index.js:44
     FALLBACK -> Entry: apple a7 gpu, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
 
+  console.log test/index.js:44
+    FALLBACK -> Entry: apple a12 gpu, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
+
   console.warn test/index.js:36
     BLACKLISTED -> Entry: mali-400 mp, Tier: GPU_MOBILE_TIER_0, Type: BLACKLISTED
 
-  console.log test/index.js:44
-    FALLBACK -> Entry: google swiftshader, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
-
   console.warn test/index.js:36
     BLACKLISTED -> Entry: mali-450 mp, Tier: GPU_MOBILE_TIER_0, Type: BLACKLISTED
+
+  console.log test/index.js:44
+    FALLBACK -> Entry: google swiftshader, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
 
   console.log test/index.js:44
     FALLBACK -> Entry: vivante gc7000ul, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
@@ -24,10 +27,19 @@
     FALLBACK -> Entry: llvmpipe (llvm 6.0 256 bits), Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
 
   console.log test/index.js:44
+    FALLBACK -> Entry: adreno (tm) 616, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:44
+    FALLBACK -> Entry: amd radeon pro 455 opengl engine, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:44
     FALLBACK -> Entry: amd radeon pro 560 opengl engine, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
 
   console.log test/index.js:44
     FALLBACK -> Entry: amd radeon r9 m380 opengl engine, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:44
+    FALLBACK -> Entry: chromium, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
 
   console.log test/index.js:44
     FALLBACK -> Entry: gallium 0.4 on llvmpipe (llvm 3.8 256 bits), Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
@@ -37,9 +49,6 @@
 
   console.log test/index.js:44
     FALLBACK -> Entry: intel iris pro opengl engine, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:44
-    FALLBACK -> Entry: mali-g51, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
 
   console.log test/index.js:44
     FALLBACK -> Entry: powervr rogue ge8320, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
