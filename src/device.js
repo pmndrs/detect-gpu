@@ -1,3 +1,5 @@
+// @ts-check
+
 export default class Device {
   constructor(userAgent = null) {
     this.setUserAgent(userAgent);

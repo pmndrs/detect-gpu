@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+// @ts-check
+
 // Native
 const fs = require('fs');
 

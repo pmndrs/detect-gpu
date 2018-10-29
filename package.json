@@ -2,14 +2,14 @@
   "name": "detect-gpu",
   "version": "0.0.34",
   "description": "Classify GPU's based on their benchmark score in order to provide an adaptive experience.",
-  "main": "dist/detect-gpu.min.js",
+  "main": "build/detect-gpu.min.js",
   "scripts": {
     "start": "NODE_ENV=development concurrently \"webpack -d --progress --watch --display-modules\" \"http-server --cors -s -o\" ",
     "lint": "eslint src/**/*.js",
     "test": "jest --config=jest.config.json",
     "test:coverage": "jest --config=jest.config.json --coverage",
-    "dist": "NODE_ENV=production webpack -p --progress --optimize-minimize --display-modules && NODE_ENV=development webpack -d --progress --display-modules",
-    "deploy": "npm run dist && npm version patch && npm publish && git push origin",
+    "build": "NODE_ENV=production webpack -p --progress --optimize-minimize --display-modules && NODE_ENV=development webpack -d --progress --display-modules",
+    "deploy": "npm run build && npm version patch && npm publish && git push origin",
     "parse-analytics": "node ./scripts/analytics_parser.js",
     "update-benchmarks": "node ./scripts/update_benchmarks.js"
   },

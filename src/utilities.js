@@ -1,3 +1,5 @@
+// @ts-check
+
 export function getWebGLUnmaskedRenderer() {
   const attributes = {
     alpha: false,

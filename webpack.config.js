@@ -3,7 +3,7 @@ const path = require('path');
 
 // Paths
 const srcPath = path.resolve(__dirname, 'src');
-const distPath = path.resolve(__dirname, 'dist');
+const buildPath = path.resolve(__dirname, 'build');
 
 // Environment
 const isDevelopment = process.env.NODE_ENV === 'development';
@@ -13,7 +13,7 @@ const config = {
   devtool: isDevelopment ? 'eval-cheap-module-source-map' : '',
   entry: './index.js',
   output: {
-    path: distPath,
+    path: buildPath,
     filename: !isDevelopment ? 'detect-gpu.min.js' : 'detect-gpu.js',
     library: 'DetectGPU',
     libraryTarget: 'umd',

@@ -1,3 +1,5 @@
+// @ts-check
+
 // Application
 import { getGPUTier } from '../src/index';
 

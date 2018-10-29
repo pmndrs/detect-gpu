@@ -1,3 +1,5 @@
+// @ts-check
+
 // Data
 import { BENCHMARK_SCORE_DESKTOP, BENCHMARK_SCORE_MOBILE } from './benchmark';
 
