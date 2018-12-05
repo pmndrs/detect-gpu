@@ -1,6 +1,6 @@
 # Detect GPU
 
-![](http://img.badgesize.io/TimvanScherpenzeel/detect-gpu/master/dist/detect-gpu.min.js.svg?compression=gzip&maxAge=60)
+![](http://img.badgesize.io/TimvanScherpenzeel/detect-gpu/master/build/detect-gpu.min.js.svg?compression=gzip&maxAge=60)
 [![npm version](https://badge.fury.io/js/detect-gpu.svg)](https://badge.fury.io/js/detect-gpu)
 [![dependencies](https://david-dm.org/timvanscherpenzeel/detect-gpu.svg)](https://david-dm.org/timvanscherpenzeel/detect-gpu)
 [![devDependencies](https://david-dm.org/timvanscherpenzeel/detect-gpu/dev-status.svg)](https://david-dm.org/timvanscherpenzeel/detect-gpu#info=devDependencies)

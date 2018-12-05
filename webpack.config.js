@@ -29,7 +29,7 @@ const config = {
           plugins: ['transform-object-assign'],
           presets: [
             [
-              'babel-preset-env',
+              '@babel/preset-env',
               {
                 modules: false,
                 useBuiltIns: false,
