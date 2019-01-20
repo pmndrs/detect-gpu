@@ -1,5 +1,5 @@
 
-> detect-gpu@0.0.35 test /Users/TVS/Projects/detect-gpu
+> detect-gpu@0.0.37 test /Users/TVS/Projects/detect-gpu
 > jest --config=jest.config.json
 
   console.log test/index.js:46
@@ -24,19 +24,28 @@
     FALLBACK -> Entry: vivante gc7000ul, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: chromium, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
     FALLBACK -> Entry: adreno (tm) 615, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: amd radeon pro 455 opengl engine, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: chromium, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: powervr rogue gt7400 plus, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: intel(r) hd graphics for baytrail, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: intel(r) hd graphics 6000, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: intel(r) hd graphics for baytrail, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: amd radeon pro 455 opengl engine, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: gallium 0.4 on llvmpipe (llvm 3.8 256 bits), Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: videocore iv hw, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
 
   console.warn test/index.js:42
     TIER 0 -> Entry: adreno (tm) 203, Tier: GPU_MOBILE_TIER_0, Type: BENCHMARK - qualcomm adreno 203
@@ -48,11 +57,14 @@
     FALLBACK -> Entry: amd radeon r9 m380 opengl engine, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: gallium 0.4 on llvmpipe (llvm 3.8 256 bits), Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
     FALLBACK -> Entry: gc1000 core, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: intel iris pro opengl engine, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: powervr rogue ge8200, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: powervr rogue ge8300, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
 
