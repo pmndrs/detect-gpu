@@ -1,16 +1,16 @@
 // @ts-check
 
+// Vendor
+import { DetectUA } from 'detect-ua';
+
 // Data
 import { BENCHMARK_SCORE_DESKTOP, BENCHMARK_SCORE_MOBILE } from './benchmark';
-
-// Device
-import Device from './device';
 
 // Utilities
 import { getBenchmarkByPercentage, getWebGLUnmaskedRenderer } from './utilities';
 
 // Instantiate device detection
-const device = new Device();
+const device = new DetectUA();
 
 function cleanEntryString(entryString) {
   return entryString
@@ -48,7 +48,7 @@ class GPUTier {
 
     Object.assign(this, options);
 
-    const isMobile = device.mobile || device.tablet || this.forceMobile;
+    const isMobile = device.isMobile || device.isTablet || this.forceMobile;
     const isDesktop = !isMobile;
 
     let renderer;
