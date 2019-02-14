@@ -1,7 +1,5 @@
-
-> detect-gpu@0.0.37 test /Users/TVS/Projects/detect-gpu
-> jest --config=jest.config.json
-
+yarn run v1.13.0
+$ jest --config=jest.config.json
   console.log test/index.js:46
     FALLBACK -> Entry: apple a8 gpu, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
 
@@ -15,10 +13,10 @@
     BLACKLISTED -> Entry: mali-450 mp, Tier: GPU_MOBILE_TIER_0, Type: BLACKLISTED
 
   console.log test/index.js:46
-    FALLBACK -> Entry: google swiftshader, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: llvmpipe (llvm 6.0 256 bits), Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: llvmpipe (llvm 6.0 256 bits), Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: google swiftshader, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: vivante gc7000ul, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
@@ -60,7 +58,13 @@
     FALLBACK -> Entry: gc1000 core, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
+    FALLBACK -> Entry: intel iris opengl engine, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
     FALLBACK -> Entry: intel iris pro opengl engine, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: llvmpipe (llvm 7.0 256 bits), Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: powervr rogue ge8200, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
@@ -68,3 +72,4 @@
   console.log test/index.js:46
     FALLBACK -> Entry: powervr rogue ge8300, Tier: GPU_MOBILE_TIER_1, Type: FALLBACK
 
+Done in 1.68s.

@@ -1,7 +1,5 @@
-
-> detect-gpu@0.0.37 test /Users/TVS/Projects/detect-gpu
-> jest --config=jest.config.json
-
+yarn run v1.13.0
+$ jest --config=jest.config.json
   console.log test/index.js:46
     FALLBACK -> Entry: google swiftshader, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
@@ -44,38 +42,38 @@
   console.log test/index.js:46
     FALLBACK -> Entry: amd radeon pro 575 opengl engine, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (nvidia geforce gtx 660 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
   console.warn test/index.js:38
     BLACKLISTED -> Entry: ati radeon hd 4670 opengl engine, Tier: GPU_DESKTOP_TIER_0, Type: BLACKLISTED
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: nvidia geforce gtx 660m opengl engine, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon r7 200 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (nvidia geforce gtx 650 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (nvidia geforce gtx 770 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (amd radeon r7 200 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: nvidia geforce 9400 opengl engine, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (nvidia geforce gtx 770 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.warn test/index.js:38
     BLACKLISTED -> Entry: nvidia geforce 9400m opengl engine, Tier: GPU_DESKTOP_TIER_0, Type: BLACKLISTED
 
   console.log test/index.js:46
+    FALLBACK -> Entry: nvidia geforce 9400 opengl engine, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
     FALLBACK -> Entry: angle (radeon (tm) rx 480 graphics direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: powervr rogue gx6250, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: nvidia geforce gtx 675mx opengl engine, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: powervr rogue gx6250, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (amd radeon hd 7800 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (radeon rx 580 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: nvidia geforce gtx 780m opengl engine, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
@@ -84,25 +82,19 @@
     FALLBACK -> Entry: angle (intel(r) hd graphics 3000 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (radeon rx 580 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
     FALLBACK -> Entry: nvidia geforce gt 330m opengl engine, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon hd 7800 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (intel(r) g41 express chipset direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (nvidia geforce gt 630 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+  console.warn test/index.js:38
+    BLACKLISTED -> Entry: amd radeon hd 6970m opengl engine, Tier: GPU_DESKTOP_TIER_0, Type: BLACKLISTED
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (amd radeon hd 7700 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
-  console.warn test/index.js:38
-    BLACKLISTED -> Entry: amd radeon hd 6970m opengl engine, Tier: GPU_DESKTOP_TIER_0, Type: BLACKLISTED
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (nvidia geforce gt 630 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: nvidia geforce gtx 680mx opengl engine, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
@@ -120,13 +112,16 @@
     FALLBACK -> Entry: angle (software adapter direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
+    FALLBACK -> Entry: angle (intel(r) g41 express chipset (microsoft corporation, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
     FALLBACK -> Entry: angle (radeon(tm) rx 460 graphics direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: mali-t604, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (intel(r) g41 express chipset (microsoft corporation, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+  console.warn test/index.js:38
+    BLACKLISTED -> Entry: ati radeon hd 5670 opengl engine, Tier: GPU_DESKTOP_TIER_0, Type: BLACKLISTED
 
   console.warn test/index.js:38
     BLACKLISTED -> Entry: ati radeon hd 2600 pro opengl engine, Tier: GPU_DESKTOP_TIER_0, Type: BLACKLISTED
@@ -135,19 +130,10 @@
     FALLBACK -> Entry: angle (amd radeon hd 6450 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon hd 5450 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.warn test/index.js:38
-    BLACKLISTED -> Entry: ati radeon hd 5670 opengl engine, Tier: GPU_DESKTOP_TIER_0, Type: BLACKLISTED
+    FALLBACK -> Entry: angle (nvidia geforce gts 450 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: amd radeon r9 m295x opengl engine, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (nvidia geforce 9600 gt direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (nvidia geforce gtx 670 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (intel(r) q45/q43 express chipset (microsoft corporation, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
@@ -159,25 +145,19 @@
     FALLBACK -> Entry: mali-t760, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (nvidia geforce gts 450 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (amd radeon hd 5450 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (nvidia geforce gtx 660 ti direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (nvidia geforce gtx 670 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (nvidia geforce 9600 gt direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (nvidia geforce gt 430 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (nvidia geforce gt 530 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
     FALLBACK -> Entry: angle (nvidia geforce gtx 760 (192-bit) direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.warn test/index.js:42
-    TIER 0 -> Entry: angle (amd radeon hd 8330 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_0, Type: BENCHMARK - amd radeon hd 8330
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (nvidia geforce gtx 680 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (amd radeon hd 6670 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
@@ -186,7 +166,34 @@
     FALLBACK -> Entry: angle (nvidia geforce gtx 780 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
+    FALLBACK -> Entry: angle (amd radeon (tm) r9 200 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
     FALLBACK -> Entry: angle (nvidia geforce gt 440 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (nvidia geforce gt 240 direct3d11 vs_4_1 ps_4_1), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.warn test/index.js:42
+    TIER 0 -> Entry: angle (amd radeon hd 8330 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_0, Type: BENCHMARK - amd radeon hd 8330
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (nvidia geforce gt 530 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (nvidia geforce gt 630 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.warn test/index.js:38
+    BLACKLISTED -> Entry: angle (nvidia geforce gtx 285 direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_0, Type: BLACKLISTED
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (nvidia geforce gtx 680 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (amd radeon hd 6700 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (amd radeon hd 5700 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (nvidia geforce gt 705 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
@@ -195,217 +202,175 @@
     FALLBACK -> Entry: angle (nvidia geforce gtx 560 ti direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon (tm) r9 200 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.warn test/index.js:38
-    BLACKLISTED -> Entry: angle (nvidia geforce gtx 285 direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_0, Type: BLACKLISTED
-
-  console.log test/index.js:46
     FALLBACK -> Entry: ati radeon hd 5770 opengl engine, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon hd 6700 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (nvidia geforce 6150se nforce 430 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.warn test/index.js:42
-    TIER 0 -> Entry: angle (amd radeon hd 7310 graphics direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_0, Type: BENCHMARK - amd radeon hd 7310
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (nvidia geforce gt 240 direct3d11 vs_4_1 ps_4_1), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (ati radeon 3000 graphics direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
     FALLBACK -> Entry: angle (nvidia geforce 9500 gt direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (nvidia geforce gt 630 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon hd 5700 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon hd 7470 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.warn test/index.js:38
     BLACKLISTED -> Entry: amd radeon hd 6490m opengl engine, Tier: GPU_DESKTOP_TIER_0, Type: BLACKLISTED
 
   console.log test/index.js:46
-    FALLBACK -> Entry: intel(r) hd graphics 3000, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (radeon rx 560 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (ati radeon hd 4200 direct3d11 vs_4_1 ps_4_1), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (ati radeon hd 4600 series direct3d11 vs_4_1 ps_4_1), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (nvidia geforce 6150se nforce 430 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (nvidia geforce 9800 gt direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (amd radeon hd 7470 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (radeon rx 560 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.warn test/index.js:38
-    BLACKLISTED -> Entry: ati radeon hd 4850 opengl engine, Tier: GPU_DESKTOP_TIER_0, Type: BLACKLISTED
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd 760g direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon hd 7500m/7600m series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon hd 7900 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon r9 200 / hd 7900 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (nvidia geforce gtx 460 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (software adapter direct3d11 vs_4_1 ps_4_1), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (ati radeon 3000 graphics direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.warn test/index.js:38
     BLACKLISTED -> Entry: ati radeon hd 2400 opengl engine, Tier: GPU_DESKTOP_TIER_0, Type: BLACKLISTED
 
   console.log test/index.js:46
-    FALLBACK -> Entry: mesa dri intel(r) hd graphics 510 (skylake gt1), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: intel(r) hd graphics 3000, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.warn test/index.js:42
+    TIER 0 -> Entry: angle (amd radeon hd 7310 graphics direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_0, Type: BENCHMARK - amd radeon hd 7310
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (amd radeon hd 6570 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon hd 6800 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (nvidia geforce 9800 gt direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (amd radeon hd 7500m/7600m series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.warn test/index.js:38
+    BLACKLISTED -> Entry: ati radeon hd 4850 opengl engine, Tier: GPU_DESKTOP_TIER_0, Type: BLACKLISTED
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (amd radeon hd 7450 graphics direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (amd radeon hd 7900 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.warn test/index.js:42
     TIER 0 -> Entry: angle (amd radeon hd 8400 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_0, Type: BENCHMARK - amd radeon hd 8400
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon hd 8570d direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (amd radeon(tm) r5 340x direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (nvidia geforce gt 650m direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon hd 5800 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon hd 6310 graphics direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (nvidia geforce gtx 460 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (nvidia geforce gtx 560 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon hd 6900 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (srakmd direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon(tm) r5 340x direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: mesa dri intel(r) hd graphics 510 (skylake gt1), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (ati radeon hd 3400 series direct3d11 vs_4_1 ps_4_1), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (amd radeon hd 6800 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (amd radeon r9 200 / hd 7900 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (radeon rx 570 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
-  console.warn test/index.js:38
-    BLACKLISTED -> Entry: angle (amd radeon hd 5670 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_0, Type: BLACKLISTED
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (software adapter direct3d11 vs_4_1 ps_4_1), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon hd 7000 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon hd 7400m series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (amd radeon hd 6310 graphics direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (amd radeon hd 7700 series direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (srakmd direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (ati radeon hd 3400 series direct3d11 vs_4_1 ps_4_1), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon hd 7570 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (ati radeon hd 4600 series direct3d11 vs_4_1 ps_4_1), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon r7 200 series direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (amd 760g direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (radeon rx 550 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (amd radeon hd 5800 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: mali-t860, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (amd radeon hd 6900 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (amd radeon hd 7000 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (amd radeon hd 8570d direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: mesa dri intel(r) hd graphics 515 (skylake gt2), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: mesa dri intel(r) hd graphics 530 (skylake gt2), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
     FALLBACK -> Entry: mesa dri intel(r) hd graphics 620 (kaby lake gt2), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon hd 6350 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon hd 7570m direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon(tm) r5 240 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (nvidia geforce gtx 580 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (nvidia geforce gtx 645 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (nvidia geforce gt 650m direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: mesa dri intel(r) hd graphics 520 (skylake gt2), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: mesa dri intel(r) hd graphics 5500 (broadwell gt2), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (amd radeon(tm) r5 240 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon hd 6450 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: mali-t860, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon hd 7450 graphics direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: mesa dri intel(r) hd graphics 615 (kaby lake gt2), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
-  console.warn test/index.js:42
-    TIER 0 -> Entry: angle (amd radeon hd 8250 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_0, Type: BENCHMARK - amd radeon hd 8250
+  console.warn test/index.js:38
+    BLACKLISTED -> Entry: angle (amd radeon hd 5670 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_0, Type: BLACKLISTED
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (amd radeon hd 6350 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (amd radeon hd 7400m series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (amd radeon hd 7570 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (nvidia geforce gtx 645 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (radeon rx 550 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: mesa dri intel(r) uhd graphics 620 (kabylake gt2), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (amd radeon hd 7570m direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (amd radeon r7 200 series direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (amd radeon r7 240 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (nvidia geforce gtx 780 ti direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (nvidia nvs 315 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: mesa dri intel(r) hd graphics 615 (kaby lake gt2), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: nvidia geforce gtx 650, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon hd 5570 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon r5 200 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (ati mobility radeon hd 5470 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
     FALLBACK -> Entry: angle (intel(r) g41 express chipset (microsoft corporation, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (mobile intel(r) 965 express chipset family direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: mesa dri intel(r) hd graphics 530 (skylake gt2), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: mesa dri intel(r) hd graphics 5500 (broadwell gt2), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (ati mobility radeon hd 5470 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (nvidia geforce 7025 / nvidia nforce 630a direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
@@ -414,16 +379,19 @@
     FALLBACK -> Entry: angle (nvidia geforce gtx 570 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: mesa dri intel(r) uhd graphics 620 (kabylake gt2), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (nvidia geforce gtx 580 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd mobility radeon hd 5000 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (nvidia nvs 315 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon hd 6320 graphics direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: nvidia geforce gtx 650, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon hd 6520g direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (amd radeon hd 5570 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (amd radeon hd 6450 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (amd radeon hd 7640g direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
@@ -432,34 +400,34 @@
     FALLBACK -> Entry: angle (amd radeon hd 8400 / r3 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon(tm) hd 7450 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (ati radeon hd 4800 series direct3d11 vs_4_1 ps_4_1), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (ati radeon hd 5450 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (intel(r) g45/g43 express chipset (microsoft corporation, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (nvidia geforce 315m direct3d11 vs_4_1 ps_4_1), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (nvidia geforce gt 525m direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (nvidia geforce gtx 770m direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (nvidia geforce gt 625 (oem) direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (nvidia geforce gtx 780 ti direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: gallium 0.4 on llvmpipe (llvm 3.8 256 bits), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (amd mobility radeon hd 5000 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: intel(r) g41 express chipset, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (amd radeon hd 6320 graphics direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.warn test/index.js:42
+    TIER 0 -> Entry: angle (amd radeon hd 8250 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_0, Type: BENCHMARK - amd radeon hd 8250
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon hd 5450 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (amd radeon(tm) hd 7450 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon hd 7520g direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon hd 7600g direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (amd radeon(tm) hd8490 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (ati mobility radeon hd 4500 series direct3d11 vs_4_1 ps_4_1), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
@@ -468,25 +436,133 @@
     FALLBACK -> Entry: angle (ati radeon hd 4200 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (ati radeon hd 4800 series direct3d11 vs_4_1 ps_4_1), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (nvidia geforce 315 direct3d11 vs_4_1 ps_4_1), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (nvidia geforce 315m direct3d11 vs_4_1 ps_4_1), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (mobile intel(r) 965 express chipset family direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (nvidia geforce 8400gs direct3d11 vs_4_1 ps_4_1), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
+    FALLBACK -> Entry: angle (nvidia geforce gt 635 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (nvidia quadro nvs 290 direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: gallium 0.4 on llvmpipe (llvm 3.8 256 bits), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: intel(r) g41 express chipset, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (amd radeon hd 6520g direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (amd radeon hd 6530d direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (amd radeon hd 8570 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (amd radeon r5 200 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (nvidia geforce 315 direct3d11 vs_4_1 ps_4_1), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
     FALLBACK -> Entry: angle (nvidia geforce 9400 gt direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (nvidia geforce gt 625 (oem) direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (vmware svga 3d direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.warn test/index.js:38
+    BLACKLISTED -> Entry: nvidia geforce gt 120 opengl engine, Tier: GPU_DESKTOP_TIER_0, Type: BLACKLISTED
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (amd radeon hd 5450 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (amd radeon hd 6410d direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (amd radeon hd 7500 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (amd radeon hd 7600g direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (ati mobility radeon hd 4200 series direct3d11 vs_4_1 ps_4_1), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (ati radeon hd 4300/4500 series direct3d11 vs_4_1 ps_4_1), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (intel(r) g45/g43 express chipset (microsoft corporation, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (nvidia geforce gt 525m direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (nvidia geforce gt 540m direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (nvidia geforce gtx 650 ti boost direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: mali-t628, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: nvidia geforce gt 630, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: adreno (tm) 506, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (amd radeon hd 6350 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (amd radeon hd 6470m direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (amd radeon hd 6480g direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (amd radeon hd 6800 series direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (amd radeon hd 7520g direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (amd radeon hd 8670d direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.warn test/index.js:42
+    TIER 0 -> Entry: angle (amd radeon(tm) hd 8350 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_0, Type: BENCHMARK - amd radeon hd 8350g
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (ati mobility radeon hd 5650 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (ati radeon hd 3800 series direct3d11 vs_4_1 ps_4_1), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (ati radeon hd 5400 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (ati radeon hd 5700 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (nvidia geforce 8400 gs (microsoft corporation, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (nvidia geforce gt 330m direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (nvidia geforce gtx 650 ti boost direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (nvidia geforce gtx 260 direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (nvidia geforce gtx 760 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: intel(r) q45/q43 express chipset, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
@@ -495,145 +571,142 @@
     BLACKLISTED -> Entry: amd radeon hd 6630m opengl engine, Tier: GPU_DESKTOP_TIER_0, Type: BLACKLISTED
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon hd 6350 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon hd 6410d direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon hd 6800 series direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon hd 7500 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
     FALLBACK -> Entry: angle (amd radeon hd 7600m series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon hd 8570 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon hd 8670d direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
     FALLBACK -> Entry: angle (amd radeon r9 200 series direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.warn test/index.js:42
-    TIER 0 -> Entry: angle (amd radeon(tm) hd 8350 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_0, Type: BENCHMARK - amd radeon hd 8350g
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon(tm) hd8490 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (ati radeon hd 4300/4500 series direct3d11 vs_4_1 ps_4_1), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (ati radeon hd 5700 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (intel(r) b43 express chipset direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (nvidia geforce gt 635 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (nvidia geforce gtx 760 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (nvidia geforce gtx 770m direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (nvidia quadro nvs 290 direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.warn test/index.js:38
-    BLACKLISTED -> Entry: nvidia geforce gt 120 opengl engine, Tier: GPU_DESKTOP_TIER_0, Type: BLACKLISTED
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: amd radeon(tm) r5 340x, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon hd 6470m direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon hd 6530d direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.warn test/index.js:42
-    TIER 0 -> Entry: angle (amd radeon hd 8350 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_0, Type: BENCHMARK - amd radeon hd 8350g
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon r7 450 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (amd radeon(tm) hd 6520g direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon(tm) hd 6650m direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (ati mobility radeon hd 4200 series direct3d11 vs_4_1 ps_4_1), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (asus eah5450 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (ati radeon hd 3450 direct3d11 vs_4_1 ps_4_1), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (ati radeon hd 5400 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (intel(r) b43 express chipset direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (nvidia geforce 315m direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (intel(r) g41 express chipset direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (nvidia geforce gt 240 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (intel(r) g45/g43 express chipset direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (nvidia geforce gt 330m direct3d11 vs_4_1 ps_4_1), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (nvidia geforce gt 540m direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (nvidia geforce gts 450 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (nvidia geforce gtx 260 direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (nvidia geforce gtx 765m direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (nvidia geforce gtx 260 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (radeon (tm) pro wx 9100 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (radeon rx vega direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (vmware svga 3d direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (radeon(tm) rx 580 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: nvidia geforce gt 630, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: mali-g72, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: amd radeon(tm) r5 340x, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (amd 760g (microsoft corporation wddm 1.1) direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon hd 5500 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
     FALLBACK -> Entry: angle (amd radeon hd 6300m series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon hd 6480g direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon hd 6550d direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (amd radeon hd 6570 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
+    FALLBACK -> Entry: angle (amd radeon hd 7450 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.warn test/index.js:42
+    TIER 0 -> Entry: angle (amd radeon hd 8240 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_0, Type: BENCHMARK - amd radeon hd 8240
+
+  console.warn test/index.js:42
+    TIER 0 -> Entry: angle (amd radeon hd 8350 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_0, Type: BENCHMARK - amd radeon hd 8350g
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (amd radeon hd 8370d direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (amd radeon r7 450 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (amd radeon(tm) hd 6650m direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (amd radeon(tm) hd 8490 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (intel(r) atom(tm) processor e3800 series/intel(r) celeron(r) processor n2920/j1900 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (intel(r) q45/q43 express chipset (microsoft corporation, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (nvidia geforce 315m direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.warn test/index.js:38
+    BLACKLISTED -> Entry: angle (nvidia geforce 8600 gt direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_0, Type: BLACKLISTED
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (nvidia geforce 9400 direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (nvidia geforce 9600 gt direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (nvidia geforce gt 240 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (nvidia geforce gtx 260 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (nvidia geforce gtx 650 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: apple software renderer, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.warn test/index.js:38
+    BLACKLISTED -> Entry: ati radeon hd 2400 xt opengl engine, Tier: GPU_DESKTOP_TIER_0, Type: BLACKLISTED
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (amd radeon hd 5500 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (amd radeon hd 6550d direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (amd radeon hd 7400 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
     FALLBACK -> Entry: angle (amd radeon hd 7500/7600 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.warn test/index.js:42
+    TIER 0 -> Entry: angle (amd radeon hd 8210 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_0, Type: BENCHMARK - amd radeon hd 8210
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (amd radeon r9 360 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (ati mobility radeon hd 4500 series direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (amd radeon(tm) hd 6380g direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (ati mobility radeon hd 5650 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (amd radeon(tm) r7 350x direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (ati mobility radeon hd 4500 series direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (ati radeon hd 3200 graphics direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
@@ -645,37 +718,43 @@
     FALLBACK -> Entry: angle (ati radeon hd 4550 direct3d11 vs_4_1 ps_4_1), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (intel(r) atom(tm) processor e3800 series/intel(r) celeron(r) processor n2920/j1900 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (ati radeon hd 4600 series direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (intel(r) graphics media accelerator 3600 series direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (intel(r) q45/q43 express chipset (microsoft corporation, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
     FALLBACK -> Entry: angle (nvidia geforce 505 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.warn test/index.js:38
-    BLACKLISTED -> Entry: angle (nvidia geforce 8600 gt direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_0, Type: BLACKLISTED
+    BLACKLISTED -> Entry: angle (nvidia geforce 8600 gt (microsoft corporation, Tier: GPU_DESKTOP_TIER_0, Type: BLACKLISTED
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (nvidia geforce 9600 gt (microsoft corporation, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.warn test/index.js:38
     BLACKLISTED -> Entry: angle (nvidia geforce 9600m gt direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_0, Type: BLACKLISTED
 
   console.log test/index.js:46
+    FALLBACK -> Entry: angle (nvidia geforce gt 625 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
     FALLBACK -> Entry: angle (nvidia quadro nvs 295 direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (radeon(tm) rx 580 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (radeon pro 570 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
-  console.warn test/index.js:38
-    BLACKLISTED -> Entry: ati radeon hd 2400 xt opengl engine, Tier: GPU_DESKTOP_TIER_0, Type: BLACKLISTED
+  console.log test/index.js:46
+    FALLBACK -> Entry: apple a11 gpu, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: intel gma x3100 opengl engine, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: mali-t628, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: intel(r) q45/q43 express chipset (microsoft corporation, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.warn test/index.js:38
+    BLACKLISTED -> Entry: nvidia geforce 8800 gs opengl engine, Tier: GPU_DESKTOP_TIER_0, Type: BLACKLISTED
 
   console.log test/index.js:46
     FALLBACK -> Entry: nvidia geforce gt 625 (oem), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
@@ -687,82 +766,85 @@
     FALLBACK -> Entry: amd radeon r9 200 series, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
+    FALLBACK -> Entry: angle (amd firepro w5000 (firegl v) graphics adapter direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (amd radeon hd 6350 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
     FALLBACK -> Entry: angle (amd radeon hd 6700 series direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon hd 7400 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon hd 7450 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+  console.warn test/index.js:38
+    BLACKLISTED -> Entry: angle (amd radeon hd 6750m direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_0, Type: BLACKLISTED
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (amd radeon hd 7500g direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
-  console.warn test/index.js:42
-    TIER 0 -> Entry: angle (amd radeon hd 8210 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_0, Type: BENCHMARK - amd radeon hd 8210
-
-  console.warn test/index.js:42
-    TIER 0 -> Entry: angle (amd radeon hd 8240 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_0, Type: BENCHMARK - amd radeon hd 8240
-
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon hd 8370d direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (amd radeon r5 235 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (amd radeon r7 350 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon(tm) r7 350x direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (amd radeon(tm) hd 6620g direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (asus eah5450 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (ati mobility radeon hd 3400 series direct3d11 vs_4_1 ps_4_1), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (ati radeon hd 3800 series direct3d11 vs_4_1 ps_4_1), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (ati radeon hd 3450, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (ati radeon hd 5450 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (intel(r) atom(tm) processor e3800 series/intel(r) celeron(r) processor n2920/j1900 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (intel(r) g41 express chipset direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (nvidia geforce 8400 gs (microsoft corporation, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.warn test/index.js:38
-    BLACKLISTED -> Entry: angle (nvidia geforce 8600 gt (microsoft corporation, Tier: GPU_DESKTOP_TIER_0, Type: BLACKLISTED
+    FALLBACK -> Entry: angle (nvidia geforce 7600 gt direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (nvidia geforce 9300m gs direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (nvidia geforce 9400 direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
     FALLBACK -> Entry: angle (nvidia geforce 9400 gt direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (nvidia geforce 9600 gt (microsoft corporation, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (nvidia geforce 9500 gt direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (nvidia geforce gt 545 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (nvidia geforce gt 555m direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (nvidia geforce gt 625 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (nvidia geforce gts 450 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
     FALLBACK -> Entry: angle (nvidia geforce gtx 480 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (radeon pro 570 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (nvidia geforce gtx 650 ti direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (nvidia geforce gtx 760 ti oem direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (nvidia quadro fx 3800 direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (radeon 550 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (radeon pro 555 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (radeon pro 560 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: geforce gtx 1050/pcie/sse2, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: intel(r) q45/q43 express chipset (microsoft corporation, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: intel(r) g41 express chipset (microsoft corporation, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: mali-g71, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
@@ -770,20 +852,29 @@
   console.warn test/index.js:42
     TIER 0 -> Entry: mesa dri intel(r) hd graphics 405 (braswell), Tier: GPU_DESKTOP_TIER_0, Type: BENCHMARK - intel hd graphics 405 (braswell)
 
-  console.warn test/index.js:38
-    BLACKLISTED -> Entry: nvidia geforce 8800 gs opengl engine, Tier: GPU_DESKTOP_TIER_0, Type: BLACKLISTED
+  console.log test/index.js:46
+    FALLBACK -> Entry: mesa dri intel(r) hd graphics 610 (kaby lake gt1), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: nvidia geforce gt 530, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: adreno (tm) 430, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: adreno (tm) 506, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: amd radeon hd 5450, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: amd radeon hd 7400m series, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd firepro w5000 (firegl v) graphics adapter direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: amd radeon hd 8400 / r3 series, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (amd firepro 2270 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (amd firepro v4900 (firegl v) graphics adapter direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (amd m880g with ati mobility radeon hd 4250 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
@@ -792,7 +883,7 @@
     FALLBACK -> Entry: angle (amd radeon (tm) r9 360 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon hd 6350 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (amd radeon hd 6450 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (amd radeon hd 6600 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
@@ -810,25 +901,28 @@
     FALLBACK -> Entry: angle (amd radeon hd 7420g direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon(tm) hd 6620g direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (amd radeon hd 7660g + 7670m dual graphics direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.warn test/index.js:42
+    TIER 0 -> Entry: angle (amd radeon hd 8280 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_0, Type: BENCHMARK - amd radeon hd 8280
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (amd radeon r5 310 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (amd radeon(tm) hd 7650a graphics direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon(tm) hd 8490 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (ati mobility radeon hd 3400 series direct3d11 vs_4_1 ps_4_1), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (amd radeont r7 450 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (ati mobility radeon hd 5470 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (ati radeon hd 3450, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (ati radeon hd 3200 graphics direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (ati radeon hd 4600 series direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (ati radeon hd 4350 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (ati radeon hd 4800 series direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
@@ -837,49 +931,37 @@
     FALLBACK -> Entry: angle (intel(r) hd graphics p4600/p4700 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
+    FALLBACK -> Entry: angle (nvidia geforce 615 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
     FALLBACK -> Entry: angle (nvidia geforce 6150se nforce 430 (microsoft corporation, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (nvidia geforce 8400 gs direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
+  console.warn test/index.js:38
+    BLACKLISTED -> Entry: angle (nvidia geforce 8600 gts direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_0, Type: BLACKLISTED
+
+  console.warn test/index.js:38
+    BLACKLISTED -> Entry: angle (nvidia geforce 8800 gt direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_0, Type: BLACKLISTED
+
   console.log test/index.js:46
     FALLBACK -> Entry: angle (nvidia geforce 9400 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (nvidia geforce 9600 gt direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (nvidia geforce gt 545 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+  console.warn test/index.js:38
+    BLACKLISTED -> Entry: angle (nvidia geforce gt 120 direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_0, Type: BLACKLISTED
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (nvidia geforce gt 705 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (nvidia geforce gtx 650 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (nvidia geforce gtx 650 ti direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (nvidia geforce gtx 660 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (nvidia geforce gtx 660 ti direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (nvidia geforce gtx 765m direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (nvidia quadro fx 3800 direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (radeon 550 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (radeon pro 555 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (nvidia quadro fx 1800 direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (radeon(tm) rx 550 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (vmware svga 3d direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: apple a8 gpu, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
@@ -887,35 +969,44 @@
   console.warn test/index.js:38
     BLACKLISTED -> Entry: ati radeon hd 2600 opengl engine, Tier: GPU_DESKTOP_TIER_0, Type: BLACKLISTED
 
+  console.warn test/index.js:38
+    BLACKLISTED -> Entry: ati radeon hd 4870 opengl engine, Tier: GPU_DESKTOP_TIER_0, Type: BLACKLISTED
+
   console.log test/index.js:46
     FALLBACK -> Entry: mesa dri intel(r) hd graphics 630 (kaby lake gt2), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: nvidia geforce gt 530, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: mobile intel(r) 965 express chipset family (microsoft corporation, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.warn test/index.js:38
+    BLACKLISTED -> Entry: nvidia geforce 8600m gt opengl engine, Tier: GPU_DESKTOP_TIER_0, Type: BLACKLISTED
 
   console.log test/index.js:46
-    FALLBACK -> Entry: nvidia geforce gtx 660, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: adreno (tm) 512, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: adreno (tm) 540, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: amd radeon hd 5450, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: adreno (tm) 630, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: amd radeon hd 7570, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: amd radeon hd 8400 / r3 series, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
     FALLBACK -> Entry: amd stoney (drm 3.23.0 / 4.15.0-23-generic llvm 5.0.1), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd firepro 2270 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (amd firepro d700 (firegl v) direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (amd radeon 6600m and 6700m series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (amd radeon hd 6320 graphics direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (amd radeon hd 6370m direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (amd radeon hd 6380g direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
@@ -924,19 +1015,31 @@
     FALLBACK -> Entry: angle (amd radeon hd 6450 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
+    FALLBACK -> Entry: angle (amd radeon hd 6500 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
     FALLBACK -> Entry: angle (amd radeon hd 6530d graphics direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon hd 6730m direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (amd radeon hd 6700m series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
-  console.warn test/index.js:38
-    BLACKLISTED -> Entry: angle (amd radeon hd 6750m direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_0, Type: BLACKLISTED
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (amd radeon hd 6730m direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (amd radeon hd 7300 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon hd 7660g + 7670m dual graphics direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (amd radeon hd 7350 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (amd radeon hd 7540d direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (amd radeon hd 7610m direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (amd radeon hd 7620g direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (amd radeon hd 7670m direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
@@ -953,15 +1056,6 @@
   console.log test/index.js:46
     FALLBACK -> Entry: angle (amd radeon hd 8650g + hd 8600m dual graphics direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon r5 235 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon r5 310 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon(tm) hd 6380g direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
   console.warn test/index.js:42
     TIER 0 -> Entry: angle (amd radeon(tm) hd 8280e direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_0, Type: BENCHMARK - amd radeon hd 8280
 
@@ -976,6 +1070,12 @@
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (ati firepro 3800 (firegl) graphics adapter direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (ati firepro v (firegl v) graphics adapter direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (ati mobility radeon hd 4530 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (ati mobility radeon hd 4650 direct3d11 vs_4_1 ps_4_1), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
@@ -996,6 +1096,9 @@
     FALLBACK -> Entry: angle (ati radeon hd 3450 (microsoft corporation, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
+    FALLBACK -> Entry: angle (ati radeon hd 3600 series direct3d11 vs_4_1 ps_4_1), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
     FALLBACK -> Entry: angle (ati radeon hd 3870 direct3d11 vs_4_1 ps_4_1), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
@@ -1005,25 +1108,28 @@
     FALLBACK -> Entry: angle (ati radeon hd 4350 (microsoft corporation wddm 1.1) direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (ati radeon hd 5450 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (ati radeon hd 4650 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (intel(r) g45/g43 express chipset direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (mobile intel(r) 965 express chipset family (microsoft corporation, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (nvidia geforce 605 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (nvidia geforce 6150 le direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (nvidia geforce 7600 gt direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
   console.warn test/index.js:38
-    BLACKLISTED -> Entry: angle (nvidia geforce 8800 gt direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_0, Type: BLACKLISTED
+    BLACKLISTED -> Entry: angle (nvidia geforce 8600 gts (microsoft corporation, Tier: GPU_DESKTOP_TIER_0, Type: BLACKLISTED
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (nvidia geforce 9200m gs direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (nvidia geforce 9400 gt (microsoft corporation, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (nvidia geforce 9500 gt direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (nvidia geforce 9500 gt (microsoft corporation, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (nvidia geforce 9600 gso 512 direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
@@ -1038,49 +1144,55 @@
     FALLBACK -> Entry: angle (nvidia geforce gt 430 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
+    FALLBACK -> Entry: angle (nvidia geforce gt 440 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
     FALLBACK -> Entry: angle (nvidia geforce gtx 460m direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (nvidia geforce gtx 675mx direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (nvidia geforce gtx 760 ti oem direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (nvidia geforce gtx 775m direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (nvidia quadro fx 1800 direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (nvidia geforce gtx 780m direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (nvidia grid m10-1b direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (nvidia quadro fx 1700 (microsoft corporation, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.warn test/index.js:38
+    BLACKLISTED -> Entry: angle (nvidia quadro fx 580 direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_0, Type: BLACKLISTED
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (nvidia quadro nvs 160m direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (radeon (tm) pro wx 9100 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (nvidia quadro nvs 450 direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (radeon (tm) rx 550 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (radeon pro 560 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
     FALLBACK -> Entry: angle (radeon pro 575 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (vmware svga 3d direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (radeon rx 590 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (radeon rx480 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (radeon(tm) rx580 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle(intel(r) hd graphics 520 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: apple a11 gpu, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
     FALLBACK -> Entry: apple a9 gpu, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: apple software renderer, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.warn test/index.js:38
-    BLACKLISTED -> Entry: ati radeon hd 4870 opengl engine, Tier: GPU_DESKTOP_TIER_0, Type: BLACKLISTED
 
   console.log test/index.js:46
     FALLBACK -> Entry: ati radeon hd 5870 opengl engine, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
@@ -1089,19 +1201,22 @@
     BLACKLISTED -> Entry: ati radeon hd 6770m opengl engine, Tier: GPU_DESKTOP_TIER_0, Type: BLACKLISTED
 
   console.log test/index.js:46
+    FALLBACK -> Entry: geforce gtx 1080/pcie/sse2, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
     FALLBACK -> Entry: i915 (chipset: g33), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: mali-g72, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: mobile intel(r) 965 express chipset family (microsoft corporation, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: mali-t830, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: nvidia geforce gt 705, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: nvidia geforce gtx 560 se, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: quadro k5200/pcie/sse2, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: radeon(tm) rx 460 graphics, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
@@ -1122,10 +1237,10 @@
     FALLBACK -> Entry: adreno (tm) 405, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: adreno (tm) 510, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: adreno (tm) 505, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: adreno (tm) 630, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: adreno (tm) 510, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: amd radeon hd 6670, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
@@ -1140,25 +1255,19 @@
     FALLBACK -> Entry: amd radeon r7 200 series, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd firepro d700 (firegl v) direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
     FALLBACK -> Entry: angle (amd firepro v3900 (ati firegl) direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd firepro v4900 (firegl v) graphics adapter direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (amd mobility radeon hd 5800 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (amd radeon (tm) r7 300 series direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon 6600m and 6700m series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
     FALLBACK -> Entry: angle (amd radeon hd 6250 graphics direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon hd 6450 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (amd radeon hd 6320 series graphics direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (amd radeon hd 6550m direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
@@ -1167,22 +1276,16 @@
     FALLBACK -> Entry: angle (amd radeon hd 6600a series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon hd 6700m series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (amd radeon hd 6800m series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon hd 6800m series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (amd radeon hd 6900 series direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (amd radeon hd 7350 graphics direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (amd radeon hd 7520g + 7600m dual graphics direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon hd 7610m direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon hd 7620g direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (amd radeon hd 7640g + 8500m dual graphics direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
@@ -1194,10 +1297,16 @@
     FALLBACK -> Entry: angle (amd radeon hd 7670 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
+    FALLBACK -> Entry: angle (amd radeon hd 7670m direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
     FALLBACK -> Entry: angle (amd radeon hd 7800 series direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (amd radeon hd 7870 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (amd radeon hd 8370d direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (amd radeon hd 8490 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
@@ -1221,13 +1330,16 @@
     FALLBACK -> Entry: angle (amd radeon(tm) hd8570 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
+    FALLBACK -> Entry: angle (amd radeon(tm) hd8970m direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
     FALLBACK -> Entry: angle (asus eah6570 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (asus radeon rx 580 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (asus r7 240 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (ati firepro v (firegl v) graphics adapter direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (asus radeon rx 580 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (ati mobility radeon hd 3400 series direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
@@ -1236,7 +1348,16 @@
     FALLBACK -> Entry: angle (ati mobility radeon hd 3430 (microsoft corporation wddm 1.1) direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
+    FALLBACK -> Entry: angle (ati mobility radeon hd 3650 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (ati mobility radeon hd 4200 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
     FALLBACK -> Entry: angle (ati mobility radeon hd 4200 series direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (ati mobility radeon hd 4300 series (microsoft corporation wddm 1.1) direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (ati mobility radeon hd 4500/5100 series direct3d11 vs_4_1 ps_4_1), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
@@ -1268,14 +1389,11 @@
   console.log test/index.js:46
     FALLBACK -> Entry: angle (ati radeon hd 4250 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (ati radeon hd 4350 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (ati radeon hd 4650 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
   console.warn test/index.js:38
     BLACKLISTED -> Entry: angle (ati radeon hd 4670 direct3d11 vs_4_1 ps_4_1), Tier: GPU_DESKTOP_TIER_0, Type: BLACKLISTED
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (ati radeon hd 5400 series direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.warn test/index.js:38
     BLACKLISTED -> Entry: angle (ati radeon hd 5670 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_0, Type: BLACKLISTED
@@ -1283,26 +1401,29 @@
   console.warn test/index.js:38
     BLACKLISTED -> Entry: angle (ati radeon hd 5670 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_0, Type: BLACKLISTED
 
+  console.warn test/index.js:42
+    TIER 0 -> Entry: angle (ati technologies inc. amd radeon(tm) vega 8 graphics, opengl 4.5 core), Tier: GPU_DESKTOP_TIER_0, Type: BENCHMARK - amd radeon hd 8450g
+
   console.log test/index.js:46
     FALLBACK -> Entry: angle (èipová sada mobile intel(r) øady 4 express (microsoft corporation – wddm 1.1) direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (mobile intel(r) 965 express chipset family (microsoft corporation, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (intel(r) g45/g43 express chipset direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.warn test/index.js:38
     BLACKLISTED -> Entry: angle (nvidia corporation nvidia geforce gt 120 opengl engine opengl 3.3 core), Tier: GPU_DESKTOP_TIER_0, Type: BLACKLISTED
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (nvidia geforce 605 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (nvidia geforce 615 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (nvidia geforce 605 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (nvidia geforce 6150se nforce 430 (microsoft corporation, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (nvidia geforce 7300 gs direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (nvidia geforce 7900 gs direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (nvidia geforce 8100 / nforce 720a direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
@@ -1316,17 +1437,11 @@
   console.log test/index.js:46
     FALLBACK -> Entry: angle (nvidia geforce 8400m gs direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
-  console.warn test/index.js:38
-    BLACKLISTED -> Entry: angle (nvidia geforce 8600 gts direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_0, Type: BLACKLISTED
-
   console.log test/index.js:46
     FALLBACK -> Entry: angle (nvidia geforce 9200 direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (nvidia geforce 9300 ge direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (nvidia geforce 9500 gt (microsoft corporation, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.warn test/index.js:38
     BLACKLISTED -> Entry: angle (nvidia geforce 9600m gt direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_0, Type: BLACKLISTED
@@ -1365,22 +1480,25 @@
     FALLBACK -> Entry: angle (nvidia geforce gtx 560 se direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
+    FALLBACK -> Entry: angle (nvidia geforce gtx 560 ti direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (nvidia geforce gtx 670 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
     FALLBACK -> Entry: angle (nvidia geforce gtx 670mx direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (nvidia geforce gtx 780m direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (nvidia grid m10-1b direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (nvidia geforce gtx 770 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (nvidia nvs 5400m direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (nvidia quadro fx 1700 (microsoft corporation, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (nvidia quadro fx 1700 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (nvidia quadro fx 1700 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (nvidia quadro fx 3800 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.warn test/index.js:38
     BLACKLISTED -> Entry: angle (nvidia quadro fx 4800 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_0, Type: BLACKLISTED
@@ -1389,13 +1507,13 @@
     BLACKLISTED -> Entry: angle (nvidia quadro fx 570m direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_0, Type: BLACKLISTED
 
   console.warn test/index.js:38
-    BLACKLISTED -> Entry: angle (nvidia quadro fx 580 direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_0, Type: BLACKLISTED
+    BLACKLISTED -> Entry: angle (nvidia quadro fx 580 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_0, Type: BLACKLISTED
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (nvidia quadro nvs 135m direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (nvidia quadro nvs 450 direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (parallels display adapter (wddm) direct3d11 vs_4_1 ps_4_1), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (radeon (tm) hd 6770m direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
@@ -1410,7 +1528,7 @@
     FALLBACK -> Entry: angle (radeon 500 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (radeon rx 590 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (radeon rx 580 series direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (radeon rx vega direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
@@ -1422,10 +1540,25 @@
     FALLBACK -> Entry: angle (radeon(tm) rx 480 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
+    FALLBACK -> Entry: angle (radeon(tm) rx 560 graphics direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (rdpdd chained dd direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (rodzina mikrouk³adów intel(r) g965 express chipset family (microsoft corporation, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (utma video-accelerator direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
     FALLBACK -> Entry: apple a10 gpu, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: ati radeon x1600 opengl engine, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: gallium 0.4 on amd rv710 (drm 2.43.0 llvm 3.8.0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: gallium 0.4 on llvmpipe (llvm 3.6 256 bits), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
@@ -1437,22 +1570,19 @@
     FALLBACK -> Entry: intel(r) b43 express chipset, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: intel(r) g41 express chipset (microsoft corporation, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
     FALLBACK -> Entry: llvmpipe (llvm 6.0 256 bits), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: mali-t830, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: mali-t820, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: mali-t880, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: mesa dri intel(r) g33, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: mesa dri intel(r) g45/g43, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: mesa dri intel(r) hd graphics 610 (kaby lake gt1), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: mesa dri intel(r) iris plus graphics 640 (kaby lake gt3), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
@@ -1467,9 +1597,6 @@
     FALLBACK -> Entry: nvidia geforce 7300 gt opengl engine, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.warn test/index.js:38
-    BLACKLISTED -> Entry: nvidia geforce 8600m gt opengl engine, Tier: GPU_DESKTOP_TIER_0, Type: BLACKLISTED
-
-  console.warn test/index.js:38
     BLACKLISTED -> Entry: nvidia geforce 9600m gt opengl engine, Tier: GPU_DESKTOP_TIER_0, Type: BLACKLISTED
 
   console.warn test/index.js:38
@@ -1479,7 +1606,13 @@
     FALLBACK -> Entry: nvidia geforce gt 440, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
+    FALLBACK -> Entry: nvidia geforce gt 635, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
     FALLBACK -> Entry: nvidia geforce gts 450, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: nvidia geforce gtx 560, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: nvidia geforce gtx 670, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
@@ -1512,13 +1645,10 @@
     FALLBACK -> Entry: adreno (tm) 306, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: adreno (tm) 505, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: adreno (tm) 512, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
     FALLBACK -> Entry: adreno (tm) 530, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: amd aruba (drm 2.50.0 / 4.15.0-43-generic llvm 6.0.0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: amd cedar (drm 2.50.0 / 4.15.0-43-generic llvm 6.0.0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
@@ -1536,10 +1666,16 @@
     FALLBACK -> Entry: amd radeon (tm) rx 460 graphics (polaris11 drm 3.26.0, 4.18.6-arch1-1-arch, llvm 6.0.1), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
+    FALLBACK -> Entry: amd radeon 6600m and 6700m series, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
     FALLBACK -> Entry: amd radeon hd 6310 graphics, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: amd radeon hd 6350, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: amd radeon hd 6450, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: amd radeon hd 6470m, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
@@ -1575,6 +1711,12 @@
     FALLBACK -> Entry: amd radeon(tm) hd8490, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
+    FALLBACK -> Entry: amd rs880 (drm 2.50.0 / 4.15.0-20-generic llvm 6.0.0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: amd turks (drm 2.50.0 / 4.15.0-43-generic llvm 6.0.0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
     FALLBACK -> Entry: angle ((pe64) ati radeon 3000 graphics direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
@@ -1582,6 +1724,9 @@
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (amd firepro v3900 (firegl v) direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (amd firepro v3900 (firegl v) graphics adapter direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (amd firepro v3900 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
@@ -1593,10 +1738,13 @@
     FALLBACK -> Entry: angle (amd firepro w5000 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
+    FALLBACK -> Entry: angle (amd firepro w7000 (firegl v) graphics adapter direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
     FALLBACK -> Entry: angle (amd m880g with ati mobility radeon hd 4200 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd mobility radeon hd 5800 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (amd m880g with ati mobility radeon hd 4250 direct3d11 vs_4_1 ps_4_1), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (amd radeon (tm) hd 8670a direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
@@ -1626,6 +1774,9 @@
     FALLBACK -> Entry: angle (amd radeon hd 5700 series direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
+    FALLBACK -> Entry: angle (amd radeon hd 6250 graphics direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
     FALLBACK -> Entry: angle (amd radeon hd 6290 graphics direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
@@ -1647,9 +1798,6 @@
     FALLBACK -> Entry: angle (amd radeon hd 6370d direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon hd 6370m direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
     FALLBACK -> Entry: angle (amd radeon hd 6400m series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
@@ -1665,9 +1813,6 @@
     BLACKLISTED -> Entry: angle (amd radeon hd 6490m direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_0, Type: BLACKLISTED
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon hd 6500 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
     FALLBACK -> Entry: angle (amd radeon hd 6520g direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
@@ -1677,16 +1822,19 @@
     FALLBACK -> Entry: angle (amd radeon hd 6570m direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
+    FALLBACK -> Entry: angle (amd radeon hd 6620g direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (amd radeon hd 6650a graphics direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
     FALLBACK -> Entry: angle (amd radeon hd 6770 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon hd 6900 series direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (amd radeon hd 6850 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (amd radeon hd 6900m series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon hd 7350 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (amd radeon hd 7450 graphics direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
@@ -1698,10 +1846,13 @@
     FALLBACK -> Entry: angle (amd radeon hd 7500g direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon hd 7520g + hd 7600m dual graphics direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (amd radeon hd 7500m/7600m series direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon hd 7540d direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (amd radeon hd 7520g + hd 7400m dual graphics direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (amd radeon hd 7520g + hd 7600m dual graphics direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (amd radeon hd 7550m/7650m graphics direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
@@ -1716,6 +1867,9 @@
     FALLBACK -> Entry: angle (amd radeon hd 7600m series direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
+    FALLBACK -> Entry: angle (amd radeon hd 7640g + 7600m dual graphics direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
     FALLBACK -> Entry: angle (amd radeon hd 7640g + 7670m dual graphics direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
@@ -1728,34 +1882,49 @@
     FALLBACK -> Entry: angle (amd radeon hd 7660g + hd 7600m dual graphics direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon hd 7670m direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
     FALLBACK -> Entry: angle (amd radeon hd 7770 ghz edition direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.warn test/index.js:42
     TIER 0 -> Entry: angle (amd radeon hd 8350g direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_0, Type: BENCHMARK - amd radeon hd 8350g
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon hd 8370d direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (amd radeon hd 8500 series direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon hd 8500 series direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (amd radeon hd 8510g direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (amd radeon hd 8550g + hd 8750m dual graphics direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
+    FALLBACK -> Entry: angle (amd radeon hd 8570d + r7 240 dual graphics direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (amd radeon hd 8610g + 8600m dual graphics direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (amd radeon hd 8650g + 8500m dual graphics direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
     FALLBACK -> Entry: angle (amd radeon hd 8650g + hd 8750m dual graphics direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
+    FALLBACK -> Entry: angle (amd radeon hd 8750m direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
     FALLBACK -> Entry: angle (amd radeon hd 8950 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (amd radeon hd7700 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (amd radeon r5 220 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (amd radeon r7 240 series direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (amd radeon r7 430 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (amd radeon r9 255 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
@@ -1788,16 +1957,10 @@
     FALLBACK -> Entry: angle (amd radeon(tm) hd8490 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeon(tm) hd8970m direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
     FALLBACK -> Entry: angle (amd radeon(tm) r5 240 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (amd radeon(tm) r7 200 series graphics direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (amd radeont r7 450 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (asus eah5830 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
@@ -1806,10 +1969,13 @@
     FALLBACK -> Entry: angle (asus eah6670 series direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
+    FALLBACK -> Entry: angle (asus eah6850 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
     FALLBACK -> Entry: angle (asus hd7750 series direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (asus r7 240 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (asus hd7770 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (asus r9 270 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
@@ -1830,6 +1996,9 @@
     FALLBACK -> Entry: angle (ati firepro v3800 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
+    FALLBACK -> Entry: angle (ati firepro v4800 (firegl v) direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
     FALLBACK -> Entry: angle (ati firepro v4800 (firegl) graphics adapter direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
@@ -1844,23 +2013,14 @@
   console.warn test/index.js:38
     BLACKLISTED -> Entry: angle (ati mobility radeon hd 2400 xt direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_0, Type: BLACKLISTED
 
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (ati mobility radeon hd 3650 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (ati mobility radeon hd 4200 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+  console.warn test/index.js:38
+    BLACKLISTED -> Entry: angle (ati mobility radeon hd 2600 xt direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_0, Type: BLACKLISTED
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (ati mobility radeon hd 4250 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (ati mobility radeon hd 4300 series (microsoft corporation wddm 1.1) direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
     FALLBACK -> Entry: angle (ati mobility radeon hd 4500/5100 series direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (ati mobility radeon hd 4530 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (ati mobility radeon hd 4570 direct3d11 vs_4_1 ps_4_1), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
@@ -1869,7 +2029,13 @@
     FALLBACK -> Entry: angle (ati mobility radeon hd 4650 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
+    FALLBACK -> Entry: angle (ati mobility radeon hd 5000 series direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
     FALLBACK -> Entry: angle (ati mobility radeon hd 530v direct3d11 vs_4_1 ps_4_1), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (ati mobility radeon hd 5400 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (ati mobility radeon hd 5400 series direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
@@ -1899,6 +2065,9 @@
     BLACKLISTED -> Entry: angle (ati radeon hd 2400 xt (microsoft corporation wddm 1.1) direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_0, Type: BLACKLISTED
 
   console.warn test/index.js:38
+    BLACKLISTED -> Entry: angle (ati radeon hd 2400 xt direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_0, Type: BLACKLISTED
+
+  console.warn test/index.js:38
     BLACKLISTED -> Entry: angle (ati radeon hd 2600 pro direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_0, Type: BLACKLISTED
 
   console.warn test/index.js:38
@@ -1906,9 +2075,6 @@
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (ati radeon hd 3200 graphics (microsoft corporation wddm 1.1) direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (ati radeon hd 3200 graphics direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (ati radeon hd 3450 (microsoft corporation wddm 1.1) direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
@@ -1947,10 +2113,13 @@
     BLACKLISTED -> Entry: angle (ati radeon hd 4670 (microsoft corporation wddm 1.1) direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_0, Type: BLACKLISTED
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (ati radeon hd 5400 series direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (ati radeon hd 4770 direct3d11 vs_4_1 ps_4_1), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (ati radeon hd 5500 series direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (ati radeon hd 5570 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (ati radeon hd 5570 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
@@ -1971,13 +2140,16 @@
     FALLBACK -> Entry: angle (eg park direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
+    FALLBACK -> Entry: angle (gráficos amd radeon hd 6320 (microsoft corporation- wddm v1.20) direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
     FALLBACK -> Entry: angle (intel(r) b43 express chipset (microsoft corporation, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (intel(r) g45/g43 express chipset (microsoft corporation, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (intel(r) g45/g43 express chipset direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (intel(r) q45/q43 express chipset direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (ñòàíäàðòíûé vga ãðàôè÷åñêèé àäàïòåð direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
@@ -1987,6 +2159,12 @@
 
   console.warn test/index.js:38
     BLACKLISTED -> Entry: angle (nvidia geforce 320m direct3d11 vs_4_1 ps_4_1), Tier: GPU_DESKTOP_TIER_0, Type: BLACKLISTED
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (nvidia geforce 505 direct3d11 vs_4_1 ps_4_1), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (nvidia geforce 6200 turbocache(tm) direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (nvidia geforce 6600 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
@@ -2001,13 +2179,13 @@
     FALLBACK -> Entry: angle (nvidia geforce 7100 gs (microsoft corporation, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
+    FALLBACK -> Entry: angle (nvidia geforce 7300 gt direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
     FALLBACK -> Entry: angle (nvidia geforce 7300 le (microsoft corporation, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (nvidia geforce 7600 gs direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (nvidia geforce 7900 gs direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (nvidia geforce 7950 gt direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
@@ -2034,22 +2212,22 @@
     BLACKLISTED -> Entry: angle (nvidia geforce 8600 gt direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_0, Type: BLACKLISTED
 
   console.warn test/index.js:38
+    BLACKLISTED -> Entry: angle (nvidia geforce 8600m gt direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_0, Type: BLACKLISTED
+
+  console.warn test/index.js:38
     BLACKLISTED -> Entry: angle (nvidia geforce 8800 gt direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_0, Type: BLACKLISTED
 
   console.warn test/index.js:38
     BLACKLISTED -> Entry: angle (nvidia geforce 8800 gts direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_0, Type: BLACKLISTED
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (nvidia geforce 9200m gs direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
     FALLBACK -> Entry: angle (nvidia geforce 9300m gs direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.warn test/index.js:38
+    BLACKLISTED -> Entry: angle (nvidia geforce 9400m direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_0, Type: BLACKLISTED
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (nvidia geforce 9500 gs direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.warn test/index.js:38
-    BLACKLISTED -> Entry: angle (nvidia geforce gt 120 direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_0, Type: BLACKLISTED
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (nvidia geforce gt 140 direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
@@ -2062,9 +2240,6 @@
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (nvidia geforce gt 330 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (nvidia geforce gt 440 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (nvidia geforce gt 445m direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
@@ -2085,7 +2260,13 @@
     FALLBACK -> Entry: angle (nvidia geforce gtx 275 direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
+    FALLBACK -> Entry: angle (nvidia geforce gtx 280 direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
     FALLBACK -> Entry: angle (nvidia geforce gtx 295 direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (nvidia geforce gtx 460 se direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (nvidia geforce gtx 460 se direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
@@ -2094,16 +2275,7 @@
     FALLBACK -> Entry: angle (nvidia geforce gtx 480 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (nvidia geforce gtx 560 ti direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
     FALLBACK -> Entry: angle (nvidia geforce gtx 560m direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (nvidia geforce gtx 660m direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (nvidia geforce gtx 660m direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (nvidia geforce gtx 670m direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
@@ -2112,13 +2284,16 @@
     FALLBACK -> Entry: angle (nvidia geforce gtx 675m direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
+    FALLBACK -> Entry: angle (nvidia geforce gtx 680 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (nvidia geforce gtx 680m direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (nvidia geforce gtx 680mx direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
     FALLBACK -> Entry: angle (nvidia geforce gtx 690 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (nvidia geforce gtx 770 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (nvidia geforce gtx 775m direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (nvidia geforce gtx 780 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
@@ -2136,22 +2311,31 @@
     FALLBACK -> Entry: angle (nvidia nvs 810 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
+    FALLBACK -> Entry: angle (nvidia quadro fx 1500 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
     FALLBACK -> Entry: angle (nvidia quadro fx 1600m direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (nvidia quadro fx 1600m direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (nvidia quadro fx 1700 direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
+    FALLBACK -> Entry: angle (nvidia quadro fx 1800m direct3d11 vs_4_1 ps_4_1), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
     FALLBACK -> Entry: angle (nvidia quadro fx 2700m direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (nvidia quadro fx 370 direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (nvidia quadro fx 380 direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (nvidia quadro fx 380 lp direct3d11 vs_4_1 ps_4_1), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (nvidia quadro fx 3800 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.warn test/index.js:38
     BLACKLISTED -> Entry: angle (nvidia quadro fx 570 direct3d11 vs_4_0 ps_4_0), Tier: GPU_DESKTOP_TIER_0, Type: BLACKLISTED
@@ -2169,7 +2353,7 @@
     FALLBACK -> Entry: angle (nvidia quadro nvs 285 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (parallels display adapter (wddm) direct3d11 vs_4_1 ps_4_1), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: angle (nvidia quadro nvs 290 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (radeon (tm) hd 6470m direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
@@ -2190,7 +2374,13 @@
     FALLBACK -> Entry: angle (radeon (tm) rx 470 series direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
+    FALLBACK -> Entry: angle (radeon (tm) rx 580 graphics direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
     FALLBACK -> Entry: angle (radeon hd 6470m direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: angle (radeon pro 560x direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (radeon pro 580 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
@@ -2205,34 +2395,19 @@
     FALLBACK -> Entry: angle (radeon rx 570 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (radeon rx 580 series direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
     FALLBACK -> Entry: angle (radeon rx vega m gh graphics direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (radeon rx480 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (radeon(tm) rx 580x direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: angle (radeon(tm) rx580 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
     FALLBACK -> Entry: angle (radeont rx 460 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (rdpdd chained dd direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (sumo 9644 direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (trinity scrapper mobile direct3d11 vs_5_0 ps_5_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: angle (utma video-accelerator direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: angle (wrestler 9802 direct3d9ex vs_3_0 ps_3_0), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
@@ -2254,6 +2429,12 @@
 
   console.warn test/index.js:38
     BLACKLISTED -> Entry: ati radeon hd 6750m opengl engine, Tier: GPU_DESKTOP_TIER_0, Type: BLACKLISTED
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: ati radeon r9 m390 opengl engine, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: gallium 0.4 on amd palm (drm 2.49.0 / 4.9.0-7-686 llvm 3.9.1), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: gallium 0.4 on amd rv730 (drm 2.49.0 / 4.9.0-7-amd64 llvm 3.9.1), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
@@ -2283,13 +2464,22 @@
     FALLBACK -> Entry: geforce gt 330m/pcie/sse2, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
+    FALLBACK -> Entry: geforce gt 520/pcie/sse2, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: geforce gt 740m/pcie/sse2, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
     FALLBACK -> Entry: geforce gtx 1060/pcie/sse2, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: geforce gtx 1080/pcie/sse2, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: geforce gtx 750/pcie/sse2, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: geforce gtx 950m/pcie/sse2, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: intel(r) g45/g43 express chipset, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: intel(r) g45/g43 express chipset (microsoft corporation, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
@@ -2301,10 +2491,7 @@
     FALLBACK -> Entry: llvmpipe (llvm 5.0 256 bits), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
-    FALLBACK -> Entry: mali-t820, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
-
-  console.log test/index.js:46
-    FALLBACK -> Entry: mali-t880, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+    FALLBACK -> Entry: mali-g51, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: mesa dri intel(r) 965q, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
@@ -2320,6 +2507,9 @@
 
   console.log test/index.js:46
     FALLBACK -> Entry: mesa dri intel(r) q45/q43, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
+    FALLBACK -> Entry: mesa dri intel(r) uhd graphics 630 (coffeelake 3x8 gt2), Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
     FALLBACK -> Entry: mobile intel(r) 45 express chipset family (microsoft corporation, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
@@ -2379,6 +2569,9 @@
     FALLBACK -> Entry: quadro k420/pcie/sse2, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
+    FALLBACK -> Entry: quadro p1000/pcie/sse2, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
+
+  console.log test/index.js:46
     FALLBACK -> Entry: radeon (tm) pro wx 5100 graphics, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
   console.log test/index.js:46
@@ -2387,3 +2580,4 @@
   console.log test/index.js:46
     FALLBACK -> Entry: radeon(tm) rx 460, Tier: GPU_DESKTOP_TIER_1, Type: FALLBACK
 
+Done in 113.81s.

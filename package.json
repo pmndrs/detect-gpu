@@ -16,29 +16,29 @@
   "author": "Tim van Scherpenzeel",
   "license": "MIT",
   "dependencies": {
-    "@babel/preset-env": "^7.2.3",
+    "@babel/preset-env": "^7.3.1",
     "csvtojson": "^2.0.8",
-    "detect-ua": "^0.0.5",
+    "detect-ua": "^0.0.7",
     "jssoup": "^0.0.10",
-    "moment": "^2.23.0",
+    "moment": "^2.24.0",
     "node-fetch": "^2.3.0",
     "ua-parser-js": "^0.7.19"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
     "babel-core": "^7.0.0-bridge.0",
-    "babel-jest": "^23.6.0",
+    "babel-jest": "^24.1.0",
     "babel-loader": "8",
     "babel-plugin-transform-object-assign": "^6.22.0",
     "concurrently": "^4.1.0",
-    "eslint": "^5.12.1",
+    "eslint": "^5.13.0",
     "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-import": "^2.16.0",
     "http-server": "^0.11.1",
-    "jest": "^23.6.0",
-    "prettier": "^1.16.0",
+    "jest": "^24.1.0",
+    "prettier": "^1.16.4",
     "prettier-eslint": "^8.8.2",
-    "webpack": "^4.29.0",
-    "webpack-cli": "^3.2.1"
+    "webpack": "^4.29.3",
+    "webpack-cli": "^3.2.3"
   }
 }

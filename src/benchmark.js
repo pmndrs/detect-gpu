@@ -250,7 +250,7 @@ export const BENCHMARK_SCORE_DESKTOP = [
   '46 - NVIDIA GeForce GTX 1060 (Laptop)',
   '45 - AMD Radeon RX 480 (Desktop)',
   '44 - NVIDIA Quadro P4000',
-  '43 - NVIDIA GeForce GTX 2050 / 1150 / Ti (Laptop)',
+  '43 - NVIDIA GeForce GTX 1660 Ti (Laptop)',
   '42 - NVIDIA GeForce GTX 1060 (Desktop)',
   '40 - AMD Radeon R9 390X',
   '39 - NVIDIA Quadro M5500',
