@@ -7,7 +7,7 @@ import { DetectUA } from 'detect-ua';
 import { BENCHMARK_SCORE_DESKTOP, BENCHMARK_SCORE_MOBILE } from './benchmark';
 
 // Utilities
-import { getBenchmarkByPercentage, getWebGLUnmaskedRenderer } from './utilities';
+import { getBenchmarkByPercentage, getWebGLUnmaskedRenderer, isWebGLSupported } from './utilities';
 
 // Instantiate device detection
 const device = new DetectUA();
@@ -55,14 +55,10 @@ class GPUTier {
     let tier;
     let type;
 
-    if (this.forceRendererString === false) {
-      renderer = getWebGLUnmaskedRenderer();
-    } else {
-      renderer = this.forceRendererString;
-    }
+    const gl = isWebGLSupported();
 
     // WebGL support is missing
-    if (!renderer) {
+    if (!gl) {
       if (isMobile) {
         return {
           tier: 'GPU_MOBILE_TIER_0',
@@ -74,6 +70,12 @@ class GPUTier {
         tier: 'GPU_DESKTOP_TIER_0',
         type: 'WEBGL_UNSUPPORTED',
       };
+    }
+
+    if (this.forceRendererString === false) {
+      renderer = getWebGLUnmaskedRenderer(gl);
+    } else {
+      renderer = this.forceRendererString;
     }
 
     renderer = cleanRendererString(renderer);
