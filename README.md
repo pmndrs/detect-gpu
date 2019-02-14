@@ -7,18 +7,6 @@
 
 Classify GPU's based on their benchmark score in order to provide an adaptive experience.
 
-## Stability and reporting issues
-
-In the current state `detect-gpu` should be considered to be experimental and should not yet be used in production.
-
-If you are interested in helping me out collecting renderer names please add the following script tag to your webpage:
-
-```html
-<script defer src="https://unpkg.com/detect-gpu/scripts/analytics_embed.js"></script>
-```
-
-The script simply checks the name of the users unmasked renderer and sends it as a Google Analytics event to my account. The contents of the script can be found [here](https://github.com/TimvanScherpenzeel/detect-gpu/blob/master/scripts/analytics_embed.js).
-
 ## Demo
 
 [Live demo](https://timvanscherpenzeel.github.io/detect-gpu/)
@@ -50,7 +38,7 @@ const GPUTier = getGPUTier({
   mobileBenchmarkPercentages: [10, 40, 30, 20], // (Default) [TIER_0, TIER_1, TIER_2, TIER_3]
   desktopBenchmarkPercentages: [10, 40, 30, 20], // (Default) [TIER_0, TIER_1, TIER_2, TIER_3]
   forceRendererString: "Apple A11 GPU", // (Development) Force a certain renderer string
-  forceMobile: true // (Development) Force the use of mobile benchmarking scores
+  forceMobile: true, // (Development) Force the use of mobile benchmarking scores
 });
 ```
 

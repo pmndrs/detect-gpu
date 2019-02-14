@@ -1,5 +1,3 @@
-// Collected using https://unpkg.com/detect-gpu/scripts/analytics_embed.js
-
 export const RENDERER_DESKTOP = [
   '8839 - Intel(R) HD Graphics 6000',
   '5673 - Intel(R) Iris(TM) Graphics 6100',
