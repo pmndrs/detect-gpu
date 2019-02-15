@@ -13,6 +13,22 @@
     <script src="./build/detect-gpu.js"></script>
 
     <script>
+      if (!String.prototype.includes) {
+        Object.defineProperty(String.prototype, "includes", {
+          value: function(search, start) {
+            if (typeof start !== "number") {
+              start = 0;
+            }
+
+            if (start + search.length > this.length) {
+              return false;
+            } else {
+              return this.indexOf(search, start) !== -1;
+            }
+          },
+        });
+      }
+
       var GPUTier = DetectGPU.getGPUTier({
         // mobileBenchmarkPercentages: [15, 35, 30, 20],
         // desktopBenchmarkPercentages: [15, 35, 30, 20],
