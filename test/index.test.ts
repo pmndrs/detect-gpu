@@ -47,7 +47,7 @@ function testPerDeviceType(deviceType: string[], forceMobile = false): void {
             `FALLBACK -> Entry: ${rendererEntry}, Tier: ${GPUTier.tier}, Type: ${GPUTier.type}`
           );
         } else {
-          // console.log(`SUCCESS -> Tier: ${GPUTier.tier}, Type: ${GPUTier.type}`);
+          console.log(`SUCCESS -> Tier: ${GPUTier.tier}, Type: ${GPUTier.type}`);
         }
 
         expect(GPUTier.type).toBeDefined();
