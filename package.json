@@ -1,44 +1,71 @@
 {
   "name": "detect-gpu",
-  "version": "0.0.40",
+  "version": "1.0.0",
   "description": "Classify GPU's based on their benchmark score in order to provide an adaptive experience.",
-  "main": "build/detect-gpu.min.js",
+  "main": "dist/detect-gpu.cjs.js",
+  "browser": "dist/detect-gpu.umd.js",
+  "module": "dist/detect-gpu.esm.js",
+  "jsnext:main": "dist/detect-gpu.esm.js",
+  "types": "dist/types/index.d.ts",
   "scripts": {
-    "start": "NODE_ENV=development concurrently \"webpack -d --progress --watch --display-modules\" \"http-server --cors -s -o\" ",
-    "lint": "eslint src/**/*.js",
-    "test": "jest --config=jest.config.json",
-    "test:coverage": "jest --config=jest.config.json --coverage",
-    "build": "NODE_ENV=production webpack -p --progress --optimize-minimize --display-modules && NODE_ENV=development webpack -d --progress --display-modules",
-    "deploy": "npm run build && npm version patch && npm publish && git push origin",
+    "start": "rollup -c rollup.config.ts -w",
+    "lint": "tslint --project tsconfig.json -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
+    "test": "jest --verbose=false",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "prebuild": "rimraf dist",
+    "build": "tsc --module commonjs && rollup -c rollup.config.ts",
     "parse-analytics": "node ./scripts/analytics_parser.js",
     "update-benchmarks": "node ./scripts/update_benchmarks.js"
   },
   "author": "Tim van Scherpenzeel",
-  "license": "MIT",
   "dependencies": {
-    "@babel/preset-env": "^7.3.1",
-    "csvtojson": "^2.0.8",
-    "detect-ua": "^0.0.7",
-    "jssoup": "^0.0.10",
-    "moment": "^2.24.0",
-    "node-fetch": "^2.3.0",
-    "ua-parser-js": "^0.7.19"
+    "detect-ua": "^0.0.10"
   },
   "devDependencies": {
-    "@babel/core": "^7.2.2",
-    "babel-core": "^7.0.0-bridge.0",
-    "babel-jest": "^24.1.0",
-    "babel-loader": "8",
-    "babel-plugin-transform-object-assign": "^6.22.0",
-    "concurrently": "^4.1.0",
-    "eslint": "^5.13.0",
-    "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-import": "^2.16.0",
-    "http-server": "^0.11.1",
-    "jest": "^24.1.0",
-    "prettier": "^1.16.4",
-    "prettier-eslint": "^8.8.2",
-    "webpack": "^4.29.3",
-    "webpack-cli": "^3.2.3"
+    "@types/jest": "^24.0.13",
+    "csvtojson": "^2.0.8",
+    "jest": "^24.8.0",
+    "jssoup": "^0.0.10",
+    "moment": "^2.24.0",
+    "node-fetch": "^2.6.0",
+    "prettier": "^1.17.1",
+    "rimraf": "^2.6.3",
+    "rollup": "^1.12.3",
+    "rollup-plugin-commonjs": "^10.0.0",
+    "rollup-plugin-filesize": "^6.0.1",
+    "rollup-plugin-node-resolve": "^5.0.0",
+    "rollup-plugin-terser": "^4.0.4",
+    "rollup-plugin-typescript2": "^0.21.1",
+    "ts-jest": "^24.0.2",
+    "tslint": "^5.16.0",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.4.5"
+  },
+  "prettier": {
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "printWidth": 100
+  },
+  "jest": {
+    "testURL": "http://localhost",
+    "moduleFileExtensions": [
+      "js",
+      "ts",
+      "tsx"
+    ],
+    "globals": {
+      "ts-jest": {
+        "tsConfig": "tsconfig.json"
+      }
+    },
+    "testMatch": [
+      "**/test/**/*.+(ts|tsx|js)"
+    ],
+    "testPathIgnorePatterns": [
+      "<rootDir>/test/data.ts"
+    ],
+    "preset": "ts-jest"
   }
 }

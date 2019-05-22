@@ -1,4 +1,17 @@
+# OS
 .DS_Store
 
+# Editor
+.vscode
+
+# Cache
+.rpt2_cache
+
+# Node
 node_modules
+
+# Directories
+coverage
+
+# Logging
 *.log

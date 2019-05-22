@@ -1,9 +1,7 @@
 # Detect GPU
 
-![](http://img.badgesize.io/TimvanScherpenzeel/detect-gpu/master/build/detect-gpu.min.js.svg?compression=gzip&maxAge=60)
+![](http://img.badgesize.io/TimvanScherpenzeel/detect-gpu/master/dist/detect-gpu.cjs.js.svg?compression=gzip&maxAge=60)
 [![npm version](https://badge.fury.io/js/detect-gpu.svg)](https://badge.fury.io/js/detect-gpu)
-[![dependencies](https://david-dm.org/timvanscherpenzeel/detect-gpu.svg)](https://david-dm.org/timvanscherpenzeel/detect-gpu)
-[![devDependencies](https://david-dm.org/timvanscherpenzeel/detect-gpu/dev-status.svg)](https://david-dm.org/timvanscherpenzeel/detect-gpu#info=devDependencies)
 
 Classify GPU's based on their benchmark score in order to provide an adaptive experience.
 
@@ -32,12 +30,12 @@ By default `detect-gpu` assumes `10%` of the lowest scores to be insufficient to
 You can tweak these percentages when registering the application as shown below:
 
 ```js
-import { getGPUTier } from "detect-gpu";
+import { getGPUTier } from 'detect-gpu';
 
 const GPUTier = getGPUTier({
   mobileBenchmarkPercentages: [10, 40, 30, 20], // (Default) [TIER_0, TIER_1, TIER_2, TIER_3]
   desktopBenchmarkPercentages: [10, 40, 30, 20], // (Default) [TIER_0, TIER_1, TIER_2, TIER_3]
-  forceRendererString: "Apple A11 GPU", // (Development) Force a certain renderer string
+  forceRendererString: 'Apple A11 GPU', // (Development) Force a certain renderer string
   forceMobile: true, // (Development) Force the use of mobile benchmarking scores
 });
 ```
@@ -45,19 +43,19 @@ const GPUTier = getGPUTier({
 ## Development
 
 ```sh
-$ npm start
+$ yarn start
 
-$ npm run serve
+$ yarn serve
 
-$ npm run lint
+$ yarn lint
 
-$ npm run dist
+$ yarn test
 
-$ npm run deploy
+$ yarn build
 
-$ npm run parse-analytics
+$ yarn parse-analytics
 
-$ npm run update-benchmarks
+$ yarn update-benchmarks
 ```
 
 ## Licence
