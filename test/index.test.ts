@@ -1,23 +1,22 @@
-// @ts-check
-
-// Application
+// Source
 import { getGPUTier } from '../src/index';
 
-// Test data
-import { RENDERER_DESKTOP, RENDERER_MOBILE, RENDERER_TABLET } from './renderers';
+// Data
+import { RENDERER_DESKTOP, RENDERER_MOBILE, RENDERER_TABLET } from './data';
 
 // Utilities
-const stripPrefix = entries => entries.map(entry => entry.split(' - ')[1].toLowerCase());
+const stripPrefix = (entries: string[]): string[] =>
+  entries.map(entry => entry.split(' - ')[1].toLowerCase());
 
 const mobile = stripPrefix(RENDERER_MOBILE);
 const tablet = stripPrefix(RENDERER_TABLET);
 const desktop = stripPrefix(RENDERER_DESKTOP);
 
-function testPerDeviceType(deviceType, forceMobile = false) {
-  deviceType.map((rendererEntry) => {
+function testPerDeviceType(deviceType, forceMobile = false): void {
+  deviceType.map(rendererEntry => {
     const GPUTier = getGPUTier({
-      forceRendererString: rendererEntry,
       forceMobile,
+      forceRendererString: rendererEntry,
     });
 
     test(`${deviceType} -> GPUTier returns a valid tier`, () => {
@@ -31,20 +30,20 @@ function testPerDeviceType(deviceType, forceMobile = false) {
         console.warn(
           `WEBGL_UNSUPPORTED -> Entry: ${rendererEntry}, Tier: ${GPUTier.tier}, Type: ${
             GPUTier.type
-          }`,
+          }`
         );
       }
       if (GPUTier.type === 'BLACKLISTED') {
         console.warn(
-          `BLACKLISTED -> Entry: ${rendererEntry}, Tier: ${GPUTier.tier}, Type: ${GPUTier.type}`,
+          `BLACKLISTED -> Entry: ${rendererEntry}, Tier: ${GPUTier.tier}, Type: ${GPUTier.type}`
         );
       } else if (GPUTier.tier.match(/GPU_(MOBILE|DESKTOP)_TIER_0/)) {
         console.warn(
-          `TIER 0 -> Entry: ${rendererEntry}, Tier: ${GPUTier.tier}, Type: ${GPUTier.type}`,
+          `TIER 0 -> Entry: ${rendererEntry}, Tier: ${GPUTier.tier}, Type: ${GPUTier.type}`
         );
       } else if (GPUTier.type === 'FALLBACK') {
         console.log(
-          `FALLBACK -> Entry: ${rendererEntry}, Tier: ${GPUTier.tier}, Type: ${GPUTier.type}`,
+          `FALLBACK -> Entry: ${rendererEntry}, Tier: ${GPUTier.tier}, Type: ${GPUTier.type}`
         );
       } else {
         // console.log(`SUCCESS -> Tier: ${GPUTier.tier}, Type: ${GPUTier.type}`);

@@ -1,4 +1,0 @@
-{
-  "testMatch": ["**/test/**/index.js"],
-  "testURL": "http://localhost"
-}
