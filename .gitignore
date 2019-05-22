@@ -11,7 +11,7 @@
 node_modules
 
 # Directories
-dist
+coverage
 
 # Logging
 *.log
