@@ -14,7 +14,9 @@
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "prebuild": "rimraf dist",
-    "build": "tsc --module commonjs && rollup -c rollup.config.ts"
+    "build": "tsc --module commonjs && rollup -c rollup.config.ts",
+    "parse-analytics": "node ./scripts/analytics_parser.js",
+    "update-benchmarks": "node ./scripts/update_benchmarks.js"
   },
   "author": "Tim van Scherpenzeel",
   "dependencies": {

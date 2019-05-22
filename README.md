@@ -48,9 +48,9 @@ $ yarn serve
 
 $ yarn lint
 
-$ yarn dist
+$ yarn test
 
-$ yarn deploy
+$ yarn build
 
 $ yarn parse-analytics
 
