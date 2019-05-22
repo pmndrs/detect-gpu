@@ -4,14 +4,14 @@ import {
   GPU_BENCHMARK_SCORE_MOBILE,
 } from './__generated__/GPUBenchmark';
 
-// Modules
-import { cleanEntryString } from './cleanEntryString';
-import { cleanRendererString } from './cleanRendererString';
-import { getBenchmarkByPercentage } from './getBenchmarkByPercentage';
-import { isDesktop, isMobile, isTablet } from './getBrowserType';
-import { getEntryVersionNumber } from './getEntryVersionNumber';
-import { getWebGLUnmaskedRenderer } from './getWebGLUnmaskedRenderer';
-import { isWebGLSupported } from './isWebGLSupported';
+// Internal
+import { cleanEntryString } from './internal/cleanEntryString';
+import { cleanRendererString } from './internal/cleanRendererString';
+import { getBenchmarkByPercentage } from './internal/getBenchmarkByPercentage';
+import { isDesktop, isMobile, isTablet } from './internal/getBrowserType';
+import { getEntryVersionNumber } from './internal/getEntryVersionNumber';
+import { getWebGLUnmaskedRenderer } from './internal/getWebGLUnmaskedRenderer';
+import { isWebGLSupported } from './internal/isWebGLSupported';
 
 export interface IGetGPUTier {
   mobileBenchmarkPercentages?: number[];

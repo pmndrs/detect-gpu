@@ -1,5 +1,5 @@
 // Types
-import { TVoidable } from './types';
+import { TVoidable } from '../types';
 
 export const isWebGLSupported = (): TVoidable<WebGLRenderingContext> => {
   const attributes = {
