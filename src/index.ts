@@ -61,24 +61,23 @@ export const getGPUTier = (options: IGetGPUTier = {}): { tier: string; type: str
   let tier = '';
   let type = '';
 
-  const gl = isWebGLSupported();
+  if (!forceRendererString) {
+    const gl = isWebGLSupported();
 
-  // WebGL support is missing
-  if (!gl) {
-    if (isMobile || isTablet || forceMobile) {
+    if (!gl) {
+      if (isMobile || isTablet || forceMobile) {
+        return {
+          tier: 'GPU_MOBILE_TIER_0',
+          type: 'WEBGL_UNSUPPORTED',
+        };
+      }
+
       return {
-        tier: 'GPU_MOBILE_TIER_0',
+        tier: 'GPU_DESKTOP_TIER_0',
         type: 'WEBGL_UNSUPPORTED',
       };
     }
 
-    return {
-      tier: 'GPU_DESKTOP_TIER_0',
-      type: 'WEBGL_UNSUPPORTED',
-    };
-  }
-
-  if (gl instanceof WebGLRenderingContext && forceRendererString === '') {
     renderer = getWebGLUnmaskedRenderer(gl);
   } else {
     renderer = forceRendererString;

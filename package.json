@@ -25,6 +25,7 @@
     "csvtojson": "^2.0.8",
     "jest": "^24.8.0",
     "jssoup": "^0.0.10",
+    "moment": "^2.24.0",
     "node-fetch": "^2.6.0",
     "prettier": "^1.17.1",
     "rimraf": "^2.6.3",
@@ -61,7 +62,7 @@
       "**/test/**/*.+(ts|tsx|js)"
     ],
     "testPathIgnorePatterns": [
-      "<rootDir>/test/constants.ts"
+      "<rootDir>/test/data.ts"
     ],
     "preset": "ts-jest"
   }

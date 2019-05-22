@@ -1,4 +1,7 @@
-export const isWebGLSupported = (): WebGLRenderingContext => {
+// Types
+import { TVoidable } from './types';
+
+export const isWebGLSupported = (): TVoidable<WebGLRenderingContext> => {
   const attributes = {
     alpha: false,
     antialias: false,
@@ -14,7 +17,7 @@ export const isWebGLSupported = (): WebGLRenderingContext => {
     canvas.getContext('webgl', attributes) || canvas.getContext('experimental-webgl', attributes);
 
   if (!gl || !(gl instanceof WebGLRenderingContext)) {
-    throw new Error('Unable to create WebGLRenderingContext');
+    return;
   }
 
   return gl;
