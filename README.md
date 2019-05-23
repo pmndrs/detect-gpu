@@ -1,6 +1,5 @@
 # Detect GPU
 
-![](http://img.badgesize.io/TimvanScherpenzeel/detect-gpu/master/dist/detect-gpu.cjs.js.svg?compression=gzip&maxAge=60)
 [![npm version](https://badge.fury.io/js/detect-gpu.svg)](https://badge.fury.io/js/detect-gpu)
 
 Classify GPU's based on their benchmark score in order to provide an adaptive experience.
