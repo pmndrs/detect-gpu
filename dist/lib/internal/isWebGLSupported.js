@@ -7,6 +7,7 @@ exports.isWebGLSupported = () => {
         depth: false,
         failIfMajorPerformanceCaveat: true,
         stencil: false,
+        powerPreference: 'high-performance',
     };
     // Keep reference to the canvas and context in order to clean up
     // after the necessary information has been extracted
