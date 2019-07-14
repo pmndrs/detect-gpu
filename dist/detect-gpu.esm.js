@@ -321,7 +321,7 @@ const GPU_BENCHMARK_SCORE_DESKTOP = [
     '4 - NVIDIA GeForce RTX 2080 (Desktop)',
     '3 - NVIDIA GeForce RTX 2080 Super',
     '2 - NVIDIA GeForce RTX 2080 Ti (Desktop)',
-    '1 - NVIDIA Titan RTX'
+    '1 - NVIDIA Titan RTX',
 ];
 const GPU_BENCHMARK_SCORE_MOBILE = [
     '913 - ARM Mali-200',
@@ -425,7 +425,7 @@ const GPU_BENCHMARK_SCORE_MOBILE = [
     '315 - Apple A10X Fusion GPU / PowerVR',
     '314 - Apple A11 Bionic GPU',
     '313 - Apple A12 Bionic GPU',
-    '284 - Apple A12X Bionic GPU'
+    '284 - Apple A12X Bionic GPU',
 ];
 
 const cleanEntryString = (entryString) => entryString
@@ -734,8 +734,8 @@ const isWebGLSupported = () => {
         antialias: false,
         depth: false,
         failIfMajorPerformanceCaveat: true,
-        stencil: false,
         powerPreference: 'high-performance',
+        stencil: false,
     };
     // Keep reference to the canvas and context in order to clean up
     // after the necessary information has been extracted

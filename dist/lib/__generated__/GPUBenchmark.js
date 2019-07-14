@@ -323,7 +323,7 @@ exports.GPU_BENCHMARK_SCORE_DESKTOP = [
     '4 - NVIDIA GeForce RTX 2080 (Desktop)',
     '3 - NVIDIA GeForce RTX 2080 Super',
     '2 - NVIDIA GeForce RTX 2080 Ti (Desktop)',
-    '1 - NVIDIA Titan RTX'
+    '1 - NVIDIA Titan RTX',
 ];
 exports.GPU_BENCHMARK_SCORE_MOBILE = [
     '913 - ARM Mali-200',
@@ -427,6 +427,6 @@ exports.GPU_BENCHMARK_SCORE_MOBILE = [
     '315 - Apple A10X Fusion GPU / PowerVR',
     '314 - Apple A11 Bionic GPU',
     '313 - Apple A12 Bionic GPU',
-    '284 - Apple A12X Bionic GPU'
+    '284 - Apple A12X Bionic GPU',
 ];
 //# sourceMappingURL=GPUBenchmark.js.map

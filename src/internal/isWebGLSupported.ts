@@ -7,8 +7,8 @@ export const isWebGLSupported = (): TVoidable<WebGLRenderingContext> => {
     antialias: false,
     depth: false,
     failIfMajorPerformanceCaveat: true,
-    stencil: false,
     powerPreference: 'high-performance',
+    stencil: false,
   };
 
   // Keep reference to the canvas and context in order to clean up
