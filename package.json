@@ -20,27 +20,27 @@
   },
   "author": "Tim van Scherpenzeel",
   "dependencies": {
-    "detect-ua": "^0.0.10"
+    "detect-ua": "^0.0.11"
   },
   "devDependencies": {
-    "@types/jest": "^24.0.13",
-    "csvtojson": "^2.0.8",
+    "@types/jest": "^24.0.15",
+    "csvtojson": "^2.0.10",
     "jest": "^24.8.0",
     "jssoup": "^0.0.10",
     "moment": "^2.24.0",
     "node-fetch": "^2.6.0",
-    "prettier": "^1.17.1",
+    "prettier": "^1.18.2",
     "rimraf": "^2.6.3",
-    "rollup": "^1.12.3",
-    "rollup-plugin-commonjs": "^10.0.0",
-    "rollup-plugin-filesize": "^6.0.1",
-    "rollup-plugin-node-resolve": "^5.0.0",
-    "rollup-plugin-terser": "^4.0.4",
-    "rollup-plugin-typescript2": "^0.21.1",
+    "rollup": "^1.16.7",
+    "rollup-plugin-commonjs": "^10.0.1",
+    "rollup-plugin-filesize": "^6.1.1",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-terser": "^5.1.1",
+    "rollup-plugin-typescript2": "^0.22.0",
     "ts-jest": "^24.0.2",
-    "tslint": "^5.16.0",
+    "tslint": "^5.18.0",
     "tslint-config-prettier": "^1.18.0",
-    "typescript": "^3.4.5"
+    "typescript": "^3.5.3"
   },
   "prettier": {
     "semi": true,
