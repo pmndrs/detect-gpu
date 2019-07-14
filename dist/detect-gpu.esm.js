@@ -767,7 +767,7 @@ const getGPUTier = (options = {}) => {
     let tier = '';
     let type = '';
     if (!forceRendererString) {
-        const gl = isWebGLSupported();
+        const gl = options.glContext || isWebGLSupported();
         if (!gl) {
             if (isMobile || isTablet || forceMobile) {
                 return {

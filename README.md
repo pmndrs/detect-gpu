@@ -33,10 +33,11 @@ You can tweak these percentages when registering the application as shown below:
 import { getGPUTier } from 'detect-gpu';
 
 const GPUTier = getGPUTier({
-  mobileBenchmarkPercentages: [10, 40, 30, 20], // (Default) [TIER_0, TIER_1, TIER_2, TIER_3]
-  desktopBenchmarkPercentages: [10, 40, 30, 20], // (Default) [TIER_0, TIER_1, TIER_2, TIER_3]
-  forceRendererString: 'Apple A11 GPU', // (Development) Force a certain renderer string
-  forceMobile: true, // (Development) Force the use of mobile benchmarking scores
+  glContext?: gl, // Optionally pass in a WebGL context to avoid creating a temporary one internally
+  mobileBenchmarkPercentages?: [10, 40, 30, 20], // (Default) [TIER_0, TIER_1, TIER_2, TIER_3]
+  desktopBenchmarkPercentages?: [10, 40, 30, 20], // (Default) [TIER_0, TIER_1, TIER_2, TIER_3]
+  forceRendererString?: 'Apple A11 GPU', // (Development) Force a certain renderer string
+  forceMobile?: true, // (Development) Force the use of mobile benchmarking scores
 });
 ```
 

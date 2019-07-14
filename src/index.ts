@@ -14,6 +14,7 @@ import { getWebGLUnmaskedRenderer } from './internal/getWebGLUnmaskedRenderer';
 import { isWebGLSupported } from './internal/isWebGLSupported';
 
 export interface IGetGPUTier {
+  glContext?: WebGLRenderingContext | WebGL2RenderingContext;
   mobileBenchmarkPercentages?: number[];
   desktopBenchmarkPercentages?: number[];
   forceRendererString?: string;
@@ -41,7 +42,7 @@ export const getGPUTier = (options: IGetGPUTier = {}): { tier: string; type: str
   let type = '';
 
   if (!forceRendererString) {
-    const gl = isWebGLSupported();
+    const gl = options.glContext || isWebGLSupported();
 
     if (!gl) {
       if (isMobile || isTablet || forceMobile) {

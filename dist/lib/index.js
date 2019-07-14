@@ -29,7 +29,7 @@ exports.getGPUTier = (options = {}) => {
     let tier = '';
     let type = '';
     if (!forceRendererString) {
-        const gl = isWebGLSupported_1.isWebGLSupported();
+        const gl = options.glContext || isWebGLSupported_1.isWebGLSupported();
         if (!gl) {
             if (getBrowserType_1.isMobile || getBrowserType_1.isTablet || forceMobile) {
                 return {
