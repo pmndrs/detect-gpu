@@ -24,6 +24,7 @@
   },
   "devDependencies": {
     "@types/jest": "^24.0.15",
+    "@types/webgl2": "^0.0.5",
     "csvtojson": "^2.0.10",
     "jest": "^24.8.0",
     "jssoup": "^0.0.10",
