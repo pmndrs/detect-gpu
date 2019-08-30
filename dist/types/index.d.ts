@@ -1,4 +1,3 @@
-/// <reference types="webgl2" />
 export interface IGetGPUTier {
     glContext?: WebGLRenderingContext | WebGL2RenderingContext;
     mobileBenchmarkPercentages?: number[];
