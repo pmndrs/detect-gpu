@@ -25,7 +25,7 @@ By default are all GPU's that have met these preconditions classified as `TIER_1
 
 In order to keep up to date with new GPU's coming out `detect-gpu` splits the benchmarking scores in `4 tiers` based on rough estimates of the market share.
 
-By default `detect-gpu` assumes `10%` of the lowest scores to be insufficient to run the experience and is assigned `TIER_0`. `40%` of the GPU's are considered good enough to run the experience and are assigned `TIER_1`. `30%` of the GPU's are considered powerful and are classified as `TIER_2`. The last `20%` of the GPU's are considered to be very powerful, are assigned `TIER_3`, and can run the experience with all bells and whistles.
+By default `detect-gpu` assumes `0%` of the lowest scores to be insufficient to run the experience and is assigned `TIER_0`. `50%` of the GPU's are considered good enough to run the experience and are assigned `TIER_1`. `30%` of the GPU's are considered powerful and are classified as `TIER_2`. The last `20%` of the GPU's are considered to be very powerful, are assigned `TIER_3`, and can run the experience with all bells and whistles.
 
 You can tweak these percentages when registering the application as shown below:
 
@@ -34,8 +34,8 @@ import { getGPUTier } from 'detect-gpu';
 
 const GPUTier = getGPUTier({
   glContext?: gl, // Optionally pass in a WebGL context to avoid creating a temporary one internally
-  mobileBenchmarkPercentages?: [10, 40, 30, 20], // (Default) [TIER_0, TIER_1, TIER_2, TIER_3]
-  desktopBenchmarkPercentages?: [10, 40, 30, 20], // (Default) [TIER_0, TIER_1, TIER_2, TIER_3]
+  mobileBenchmarkPercentages?: [0, 50, 30, 20], // (Default) [TIER_0, TIER_1, TIER_2, TIER_3]
+  desktopBenchmarkPercentages?: [0, 50, 30, 20], // (Default) [TIER_0, TIER_1, TIER_2, TIER_3]
   forceRendererString?: 'Apple A11 GPU', // (Development) Force a certain renderer string
   forceMobile?: true, // (Development) Force the use of mobile benchmarking scores
 });
