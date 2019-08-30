@@ -1,6 +1,6 @@
 {
   "name": "detect-gpu",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Classify GPU's based on their benchmark score in order to provide an adaptive experience.",
   "main": "dist/detect-gpu.cjs.js",
   "browser": "dist/detect-gpu.umd.js",
