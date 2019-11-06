@@ -719,7 +719,7 @@ var DetectUA = /** @class */ (function () {
 
 // Vendor
 const device = new DetectUA();
-const { isMobile, isTablet, isDesktop } = device;
+const { browser, isMobile, isTablet, isDesktop } = device;
 
 const getEntryVersionNumber = (entryString) => entryString.replace(/[\D]/g, ''); // Grab and concat all digits in the string
 
@@ -730,7 +730,7 @@ const getWebGLUnmaskedRenderer = (gl) => {
     return renderer;
 };
 
-const isWebGLSupported = () => {
+const isWebGLSupported = ({ browser }) => {
     const attributes = {
         alpha: false,
         antialias: false,
@@ -739,6 +739,11 @@ const isWebGLSupported = () => {
         powerPreference: 'high-performance',
         stencil: false,
     };
+    // Workaround for Safari 12
+    // SEE: https://github.com/TimvanScherpenzeel/detect-gpu/issues/5
+    if (typeof browser !== "boolean" && browser.name === 'Safari' && browser.version.includes('12')) {
+        delete attributes.powerPreference;
+    }
     // Keep reference to the canvas and context in order to clean up
     // after the necessary information has been extracted
     const canvas = document.createElement('canvas');
@@ -769,7 +774,9 @@ const getGPUTier = (options = {}) => {
     let tier = '';
     let type = '';
     if (!forceRendererString) {
-        const gl = options.glContext || isWebGLSupported();
+        const gl = options.glContext || isWebGLSupported({
+            browser,
+        });
         if (!gl) {
             if (isMobile || isTablet || forceMobile) {
                 return {

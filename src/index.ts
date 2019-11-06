@@ -8,7 +8,7 @@ import {
 import { cleanEntryString } from './internal/cleanEntryString';
 import { cleanRendererString } from './internal/cleanRendererString';
 import { getBenchmarkByPercentage } from './internal/getBenchmarkByPercentage';
-import { isDesktop, isMobile, isTablet } from './internal/getBrowserType';
+import { browser, isDesktop, isMobile, isTablet } from './internal/getBrowserType';
 import { getEntryVersionNumber } from './internal/getEntryVersionNumber';
 import { getWebGLUnmaskedRenderer } from './internal/getWebGLUnmaskedRenderer';
 import { isWebGLSupported } from './internal/isWebGLSupported';
@@ -42,7 +42,9 @@ export const getGPUTier = (options: IGetGPUTier = {}): { tier: string; type: str
   let type = '';
 
   if (!forceRendererString) {
-    const gl = options.glContext || isWebGLSupported();
+    const gl = options.glContext || isWebGLSupported({
+      browser,
+    });
 
     if (!gl) {
       if (isMobile || isTablet || forceMobile) {
