@@ -42,9 +42,11 @@ export const getGPUTier = (options: IGetGPUTier = {}): { tier: string; type: str
   let type = '';
 
   if (!forceRendererString) {
-    const gl = options.glContext || isWebGLSupported({
-      browser,
-    });
+    const gl =
+      options.glContext ||
+      isWebGLSupported({
+        browser,
+      });
 
     if (!gl) {
       if (isMobile || isTablet || forceMobile) {
