@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.isWebGLSupported = ({ browser }) => {
+exports.isWebGLSupported = ({ browser, }) => {
     const attributes = {
         alpha: false,
         antialias: false,
@@ -11,7 +11,7 @@ exports.isWebGLSupported = ({ browser }) => {
     };
     // Workaround for Safari 12
     // SEE: https://github.com/TimvanScherpenzeel/detect-gpu/issues/5
-    if (typeof browser !== "boolean" && browser.name === 'Safari' && browser.version.includes('12')) {
+    if (typeof browser !== 'boolean' && browser.name === 'Safari' && browser.version.includes('12')) {
         delete attributes.powerPreference;
     }
     // Keep reference to the canvas and context in order to clean up

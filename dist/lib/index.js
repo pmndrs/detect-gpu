@@ -29,9 +29,10 @@ exports.getGPUTier = (options = {}) => {
     let tier = '';
     let type = '';
     if (!forceRendererString) {
-        const gl = options.glContext || isWebGLSupported_1.isWebGLSupported({
-            browser: getBrowserType_1.browser,
-        });
+        const gl = options.glContext ||
+            isWebGLSupported_1.isWebGLSupported({
+                browser: getBrowserType_1.browser,
+            });
         if (!gl) {
             if (getBrowserType_1.isMobile || getBrowserType_1.isTablet || forceMobile) {
                 return {

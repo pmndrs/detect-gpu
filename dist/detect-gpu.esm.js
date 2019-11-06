@@ -747,7 +747,7 @@ const getWebGLUnmaskedRenderer = (gl) => {
     return renderer;
 };
 
-const isWebGLSupported = ({ browser }) => {
+const isWebGLSupported = ({ browser, }) => {
     const attributes = {
         alpha: false,
         antialias: false,
@@ -758,7 +758,7 @@ const isWebGLSupported = ({ browser }) => {
     };
     // Workaround for Safari 12
     // SEE: https://github.com/TimvanScherpenzeel/detect-gpu/issues/5
-    if (typeof browser !== "boolean" && browser.name === 'Safari' && browser.version.includes('12')) {
+    if (typeof browser !== 'boolean' && browser.name === 'Safari' && browser.version.includes('12')) {
         delete attributes.powerPreference;
     }
     // Keep reference to the canvas and context in order to clean up
@@ -791,9 +791,10 @@ const getGPUTier = (options = {}) => {
     let tier = '';
     let type = '';
     if (!forceRendererString) {
-        const gl = options.glContext || isWebGLSupported({
-            browser,
-        });
+        const gl = options.glContext ||
+            isWebGLSupported({
+                browser,
+            });
         if (!gl) {
             if (isMobile || isTablet || forceMobile) {
                 return {
