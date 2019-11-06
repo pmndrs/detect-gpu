@@ -1,1 +1,1 @@
-export declare const isMobile: boolean, isTablet: boolean, isDesktop: boolean;
+export declare const browser: boolean | import("detect-ua").IResult, isMobile: boolean, isTablet: boolean, isDesktop: boolean;
