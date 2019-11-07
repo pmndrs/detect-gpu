@@ -455,14 +455,20 @@ const cleanEntryString = (entryString) => entryString
 //# sourceMappingURL=cleanEntryString.js.map
 
 // Apple GPU
+// SEE: https://github.com/TimvanScherpenzeel/detect-gpu/issues/7
 // SEE: https://github.com/Samsy/appleGPUDetection/blob/master/index.js
-const deobfuscateAppleGPU = (rendererString) => {
+const deobfuscateAppleGPU = ({ gl, rendererString, }) => {
+    console.log(gl);
     return rendererString;
 };
 const deobfuscateRendererString = ({ gl, rendererString, }) => {
-    console.log(gl);
+    // Apple GPU
+    // SEE: https://github.com/TimvanScherpenzeel/detect-gpu/issues/7
     if (rendererString === 'apple gpu') {
-        rendererString = deobfuscateAppleGPU(rendererString);
+        rendererString = deobfuscateAppleGPU({
+            gl,
+            rendererString,
+        });
     }
     return rendererString;
 };

@@ -1,6 +1,13 @@
 // Apple GPU
+// SEE: https://github.com/TimvanScherpenzeel/detect-gpu/issues/7
 // SEE: https://github.com/Samsy/appleGPUDetection/blob/master/index.js
-const deobfuscateAppleGPU = (rendererString: string): string => {
+const deobfuscateAppleGPU = ({
+  gl,
+  rendererString,
+}: {
+  gl: WebGLRenderingContext;
+  rendererString: string;
+}): string => {
   const vertexShader = /* glsl */ `
     varying float vvv;
 
@@ -30,6 +37,8 @@ const deobfuscateAppleGPU = (rendererString: string): string => {
     }
   `;
 
+  console.log(gl);
+
   return rendererString;
 };
 
@@ -40,10 +49,13 @@ export const deobfuscateRendererString = ({
   gl: WebGLRenderingContext;
   rendererString: string;
 }): string => {
-  console.log(gl);
-
+  // Apple GPU
+  // SEE: https://github.com/TimvanScherpenzeel/detect-gpu/issues/7
   if (rendererString === 'apple gpu') {
-    rendererString = deobfuscateAppleGPU(rendererString);
+    rendererString = deobfuscateAppleGPU({
+      gl,
+      rendererString,
+    });
   }
 
   return rendererString;
