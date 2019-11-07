@@ -575,7 +575,8 @@ const deobfuscateAppleGPU = ({ gl, rendererString, }) => {
         gl.deleteShader(vertexShader);
         gl.deleteShader(fragmentShader);
         gl.useProgram(program);
-        gl.bindBuffer(GL_ARRAY_BUFFER, gl.createBuffer());
+        const vertexArray = gl.createBuffer();
+        gl.bindBuffer(GL_ARRAY_BUFFER, vertexArray);
         gl.bufferData(GL_ARRAY_BUFFER, new Float32Array([-1, -1, 0, 3, -1, 0, -1, 3, 0]), GL_STATIC_DRAW);
         const position = gl.getAttribLocation(program, 'position');
         gl.vertexAttribPointer(position, 3, GL_FLOAT, false, 0, 0);
@@ -587,6 +588,8 @@ const deobfuscateAppleGPU = ({ gl, rendererString, }) => {
         const pixels = new Uint8Array(4);
         gl.readPixels(0, 0, 1, 1, GL_RGBA, GL_UNSIGNED_BYTE, pixels);
         const result = Array.from(pixels).join('');
+        gl.deleteProgram(program);
+        gl.deleteBuffer(vertexArray);
         document.body.appendChild(document.createTextNode(result));
         switch (result) {
             case '801621810':
@@ -595,8 +598,6 @@ const deobfuscateAppleGPU = ({ gl, rendererString, }) => {
             case '8016218135':
                 // iPhone 7
                 return 'apple a10 gpu';
-            default:
-                return rendererString;
         }
     }
     return rendererString;

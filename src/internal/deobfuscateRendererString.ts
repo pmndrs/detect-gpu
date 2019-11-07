@@ -69,7 +69,8 @@ const deobfuscateAppleGPU = ({
     gl.deleteShader(fragmentShader);
     gl.useProgram(program);
 
-    gl.bindBuffer(GL_ARRAY_BUFFER, gl.createBuffer());
+    const vertexArray = gl.createBuffer();
+    gl.bindBuffer(GL_ARRAY_BUFFER, vertexArray);
     gl.bufferData(
       GL_ARRAY_BUFFER,
       new Float32Array([-1, -1, 0, 3, -1, 0, -1, 3, 0]),
@@ -88,6 +89,9 @@ const deobfuscateAppleGPU = ({
     const pixels = new Uint8Array(4);
     gl.readPixels(0, 0, 1, 1, GL_RGBA, GL_UNSIGNED_BYTE, pixels);
     const result = Array.from(pixels).join('');
+
+    gl.deleteProgram(program);
+    gl.deleteBuffer(vertexArray);
 
     document.body.appendChild(document.createTextNode(result));
 
