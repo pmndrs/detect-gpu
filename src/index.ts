@@ -6,6 +6,7 @@ import {
 
 // Internal
 import { cleanEntryString } from './internal/cleanEntryString';
+import { deobfuscateRendererString } from './internal/deobfuscateRendererString';
 import { cleanRendererString } from './internal/cleanRendererString';
 import { getBenchmarkByPercentage } from './internal/getBenchmarkByPercentage';
 import { browser, isDesktop, isMobile, isTablet } from './internal/getBrowserType';
@@ -68,6 +69,8 @@ export const getGPUTier = (options: IGetGPUTier = {}): { tier: string; type: str
   }
 
   renderer = cleanRendererString(renderer);
+  renderer = deobfuscateRendererString(renderer);
+
   const rendererVersionNumber = renderer.replace(/[\D]/g, '');
 
   // GPU BLACKLIST
@@ -75,7 +78,7 @@ export const getGPUTier = (options: IGetGPUTier = {}): { tier: string; type: str
   // https://www.khronos.org/webgl/wiki/BlacklistsAndWhitelists
   // https://chromium.googlesource.com/chromium/src/+/master/gpu/config/software_rendering_list.json
   // https://chromium.googlesource.com/chromium/src/+/master/gpu/config/gpu_driver_bug_list.json
-  const isGPUBlacklisted = /(radeon hd 6970m|radeon hd 6770m|radeon hd 6490m|radeon hd 6630m|radeon hd 6750m|radeon hd 5750|radeon hd 5670|radeon hd 4850|radeon hd 4870|radeon hd 4670|geforce 9400m|geforce 320m|geforce 330m|geforce gt 130|geforce gt 120|geforce gtx 285|geforce 8600|geforce 9600m|geforce 9400m|geforce 8800 gs|geforce 8800 gt|quadro fx 5|quadro fx 4|radeon hd 2600|radeon hd 2400|radeon hd 2600|mali-4|mali-3|mali-2)/.test(
+  const isGPUBlacklisted = /(radeon hd 6970m|radeon hd 6770m|radeon hd 6490m|radeon hd 6630m|radeon hd 6750m|radeon hd 5750|radeon hd 5670|radeon hd 4850|radeon hd 4870|radeon hd 4670|geforce 9400m|geforce 320m|geforce 330m|geforce gt 130|geforce gt 120|geforce gtx 285|geforce 8600|geforce 9600m|geforce 9400m|geforce 8800 gs|geforce 8800 gt|quadro fx 5|quadro fx 4|radeon hd 2600|radeon hd 2400|radeon hd 2600|mali-4|mali-3|mali-2|google swiftshader)/.test(
     renderer
   );
 
