@@ -1,8 +1,16 @@
 // Vendor
 import {
+  GL_ARRAY_BUFFER,
+  GL_COLOR_BUFFER_BIT,
   GL_COMPILE_STATUS,
+  GL_DEPTH_TEST,
+  GL_ELEMENT_ARRAY_BUFFER,
+  GL_FLOAT,
   GL_FRAGMENT_SHADER,
   GL_LINK_STATUS,
+  GL_STATIC_DRAW,
+  GL_TRIANGLES,
+  GL_UNSIGNED_SHORT,
   GL_VERTEX_SHADER,
 } from 'webgl-constants';
 
@@ -17,35 +25,58 @@ const deobfuscateAppleGPU = ({
   rendererString: string;
 }): string => {
   const vertexShaderSource = /* glsl */ `
-    precision mediump float;
+    // precision mediump float;
 
-    varying float vvv;
+    // varying float vvv;
+
+    // attribute vec3 position;
+
+    // void main() {
+    //   vvv = 0.31622776601683794;
+
+    //   gl_Position = vec4(position.xy, 0.0, 1.0);
+    // }
 
     attribute vec3 position;
 
     void main() {
-      vvv = 0.31622776601683794;
-
-      gl_Position = vec4(position.xy, 0.0, 1.0);
+      gl_Position = vec4(position, 1.0);
     }
   `;
 
   const fragmentShaderSource = /* glsl */ `
-    precision mediump float;
-    varying float vvv;
+    // precision mediump float;
+    // varying float vvv;
 
-    vec4 encodeFloatRGBA(float v) {
-      vec4 enc = vec4(1.0, 255.0, 65025.0, 16581375.0) * v;
-      enc = fract(enc);
-      enc -= enc.yzww * vec4(1.0 / 255.0, 1.0 / 255.0, 1.0 / 255.0, 0.0);
+    // vec4 encodeFloatRGBA(float v) {
+    //   vec4 enc = vec4(1.0, 255.0, 65025.0, 16581375.0) * v;
+    //   enc = fract(enc);
+    //   enc -= enc.yzww * vec4(1.0 / 255.0, 1.0 / 255.0, 1.0 / 255.0, 0.0);
 
-      return enc;
-    }
+    //   return enc;
+    // }
+
+    // void main() {
+    //   gl_FragColor = encodeFloatRGBA(vvv);
+    // }
 
     void main() {
-      gl_FragColor = encodeFloatRGBA(vvv);
+      gl_FragColor = vec4()
     }
   `;
+
+  const vertices = new Float32Array([-0.5, 0.5, 0.0, -0.5, -0.5, 0.0, 0.5, -0.5, 0.0]);
+  const indices = new Uint16Array([0, 1, 2]);
+
+  const vertexBuffer = gl.createBuffer();
+  gl.bindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
+  gl.bufferData(GL_ARRAY_BUFFER, vertices, GL_STATIC_DRAW);
+  gl.bindBuffer(GL_ARRAY_BUFFER, null);
+
+  const indexBuffer = gl.createBuffer();
+  gl.bindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
+  gl.bufferData(GL_ELEMENT_ARRAY_BUFFER, indices, GL_STATIC_DRAW);
+  gl.bindBuffer(GL_ELEMENT_ARRAY_BUFFER, null);
 
   const vertexShader = gl.createShader(GL_VERTEX_SHADER);
   const fragmentShader = gl.createShader(GL_FRAGMENT_SHADER);
@@ -75,11 +106,23 @@ const deobfuscateAppleGPU = ({
       console.log(gl.getProgramInfoLog(program));
     }
 
-    // gl.detachShader(program, vertexShader);
-    // gl.detachShader(program, fragmentShader);
-    // gl.deleteShader(vertexShader);
-    // gl.deleteShader(fragmentShader);
+    gl.detachShader(program, vertexShader);
+    gl.detachShader(program, fragmentShader);
+    gl.deleteShader(vertexShader);
+    gl.deleteShader(fragmentShader);
     gl.useProgram(program);
+
+    gl.bindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
+    gl.bindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
+    const position = gl.getAttribLocation(program, 'position');
+    gl.vertexAttribPointer(position, 3, GL_FLOAT, false, 0, 0);
+    gl.enableVertexAttribArray(position);
+
+    gl.clearColor(0.5, 0.5, 0.5, 0.9);
+    gl.enable(GL_DEPTH_TEST);
+    gl.clear(GL_COLOR_BUFFER_BIT);
+    gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
+    gl.drawElements(GL_TRIANGLES, indices.length, GL_UNSIGNED_SHORT, 0);
   }
 
   console.log(program);

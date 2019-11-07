@@ -472,6 +472,46 @@ const cleanEntryString = (entryString) => entryString
  *
  * These constants are defined on the WebGLRenderingContext / WebGL2RenderingContext interface
  */
+/**
+ * Passed to clear to clear the current color buffer
+ * @constant {number}
+ */
+const GL_COLOR_BUFFER_BIT = 0x00004000;
+/**
+ * Passed to drawElements or drawArrays to draw triangles. Each set of three vertices creates a separate triangle
+ * @constant {number}
+ */
+const GL_TRIANGLES = 0x0004;
+// Buffers
+// Constants passed to WebGLRenderingContext.bufferData(), WebGLRenderingContext.bufferSubData(), WebGLRenderingContext.bindBuffer(), or WebGLRenderingContext.getBufferParameter()
+/**
+ * Passed to bufferData as a hint about whether the contents of the buffer are likely to be used often and not change often
+ * @constant {number}
+ */
+const GL_STATIC_DRAW = 0x88e4;
+/**
+ * Passed to bindBuffer or bufferData to specify the type of buffer being used
+ * @constant {number}
+ */
+const GL_ARRAY_BUFFER = 0x8892;
+/**
+ * Passed to bindBuffer or bufferData to specify the type of buffer being used
+ * @constant {number}
+ */
+const GL_ELEMENT_ARRAY_BUFFER = 0x8893;
+/**
+ * Passed to enable/disable to turn on/off the depth test. Can also be used with getParameter to query the depth test
+ * @constant {number}
+ */
+const GL_DEPTH_TEST = 0x0b71;
+/**
+ * @constant {number}
+ */
+const GL_UNSIGNED_SHORT = 0x1403;
+/**
+ * @constant {number}
+ */
+const GL_FLOAT = 0x1406;
 // Shaders
 // Constants passed to WebGLRenderingContext.getShaderParameter()
 /**
@@ -501,34 +541,54 @@ const GL_LINK_STATUS = 0x8b82;
 // SEE: https://github.com/Samsy/appleGPUDetection/blob/master/index.js
 const deobfuscateAppleGPU = ({ gl, rendererString, }) => {
     const vertexShaderSource = /* glsl */ `
-    precision mediump float;
+    // precision mediump float;
 
-    varying float vvv;
+    // varying float vvv;
+
+    // attribute vec3 position;
+
+    // void main() {
+    //   vvv = 0.31622776601683794;
+
+    //   gl_Position = vec4(position.xy, 0.0, 1.0);
+    // }
 
     attribute vec3 position;
 
     void main() {
-      vvv = 0.31622776601683794;
-
-      gl_Position = vec4(position.xy, 0.0, 1.0);
+      gl_Position = vec4(position, 1.0);
     }
   `;
     const fragmentShaderSource = /* glsl */ `
-    precision mediump float;
-    varying float vvv;
+    // precision mediump float;
+    // varying float vvv;
 
-    vec4 encodeFloatRGBA(float v) {
-      vec4 enc = vec4(1.0, 255.0, 65025.0, 16581375.0) * v;
-      enc = fract(enc);
-      enc -= enc.yzww * vec4(1.0 / 255.0, 1.0 / 255.0, 1.0 / 255.0, 0.0);
+    // vec4 encodeFloatRGBA(float v) {
+    //   vec4 enc = vec4(1.0, 255.0, 65025.0, 16581375.0) * v;
+    //   enc = fract(enc);
+    //   enc -= enc.yzww * vec4(1.0 / 255.0, 1.0 / 255.0, 1.0 / 255.0, 0.0);
 
-      return enc;
-    }
+    //   return enc;
+    // }
+
+    // void main() {
+    //   gl_FragColor = encodeFloatRGBA(vvv);
+    // }
 
     void main() {
-      gl_FragColor = encodeFloatRGBA(vvv);
+      gl_FragColor = vec4()
     }
   `;
+    const vertices = new Float32Array([-0.5, 0.5, 0.0, -0.5, -0.5, 0.0, 0.5, -0.5, 0.0]);
+    const indices = new Uint16Array([0, 1, 2]);
+    const vertexBuffer = gl.createBuffer();
+    gl.bindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
+    gl.bufferData(GL_ARRAY_BUFFER, vertices, GL_STATIC_DRAW);
+    gl.bindBuffer(GL_ARRAY_BUFFER, null);
+    const indexBuffer = gl.createBuffer();
+    gl.bindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
+    gl.bufferData(GL_ELEMENT_ARRAY_BUFFER, indices, GL_STATIC_DRAW);
+    gl.bindBuffer(GL_ELEMENT_ARRAY_BUFFER, null);
     const vertexShader = gl.createShader(GL_VERTEX_SHADER);
     const fragmentShader = gl.createShader(GL_FRAGMENT_SHADER);
     const program = gl.createProgram();
@@ -550,11 +610,21 @@ const deobfuscateAppleGPU = ({ gl, rendererString, }) => {
         if (!gl.getProgramParameter(program, GL_LINK_STATUS)) {
             console.log(gl.getProgramInfoLog(program));
         }
-        // gl.detachShader(program, vertexShader);
-        // gl.detachShader(program, fragmentShader);
-        // gl.deleteShader(vertexShader);
-        // gl.deleteShader(fragmentShader);
+        gl.detachShader(program, vertexShader);
+        gl.detachShader(program, fragmentShader);
+        gl.deleteShader(vertexShader);
+        gl.deleteShader(fragmentShader);
         gl.useProgram(program);
+        gl.bindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
+        gl.bindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
+        const position = gl.getAttribLocation(program, 'position');
+        gl.vertexAttribPointer(position, 3, GL_FLOAT, false, 0, 0);
+        gl.enableVertexAttribArray(position);
+        gl.clearColor(0.5, 0.5, 0.5, 0.9);
+        gl.enable(GL_DEPTH_TEST);
+        gl.clear(GL_COLOR_BUFFER_BIT);
+        gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
+        gl.drawElements(GL_TRIANGLES, indices.length, GL_UNSIGNED_SHORT, 0);
     }
     console.log(program);
     // Draw a 2x2 planebuffer
@@ -576,7 +646,6 @@ const deobfuscateRendererString = ({ gl, rendererString, }) => {
     // }
     return rendererString;
 };
-//# sourceMappingURL=deobfuscateRendererString.js.map
 
 const cleanRendererString = (rendererString) => {
     let cleanedRendererString = rendererString.toLowerCase();
