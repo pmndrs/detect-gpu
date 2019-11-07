@@ -470,7 +470,6 @@ const deobfuscateRendererString = ({ gl, rendererString, }) => {
     }
     return rendererString;
 };
-//# sourceMappingURL=deobfuscateRendererString.js.map
 
 const cleanRendererString = (rendererString) => {
     let cleanedRendererString = rendererString.toLowerCase();
