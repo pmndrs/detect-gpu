@@ -1,4 +1,4 @@
-export declare const deobfuscateRendererString: ({ gl, renderer }: {
+export declare const deobfuscateRendererString: ({ gl, rendererString }: {
     gl: WebGLRenderingContext;
-    renderer: string;
+    rendererString: string;
 }) => string;

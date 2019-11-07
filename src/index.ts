@@ -39,7 +39,7 @@ export const getGPUTier = (options: IGetGPUTier = {}): { tier: string; type: str
   const forceMobile = options.forceMobile || false;
 
   let gl;
-  let renderer;
+  let rendererString;
   let tier = '';
   let type = '';
 
@@ -64,21 +64,21 @@ export const getGPUTier = (options: IGetGPUTier = {}): { tier: string; type: str
       };
     }
 
-    renderer = getWebGLUnmaskedRenderer(gl);
+    rendererString = getWebGLUnmaskedRenderer(gl);
   } else {
-    renderer = forceRendererString;
+    rendererString = forceRendererString;
   }
 
-  renderer = cleanRendererString(renderer);
+  rendererString = cleanRendererString(rendererString);
 
   if (gl) {
-    renderer = deobfuscateRendererString({
+    rendererString = deobfuscateRendererString({
       gl,
-      renderer
+      rendererString
     });
   }
 
-  const rendererVersionNumber = renderer.replace(/[\D]/g, '');
+  const rendererVersionNumber = rendererString.replace(/[\D]/g, '');
 
   // GPU BLACKLIST
   // https://wiki.mozilla.org/Blocklisting/Blocked_Graphics_Drivers
@@ -86,7 +86,7 @@ export const getGPUTier = (options: IGetGPUTier = {}): { tier: string; type: str
   // https://chromium.googlesource.com/chromium/src/+/master/gpu/config/software_rendering_list.json
   // https://chromium.googlesource.com/chromium/src/+/master/gpu/config/gpu_driver_bug_list.json
   const isGPUBlacklisted = /(radeon hd 6970m|radeon hd 6770m|radeon hd 6490m|radeon hd 6630m|radeon hd 6750m|radeon hd 5750|radeon hd 5670|radeon hd 4850|radeon hd 4870|radeon hd 4670|geforce 9400m|geforce 320m|geforce 330m|geforce gt 130|geforce gt 120|geforce gtx 285|geforce 8600|geforce 9600m|geforce 9400m|geforce 8800 gs|geforce 8800 gt|quadro fx 5|quadro fx 4|radeon hd 2600|radeon hd 2400|radeon hd 2600|mali-4|mali-3|mali-2|google swiftshader)/.test(
-    renderer
+    rendererString
   );
 
   if (isGPUBlacklisted) {
@@ -109,12 +109,12 @@ export const getGPUTier = (options: IGetGPUTier = {}): { tier: string; type: str
       mobileBenchmarkPercentages
     );
 
-    const isRendererAdreno = renderer.includes('adreno');
-    const isRendererApple = renderer.includes('apple');
-    const isRendererMali = renderer.includes('mali') && !renderer.includes('mali-t');
-    const isRendererMaliT = renderer.includes('mali-t');
-    const isRendererNVIDIA = renderer.includes('nvidia');
-    const isRendererPowerVR = renderer.includes('powervr');
+    const isRendererAdreno = rendererString.includes('adreno');
+    const isRendererApple = rendererString.includes('apple');
+    const isRendererMali = rendererString.includes('mali') && !rendererString.includes('mali-t');
+    const isRendererMaliT = rendererString.includes('mali-t');
+    const isRendererNVIDIA = rendererString.includes('nvidia');
+    const isRendererPowerVR = rendererString.includes('powervr');
 
     mobileBenchmark.forEach((benchmarkTier, index) =>
       benchmarkTier.forEach(benchmarkEntry => {
@@ -156,9 +156,9 @@ export const getGPUTier = (options: IGetGPUTier = {}): { tier: string; type: str
       desktopBenchmarkPercentages
     );
 
-    const isRendererIntel = renderer.includes('intel');
-    const isRendererAMD = renderer.includes('amd');
-    const isRendererNVIDIA = renderer.includes('nvidia');
+    const isRendererIntel = rendererString.includes('intel');
+    const isRendererAMD = rendererString.includes('amd');
+    const isRendererNVIDIA = rendererString.includes('nvidia');
 
     desktopBenchmark.forEach((benchmarkTier, index) =>
       benchmarkTier.forEach(benchmarkEntry => {

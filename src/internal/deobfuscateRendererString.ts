@@ -1,5 +1,5 @@
-export const deobfuscateRendererString = ({ gl, renderer }: { gl: WebGLRenderingContext, renderer: string }): string => {
+export const deobfuscateRendererString = ({ gl, rendererString }: { gl: WebGLRenderingContext, rendererString: string }): string => {
   console.log(gl);
 
-  return renderer;
+  return rendererString;
 };
