@@ -38,12 +38,13 @@ export const getGPUTier = (options: IGetGPUTier = {}): { tier: string; type: str
   const forceRendererString = options.forceRendererString || '';
   const forceMobile = options.forceMobile || false;
 
+  let gl;
   let renderer;
   let tier = '';
   let type = '';
 
   if (!forceRendererString) {
-    const gl =
+    gl =
       options.glContext ||
       isWebGLSupported({
         browser,
@@ -69,7 +70,13 @@ export const getGPUTier = (options: IGetGPUTier = {}): { tier: string; type: str
   }
 
   renderer = cleanRendererString(renderer);
-  renderer = deobfuscateRendererString(renderer);
+
+  if (gl) {
+    renderer = deobfuscateRendererString({
+      gl,
+      renderer
+    });
+  }
 
   const rendererVersionNumber = renderer.replace(/[\D]/g, '');
 

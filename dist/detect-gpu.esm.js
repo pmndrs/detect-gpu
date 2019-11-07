@@ -452,6 +452,11 @@ const cleanEntryString = (entryString) => entryString
     .split('- ')[1] // Remove prelude score (`3 - `)
     .split(' /')[0]; // Reduce 'apple a9x / powervr series 7xt' to 'apple a9x'
 
+const deobfuscateRendererString = ({ gl, renderer }) => {
+    console.log(gl);
+    return renderer;
+};
+
 const cleanRendererString = (rendererString) => {
     let cleanedRendererString = rendererString.toLowerCase();
     // Strip off ANGLE and Direct3D version
@@ -751,9 +756,8 @@ const getEntryVersionNumber = (entryString) => entryString.replace(/[\D]/g, '');
 
 const getWebGLUnmaskedRenderer = (gl) => {
     const glExtensionDebugRendererInfo = gl.getExtension('WEBGL_debug_renderer_info');
-    const renderer = glExtensionDebugRendererInfo &&
-        gl.getParameter(glExtensionDebugRendererInfo.UNMASKED_RENDERER_WEBGL);
-    return renderer;
+    return (glExtensionDebugRendererInfo &&
+        gl.getParameter(glExtensionDebugRendererInfo.UNMASKED_RENDERER_WEBGL));
 };
 
 const isWebGLSupported = ({ browser, }) => {
@@ -796,14 +800,16 @@ const getGPUTier = (options = {}) => {
     ];
     const forceRendererString = options.forceRendererString || '';
     const forceMobile = options.forceMobile || false;
+    let gl;
     let renderer;
     let tier = '';
     let type = '';
     if (!forceRendererString) {
-        const gl = options.glContext ||
-            isWebGLSupported({
-                browser,
-            });
+        gl =
+            options.glContext ||
+                isWebGLSupported({
+                    browser,
+                });
         if (!gl) {
             if (isMobile || isTablet || forceMobile) {
                 return {
@@ -822,13 +828,19 @@ const getGPUTier = (options = {}) => {
         renderer = forceRendererString;
     }
     renderer = cleanRendererString(renderer);
+    if (gl) {
+        renderer = deobfuscateRendererString({
+            gl,
+            renderer
+        });
+    }
     const rendererVersionNumber = renderer.replace(/[\D]/g, '');
     // GPU BLACKLIST
     // https://wiki.mozilla.org/Blocklisting/Blocked_Graphics_Drivers
     // https://www.khronos.org/webgl/wiki/BlacklistsAndWhitelists
     // https://chromium.googlesource.com/chromium/src/+/master/gpu/config/software_rendering_list.json
     // https://chromium.googlesource.com/chromium/src/+/master/gpu/config/gpu_driver_bug_list.json
-    const isGPUBlacklisted = /(radeon hd 6970m|radeon hd 6770m|radeon hd 6490m|radeon hd 6630m|radeon hd 6750m|radeon hd 5750|radeon hd 5670|radeon hd 4850|radeon hd 4870|radeon hd 4670|geforce 9400m|geforce 320m|geforce 330m|geforce gt 130|geforce gt 120|geforce gtx 285|geforce 8600|geforce 9600m|geforce 9400m|geforce 8800 gs|geforce 8800 gt|quadro fx 5|quadro fx 4|radeon hd 2600|radeon hd 2400|radeon hd 2600|mali-4|mali-3|mali-2)/.test(renderer);
+    const isGPUBlacklisted = /(radeon hd 6970m|radeon hd 6770m|radeon hd 6490m|radeon hd 6630m|radeon hd 6750m|radeon hd 5750|radeon hd 5670|radeon hd 4850|radeon hd 4870|radeon hd 4670|geforce 9400m|geforce 320m|geforce 330m|geforce gt 130|geforce gt 120|geforce gtx 285|geforce 8600|geforce 9600m|geforce 9400m|geforce 8800 gs|geforce 8800 gt|quadro fx 5|quadro fx 4|radeon hd 2600|radeon hd 2400|radeon hd 2600|mali-4|mali-3|mali-2|google swiftshader)/.test(renderer);
     if (isGPUBlacklisted) {
         if (isMobile || isTablet || forceMobile) {
             return {
