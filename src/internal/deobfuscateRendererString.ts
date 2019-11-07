@@ -98,8 +98,6 @@ const deobfuscateAppleGPU = ({
       case '8016218135':
         // iPhone 7
         return 'apple a10 gpu';
-      default:
-        return rendererString;
     }
   }
 
