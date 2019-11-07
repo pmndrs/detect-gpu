@@ -454,10 +454,19 @@ const cleanEntryString = (entryString) => entryString
     .split(' /')[0]; // Reduce 'apple a9x / powervr series 7xt' to 'apple a9x'
 //# sourceMappingURL=cleanEntryString.js.map
 
-const deobfuscateRendererString = ({ gl, rendererString }) => {
-    console.log(gl);
+// Apple GPU
+// SEE: https://github.com/Samsy/appleGPUDetection/blob/master/index.js
+const deobfuscateAppleGPU = (rendererString) => {
     return rendererString;
 };
+const deobfuscateRendererString = ({ gl, rendererString, }) => {
+    console.log(gl);
+    if (rendererString === 'apple gpu') {
+        rendererString = deobfuscateAppleGPU(rendererString);
+    }
+    return rendererString;
+};
+//# sourceMappingURL=deobfuscateRendererString.js.map
 
 const cleanRendererString = (rendererString) => {
     let cleanedRendererString = rendererString.toLowerCase();
