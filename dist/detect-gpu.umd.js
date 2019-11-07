@@ -460,11 +460,105 @@
       .split(' /')[0]; // Reduce 'apple a9x / powervr series 7xt' to 'apple a9x'
   //# sourceMappingURL=cleanEntryString.js.map
 
+  /**
+   * The following defined constants and descriptions are directly ported from https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Constants
+   *
+   * Any copyright is dedicated to the Public Domain. http://creativecommons.org/publicdomain/zero/1.0/
+   *
+   * Contributors
+   *
+   * See: https://developer.mozilla.org/en-US/profiles/Sheppy
+   * See: https://developer.mozilla.org/en-US/profiles/fscholz
+   * See: https://developer.mozilla.org/en-US/profiles/AtiX
+   * See: https://developer.mozilla.org/en-US/profiles/Sebastianz
+   *
+   * These constants are defined on the WebGLRenderingContext / WebGL2RenderingContext interface
+   */
+  // Shaders
+  // Constants passed to WebGLRenderingContext.getShaderParameter()
+  /**
+   * Passed to createShader to define a fragment shader
+   * @constant {number}
+   */
+  const GL_FRAGMENT_SHADER = 0x8b30;
+  /**
+   * Passed to createShader to define a vertex shader
+   * @constant {number}
+   */
+  const GL_VERTEX_SHADER = 0x8b31;
+  /**
+   * Passed to getShaderParamter to get the status of the compilation. Returns false if the shader was not compiled. You can then query getShaderInfoLog to find the exact error
+   * @constant {number}
+   */
+  const GL_COMPILE_STATUS = 0x8b81;
+  /**
+   * Passed to getProgramParameter after calling linkProgram to determine if a program was linked correctly. Returns false if there were errors. Use getProgramInfoLog to find the exact error
+   * @constant {number}
+   */
+  const GL_LINK_STATUS = 0x8b82;
+
+  // Vendor
   // Apple GPU
   // SEE: https://github.com/TimvanScherpenzeel/detect-gpu/issues/7
   // SEE: https://github.com/Samsy/appleGPUDetection/blob/master/index.js
   const deobfuscateAppleGPU = ({ gl, rendererString, }) => {
-      console.log(gl);
+      const vertexShaderSource = /* glsl */ `
+    precision mediump float;
+
+    varying float vvv;
+
+    attribute vec3 position;
+
+    void main() {
+      vvv = 0.31622776601683794;
+
+      gl_Position = vec4(position.xy, 0.0, 1.0);
+    }
+  `;
+      const fragmentShaderSource = /* glsl */ `
+    precision mediump float;
+    varying float vvv;
+
+    vec4 encodeFloatRGBA(float v) {
+      vec4 enc = vec4(1.0, 255.0, 65025.0, 16581375.0) * v;
+      enc = fract(enc);
+      enc -= enc.yzww * vec4(1.0 / 255.0, 1.0 / 255.0, 1.0 / 255.0, 0.0);
+
+      return enc;
+    }
+
+    void main() {
+      gl_FragColor = encodeFloatRGBA(vvv);
+    }
+  `;
+      const vertexShader = gl.createShader(GL_VERTEX_SHADER);
+      const fragmentShader = gl.createShader(GL_FRAGMENT_SHADER);
+      const program = gl.createProgram();
+      if (fragmentShader !== null && vertexShader !== null && program !== null) {
+          gl.shaderSource(vertexShader, vertexShaderSource);
+          gl.shaderSource(fragmentShader, fragmentShaderSource);
+          gl.compileShader(vertexShader);
+          gl.compileShader(fragmentShader);
+          if (!gl.getShaderParameter(vertexShader, GL_COMPILE_STATUS)) {
+              console.log(gl.getShaderInfoLog(vertexShader));
+          }
+          if (!gl.getShaderParameter(fragmentShader, GL_COMPILE_STATUS)) {
+              console.log(gl.getShaderInfoLog(fragmentShader));
+          }
+          gl.attachShader(program, vertexShader);
+          gl.attachShader(program, fragmentShader);
+          gl.linkProgram(program);
+          gl.validateProgram(program); // TODO: remove
+          if (!gl.getProgramParameter(program, GL_LINK_STATUS)) {
+              console.log(gl.getProgramInfoLog(program));
+          }
+          // gl.detachShader(program, vertexShader);
+          // gl.detachShader(program, fragmentShader);
+          // gl.deleteShader(vertexShader);
+          // gl.deleteShader(fragmentShader);
+          gl.useProgram(program);
+      }
+      console.log(program);
       // Draw a 2x2 planebuffer
       // Add a WebGLRenderTarget
       // Add material (compile the shader) and geometry to a mesh
@@ -476,14 +570,15 @@
   const deobfuscateRendererString = ({ gl, rendererString, }) => {
       // Apple GPU
       // SEE: https://github.com/TimvanScherpenzeel/detect-gpu/issues/7
-      if (rendererString === 'apple gpu') {
-          rendererString = deobfuscateAppleGPU({
-              gl,
-              rendererString,
-          });
-      }
+      // if (rendererString === 'apple gpu') {
+      rendererString = deobfuscateAppleGPU({
+          gl,
+          rendererString,
+      });
+      // }
       return rendererString;
   };
+  //# sourceMappingURL=deobfuscateRendererString.js.map
 
   const cleanRendererString = (rendererString) => {
       let cleanedRendererString = rendererString.toLowerCase();
@@ -865,7 +960,7 @@
       if (gl) {
           rendererString = deobfuscateRendererString({
               gl,
-              rendererString
+              rendererString,
           });
       }
       const rendererVersionNumber = rendererString.replace(/[\D]/g, '');

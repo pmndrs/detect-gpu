@@ -74,7 +74,7 @@ export const getGPUTier = (options: IGetGPUTier = {}): { tier: string; type: str
   if (gl) {
     rendererString = deobfuscateRendererString({
       gl,
-      rendererString
+      rendererString,
     });
   }
 
