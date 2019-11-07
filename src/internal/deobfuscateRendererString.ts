@@ -19,8 +19,6 @@ const deobfuscateAppleGPU = ({
   `;
 
   const fragmentShader = /* glsl */ `
-    uniform sampler2D map;
-
     varying vec2 vUv;
     varying float vvv;
 
@@ -38,6 +36,13 @@ const deobfuscateAppleGPU = ({
   `;
 
   console.log(gl);
+
+  // Draw a 2x2 planebuffer
+  // Add a WebGLRenderTarget
+  // Add material (compile the shader) and geometry to a mesh
+  // Draw the mesh to the WebGLRenderTarget
+  // Read the pixels from the WebGLRenderTarget
+  // Clean up
 
   return rendererString;
 };

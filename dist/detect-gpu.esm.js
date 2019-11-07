@@ -459,6 +459,12 @@ const cleanEntryString = (entryString) => entryString
 // SEE: https://github.com/Samsy/appleGPUDetection/blob/master/index.js
 const deobfuscateAppleGPU = ({ gl, rendererString, }) => {
     console.log(gl);
+    // Draw a 2x2 planebuffer
+    // Add a WebGLRenderTarget
+    // Add material (compile the shader) and geometry to a mesh
+    // Draw the mesh to the WebGLRenderTarget
+    // Read the pixels from the WebGLRenderTarget
+    // Clean up
     return rendererString;
 };
 const deobfuscateRendererString = ({ gl, rendererString, }) => {
