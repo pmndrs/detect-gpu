@@ -6,8 +6,8 @@ import {
 
 // Internal
 import { cleanEntryString } from './internal/cleanEntryString';
-import { deobfuscateRendererString } from './internal/deobfuscateRendererString';
 import { cleanRendererString } from './internal/cleanRendererString';
+import { deobfuscateRendererString } from './internal/deobfuscateRendererString';
 import { getBenchmarkByPercentage } from './internal/getBenchmarkByPercentage';
 import { browser, isDesktop, isMobile, isTablet } from './internal/getBrowserType';
 import { getEntryVersionNumber } from './internal/getEntryVersionNumber';

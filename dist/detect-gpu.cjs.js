@@ -458,6 +458,20 @@ const cleanEntryString = (entryString) => entryString
     .split(' /')[0]; // Reduce 'apple a9x / powervr series 7xt' to 'apple a9x'
 //# sourceMappingURL=cleanEntryString.js.map
 
+const cleanRendererString = (rendererString) => {
+    let cleanedRendererString = rendererString.toLowerCase();
+    // Strip off ANGLE and Direct3D version
+    if (cleanedRendererString.includes('angle (') && cleanedRendererString.includes('direct3d')) {
+        cleanedRendererString = cleanedRendererString.replace('angle (', '').split(' direct3d')[0];
+    }
+    // Strip off the GB amount (1060 6gb was being concatenated to 10606 and because of it using the fallback)
+    if (cleanedRendererString.includes('nvidia') && cleanedRendererString.includes('gb')) {
+        cleanedRendererString = cleanedRendererString.split(/\dgb/)[0];
+    }
+    return cleanedRendererString;
+};
+//# sourceMappingURL=cleanRendererString.js.map
+
 /**
  * The following defined constants and descriptions are directly ported from https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Constants
  *
@@ -495,23 +509,17 @@ const GL_STATIC_DRAW = 0x88e4;
  */
 const GL_ARRAY_BUFFER = 0x8892;
 /**
- * Passed to bindBuffer or bufferData to specify the type of buffer being used
  * @constant {number}
  */
-const GL_ELEMENT_ARRAY_BUFFER = 0x8893;
-/**
- * Passed to enable/disable to turn on/off the depth test. Can also be used with getParameter to query the depth test
- * @constant {number}
- */
-const GL_DEPTH_TEST = 0x0b71;
-/**
- * @constant {number}
- */
-const GL_UNSIGNED_SHORT = 0x1403;
+const GL_UNSIGNED_BYTE = 0x1401;
 /**
  * @constant {number}
  */
 const GL_FLOAT = 0x1406;
+/**
+ * @constant {number}
+ */
+const GL_RGBA = 0x1908;
 // Shaders
 // Constants passed to WebGLRenderingContext.getShaderParameter()
 /**
@@ -524,16 +532,6 @@ const GL_FRAGMENT_SHADER = 0x8b30;
  * @constant {number}
  */
 const GL_VERTEX_SHADER = 0x8b31;
-/**
- * Passed to getShaderParamter to get the status of the compilation. Returns false if the shader was not compiled. You can then query getShaderInfoLog to find the exact error
- * @constant {number}
- */
-const GL_COMPILE_STATUS = 0x8b81;
-/**
- * Passed to getProgramParameter after calling linkProgram to determine if a program was linked correctly. Returns false if there were errors. Use getProgramInfoLog to find the exact error
- * @constant {number}
- */
-const GL_LINK_STATUS = 0x8b82;
 
 // Vendor
 // Apple GPU
@@ -541,54 +539,35 @@ const GL_LINK_STATUS = 0x8b82;
 // SEE: https://github.com/Samsy/appleGPUDetection/blob/master/index.js
 const deobfuscateAppleGPU = ({ gl, rendererString, }) => {
     const vertexShaderSource = /* glsl */ `
-    // precision mediump float;
-
-    // varying float vvv;
-
-    // attribute vec3 position;
-
-    // void main() {
-    //   vvv = 0.31622776601683794;
-
-    //   gl_Position = vec4(position.xy, 0.0, 1.0);
-    // }
+    precision highp float;
 
     attribute vec3 position;
 
+    varying float vvv;
+
     void main() {
-      gl_Position = vec4(position, 1.0);
+      vvv = 0.31622776601683794;
+
+      gl_Position = vec4(position.xy, 0.0, 1.0);
     }
   `;
     const fragmentShaderSource = /* glsl */ `
-    // precision mediump float;
-    // varying float vvv;
+    precision highp float;
 
-    // vec4 encodeFloatRGBA(float v) {
-    //   vec4 enc = vec4(1.0, 255.0, 65025.0, 16581375.0) * v;
-    //   enc = fract(enc);
-    //   enc -= enc.yzww * vec4(1.0 / 255.0, 1.0 / 255.0, 1.0 / 255.0, 0.0);
+    varying float vvv;
 
-    //   return enc;
-    // }
+    vec4 encodeFloatRGBA(float v) {
+      vec4 enc = vec4(1.0, 255.0, 65025.0, 16581375.0) * v;
+      enc = fract(enc);
+      enc -= enc.yzww * vec4(1.0 / 255.0, 1.0 / 255.0, 1.0 / 255.0, 0.0);
 
-    // void main() {
-    //   gl_FragColor = encodeFloatRGBA(vvv);
-    // }
+      return enc;
+    }
 
     void main() {
-      gl_FragColor = vec4()
+      gl_FragColor = encodeFloatRGBA(vvv);
     }
   `;
-    const vertices = new Float32Array([-0.5, 0.5, 0.0, -0.5, -0.5, 0.0, 0.5, -0.5, 0.0]);
-    const indices = new Uint16Array([0, 1, 2]);
-    const vertexBuffer = gl.createBuffer();
-    gl.bindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
-    gl.bufferData(GL_ARRAY_BUFFER, vertices, GL_STATIC_DRAW);
-    gl.bindBuffer(GL_ARRAY_BUFFER, null);
-    const indexBuffer = gl.createBuffer();
-    gl.bindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
-    gl.bufferData(GL_ELEMENT_ARRAY_BUFFER, indices, GL_STATIC_DRAW);
-    gl.bindBuffer(GL_ELEMENT_ARRAY_BUFFER, null);
     const vertexShader = gl.createShader(GL_VERTEX_SHADER);
     const fragmentShader = gl.createShader(GL_FRAGMENT_SHADER);
     const program = gl.createProgram();
@@ -597,69 +576,51 @@ const deobfuscateAppleGPU = ({ gl, rendererString, }) => {
         gl.shaderSource(fragmentShader, fragmentShaderSource);
         gl.compileShader(vertexShader);
         gl.compileShader(fragmentShader);
-        if (!gl.getShaderParameter(vertexShader, GL_COMPILE_STATUS)) {
-            console.log(gl.getShaderInfoLog(vertexShader));
-        }
-        if (!gl.getShaderParameter(fragmentShader, GL_COMPILE_STATUS)) {
-            console.log(gl.getShaderInfoLog(fragmentShader));
-        }
         gl.attachShader(program, vertexShader);
         gl.attachShader(program, fragmentShader);
         gl.linkProgram(program);
-        gl.validateProgram(program); // TODO: remove
-        if (!gl.getProgramParameter(program, GL_LINK_STATUS)) {
-            console.log(gl.getProgramInfoLog(program));
-        }
         gl.detachShader(program, vertexShader);
         gl.detachShader(program, fragmentShader);
         gl.deleteShader(vertexShader);
         gl.deleteShader(fragmentShader);
         gl.useProgram(program);
-        gl.bindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
-        gl.bindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
+        gl.bindBuffer(GL_ARRAY_BUFFER, gl.createBuffer());
+        gl.bufferData(GL_ARRAY_BUFFER, new Float32Array([-1, -1, 0, 3, -1, 0, -1, 3, 0]), GL_STATIC_DRAW);
         const position = gl.getAttribLocation(program, 'position');
         gl.vertexAttribPointer(position, 3, GL_FLOAT, false, 0, 0);
         gl.enableVertexAttribArray(position);
-        gl.clearColor(0.5, 0.5, 0.5, 0.9);
-        gl.enable(GL_DEPTH_TEST);
+        gl.clearColor(1.0, 1.0, 1.0, 1.0);
         gl.clear(GL_COLOR_BUFFER_BIT);
-        gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
-        gl.drawElements(GL_TRIANGLES, indices.length, GL_UNSIGNED_SHORT, 0);
+        gl.viewport(0, 0, 1, 1);
+        gl.drawArrays(GL_TRIANGLES, 0, 3);
+        const pixels = new Uint8Array(4);
+        gl.readPixels(0, 0, 1, 1, GL_RGBA, GL_UNSIGNED_BYTE, pixels);
+        const result = Array.from(pixels).join('');
+        document.body.appendChild(document.createTextNode(result));
+        switch (result) {
+            case '801621810':
+                // iPhone 8
+                return 'apple a11 gpu';
+            case '8016218135':
+                // iPhone 7
+                return 'apple a10 gpu';
+            default:
+                return rendererString;
+        }
     }
-    console.log(program);
-    // Draw a 2x2 planebuffer
-    // Add a WebGLRenderTarget
-    // Add material (compile the shader) and geometry to a mesh
-    // Draw the mesh to the WebGLRenderTarget
-    // Read the pixels from the WebGLRenderTarget
-    // Clean up
     return rendererString;
 };
 const deobfuscateRendererString = ({ gl, rendererString, }) => {
     // Apple GPU
     // SEE: https://github.com/TimvanScherpenzeel/detect-gpu/issues/7
-    // if (rendererString === 'apple gpu') {
-    rendererString = deobfuscateAppleGPU({
-        gl,
-        rendererString,
-    });
-    // }
+    if (rendererString === 'apple gpu') {
+        rendererString = deobfuscateAppleGPU({
+            gl,
+            rendererString,
+        });
+    }
     return rendererString;
 };
-
-const cleanRendererString = (rendererString) => {
-    let cleanedRendererString = rendererString.toLowerCase();
-    // Strip off ANGLE and Direct3D version
-    if (cleanedRendererString.includes('angle (') && cleanedRendererString.includes('direct3d')) {
-        cleanedRendererString = cleanedRendererString.replace('angle (', '').split(' direct3d')[0];
-    }
-    // Strip off the GB amount (1060 6gb was being concatenated to 10606 and because of it using the fallback)
-    if (cleanedRendererString.includes('nvidia') && cleanedRendererString.includes('gb')) {
-        cleanedRendererString = cleanedRendererString.split(/\dgb/)[0];
-    }
-    return cleanedRendererString;
-};
-//# sourceMappingURL=cleanRendererString.js.map
 
 // Get benchmark entry's by percentage of the total benchmark entries
 const getBenchmarkByPercentage = (benchmark, percentages) => {
