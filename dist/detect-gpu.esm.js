@@ -446,13 +446,11 @@ const GPU_BENCHMARK_SCORE_MOBILE = [
     '320 - Apple A13 Bionic GPU',
     '294 - Apple A12X Bionic GPU',
 ];
-//# sourceMappingURL=GPUBenchmark.js.map
 
 const cleanEntryString = (entryString) => entryString
     .toLowerCase() // Lowercase all for easier matching
     .split('- ')[1] // Remove prelude score (`3 - `)
     .split(' /')[0]; // Reduce 'apple a9x / powervr series 7xt' to 'apple a9x'
-//# sourceMappingURL=cleanEntryString.js.map
 
 const cleanRendererString = (rendererString) => {
     let cleanedRendererString = rendererString.toLowerCase();
@@ -466,7 +464,6 @@ const cleanRendererString = (rendererString) => {
     }
     return cleanedRendererString;
 };
-//# sourceMappingURL=cleanRendererString.js.map
 
 /**
  * The following defined constants and descriptions are directly ported from https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Constants
@@ -531,8 +528,6 @@ const GL_VERTEX_SHADER = 0x8b31;
 
 // Vendor
 // Apple GPU
-// SEE: https://github.com/TimvanScherpenzeel/detect-gpu/issues/7
-// SEE: https://github.com/Samsy/appleGPUDetection/blob/master/index.js
 const deobfuscateAppleGPU = ({ gl, rendererString, }) => {
     const vertexShaderSource = /* glsl */ `
     precision highp float;
@@ -629,7 +624,6 @@ const getBenchmarkByPercentage = (benchmark, percentages) => {
     });
     return benchmarkTiers;
 };
-//# sourceMappingURL=getBenchmarkByPercentage.js.map
 
 var DetectUA = /** @class */ (function () {
     /**
@@ -900,17 +894,14 @@ var DetectUA = /** @class */ (function () {
 // Vendor
 const device = new DetectUA();
 const { browser, isMobile, isTablet, isDesktop } = device;
-//# sourceMappingURL=getBrowserType.js.map
 
 const getEntryVersionNumber = (entryString) => entryString.replace(/[\D]/g, ''); // Grab and concat all digits in the string
-//# sourceMappingURL=getEntryVersionNumber.js.map
 
 const getWebGLUnmaskedRenderer = (gl) => {
     const glExtensionDebugRendererInfo = gl.getExtension('WEBGL_debug_renderer_info');
     return (glExtensionDebugRendererInfo &&
         gl.getParameter(glExtensionDebugRendererInfo.UNMASKED_RENDERER_WEBGL));
 };
-//# sourceMappingURL=getWebGLUnmaskedRenderer.js.map
 
 const isWebGLSupported = ({ browser, }) => {
     const attributes = {
@@ -935,7 +926,6 @@ const isWebGLSupported = ({ browser, }) => {
     }
     return gl;
 };
-//# sourceMappingURL=isWebGLSupported.js.map
 
 // Generated data
 const getGPUTier = (options = {}) => {

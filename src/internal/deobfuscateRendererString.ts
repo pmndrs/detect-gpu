@@ -12,8 +12,6 @@ import {
 } from 'webgl-constants';
 
 // Apple GPU
-// SEE: https://github.com/TimvanScherpenzeel/detect-gpu/issues/7
-// SEE: https://github.com/Samsy/appleGPUDetection/blob/master/index.js
 const deobfuscateAppleGPU = ({
   gl,
   rendererString,
