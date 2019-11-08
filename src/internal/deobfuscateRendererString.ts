@@ -27,19 +27,13 @@ const deobfuscateAppleGPU = ({
 
     attribute vec3 position;
 
-    varying float vvv;
-
     void main() {
-      vvv = 0.31622776601683794;
-
       gl_Position = vec4(position.xy, 0.0, 1.0);
     }
   `;
 
   const fragmentShaderSource = /* glsl */ `
     precision highp float;
-
-    varying float vvv;
 
     vec4 encodeFloatRGBA(float v) {
       vec4 enc = vec4(1.0, 255.0, 65025.0, 16581375.0) * v;
@@ -50,7 +44,7 @@ const deobfuscateAppleGPU = ({
     }
 
     void main() {
-      gl_FragColor = encodeFloatRGBA(vvv);
+      gl_FragColor = encodeFloatRGBA(0.31622776601683794);
     }
   `;
 
