@@ -104,9 +104,12 @@ const deobfuscateAppleGPU = ({
 
     document.body.appendChild(document.createTextNode('\n' + resolution));
 
+
+
     switch (result) {
       // Unknown:
       // iPhone 11, 11 Pro, 11 Pro Max (Apple A13 GPU)
+      // iPad Pro (Apple A10X GPU, Apple A10X GPU, Apple A12X GPU)
 
       case '801621810':
         // iPhone XS, XS Max, XR (Apple A12 GPU)
