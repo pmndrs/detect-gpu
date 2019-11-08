@@ -55,11 +55,14 @@ const deobfuscateAppleGPU = ({
     gl.compileShader(fragmentShader);
     gl.attachShader(program, vertexShader);
     gl.attachShader(program, fragmentShader);
+
     gl.linkProgram(program);
+
     gl.detachShader(program, vertexShader);
     gl.detachShader(program, fragmentShader);
     gl.deleteShader(vertexShader);
     gl.deleteShader(fragmentShader);
+
     gl.useProgram(program);
 
     const vertexArray = gl.createBuffer();
