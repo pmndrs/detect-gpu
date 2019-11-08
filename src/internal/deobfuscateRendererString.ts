@@ -109,9 +109,9 @@ const deobfuscateAppleGPU = ({
     switch (result) {
       // Unknown:
       // iPhone 11, 11 Pro, 11 Pro Max (Apple A13 GPU)
-      // iPad Pro (Apple A12X GPU)
 
       case '801621810':
+        // iPad Pro (Apple A12X GPU)
         // iPhone XS, XS Max, XR (Apple A12 GPU)
         // iPhone 8, 8 Plus (Apple A11 GPU)
         return 'apple a11 gpu';
@@ -137,12 +137,12 @@ export const deobfuscateRendererString = ({
   // SEE: https://github.com/TimvanScherpenzeel/detect-gpu/issues/7
   // CREDIT: https://medium.com/@Samsy/detecting-apple-a10-iphone-7-to-a11-iphone-8-and-b019b8f0eb87
   // CREDIT: https://github.com/Samsy/appleGPUDetection/blob/master/index.js
-  // if (rendererString === 'apple gpu') {
+  if (rendererString === 'apple gpu') {
     rendererString = deobfuscateAppleGPU({
       gl,
       rendererString,
     });
-  // }
+  }
 
   return rendererString;
 };
