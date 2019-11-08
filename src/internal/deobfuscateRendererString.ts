@@ -12,6 +12,8 @@ import {
 } from 'webgl-constants';
 
 // Apple GPU
+// SEE: https://github.com/TimvanScherpenzeel/detect-gpu/issues/7
+// CREDIT: https://medium.com/@Samsy/detecting-apple-a10-iphone-7-to-a11-iphone-8-and-b019b8f0eb87
 const deobfuscateAppleGPU = ({
   gl,
   rendererString,
@@ -117,6 +119,7 @@ export const deobfuscateRendererString = ({
 }): string => {
   // Apple GPU
   // SEE: https://github.com/TimvanScherpenzeel/detect-gpu/issues/7
+  // CREDIT: https://medium.com/@Samsy/detecting-apple-a10-iphone-7-to-a11-iphone-8-and-b019b8f0eb87
   if (rendererString === 'apple gpu') {
     rendererString = deobfuscateAppleGPU({
       gl,
