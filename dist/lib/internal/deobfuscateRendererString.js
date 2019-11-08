@@ -12,15 +12,21 @@ const deobfuscateAppleGPU = ({ gl, rendererString, }) => {
 
     attribute vec3 aPosition;
 
+    varying float vvv;
+
     void main() {
+      vvv = 0.31622776601683794;
+
       gl_Position = vec4(aPosition, 1.0);
     }
   `;
     const fragmentShaderSource = /* glsl */ `
     precision highp float;
 
+    varying float vvv;
+
     void main() {
-      vec4 enc = vec4(1.0, 255.0, 65025.0, 16581375.0) * 0.31622776601683794;
+      vec4 enc = vec4(1.0, 255.0, 65025.0, 16581375.0) * vvv;
       enc = fract(enc);
       enc -= enc.yzww * vec4(1.0 / 255.0, 1.0 / 255.0, 1.0 / 255.0, 0.0);
 
@@ -59,6 +65,8 @@ const deobfuscateAppleGPU = ({ gl, rendererString, }) => {
         gl.deleteProgram(program);
         gl.deleteBuffer(vertexArray);
         document.body.appendChild(document.createTextNode(result));
+        const resolution = `${Math.min(screen.width, screen.height)}x${Math.max(screen.width, screen.height)}`;
+        document.body.appendChild(document.createTextNode('\n' + resolution));
         switch (result) {
             // Unknown:
             // iPhone 11, 11 Pro, 11 Pro Max (Apple A13 GPU)
@@ -67,7 +75,7 @@ const deobfuscateAppleGPU = ({ gl, rendererString, }) => {
                 // iPhone 8, 8 Plus (Apple A11 GPU)
                 return 'apple a11 gpu';
             case '8016218135':
-                // iPhone 6S, 6S Plus (Apple A9 GPU)
+                // iPhone SE, 6S, 6S Plus (Apple A9 GPU)
                 // iPhone 7, 7 Plus (Apple A10 GPU)
                 return 'apple a10 gpu';
         }
