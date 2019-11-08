@@ -10,25 +10,21 @@ const deobfuscateAppleGPU = ({ gl, rendererString, }) => {
     const vertexShaderSource = /* glsl */ `
     precision highp float;
 
-    attribute vec3 position;
+    attribute vec3 aPosition;
 
     void main() {
-      gl_Position = vec4(position.xy, 0.0, 1.0);
+      gl_Position = vec4(aPosition, 1.0);
     }
   `;
     const fragmentShaderSource = /* glsl */ `
     precision highp float;
 
-    vec4 encodeFloatRGBA(float v) {
-      vec4 enc = vec4(1.0, 255.0, 65025.0, 16581375.0) * v;
+    void main() {
+      vec4 enc = vec4(1.0, 255.0, 65025.0, 16581375.0) * 0.31622776601683794;
       enc = fract(enc);
       enc -= enc.yzww * vec4(1.0 / 255.0, 1.0 / 255.0, 1.0 / 255.0, 0.0);
 
-      return enc;
-    }
-
-    void main() {
-      gl_FragColor = encodeFloatRGBA(0.31622776601683794);
+      gl_FragColor = enc;
     }
   `;
     const vertexShader = gl.createShader(webgl_constants_1.GL_VERTEX_SHADER);
@@ -50,25 +46,29 @@ const deobfuscateAppleGPU = ({ gl, rendererString, }) => {
         const vertexArray = gl.createBuffer();
         gl.bindBuffer(webgl_constants_1.GL_ARRAY_BUFFER, vertexArray);
         gl.bufferData(webgl_constants_1.GL_ARRAY_BUFFER, new Float32Array([-1, -1, 0, 3, -1, 0, -1, 3, 0]), webgl_constants_1.GL_STATIC_DRAW);
-        const position = gl.getAttribLocation(program, 'position');
-        gl.vertexAttribPointer(position, 3, webgl_constants_1.GL_FLOAT, false, 0, 0);
-        gl.enableVertexAttribArray(position);
+        const aPosition = gl.getAttribLocation(program, 'aPosition');
+        gl.vertexAttribPointer(aPosition, 3, webgl_constants_1.GL_FLOAT, false, 0, 0);
+        gl.enableVertexAttribArray(aPosition);
         gl.clearColor(1.0, 1.0, 1.0, 1.0);
         gl.clear(webgl_constants_1.GL_COLOR_BUFFER_BIT);
         gl.viewport(0, 0, 1, 1);
         gl.drawArrays(webgl_constants_1.GL_TRIANGLES, 0, 3);
         const pixels = new Uint8Array(4);
         gl.readPixels(0, 0, 1, 1, webgl_constants_1.GL_RGBA, webgl_constants_1.GL_UNSIGNED_BYTE, pixels);
-        const result = Array.from(pixels).join('');
+        const result = pixels.join('');
         gl.deleteProgram(program);
         gl.deleteBuffer(vertexArray);
         document.body.appendChild(document.createTextNode(result));
         switch (result) {
+            // Unknown:
+            // iPhone 11, 11 Pro, 11 Pro Max (Apple A13 GPU)
             case '801621810':
-                // iPhone 8
+                // iPhone XS, XS Max, XR (Apple A12 GPU)
+                // iPhone 8, 8 Plus (Apple A11 GPU)
                 return 'apple a11 gpu';
             case '8016218135':
-                // iPhone 7
+                // iPhone 6S, 6S Plus (Apple A9 GPU)
+                // iPhone 7, 7 Plus (Apple A10 GPU)
                 return 'apple a10 gpu';
         }
     }

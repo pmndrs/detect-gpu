@@ -446,13 +446,11 @@ const GPU_BENCHMARK_SCORE_MOBILE = [
     '320 - Apple A13 Bionic GPU',
     '294 - Apple A12X Bionic GPU',
 ];
-//# sourceMappingURL=GPUBenchmark.js.map
 
 const cleanEntryString = (entryString) => entryString
     .toLowerCase() // Lowercase all for easier matching
     .split('- ')[1] // Remove prelude score (`3 - `)
     .split(' /')[0]; // Reduce 'apple a9x / powervr series 7xt' to 'apple a9x'
-//# sourceMappingURL=cleanEntryString.js.map
 
 const cleanRendererString = (rendererString) => {
     let cleanedRendererString = rendererString.toLowerCase();
@@ -466,7 +464,6 @@ const cleanRendererString = (rendererString) => {
     }
     return cleanedRendererString;
 };
-//# sourceMappingURL=cleanRendererString.js.map
 
 /**
  * The following defined constants and descriptions are directly ported from https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Constants
@@ -583,16 +580,20 @@ const deobfuscateAppleGPU = ({ gl, rendererString, }) => {
         gl.drawArrays(GL_TRIANGLES, 0, 3);
         const pixels = new Uint8Array(4);
         gl.readPixels(0, 0, 1, 1, GL_RGBA, GL_UNSIGNED_BYTE, pixels);
-        const result = Array.from(pixels).join('');
+        const result = pixels.join('');
         gl.deleteProgram(program);
         gl.deleteBuffer(vertexArray);
         document.body.appendChild(document.createTextNode(result));
         switch (result) {
+            // Unknown:
+            // iPhone 11, 11 Pro, 11 Pro Max (Apple A13 GPU)
             case '801621810':
-                // iPhone 8
+                // iPhone XS, XS Max, XR (Apple A12 GPU)
+                // iPhone 8, 8 Plus (Apple A11 GPU)
                 return 'apple a11 gpu';
             case '8016218135':
-                // iPhone 7
+                // iPhone 6S, 6S Plus (Apple A9 GPU)
+                // iPhone 7, 7 Plus (Apple A10 GPU)
                 return 'apple a10 gpu';
         }
     }
@@ -623,7 +624,6 @@ const getBenchmarkByPercentage = (benchmark, percentages) => {
     });
     return benchmarkTiers;
 };
-//# sourceMappingURL=getBenchmarkByPercentage.js.map
 
 var DetectUA = /** @class */ (function () {
     /**
@@ -894,17 +894,14 @@ var DetectUA = /** @class */ (function () {
 // Vendor
 const device = new DetectUA();
 const { browser, isMobile, isTablet, isDesktop } = device;
-//# sourceMappingURL=getBrowserType.js.map
 
 const getEntryVersionNumber = (entryString) => entryString.replace(/[\D]/g, ''); // Grab and concat all digits in the string
-//# sourceMappingURL=getEntryVersionNumber.js.map
 
 const getWebGLUnmaskedRenderer = (gl) => {
     const glExtensionDebugRendererInfo = gl.getExtension('WEBGL_debug_renderer_info');
     return (glExtensionDebugRendererInfo &&
         gl.getParameter(glExtensionDebugRendererInfo.UNMASKED_RENDERER_WEBGL));
 };
-//# sourceMappingURL=getWebGLUnmaskedRenderer.js.map
 
 const isWebGLSupported = ({ browser, }) => {
     const attributes = {
@@ -929,7 +926,6 @@ const isWebGLSupported = ({ browser, }) => {
     }
     return gl;
 };
-//# sourceMappingURL=isWebGLSupported.js.map
 
 // Generated data
 const getGPUTier = (options = {}) => {
