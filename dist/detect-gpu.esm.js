@@ -446,11 +446,13 @@ const GPU_BENCHMARK_SCORE_MOBILE = [
     '320 - Apple A13 Bionic GPU',
     '294 - Apple A12X Bionic GPU',
 ];
+//# sourceMappingURL=GPUBenchmark.js.map
 
 const cleanEntryString = (entryString) => entryString
     .toLowerCase() // Lowercase all for easier matching
     .split('- ')[1] // Remove prelude score (`3 - `)
     .split(' /')[0]; // Reduce 'apple a9x / powervr series 7xt' to 'apple a9x'
+//# sourceMappingURL=cleanEntryString.js.map
 
 const cleanRendererString = (rendererString) => {
     let cleanedRendererString = rendererString.toLowerCase();
@@ -464,6 +466,7 @@ const cleanRendererString = (rendererString) => {
     }
     return cleanedRendererString;
 };
+//# sourceMappingURL=cleanRendererString.js.map
 
 /**
  * The following defined constants and descriptions are directly ported from https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Constants
@@ -535,25 +538,21 @@ const deobfuscateAppleGPU = ({ gl, rendererString, }) => {
     const vertexShaderSource = /* glsl */ `
     precision highp float;
 
-    attribute vec3 position;
+    attribute vec3 aPosition;
 
     void main() {
-      gl_Position = vec4(position.xy, 0.0, 1.0);
+      gl_Position = vec4(aPosition, 1.0);
     }
   `;
     const fragmentShaderSource = /* glsl */ `
     precision highp float;
 
-    vec4 encodeFloatRGBA(float v) {
-      vec4 enc = vec4(1.0, 255.0, 65025.0, 16581375.0) * v;
+    void main() {
+      vec4 enc = vec4(1.0, 255.0, 65025.0, 16581375.0) * 0.31622776601683794;
       enc = fract(enc);
       enc -= enc.yzww * vec4(1.0 / 255.0, 1.0 / 255.0, 1.0 / 255.0, 0.0);
 
-      return enc;
-    }
-
-    void main() {
-      gl_FragColor = encodeFloatRGBA(0.31622776601683794);
+      gl_FragColor = enc;
     }
   `;
     const vertexShader = gl.createShader(GL_VERTEX_SHADER);
@@ -575,9 +574,9 @@ const deobfuscateAppleGPU = ({ gl, rendererString, }) => {
         const vertexArray = gl.createBuffer();
         gl.bindBuffer(GL_ARRAY_BUFFER, vertexArray);
         gl.bufferData(GL_ARRAY_BUFFER, new Float32Array([-1, -1, 0, 3, -1, 0, -1, 3, 0]), GL_STATIC_DRAW);
-        const position = gl.getAttribLocation(program, 'position');
-        gl.vertexAttribPointer(position, 3, GL_FLOAT, false, 0, 0);
-        gl.enableVertexAttribArray(position);
+        const aPosition = gl.getAttribLocation(program, 'aPosition');
+        gl.vertexAttribPointer(aPosition, 3, GL_FLOAT, false, 0, 0);
+        gl.enableVertexAttribArray(aPosition);
         gl.clearColor(1.0, 1.0, 1.0, 1.0);
         gl.clear(GL_COLOR_BUFFER_BIT);
         gl.viewport(0, 0, 1, 1);
@@ -624,6 +623,7 @@ const getBenchmarkByPercentage = (benchmark, percentages) => {
     });
     return benchmarkTiers;
 };
+//# sourceMappingURL=getBenchmarkByPercentage.js.map
 
 var DetectUA = /** @class */ (function () {
     /**
@@ -894,14 +894,17 @@ var DetectUA = /** @class */ (function () {
 // Vendor
 const device = new DetectUA();
 const { browser, isMobile, isTablet, isDesktop } = device;
+//# sourceMappingURL=getBrowserType.js.map
 
 const getEntryVersionNumber = (entryString) => entryString.replace(/[\D]/g, ''); // Grab and concat all digits in the string
+//# sourceMappingURL=getEntryVersionNumber.js.map
 
 const getWebGLUnmaskedRenderer = (gl) => {
     const glExtensionDebugRendererInfo = gl.getExtension('WEBGL_debug_renderer_info');
     return (glExtensionDebugRendererInfo &&
         gl.getParameter(glExtensionDebugRendererInfo.UNMASKED_RENDERER_WEBGL));
 };
+//# sourceMappingURL=getWebGLUnmaskedRenderer.js.map
 
 const isWebGLSupported = ({ browser, }) => {
     const attributes = {
@@ -926,6 +929,7 @@ const isWebGLSupported = ({ browser, }) => {
     }
     return gl;
 };
+//# sourceMappingURL=isWebGLSupported.js.map
 
 // Generated data
 const getGPUTier = (options = {}) => {

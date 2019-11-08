@@ -25,26 +25,22 @@ const deobfuscateAppleGPU = ({
   const vertexShaderSource = /* glsl */ `
     precision highp float;
 
-    attribute vec3 position;
+    attribute vec3 aPosition;
 
     void main() {
-      gl_Position = vec4(position.xy, 0.0, 1.0);
+      gl_Position = vec4(aPosition, 1.0);
     }
   `;
 
   const fragmentShaderSource = /* glsl */ `
     precision highp float;
 
-    vec4 encodeFloatRGBA(float v) {
-      vec4 enc = vec4(1.0, 255.0, 65025.0, 16581375.0) * v;
+    void main() {
+      vec4 enc = vec4(1.0, 255.0, 65025.0, 16581375.0) * 0.31622776601683794;
       enc = fract(enc);
       enc -= enc.yzww * vec4(1.0 / 255.0, 1.0 / 255.0, 1.0 / 255.0, 0.0);
 
-      return enc;
-    }
-
-    void main() {
-      gl_FragColor = encodeFloatRGBA(0.31622776601683794);
+      gl_FragColor = enc;
     }
   `;
 
@@ -74,9 +70,9 @@ const deobfuscateAppleGPU = ({
       GL_STATIC_DRAW
     );
 
-    const position = gl.getAttribLocation(program, 'position');
-    gl.vertexAttribPointer(position, 3, GL_FLOAT, false, 0, 0);
-    gl.enableVertexAttribArray(position);
+    const aPosition = gl.getAttribLocation(program, 'aPosition');
+    gl.vertexAttribPointer(aPosition, 3, GL_FLOAT, false, 0, 0);
+    gl.enableVertexAttribArray(aPosition);
 
     gl.clearColor(1.0, 1.0, 1.0, 1.0);
     gl.clear(GL_COLOR_BUFFER_BIT);
