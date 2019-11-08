@@ -84,7 +84,7 @@ const deobfuscateAppleGPU = ({
 
     const pixels = new Uint8Array(4);
     gl.readPixels(0, 0, 1, 1, GL_RGBA, GL_UNSIGNED_BYTE, pixels);
-    const result = Array.from(pixels).join('');
+    const result = pixels.join('');
 
     gl.deleteProgram(program);
     gl.deleteBuffer(vertexArray);
