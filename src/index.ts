@@ -106,8 +106,8 @@ export const getGPUTier = (options: IGetGPUTier = {}): { tier: string; type: str
     const isRendererNVIDIA = renderer.includes('nvidia');
     const isRendererPowerVR = renderer.includes('powervr');
 
-    mobileBenchmark.forEach((benchmarkTier, index) =>
-      benchmarkTier.forEach(benchmarkEntry => {
+    mobileBenchmark.forEach((benchmarkTier: string[], index: number): void =>
+      benchmarkTier.forEach((benchmarkEntry: string): void => {
         const entry = cleanEntryString(benchmarkEntry);
         const entryVersionNumber = getEntryVersionNumber(entry);
 
@@ -150,8 +150,8 @@ export const getGPUTier = (options: IGetGPUTier = {}): { tier: string; type: str
     const isRendererAMD = renderer.includes('amd');
     const isRendererNVIDIA = renderer.includes('nvidia');
 
-    desktopBenchmark.forEach((benchmarkTier, index) =>
-      benchmarkTier.forEach(benchmarkEntry => {
+    desktopBenchmark.forEach((benchmarkTier: string[], index: number): void =>
+      benchmarkTier.forEach((benchmarkEntry: string): void => {
         const entry = cleanEntryString(benchmarkEntry);
         const entryVersionNumber = getEntryVersionNumber(entry);
 

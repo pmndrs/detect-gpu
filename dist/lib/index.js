@@ -78,7 +78,7 @@ exports.getGPUTier = (options = {}) => {
         const isRendererMaliT = renderer.includes('mali-t');
         const isRendererNVIDIA = renderer.includes('nvidia');
         const isRendererPowerVR = renderer.includes('powervr');
-        mobileBenchmark.forEach((benchmarkTier, index) => benchmarkTier.forEach(benchmarkEntry => {
+        mobileBenchmark.forEach((benchmarkTier, index) => benchmarkTier.forEach((benchmarkEntry) => {
             const entry = cleanEntryString_1.cleanEntryString(benchmarkEntry);
             const entryVersionNumber = getEntryVersionNumber_1.getEntryVersionNumber(entry);
             if ((entry.includes('adreno') && isRendererAdreno) ||
@@ -108,7 +108,7 @@ exports.getGPUTier = (options = {}) => {
         const isRendererIntel = renderer.includes('intel');
         const isRendererAMD = renderer.includes('amd');
         const isRendererNVIDIA = renderer.includes('nvidia');
-        desktopBenchmark.forEach((benchmarkTier, index) => benchmarkTier.forEach(benchmarkEntry => {
+        desktopBenchmark.forEach((benchmarkTier, index) => benchmarkTier.forEach((benchmarkEntry) => {
             const entry = cleanEntryString_1.cleanEntryString(benchmarkEntry);
             const entryVersionNumber = getEntryVersionNumber_1.getEntryVersionNumber(entry);
             if ((entry.includes('intel') && isRendererIntel) ||

@@ -5,7 +5,7 @@ export const getBenchmarkByPercentage = (
 ): string[][] => {
   let chunkOffset = 0;
 
-  const benchmarkTiers = percentages.map(percentage => {
+  const benchmarkTiers = percentages.map((percentage: number): string[] => {
     const chunkSize = Math.round((benchmark.length / 100) * percentage);
     const chunk = benchmark.slice(chunkOffset, chunkOffset + chunkSize);
 
