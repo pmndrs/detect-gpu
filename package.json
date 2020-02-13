@@ -20,7 +20,7 @@
   },
   "author": "Tim van Scherpenzeel",
   "dependencies": {
-    "detect-ua": "^0.1.0"
+    "detect-ua": "^1.0.0"
   },
   "devDependencies": {
     "@types/jest": "^25.1.2",

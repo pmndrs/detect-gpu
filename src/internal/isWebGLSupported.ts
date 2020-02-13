@@ -1,5 +1,5 @@
 // Vendor
-import { IResult } from 'detect-ua';
+import { IBrowserResult } from 'detect-ua';
 
 // Types
 import { TVoidable } from '../types';
@@ -7,7 +7,7 @@ import { TVoidable } from '../types';
 export const isWebGLSupported = ({
   browser,
 }: {
-  browser: boolean | IResult;
+  browser: boolean | IBrowserResult;
 }): TVoidable<WebGLRenderingContext> => {
   const attributes = {
     alpha: false,
