@@ -41,11 +41,14 @@ export const getGPUTier = ({
   failIfMajorPerformanceCaveat = true,
 }: IGetGPUTier = {}): { tier: string; type: string } => {
   let renderer: string;
-  let mobileTier = isMobile || isTablet || forceMobile;
+  const isMobileTier = isMobile || isTablet || forceMobile;
 
-  const createGPUTier = (index: number = 1, type: string = 'FALLBACK') => ({
-    tier: `GPU_${mobileTier ? 'MOBILE' : 'DESKTOP'}_TIER_${index}`,
-    type,
+  const createGPUTier = (
+    index: number = 1,
+    GPUType: string = 'FALLBACK'
+  ): { tier: string; type: string } => ({
+    tier: `GPU_${isMobileTier ? 'MOBILE' : 'DESKTOP'}_TIER_${index}`,
+    type: GPUType,
   });
 
   if (forceRendererString) {
@@ -61,6 +64,7 @@ export const getGPUTier = ({
   }
 
   renderer = cleanRendererString(renderer);
+
   // GPU BLACKLIST
   // https://wiki.mozilla.org/Blocklisting/Blocked_Graphics_Drivers
   // https://www.khronos.org/webgl/wiki/BlacklistsAndWhitelists
@@ -73,10 +77,11 @@ export const getGPUTier = ({
   if (isGPUBlacklisted) {
     return createGPUTier(0, 'BLACKLISTED');
   }
-  const [tier, type] = (mobileTier ? getMobileRank : getDesktopRank)(
+
+  const [tier, type] = (isMobileTier ? getMobileRank : getDesktopRank)(
     getBenchmarkByPercentage(
-      mobileTier ? GPU_BENCHMARK_SCORE_MOBILE : GPU_BENCHMARK_SCORE_DESKTOP,
-      mobileTier ? mobileBenchmarkPercentages : desktopBenchmarkPercentages
+      isMobileTier ? GPU_BENCHMARK_SCORE_MOBILE : GPU_BENCHMARK_SCORE_DESKTOP,
+      isMobileTier ? mobileBenchmarkPercentages : desktopBenchmarkPercentages
     ),
     renderer,
     getEntryVersionNumber(renderer)
@@ -85,43 +90,67 @@ export const getGPUTier = ({
   return createGPUTier(tier, type);
 };
 
-const getMobileRank = (benchmark: string[][], renderer: string, rendererVersionNumber: string) => {
-  const type = ['adreno', 'apple', 'mali-t', 'mali', 'nvidia', 'powervr'].find(type =>
-    renderer.includes(type)
-  );
+const getMobileRank = (
+  benchmark: string[][],
+  renderer: string,
+  rendererVersionNumber: string
+): [number, string] | [undefined, undefined] => {
+  const type = [
+    'adreno',
+    'apple',
+    'mali-t',
+    'mali',
+    'nvidia',
+    'powervr',
+  ].find((rendererType: string): boolean => renderer.includes(rendererType));
 
   if (type) {
     for (let index = 0; index < benchmark.length; index++) {
       const benchmarkTier = benchmark[index];
+
+      // tslint:disable-next-line:prefer-for-of
       for (let i = 0; i < benchmarkTier.length; i++) {
         const entry = cleanEntryString(benchmarkTier[i]);
+
         if (
           entry.includes(type) &&
           (entry !== 'mali' || !entry.includes('mali-t')) &&
           getEntryVersionNumber(entry).includes(rendererVersionNumber)
         ) {
-          return [index, `BENCHMARK - ${entry}`] as [number, string];
+          return [index, `BENCHMARK - ${entry}`];
         }
       }
     }
   }
+
   // Handle mobile edge cases
-  return [undefined, undefined] as [undefined, undefined];
+  return [undefined, undefined];
 };
 
-const getDesktopRank = (benchmark: string[][], renderer: string, rendererVersionNumber: string) => {
-  const type = ['intel', 'amd', 'nvidia'].find(type => renderer.includes(type));
+const getDesktopRank = (
+  benchmark: string[][],
+  renderer: string,
+  rendererVersionNumber: string
+): [number, string] | [undefined, undefined] => {
+  const type = ['intel', 'amd', 'nvidia'].find((rendererType: string): boolean =>
+    renderer.includes(rendererType)
+  );
+
   if (type) {
     for (let index = 0; index < benchmark.length; index++) {
       const benchmarkTier = benchmark[index];
+
+      // tslint:disable-next-line:prefer-for-of
       for (let i = 0; i < benchmarkTier.length; i++) {
         const entry = cleanEntryString(benchmarkTier[i]);
+
         if (entry.includes(type) && getEntryVersionNumber(entry).includes(rendererVersionNumber)) {
-          return [index, `BENCHMARK - ${entry}`] as [number, string];
+          return [index, `BENCHMARK - ${entry}`];
         }
       }
     }
   }
+
   // Handle desktop edge cases
-  return [undefined, undefined] as [undefined, undefined];
+  return [undefined, undefined];
 };
