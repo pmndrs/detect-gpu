@@ -1,19 +1,15 @@
 // Vendor
 import { IBrowserResult } from 'detect-ua';
 
-// Types
-import { TVoidable } from '../types';
-
-export const isWebGLSupported = ({
-  browser,
-}: {
-  browser: boolean | IBrowserResult;
-}): TVoidable<WebGLRenderingContext> => {
+export const isWebGLSupported = (
+  browser: boolean | IBrowserResult,
+  failIfMajorPerformanceCaveat = true
+): WebGLRenderingContext | undefined => {
   const attributes = {
     alpha: false,
     antialias: false,
     depth: false,
-    failIfMajorPerformanceCaveat: true,
+    failIfMajorPerformanceCaveat,
     powerPreference: 'high-performance',
     stencil: false,
   };

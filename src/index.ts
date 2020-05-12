@@ -8,7 +8,7 @@ import {
 import { cleanEntryString } from './internal/cleanEntryString';
 import { cleanRendererString } from './internal/cleanRendererString';
 import { getBenchmarkByPercentage } from './internal/getBenchmarkByPercentage';
-import { browser, isDesktop, isMobile, isTablet } from './internal/getBrowserType';
+import { browser, isMobile, isTablet } from './internal/getBrowserType';
 import { getEntryVersionNumber } from './internal/getEntryVersionNumber';
 import { getWebGLUnmaskedRenderer } from './internal/getWebGLUnmaskedRenderer';
 import { isWebGLSupported } from './internal/isWebGLSupported';
@@ -19,57 +19,48 @@ export interface IGetGPUTier {
   desktopBenchmarkPercentages?: number[];
   forceRendererString?: string;
   forceMobile?: boolean;
+  failIfMajorPerformanceCaveat?: boolean;
 }
 
-export const getGPUTier = (options: IGetGPUTier = {}): { tier: string; type: string } => {
-  const mobileBenchmarkPercentages: number[] = options.mobileBenchmarkPercentages || [
+export const getGPUTier = ({
+  mobileBenchmarkPercentages = [
     0, // TIER_0
     50, // TIER_1
     30, // TIER_2
     20, // TIER_3
-  ];
-  const desktopBenchmarkPercentages: number[] = options.desktopBenchmarkPercentages || [
+  ],
+  desktopBenchmarkPercentages = [
     0, // TIER_0
     50, // TIER_1
     30, // TIER_2
     20, // TIER_3
-  ];
-  const forceRendererString = options.forceRendererString || '';
-  const forceMobile = options.forceMobile || false;
+  ],
+  forceRendererString = '',
+  forceMobile = false,
+  glContext,
+  failIfMajorPerformanceCaveat = true,
+}: IGetGPUTier = {}): { tier: string; type: string } => {
+  let renderer: string;
+  let mobileTier = isMobile || isTablet || forceMobile;
 
-  let renderer;
-  let tier = '';
-  let type = '';
+  const createGPUTier = (index: number = 1, type: string = 'FALLBACK') => ({
+    tier: `GPU_${mobileTier ? 'MOBILE' : 'DESKTOP'}_TIER_${index}`,
+    type,
+  });
 
-  if (!forceRendererString) {
-    const gl =
-      options.glContext ||
-      isWebGLSupported({
-        browser,
-      });
+  if (forceRendererString) {
+    renderer = forceRendererString;
+  } else {
+    const gl = glContext || isWebGLSupported(browser, failIfMajorPerformanceCaveat);
 
     if (!gl) {
-      if (isMobile || isTablet || forceMobile) {
-        return {
-          tier: 'GPU_MOBILE_TIER_0',
-          type: 'WEBGL_UNSUPPORTED',
-        };
-      }
-
-      return {
-        tier: 'GPU_DESKTOP_TIER_0',
-        type: 'WEBGL_UNSUPPORTED',
-      };
+      return createGPUTier(0, 'WEBGL_UNSUPPORTED');
     }
 
     renderer = getWebGLUnmaskedRenderer(gl);
-  } else {
-    renderer = forceRendererString;
   }
 
   renderer = cleanRendererString(renderer);
-  const rendererVersionNumber = renderer.replace(/[\D]/g, '');
-
   // GPU BLACKLIST
   // https://wiki.mozilla.org/Blocklisting/Blocked_Graphics_Drivers
   // https://www.khronos.org/webgl/wiki/BlacklistsAndWhitelists
@@ -80,109 +71,57 @@ export const getGPUTier = (options: IGetGPUTier = {}): { tier: string; type: str
   );
 
   if (isGPUBlacklisted) {
-    if (isMobile || isTablet || forceMobile) {
-      return {
-        tier: 'GPU_MOBILE_TIER_0',
-        type: 'BLACKLISTED',
-      };
-    }
-
-    return {
-      tier: 'GPU_DESKTOP_TIER_0',
-      type: 'BLACKLISTED',
-    };
+    return createGPUTier(0, 'BLACKLISTED');
   }
+  const [tier, type] = (mobileTier ? getMobileRank : getDesktopRank)(
+    getBenchmarkByPercentage(
+      mobileTier ? GPU_BENCHMARK_SCORE_MOBILE : GPU_BENCHMARK_SCORE_DESKTOP,
+      mobileTier ? mobileBenchmarkPercentages : desktopBenchmarkPercentages
+    ),
+    renderer,
+    getEntryVersionNumber(renderer)
+  );
 
-  if (isMobile || isTablet || forceMobile) {
-    const mobileBenchmark = getBenchmarkByPercentage(
-      GPU_BENCHMARK_SCORE_MOBILE,
-      mobileBenchmarkPercentages
-    );
+  return createGPUTier(tier, type);
+};
 
-    const isRendererAdreno = renderer.includes('adreno');
-    const isRendererApple = renderer.includes('apple');
-    const isRendererMali = renderer.includes('mali') && !renderer.includes('mali-t');
-    const isRendererMaliT = renderer.includes('mali-t');
-    const isRendererNVIDIA = renderer.includes('nvidia');
-    const isRendererPowerVR = renderer.includes('powervr');
+const getMobileRank = (benchmark: string[][], renderer: string, rendererVersionNumber: string) => {
+  const type = ['adreno', 'apple', 'mali-t', 'mali', 'nvidia', 'powervr'].find(type =>
+    renderer.includes(type)
+  );
 
-    mobileBenchmark.forEach((benchmarkTier: string[], index: number): void =>
-      benchmarkTier.forEach((benchmarkEntry: string): void => {
-        const entry = cleanEntryString(benchmarkEntry);
-        const entryVersionNumber = getEntryVersionNumber(entry);
-
+  if (type) {
+    for (let index = 0; index < benchmark.length; index++) {
+      const benchmarkTier = benchmark[index];
+      for (let i = 0; i < benchmarkTier.length; i++) {
+        const entry = cleanEntryString(benchmarkTier[i]);
         if (
-          (entry.includes('adreno') && isRendererAdreno) ||
-          (entry.includes('apple') && isRendererApple) ||
-          (entry.includes('mali') && !entry.includes('mali-t') && isRendererMali) ||
-          (entry.includes('mali-t') && isRendererMaliT) ||
-          (entry.includes('nvidia') && isRendererNVIDIA) ||
-          (entry.includes('powervr') && isRendererPowerVR)
+          entry.includes(type) &&
+          (entry !== 'mali' || !entry.includes('mali-t')) &&
+          getEntryVersionNumber(entry).includes(rendererVersionNumber)
         ) {
-          if (entryVersionNumber.includes(rendererVersionNumber)) {
-            tier = `GPU_MOBILE_TIER_${index}`;
-            type = `BENCHMARK - ${entry}`;
-          }
-
-          // Handle mobile edge cases
+          return [index, `BENCHMARK - ${entry}`] as [number, string];
         }
-      })
-    );
-
-    if (!tier) {
-      tier = 'GPU_MOBILE_TIER_1';
-      type = 'FALLBACK';
+      }
     }
-
-    return {
-      tier,
-      type,
-    };
   }
+  // Handle mobile edge cases
+  return [undefined, undefined] as [undefined, undefined];
+};
 
-  if (isDesktop) {
-    const desktopBenchmark = getBenchmarkByPercentage(
-      GPU_BENCHMARK_SCORE_DESKTOP,
-      desktopBenchmarkPercentages
-    );
-
-    const isRendererIntel = renderer.includes('intel');
-    const isRendererAMD = renderer.includes('amd');
-    const isRendererNVIDIA = renderer.includes('nvidia');
-
-    desktopBenchmark.forEach((benchmarkTier: string[], index: number): void =>
-      benchmarkTier.forEach((benchmarkEntry: string): void => {
-        const entry = cleanEntryString(benchmarkEntry);
-        const entryVersionNumber = getEntryVersionNumber(entry);
-
-        if (
-          (entry.includes('intel') && isRendererIntel) ||
-          (entry.includes('amd') && isRendererAMD) ||
-          (entry.includes('nvidia') && isRendererNVIDIA)
-        ) {
-          if (entryVersionNumber.includes(rendererVersionNumber)) {
-            tier = `GPU_DESKTOP_TIER_${index}`;
-            type = `BENCHMARK - ${entry}`;
-          }
-
-          // Handle desktop edge cases
+const getDesktopRank = (benchmark: string[][], renderer: string, rendererVersionNumber: string) => {
+  const type = ['intel', 'amd', 'nvidia'].find(type => renderer.includes(type));
+  if (type) {
+    for (let index = 0; index < benchmark.length; index++) {
+      const benchmarkTier = benchmark[index];
+      for (let i = 0; i < benchmarkTier.length; i++) {
+        const entry = cleanEntryString(benchmarkTier[i]);
+        if (entry.includes(type) && getEntryVersionNumber(entry).includes(rendererVersionNumber)) {
+          return [index, `BENCHMARK - ${entry}`] as [number, string];
         }
-      })
-    );
-
-    if (!tier) {
-      tier = 'GPU_DESKTOP_TIER_1';
-      type = 'FALLBACK';
+      }
     }
-
-    return {
-      tier,
-      type,
-    };
   }
-
-  return {
-    tier,
-    type,
-  };
+  // Handle desktop edge cases
+  return [undefined, undefined] as [undefined, undefined];
 };
