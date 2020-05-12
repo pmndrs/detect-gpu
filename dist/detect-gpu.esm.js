@@ -731,7 +731,7 @@ var DetectUA = /** @class */ (function () {
 
 // Vendor
 const device = new DetectUA();
-const { browser, isMobile, isTablet, isDesktop } = device;
+const { browser, isMobile, isTablet } = device;
 
 const getEntryVersionNumber = (entryString) => entryString.replace(/[\D]/g, ''); // Grab and concat all digits in the string
 
@@ -742,12 +742,12 @@ const getWebGLUnmaskedRenderer = (gl) => {
     return renderer;
 };
 
-const isWebGLSupported = ({ browser, }) => {
+const isWebGLSupported = (browser, failIfMajorPerformanceCaveat = true) => {
     const attributes = {
         alpha: false,
         antialias: false,
         depth: false,
-        failIfMajorPerformanceCaveat: true,
+        failIfMajorPerformanceCaveat,
         powerPreference: 'high-performance',
         stencil: false,
     };
@@ -767,48 +767,34 @@ const isWebGLSupported = ({ browser, }) => {
 };
 
 // Generated data
-const getGPUTier = (options = {}) => {
-    const mobileBenchmarkPercentages = options.mobileBenchmarkPercentages || [
-        0,
-        50,
-        30,
-        20,
-    ];
-    const desktopBenchmarkPercentages = options.desktopBenchmarkPercentages || [
-        0,
-        50,
-        30,
-        20,
-    ];
-    const forceRendererString = options.forceRendererString || '';
-    const forceMobile = options.forceMobile || false;
+const getGPUTier = ({ mobileBenchmarkPercentages = [
+    0,
+    50,
+    30,
+    20,
+], desktopBenchmarkPercentages = [
+    0,
+    50,
+    30,
+    20,
+], forceRendererString = '', forceMobile = false, glContext, failIfMajorPerformanceCaveat = true, } = {}) => {
     let renderer;
-    let tier = '';
-    let type = '';
-    if (!forceRendererString) {
-        const gl = options.glContext ||
-            isWebGLSupported({
-                browser,
-            });
+    const isMobileTier = isMobile || isTablet || forceMobile;
+    const createGPUTier = (index = 1, GPUType = 'FALLBACK') => ({
+        tier: `GPU_${isMobileTier ? 'MOBILE' : 'DESKTOP'}_TIER_${index}`,
+        type: GPUType,
+    });
+    if (forceRendererString) {
+        renderer = forceRendererString;
+    }
+    else {
+        const gl = glContext || isWebGLSupported(browser, failIfMajorPerformanceCaveat);
         if (!gl) {
-            if (isMobile || isTablet || forceMobile) {
-                return {
-                    tier: 'GPU_MOBILE_TIER_0',
-                    type: 'WEBGL_UNSUPPORTED',
-                };
-            }
-            return {
-                tier: 'GPU_DESKTOP_TIER_0',
-                type: 'WEBGL_UNSUPPORTED',
-            };
+            return createGPUTier(0, 'WEBGL_UNSUPPORTED');
         }
         renderer = getWebGLUnmaskedRenderer(gl);
     }
-    else {
-        renderer = forceRendererString;
-    }
     renderer = cleanRendererString(renderer);
-    const rendererVersionNumber = renderer.replace(/[\D]/g, '');
     // GPU BLACKLIST
     // https://wiki.mozilla.org/Blocklisting/Blocked_Graphics_Drivers
     // https://www.khronos.org/webgl/wiki/BlacklistsAndWhitelists
@@ -816,81 +802,53 @@ const getGPUTier = (options = {}) => {
     // https://chromium.googlesource.com/chromium/src/+/master/gpu/config/gpu_driver_bug_list.json
     const isGPUBlacklisted = /(radeon hd 6970m|radeon hd 6770m|radeon hd 6490m|radeon hd 6630m|radeon hd 6750m|radeon hd 5750|radeon hd 5670|radeon hd 4850|radeon hd 4870|radeon hd 4670|geforce 9400m|geforce 320m|geforce 330m|geforce gt 130|geforce gt 120|geforce gtx 285|geforce 8600|geforce 9600m|geforce 9400m|geforce 8800 gs|geforce 8800 gt|quadro fx 5|quadro fx 4|radeon hd 2600|radeon hd 2400|radeon hd 2600|mali-4|mali-3|mali-2)/.test(renderer);
     if (isGPUBlacklisted) {
-        if (isMobile || isTablet || forceMobile) {
-            return {
-                tier: 'GPU_MOBILE_TIER_0',
-                type: 'BLACKLISTED',
-            };
-        }
-        return {
-            tier: 'GPU_DESKTOP_TIER_0',
-            type: 'BLACKLISTED',
-        };
+        return createGPUTier(0, 'BLACKLISTED');
     }
-    if (isMobile || isTablet || forceMobile) {
-        const mobileBenchmark = getBenchmarkByPercentage(GPU_BENCHMARK_SCORE_MOBILE, mobileBenchmarkPercentages);
-        const isRendererAdreno = renderer.includes('adreno');
-        const isRendererApple = renderer.includes('apple');
-        const isRendererMali = renderer.includes('mali') && !renderer.includes('mali-t');
-        const isRendererMaliT = renderer.includes('mali-t');
-        const isRendererNVIDIA = renderer.includes('nvidia');
-        const isRendererPowerVR = renderer.includes('powervr');
-        mobileBenchmark.forEach((benchmarkTier, index) => benchmarkTier.forEach((benchmarkEntry) => {
-            const entry = cleanEntryString(benchmarkEntry);
-            const entryVersionNumber = getEntryVersionNumber(entry);
-            if ((entry.includes('adreno') && isRendererAdreno) ||
-                (entry.includes('apple') && isRendererApple) ||
-                (entry.includes('mali') && !entry.includes('mali-t') && isRendererMali) ||
-                (entry.includes('mali-t') && isRendererMaliT) ||
-                (entry.includes('nvidia') && isRendererNVIDIA) ||
-                (entry.includes('powervr') && isRendererPowerVR)) {
-                if (entryVersionNumber.includes(rendererVersionNumber)) {
-                    tier = `GPU_MOBILE_TIER_${index}`;
-                    type = `BENCHMARK - ${entry}`;
+    const [tier, type] = (isMobileTier ? getMobileRank : getDesktopRank)(getBenchmarkByPercentage(isMobileTier ? GPU_BENCHMARK_SCORE_MOBILE : GPU_BENCHMARK_SCORE_DESKTOP, isMobileTier ? mobileBenchmarkPercentages : desktopBenchmarkPercentages), renderer, getEntryVersionNumber(renderer));
+    return createGPUTier(tier, type);
+};
+const getMobileRank = (benchmark, renderer, rendererVersionNumber) => {
+    const type = [
+        'adreno',
+        'apple',
+        'mali-t',
+        'mali',
+        'nvidia',
+        'powervr',
+    ].find((rendererType) => renderer.includes(rendererType));
+    if (type) {
+        for (let index = 0; index < benchmark.length; index++) {
+            const benchmarkTier = benchmark[index];
+            // tslint:disable-next-line:prefer-for-of
+            for (let i = 0; i < benchmarkTier.length; i++) {
+                const entry = cleanEntryString(benchmarkTier[i]);
+                if (entry.includes(type) &&
+                    (entry !== 'mali' || !entry.includes('mali-t')) &&
+                    getEntryVersionNumber(entry).includes(rendererVersionNumber)) {
+                    return [index, `BENCHMARK - ${entry}`];
                 }
-                // Handle mobile edge cases
             }
-        }));
-        if (!tier) {
-            tier = 'GPU_MOBILE_TIER_1';
-            type = 'FALLBACK';
         }
-        return {
-            tier,
-            type,
-        };
     }
-    if (isDesktop) {
-        const desktopBenchmark = getBenchmarkByPercentage(GPU_BENCHMARK_SCORE_DESKTOP, desktopBenchmarkPercentages);
-        const isRendererIntel = renderer.includes('intel');
-        const isRendererAMD = renderer.includes('amd');
-        const isRendererNVIDIA = renderer.includes('nvidia');
-        desktopBenchmark.forEach((benchmarkTier, index) => benchmarkTier.forEach((benchmarkEntry) => {
-            const entry = cleanEntryString(benchmarkEntry);
-            const entryVersionNumber = getEntryVersionNumber(entry);
-            if ((entry.includes('intel') && isRendererIntel) ||
-                (entry.includes('amd') && isRendererAMD) ||
-                (entry.includes('nvidia') && isRendererNVIDIA)) {
-                if (entryVersionNumber.includes(rendererVersionNumber)) {
-                    tier = `GPU_DESKTOP_TIER_${index}`;
-                    type = `BENCHMARK - ${entry}`;
+    // Handle mobile edge cases
+    return [undefined, undefined];
+};
+const getDesktopRank = (benchmark, renderer, rendererVersionNumber) => {
+    const type = ['intel', 'amd', 'nvidia'].find((rendererType) => renderer.includes(rendererType));
+    if (type) {
+        for (let index = 0; index < benchmark.length; index++) {
+            const benchmarkTier = benchmark[index];
+            // tslint:disable-next-line:prefer-for-of
+            for (let i = 0; i < benchmarkTier.length; i++) {
+                const entry = cleanEntryString(benchmarkTier[i]);
+                if (entry.includes(type) && getEntryVersionNumber(entry).includes(rendererVersionNumber)) {
+                    return [index, `BENCHMARK - ${entry}`];
                 }
-                // Handle desktop edge cases
             }
-        }));
-        if (!tier) {
-            tier = 'GPU_DESKTOP_TIER_1';
-            type = 'FALLBACK';
         }
-        return {
-            tier,
-            type,
-        };
     }
-    return {
-        tier,
-        type,
-    };
+    // Handle desktop edge cases
+    return [undefined, undefined];
 };
 
 export { getGPUTier };

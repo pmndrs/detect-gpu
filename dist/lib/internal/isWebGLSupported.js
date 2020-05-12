@@ -1,11 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.isWebGLSupported = ({ browser, }) => {
+exports.isWebGLSupported = (browser, failIfMajorPerformanceCaveat = true) => {
     const attributes = {
         alpha: false,
         antialias: false,
         depth: false,
-        failIfMajorPerformanceCaveat: true,
+        failIfMajorPerformanceCaveat,
         powerPreference: 'high-performance',
         stencil: false,
     };

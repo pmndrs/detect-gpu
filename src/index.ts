@@ -17,9 +17,9 @@ export interface IGetGPUTier {
   glContext?: WebGLRenderingContext | WebGL2RenderingContext;
   mobileBenchmarkPercentages?: number[];
   desktopBenchmarkPercentages?: number[];
+  failIfMajorPerformanceCaveat?: boolean;
   forceRendererString?: string;
   forceMobile?: boolean;
-  failIfMajorPerformanceCaveat?: boolean;
 }
 
 export const getGPUTier = ({
