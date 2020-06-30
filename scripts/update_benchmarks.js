@@ -11,11 +11,11 @@ const JSSoup = require('jssoup').default;
 
 // Mobile
 const BENCHMARK_MOBILE_URL =
-  'https://www.notebookcheck.net/Mobile-Graphics-Cards-Benchmark-List.844.0.html?type=&sort=&professional=2&showClassDescription=1&deskornote=3&archive=1&perfrating=1&or=0&showBars=1&3dmark13_ice_gpu=1&3dmark13_cloud_gpu=1&3dmark13_fire_gpu=1&3dmark11_gpu=1&gpu_fullname=1&architecture=1&pixelshaders=1&vertexshaders=1&corespeed=1&boostspeed=1&memoryspeed=1&memorybus=1&memorytype=1&directx=1';
+  'https://www.notebookcheck.net/Mobile-Graphics-Cards-Benchmark-List.844.0.html?type=&sort=&professional=2&showClassDescription=1&deskornote=3&perfrating=1&or=0&showBars=1&3dmark13_ice_gpu=1&3dmark13_cloud_gpu=1&3dmark13_fire_gpu=1&3dmark11_gpu=1&gpu_fullname=1&architecture=1&pixelshaders=1&vertexshaders=1&corespeed=1&boostspeed=1&memoryspeed=1&memorybus=1&memorytype=1&directx=1';
 
 // Desktop
 const BENCHMARK_DESKTOP_URL =
-  'https://www.notebookcheck.net/Mobile-Graphics-Cards-Benchmark-List.844.0.html?type=&sort=&showClassDescription=1&deskornote=4&archive=1&perfrating=1&or=0&showBars=1&3dmark13_ice_gpu=1&3dmark13_cloud_gpu=1&3dmark13_fire_gpu=1&3dmark11_gpu=1&gpu_fullname=1&architecture=1&pixelshaders=1&vertexshaders=1&corespeed=1&boostspeed=1&memoryspeed=1&memorybus=1&memorytype=1&directx=1';
+  'https://www.notebookcheck.net/Mobile-Graphics-Cards-Benchmark-List.844.0.html?type=&sort=&showClassDescription=1&deskornote=4&perfrating=1&or=0&showBars=1&3dmark13_ice_gpu=1&3dmark13_cloud_gpu=1&3dmark13_fire_gpu=1&3dmark11_gpu=1&gpu_fullname=1&architecture=1&pixelshaders=1&vertexshaders=1&corespeed=1&boostspeed=1&memoryspeed=1&memorybus=1&memorytype=1&directx=1';
 
 function collectBenchmark(url) {
   return new Promise((resolve, reject) =>
@@ -28,20 +28,26 @@ function collectBenchmark(url) {
         const table = soup.find('table');
         const inputs = table.findAll('input');
 
-        const benchmark = inputs.map((input) => {
-          const score = input.previousElement.text.replace(' ', '').replace('*', '');
-          let name = '';
+        const benchmark = inputs
+          .map((input) => {
+            const score = input.previousElement.text.replace(' ', '').replace('*', '');
+            let name = '';
 
-          input.previousElement.contents.forEach((row) => {
-            if (row.nextElement.nextElement.text) {
-              name = row.nextElement.nextElement.text
-                .replace(' (Desktop)', '')
-                .replace(' (Laptop)', '');
+            input.previousElement.contents.forEach((row) => {
+              if (row.nextElement.nextElement.text) {
+                name = row.nextElement.nextElement.text
+                  .replace(' (Desktop)', '')
+                  .replace(' (Laptop)', '');
+              }
+            });
+
+            if (score && name) {
+              return `${score} - ${name}`;
+            } else {
+              return;
             }
-          });
-
-          return `${score} - ${name}`;
-        });
+          })
+          .filter(Boolean);
 
         resolve(benchmark);
       })
