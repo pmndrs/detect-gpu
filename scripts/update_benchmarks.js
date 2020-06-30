@@ -21,20 +21,22 @@ function collectBenchmark(url) {
   return new Promise((resolve, reject) =>
     // @ts-ignore
     fetch(url)
-      .then(response => response.text())
-      .then(html => {
+      .then((response) => response.text())
+      .then((html) => {
         // @ts-ignore
         const soup = new JSSoup(html.replace('<!DOCTYPE html>', ''));
         const table = soup.find('table');
         const inputs = table.findAll('input');
 
-        const benchmark = inputs.map(input => {
-          const score = input.previousElement.text.replace('&nbsp;', '').replace('*', '');
+        const benchmark = inputs.map((input) => {
+          const score = input.previousElement.text.replace(' ', '').replace('*', '');
           let name = '';
 
-          input.previousElement.contents.forEach(row => {
-            if (row.nextElement.text) {
-              name = row.nextElement.text;
+          input.previousElement.contents.forEach((row) => {
+            if (row.nextElement.nextElement.text) {
+              name = row.nextElement.nextElement.text
+                .replace(' (Desktop)', '')
+                .replace(' (Laptop)', '');
             }
           });
 
@@ -43,14 +45,14 @@ function collectBenchmark(url) {
 
         resolve(benchmark);
       })
-      .catch(error => {
+      .catch((error) => {
         reject(new Error(error.message));
       })
   );
 }
 
 Promise.all([collectBenchmark(BENCHMARK_DESKTOP_URL), collectBenchmark(BENCHMARK_MOBILE_URL)]).then(
-  result => {
+  (result) => {
     const output = './src/__generated__/GPUBenchmark.ts';
     const data = `
 
@@ -62,15 +64,15 @@ Promise.all([collectBenchmark(BENCHMARK_DESKTOP_URL), collectBenchmark(BENCHMARK
 
 
       export const GPU_BENCHMARK_SCORE_DESKTOP = [
-        ${result[0].reverse().map(entry => `\n\'${entry}\'`)}
+        ${result[0].reverse().map((entry) => `\n\'${entry}\'`)}
       ];
 
       export const GPU_BENCHMARK_SCORE_MOBILE = [
-        ${result[1].reverse().map(entry => `\n\'${entry}\'`)}
+        ${result[1].reverse().map((entry) => `\n\'${entry}\'`)}
       ];
     `;
 
-    fs.writeFile(output, data, error => {
+    fs.writeFile(output, data, (error) => {
       if (!error) {
         console.log(`Written file to ${output}`);
       } else {
