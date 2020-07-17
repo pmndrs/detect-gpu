@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.getGPUTier = void 0;
 // Generated data
 const GPUBenchmark_1 = require("./__generated__/GPUBenchmark");
 // Internal
@@ -43,7 +44,7 @@ exports.getGPUTier = ({ mobileBenchmarkPercentages = [
     // https://www.khronos.org/webgl/wiki/BlacklistsAndWhitelists
     // https://chromium.googlesource.com/chromium/src/+/master/gpu/config/software_rendering_list.json
     // https://chromium.googlesource.com/chromium/src/+/master/gpu/config/gpu_driver_bug_list.json
-    const isGPUBlacklisted = /(radeon hd 6970m|radeon hd 6770m|radeon hd 6490m|radeon hd 6630m|radeon hd 6750m|radeon hd 5750|radeon hd 5670|radeon hd 4850|radeon hd 4870|radeon hd 4670|geforce 9400m|geforce 320m|geforce 330m|geforce gt 130|geforce gt 120|geforce gtx 285|geforce 8600|geforce 9600m|geforce 9400m|geforce 8800 gs|geforce 8800 gt|quadro fx 5|quadro fx 4|radeon hd 2600|radeon hd 2400|radeon hd 2600|mali-4|mali-3|mali-2)/.test(renderer);
+    const isGPUBlacklisted = /(radeon hd 6970m|radeon hd 6770m|radeon hd 6490m|radeon hd 6630m|radeon hd 6750m|radeon hd 5750|radeon hd 5670|radeon hd 4850|radeon hd 4870|radeon hd 4670|geforce 9400m|geforce 320m|geforce 330m|geforce gt 130|geforce gt 120|geforce gtx 285|geforce 8600|geforce 9600m|geforce 9400m|geforce 8800 gs|geforce 8800 gt|quadro fx 5|quadro fx 4|radeon hd 2600|radeon hd 2400|radeon r9 200|mali-4|mali-3|mali-2|google swiftshader|sgx543|legacy|sgx 543)/.test(renderer);
     if (isGPUBlacklisted) {
         return createGPUTier(0, 'BLACKLISTED');
     }
