@@ -5,7 +5,14 @@ export const isWebGLSupported = (
   browser: boolean | IBrowserResult,
   failIfMajorPerformanceCaveat = true
 ): WebGLRenderingContext | undefined => {
-  const attributes = {
+  const attributes: {
+    alpha?: boolean;
+    antialias?: boolean;
+    depth?: boolean;
+    failIfMajorPerformanceCaveat?: boolean;
+    powerPreference?: string;
+    stencil?: boolean;
+  } = {
     alpha: false,
     antialias: false,
     depth: false,
