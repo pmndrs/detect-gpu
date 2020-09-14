@@ -36,7 +36,7 @@ const GPUTier = getGPUTier({
   glContext?: gl, // Optionally pass in a WebGL context to avoid creating a temporary one internally
   mobileBenchmarkPercentages?: [0, 50, 30, 20], // (Default) [TIER_0, TIER_1, TIER_2, TIER_3]
   desktopBenchmarkPercentages?: [0, 50, 30, 20], // (Default) [TIER_0, TIER_1, TIER_2, TIER_3]
-  failIfMajorPerformanceCaveat?: true; // (Default) Fail to detect if the WebGL implementation determines the performance would be dramatically lower than the equivalent OpenGL implementation
+  failIfMajorPerformanceCaveat?: true, // (Default) Fail to detect if the WebGL implementation determines the performance would be dramatically lower than the equivalent OpenGL implementation
   forceRendererString?: 'Apple A11 GPU', // (Development) Force a certain renderer string
   forceMobile?: true, // (Development) Force the use of mobile benchmarking scores
 });
