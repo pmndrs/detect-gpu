@@ -1075,7 +1075,7 @@ var DetectUA = /** @class */ (function () {
                     // Nexus mobile
                     /nexus\s*[0-6]\s*/i.test(this.userAgent)));
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     Object.defineProperty(DetectUA.prototype, "isTablet", {
@@ -1093,7 +1093,7 @@ var DetectUA = /** @class */ (function () {
                 // Nexus tablet
                 (!/nexus\s*[0-6]\s*/i.test(this.userAgent) && /nexus\s*[0-9]+/i.test(this.userAgent)));
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     Object.defineProperty(DetectUA.prototype, "isDesktop", {
@@ -1103,7 +1103,7 @@ var DetectUA = /** @class */ (function () {
         get: function () {
             return !this.isMobile && !this.isTablet;
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     Object.defineProperty(DetectUA.prototype, "isMacOS", {
@@ -1130,7 +1130,7 @@ var DetectUA = /** @class */ (function () {
                     .map(function (versionNumber) { return versionNumber; })[1],
             });
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     Object.defineProperty(DetectUA.prototype, "isWindows", {
@@ -1153,7 +1153,7 @@ var DetectUA = /** @class */ (function () {
                 version: this.match(1, /Windows ((NT|XP)( \d\d?.\d)?)/i),
             });
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     Object.defineProperty(DetectUA.prototype, "isiOS", {
@@ -1166,7 +1166,7 @@ var DetectUA = /** @class */ (function () {
                     this.match(1, /version\/(\d+(\.\d+)?)/i),
             });
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     Object.defineProperty(DetectUA.prototype, "isAndroid", {
@@ -1178,7 +1178,7 @@ var DetectUA = /** @class */ (function () {
                 version: this.match(1, /android[ \/-](\d+(\.\d+)*)/i),
             });
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     Object.defineProperty(DetectUA.prototype, "browser", {
@@ -1272,7 +1272,7 @@ var DetectUA = /** @class */ (function () {
                 };
             }
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     return DetectUA;
