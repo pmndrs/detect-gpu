@@ -1,21 +1,25 @@
-/**
- * @author keesey
- * https://gist.github.com/keesey/e09d0af833476385b9ee13b6d26a2b84
- */
-
-export function getLevenshteinDistance(a: string, b: string): number {
+// CREDIT: https://gist.github.com/keesey/e09d0af833476385b9ee13b6d26a2b84
+export const getLevenshteinDistance = (a: string, b: string): number => {
   const an = a ? a.length : 0;
   const bn = b ? b.length : 0;
-  if (an === 0) return bn;
-  if (bn === 0) return an;
+
+  if (an === 0) {
+    return bn;
+  }
+
+  if (bn === 0) {
+    return an;
+  }
 
   const matrix = new Array<number[]>(bn + 1);
+
   for (let i = 0; i <= bn; ++i) {
-    let row = (matrix[i] = new Array<number>(an + 1));
+    const row = (matrix[i] = new Array<number>(an + 1));
     row[0] = i;
   }
 
   const firstRow = matrix[0];
+
   for (let j = 1; j <= an; ++j) {
     firstRow[j] = j;
   }
@@ -34,5 +38,6 @@ export function getLevenshteinDistance(a: string, b: string): number {
       }
     }
   }
+
   return matrix[bn][an];
-}
+};

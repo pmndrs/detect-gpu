@@ -1075,7 +1075,7 @@ var DetectUA = /** @class */ (function () {
                     // Nexus mobile
                     /nexus\s*[0-6]\s*/i.test(this.userAgent)));
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     Object.defineProperty(DetectUA.prototype, "isTablet", {
@@ -1093,7 +1093,7 @@ var DetectUA = /** @class */ (function () {
                 // Nexus tablet
                 (!/nexus\s*[0-6]\s*/i.test(this.userAgent) && /nexus\s*[0-9]+/i.test(this.userAgent)));
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     Object.defineProperty(DetectUA.prototype, "isDesktop", {
@@ -1103,7 +1103,7 @@ var DetectUA = /** @class */ (function () {
         get: function () {
             return !this.isMobile && !this.isTablet;
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     Object.defineProperty(DetectUA.prototype, "isMacOS", {
@@ -1130,7 +1130,7 @@ var DetectUA = /** @class */ (function () {
                     .map(function (versionNumber) { return versionNumber; })[1],
             });
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     Object.defineProperty(DetectUA.prototype, "isWindows", {
@@ -1153,7 +1153,7 @@ var DetectUA = /** @class */ (function () {
                 version: this.match(1, /Windows ((NT|XP)( \d\d?.\d)?)/i),
             });
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     Object.defineProperty(DetectUA.prototype, "isiOS", {
@@ -1166,7 +1166,7 @@ var DetectUA = /** @class */ (function () {
                     this.match(1, /version\/(\d+(\.\d+)?)/i),
             });
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     Object.defineProperty(DetectUA.prototype, "isAndroid", {
@@ -1178,7 +1178,7 @@ var DetectUA = /** @class */ (function () {
                 version: this.match(1, /android[ \/-](\d+(\.\d+)*)/i),
             });
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     Object.defineProperty(DetectUA.prototype, "browser", {
@@ -1272,7 +1272,7 @@ var DetectUA = /** @class */ (function () {
                 };
             }
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     return DetectUA;
@@ -1315,20 +1315,19 @@ const isWebGLSupported = (browser, failIfMajorPerformanceCaveat = true) => {
     return gl;
 };
 
-/**
- * @author keesey
- * https://gist.github.com/keesey/e09d0af833476385b9ee13b6d26a2b84
- */
-function getLevenshteinDistance(a, b) {
+// CREDIT: https://gist.github.com/keesey/e09d0af833476385b9ee13b6d26a2b84
+const getLevenshteinDistance = (a, b) => {
     const an = a ? a.length : 0;
     const bn = b ? b.length : 0;
-    if (an === 0)
+    if (an === 0) {
         return bn;
-    if (bn === 0)
+    }
+    if (bn === 0) {
         return an;
+    }
     const matrix = new Array(bn + 1);
     for (let i = 0; i <= bn; ++i) {
-        let row = (matrix[i] = new Array(an + 1));
+        const row = (matrix[i] = new Array(an + 1));
         row[0] = i;
     }
     const firstRow = matrix[0];
@@ -1350,7 +1349,7 @@ function getLevenshteinDistance(a, b) {
         }
     }
     return matrix[bn][an];
-}
+};
 
 // Generated data
 const getGPUTier = ({ mobileBenchmarkPercentages = [
@@ -1420,9 +1419,10 @@ const getMobileRank = (benchmark, renderer, rendererVersionNumber) => {
             }
         }
     }
-    const ordered = ranks.sort((r1, r2) => r1.distance - r2.distance);
+    const ordered = sortByLevenshteinDistance(ranks);
     return ordered.length > 0 ? ordered[0].rank : [undefined, undefined];
 };
+const sortByLevenshteinDistance = (ranks) => ranks.sort((rank1, rank2) => rank1.distance - rank2.distance);
 const getDesktopRank = (benchmark, renderer, rendererVersionNumber) => {
     const type = ['intel', 'amd', 'nvidia'].find((rendererType) => renderer.includes(rendererType));
     const ranks = [];
@@ -1441,7 +1441,7 @@ const getDesktopRank = (benchmark, renderer, rendererVersionNumber) => {
             }
         }
     }
-    const ordered = ranks.sort((r1, r2) => r1.distance - r2.distance);
+    const ordered = sortByLevenshteinDistance(ranks);
     return ordered.length > 0 ? ordered[0].rank : [undefined, undefined];
 };
 

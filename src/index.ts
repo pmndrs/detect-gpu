@@ -134,9 +134,14 @@ const getMobileRank = (
     }
   }
 
-  const ordered = ranks.sort((r1, r2) => r1.distance - r2.distance);
+  const ordered = sortByLevenshteinDistance(ranks);
   return ordered.length > 0 ? ordered[0].rank : [undefined, undefined];
 };
+
+const sortByLevenshteinDistance = (ranks: RankWithDistance[]): RankWithDistance[] =>
+  ranks.sort(
+    (rank1: RankWithDistance, rank2: RankWithDistance): number => rank1.distance - rank2.distance
+  );
 
 const getDesktopRank = (
   benchmark: string[][],
@@ -166,6 +171,6 @@ const getDesktopRank = (
     }
   }
 
-  const ordered = ranks.sort((r1, r2) => r1.distance - r2.distance);
+  const ordered = sortByLevenshteinDistance(ranks);
   return ordered.length > 0 ? ordered[0].rank : [undefined, undefined];
 };

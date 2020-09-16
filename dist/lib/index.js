@@ -79,9 +79,10 @@ const getMobileRank = (benchmark, renderer, rendererVersionNumber) => {
             }
         }
     }
-    const ordered = ranks.sort((r1, r2) => r1.distance - r2.distance);
+    const ordered = sortByLevenshteinDistance(ranks);
     return ordered.length > 0 ? ordered[0].rank : [undefined, undefined];
 };
+const sortByLevenshteinDistance = (ranks) => ranks.sort((rank1, rank2) => rank1.distance - rank2.distance);
 const getDesktopRank = (benchmark, renderer, rendererVersionNumber) => {
     const type = ['intel', 'amd', 'nvidia'].find((rendererType) => renderer.includes(rendererType));
     const ranks = [];
@@ -100,7 +101,7 @@ const getDesktopRank = (benchmark, renderer, rendererVersionNumber) => {
             }
         }
     }
-    const ordered = ranks.sort((r1, r2) => r1.distance - r2.distance);
+    const ordered = sortByLevenshteinDistance(ranks);
     return ordered.length > 0 ? ordered[0].rank : [undefined, undefined];
 };
 //# sourceMappingURL=index.js.map
