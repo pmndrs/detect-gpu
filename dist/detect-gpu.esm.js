@@ -1075,7 +1075,7 @@ var DetectUA = /** @class */ (function () {
                     // Nexus mobile
                     /nexus\s*[0-6]\s*/i.test(this.userAgent)));
         },
-        enumerable: false,
+        enumerable: true,
         configurable: true
     });
     Object.defineProperty(DetectUA.prototype, "isTablet", {
@@ -1093,7 +1093,7 @@ var DetectUA = /** @class */ (function () {
                 // Nexus tablet
                 (!/nexus\s*[0-6]\s*/i.test(this.userAgent) && /nexus\s*[0-9]+/i.test(this.userAgent)));
         },
-        enumerable: false,
+        enumerable: true,
         configurable: true
     });
     Object.defineProperty(DetectUA.prototype, "isDesktop", {
@@ -1103,7 +1103,7 @@ var DetectUA = /** @class */ (function () {
         get: function () {
             return !this.isMobile && !this.isTablet;
         },
-        enumerable: false,
+        enumerable: true,
         configurable: true
     });
     Object.defineProperty(DetectUA.prototype, "isMacOS", {
@@ -1130,7 +1130,7 @@ var DetectUA = /** @class */ (function () {
                     .map(function (versionNumber) { return versionNumber; })[1],
             });
         },
-        enumerable: false,
+        enumerable: true,
         configurable: true
     });
     Object.defineProperty(DetectUA.prototype, "isWindows", {
@@ -1153,7 +1153,7 @@ var DetectUA = /** @class */ (function () {
                 version: this.match(1, /Windows ((NT|XP)( \d\d?.\d)?)/i),
             });
         },
-        enumerable: false,
+        enumerable: true,
         configurable: true
     });
     Object.defineProperty(DetectUA.prototype, "isiOS", {
@@ -1166,7 +1166,7 @@ var DetectUA = /** @class */ (function () {
                     this.match(1, /version\/(\d+(\.\d+)?)/i),
             });
         },
-        enumerable: false,
+        enumerable: true,
         configurable: true
     });
     Object.defineProperty(DetectUA.prototype, "isAndroid", {
@@ -1178,7 +1178,7 @@ var DetectUA = /** @class */ (function () {
                 version: this.match(1, /android[ \/-](\d+(\.\d+)*)/i),
             });
         },
-        enumerable: false,
+        enumerable: true,
         configurable: true
     });
     Object.defineProperty(DetectUA.prototype, "browser", {
@@ -1272,7 +1272,7 @@ var DetectUA = /** @class */ (function () {
                 };
             }
         },
-        enumerable: false,
+        enumerable: true,
         configurable: true
     });
     return DetectUA;
@@ -1314,6 +1314,43 @@ const isWebGLSupported = (browser, failIfMajorPerformanceCaveat = true) => {
     }
     return gl;
 };
+
+/**
+ * @author keesey
+ * https://gist.github.com/keesey/e09d0af833476385b9ee13b6d26a2b84
+ */
+function getLevenshteinDistance(a, b) {
+    const an = a ? a.length : 0;
+    const bn = b ? b.length : 0;
+    if (an === 0)
+        return bn;
+    if (bn === 0)
+        return an;
+    const matrix = new Array(bn + 1);
+    for (let i = 0; i <= bn; ++i) {
+        let row = (matrix[i] = new Array(an + 1));
+        row[0] = i;
+    }
+    const firstRow = matrix[0];
+    for (let j = 1; j <= an; ++j) {
+        firstRow[j] = j;
+    }
+    for (let i = 1; i <= bn; ++i) {
+        for (let j = 1; j <= an; ++j) {
+            if (b.charAt(i - 1) === a.charAt(j - 1)) {
+                matrix[i][j] = matrix[i - 1][j - 1];
+            }
+            else {
+                matrix[i][j] =
+                    Math.min(matrix[i - 1][j - 1], // substitution
+                    matrix[i][j - 1], // insertion
+                    matrix[i - 1][j] // deletion
+                    ) + 1;
+            }
+        }
+    }
+    return matrix[bn][an];
+}
 
 // Generated data
 const getGPUTier = ({ mobileBenchmarkPercentages = [
@@ -1365,6 +1402,7 @@ const getMobileRank = (benchmark, renderer, rendererVersionNumber) => {
         'nvidia',
         'powervr',
     ].find((rendererType) => renderer.includes(rendererType));
+    const ranks = [];
     if (type) {
         for (let index = 0; index < benchmark.length; index++) {
             const benchmarkTier = benchmark[index];
@@ -1374,16 +1412,20 @@ const getMobileRank = (benchmark, renderer, rendererVersionNumber) => {
                 if (entry.includes(type) &&
                     (entry !== 'mali' || !entry.includes('mali-t')) &&
                     getEntryVersionNumber(entry).includes(rendererVersionNumber)) {
-                    return [index, `BENCHMARK - ${entry}`];
+                    ranks.push({
+                        rank: [index, `BENCHMARK - ${entry}`],
+                        distance: getLevenshteinDistance(renderer, entry),
+                    });
                 }
             }
         }
     }
-    // Handle mobile edge cases
-    return [undefined, undefined];
+    const ordered = ranks.sort((r1, r2) => r1.distance - r2.distance);
+    return ordered.length > 0 ? ordered[0].rank : [undefined, undefined];
 };
 const getDesktopRank = (benchmark, renderer, rendererVersionNumber) => {
     const type = ['intel', 'amd', 'nvidia'].find((rendererType) => renderer.includes(rendererType));
+    const ranks = [];
     if (type) {
         for (let index = 0; index < benchmark.length; index++) {
             const benchmarkTier = benchmark[index];
@@ -1391,13 +1433,16 @@ const getDesktopRank = (benchmark, renderer, rendererVersionNumber) => {
             for (let i = 0; i < benchmarkTier.length; i++) {
                 const entry = cleanEntryString(benchmarkTier[i]);
                 if (entry.includes(type) && getEntryVersionNumber(entry).includes(rendererVersionNumber)) {
-                    return [index, `BENCHMARK - ${entry}`];
+                    ranks.push({
+                        rank: [index, `BENCHMARK - ${entry}`],
+                        distance: getLevenshteinDistance(renderer, entry),
+                    });
                 }
             }
         }
     }
-    // Handle desktop edge cases
-    return [undefined, undefined];
+    const ordered = ranks.sort((r1, r2) => r1.distance - r2.distance);
+    return ordered.length > 0 ? ordered[0].rank : [undefined, undefined];
 };
 
 export { getGPUTier };

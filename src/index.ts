@@ -12,6 +12,7 @@ import { browser, isMobile, isTablet } from './internal/getBrowserType';
 import { getEntryVersionNumber } from './internal/getEntryVersionNumber';
 import { getWebGLUnmaskedRenderer } from './internal/getWebGLUnmaskedRenderer';
 import { isWebGLSupported } from './internal/isWebGLSupported';
+import { getLevenshteinDistance } from './internal/getLevenshteinDistance';
 
 export interface IGetGPUTier {
   glContext?: WebGLRenderingContext | WebGL2RenderingContext;
@@ -20,6 +21,12 @@ export interface IGetGPUTier {
   failIfMajorPerformanceCaveat?: boolean;
   forceRendererString?: string;
   forceMobile?: boolean;
+}
+
+type Rank = [number, string] | [undefined, undefined];
+interface RankWithDistance {
+  rank: Rank;
+  distance: number;
 }
 
 export const getGPUTier = ({
@@ -94,7 +101,7 @@ const getMobileRank = (
   benchmark: string[][],
   renderer: string,
   rendererVersionNumber: string
-): [number, string] | [undefined, undefined] => {
+): Rank => {
   const type = [
     'adreno',
     'apple',
@@ -104,6 +111,7 @@ const getMobileRank = (
     'powervr',
   ].find((rendererType: string): boolean => renderer.includes(rendererType));
 
+  const ranks: RankWithDistance[] = [];
   if (type) {
     for (let index = 0; index < benchmark.length; index++) {
       const benchmarkTier = benchmark[index];
@@ -117,25 +125,29 @@ const getMobileRank = (
           (entry !== 'mali' || !entry.includes('mali-t')) &&
           getEntryVersionNumber(entry).includes(rendererVersionNumber)
         ) {
-          return [index, `BENCHMARK - ${entry}`];
+          ranks.push({
+            rank: [index, `BENCHMARK - ${entry}`],
+            distance: getLevenshteinDistance(renderer, entry),
+          });
         }
       }
     }
   }
 
-  // Handle mobile edge cases
-  return [undefined, undefined];
+  const ordered = ranks.sort((r1, r2) => r1.distance - r2.distance);
+  return ordered.length > 0 ? ordered[0].rank : [undefined, undefined];
 };
 
 const getDesktopRank = (
   benchmark: string[][],
   renderer: string,
   rendererVersionNumber: string
-): [number, string] | [undefined, undefined] => {
+): Rank => {
   const type = ['intel', 'amd', 'nvidia'].find((rendererType: string): boolean =>
     renderer.includes(rendererType)
   );
 
+  const ranks: RankWithDistance[] = [];
   if (type) {
     for (let index = 0; index < benchmark.length; index++) {
       const benchmarkTier = benchmark[index];
@@ -145,12 +157,15 @@ const getDesktopRank = (
         const entry = cleanEntryString(benchmarkTier[i]);
 
         if (entry.includes(type) && getEntryVersionNumber(entry).includes(rendererVersionNumber)) {
-          return [index, `BENCHMARK - ${entry}`];
+          ranks.push({
+            rank: [index, `BENCHMARK - ${entry}`],
+            distance: getLevenshteinDistance(renderer, entry),
+          });
         }
       }
     }
   }
 
-  // Handle desktop edge cases
-  return [undefined, undefined];
+  const ordered = ranks.sort((r1, r2) => r1.distance - r2.distance);
+  return ordered.length > 0 ? ordered[0].rank : [undefined, undefined];
 };
