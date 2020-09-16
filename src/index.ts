@@ -14,20 +14,8 @@ import { getWebGLUnmaskedRenderer } from './internal/getWebGLUnmaskedRenderer';
 import { isWebGLSupported } from './internal/isWebGLSupported';
 import { getLevenshteinDistance } from './internal/getLevenshteinDistance';
 
-export interface IGetGPUTier {
-  glContext?: WebGLRenderingContext | WebGL2RenderingContext;
-  mobileBenchmarkPercentages?: number[];
-  desktopBenchmarkPercentages?: number[];
-  failIfMajorPerformanceCaveat?: boolean;
-  forceRendererString?: string;
-  forceMobile?: boolean;
-}
-
-type Rank = [number, string] | [undefined, undefined];
-interface RankWithDistance {
-  rank: Rank;
-  distance: number;
-}
+// Types
+import { IGetGPUTier, TRank, IRankWithDistance } from './types';
 
 export const getGPUTier = ({
   mobileBenchmarkPercentages = [
@@ -101,7 +89,7 @@ const getMobileRank = (
   benchmark: string[][],
   renderer: string,
   rendererVersionNumber: string
-): Rank => {
+): TRank => {
   const type = [
     'adreno',
     'apple',
@@ -111,7 +99,7 @@ const getMobileRank = (
     'powervr',
   ].find((rendererType: string): boolean => renderer.includes(rendererType));
 
-  const ranks: RankWithDistance[] = [];
+  const ranks: IRankWithDistance[] = [];
   if (type) {
     for (let index = 0; index < benchmark.length; index++) {
       const benchmarkTier = benchmark[index];
@@ -138,21 +126,21 @@ const getMobileRank = (
   return ordered.length > 0 ? ordered[0].rank : [undefined, undefined];
 };
 
-const sortByLevenshteinDistance = (ranks: RankWithDistance[]): RankWithDistance[] =>
+const sortByLevenshteinDistance = (ranks: IRankWithDistance[]): IRankWithDistance[] =>
   ranks.sort(
-    (rank1: RankWithDistance, rank2: RankWithDistance): number => rank1.distance - rank2.distance
+    (rank1: IRankWithDistance, rank2: IRankWithDistance): number => rank1.distance - rank2.distance
   );
 
 const getDesktopRank = (
   benchmark: string[][],
   renderer: string,
   rendererVersionNumber: string
-): Rank => {
+): TRank => {
   const type = ['intel', 'amd', 'nvidia'].find((rendererType: string): boolean =>
     renderer.includes(rendererType)
   );
 
-  const ranks: RankWithDistance[] = [];
+  const ranks: IRankWithDistance[] = [];
   if (type) {
     for (let index = 0; index < benchmark.length; index++) {
       const benchmarkTier = benchmark[index];
