@@ -15,10 +15,10 @@
     <script>
       /*! https://mths.be/includes v1.0.0 by @mathias */
       if (!String.prototype.includes) {
-        (function() {
+        (function () {
           'use strict'; // needed to support `apply`/`call` with `undefined`/`null`
           var toString = {}.toString;
-          var defineProperty = (function() {
+          var defineProperty = (function () {
             // IE 8 only supports `Object.defineProperty` on DOM elements
             try {
               var object = {};
@@ -28,7 +28,7 @@
             return result;
           })();
           var indexOf = ''.indexOf;
-          var includes = function(search) {
+          var includes = function (search) {
             if (this == null) {
               throw TypeError();
             }
