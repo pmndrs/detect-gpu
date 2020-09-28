@@ -1,6 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getLevenshteinDistance = void 0;
+// Compute the difference (distance) between two strings
+// SEE: https://en.wikipedia.org/wiki/Levenshtein_distance
 // CREDIT: https://gist.github.com/keesey/e09d0af833476385b9ee13b6d26a2b84
 exports.getLevenshteinDistance = (a, b) => {
     const an = a ? a.length : 0;
@@ -26,11 +28,7 @@ exports.getLevenshteinDistance = (a, b) => {
                 matrix[i][j] = matrix[i - 1][j - 1];
             }
             else {
-                matrix[i][j] =
-                    Math.min(matrix[i - 1][j - 1], // substitution
-                    matrix[i][j - 1], // insertion
-                    matrix[i - 1][j] // deletion
-                    ) + 1;
+                matrix[i][j] = Math.min(matrix[i - 1][j - 1], matrix[i][j - 1], matrix[i - 1][j]) + 1;
             }
         }
     }

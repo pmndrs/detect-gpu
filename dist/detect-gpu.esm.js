@@ -1026,6 +1026,7 @@ const getBenchmarkByPercentage = (benchmark, percentages) => {
     return benchmarkTiers;
 };
 
+var isSSR = typeof window === 'undefined';
 var DetectUA = /** @class */ (function () {
     /**
      * Detect a users browser, browser version and whether it is a mobile-, tablet- or desktop device
@@ -1035,7 +1036,7 @@ var DetectUA = /** @class */ (function () {
     function DetectUA(forceUserAgent) {
         this.userAgent = forceUserAgent
             ? forceUserAgent
-            : window && window.navigator
+            : !isSSR && window.navigator
                 ? window.navigator.userAgent
                 : '';
         this.isAndroidDevice = !/like android/i.test(this.userAgent) && /android/i.test(this.userAgent);
@@ -1043,7 +1044,8 @@ var DetectUA = /** @class */ (function () {
         // Workaround for ipadOS, force detection as tablet
         // SEE: https://github.com/lancedikson/bowser/issues/329
         // SEE: https://stackoverflow.com/questions/58019463/how-to-detect-device-name-in-safari-on-ios-13-while-it-doesnt-show-the-correct
-        if (navigator.platform === 'MacIntel' &&
+        if (!isSSR &&
+            navigator.platform === 'MacIntel' &&
             navigator.maxTouchPoints > 2 &&
             !window.MSStream) {
             this.iOSDevice = 'ipad';
@@ -1315,6 +1317,8 @@ const isWebGLSupported = (browser, failIfMajorPerformanceCaveat = true) => {
     return gl;
 };
 
+// Compute the difference (distance) between two strings
+// SEE: https://en.wikipedia.org/wiki/Levenshtein_distance
 // CREDIT: https://gist.github.com/keesey/e09d0af833476385b9ee13b6d26a2b84
 const getLevenshteinDistance = (a, b) => {
     const an = a ? a.length : 0;
@@ -1340,11 +1344,7 @@ const getLevenshteinDistance = (a, b) => {
                 matrix[i][j] = matrix[i - 1][j - 1];
             }
             else {
-                matrix[i][j] =
-                    Math.min(matrix[i - 1][j - 1], // substitution
-                    matrix[i][j - 1], // insertion
-                    matrix[i - 1][j] // deletion
-                    ) + 1;
+                matrix[i][j] = Math.min(matrix[i - 1][j - 1], matrix[i][j - 1], matrix[i - 1][j]) + 1;
             }
         }
     }
