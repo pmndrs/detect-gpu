@@ -1317,6 +1317,40 @@ const isWebGLSupported = (browser, failIfMajorPerformanceCaveat = true) => {
     return gl;
 };
 
+// Compute the difference (distance) between two strings
+// SEE: https://en.wikipedia.org/wiki/Levenshtein_distance
+// CREDIT: https://gist.github.com/keesey/e09d0af833476385b9ee13b6d26a2b84
+const getLevenshteinDistance = (a, b) => {
+    const an = a ? a.length : 0;
+    const bn = b ? b.length : 0;
+    if (an === 0) {
+        return bn;
+    }
+    if (bn === 0) {
+        return an;
+    }
+    const matrix = new Array(bn + 1);
+    for (let i = 0; i <= bn; ++i) {
+        const row = (matrix[i] = new Array(an + 1));
+        row[0] = i;
+    }
+    const firstRow = matrix[0];
+    for (let j = 1; j <= an; ++j) {
+        firstRow[j] = j;
+    }
+    for (let i = 1; i <= bn; ++i) {
+        for (let j = 1; j <= an; ++j) {
+            if (b.charAt(i - 1) === a.charAt(j - 1)) {
+                matrix[i][j] = matrix[i - 1][j - 1];
+            }
+            else {
+                matrix[i][j] = Math.min(matrix[i - 1][j - 1], matrix[i][j - 1], matrix[i - 1][j]) + 1;
+            }
+        }
+    }
+    return matrix[bn][an];
+};
+
 // Generated data
 const getGPUTier = ({ mobileBenchmarkPercentages = [
     0,
@@ -1367,6 +1401,7 @@ const getMobileRank = (benchmark, renderer, rendererVersionNumber) => {
         'nvidia',
         'powervr',
     ].find((rendererType) => renderer.includes(rendererType));
+    const ranks = [];
     if (type) {
         for (let index = 0; index < benchmark.length; index++) {
             const benchmarkTier = benchmark[index];
@@ -1376,16 +1411,21 @@ const getMobileRank = (benchmark, renderer, rendererVersionNumber) => {
                 if (entry.includes(type) &&
                     (entry !== 'mali' || !entry.includes('mali-t')) &&
                     getEntryVersionNumber(entry).includes(rendererVersionNumber)) {
-                    return [index, `BENCHMARK - ${entry}`];
+                    ranks.push({
+                        rank: [index, `BENCHMARK - ${entry}`],
+                        distance: getLevenshteinDistance(renderer, entry),
+                    });
                 }
             }
         }
     }
-    // Handle mobile edge cases
-    return [undefined, undefined];
+    const ordered = sortByLevenshteinDistance(ranks);
+    return ordered.length > 0 ? ordered[0].rank : [undefined, undefined];
 };
+const sortByLevenshteinDistance = (ranks) => ranks.sort((rank1, rank2) => rank1.distance - rank2.distance);
 const getDesktopRank = (benchmark, renderer, rendererVersionNumber) => {
     const type = ['intel', 'amd', 'nvidia'].find((rendererType) => renderer.includes(rendererType));
+    const ranks = [];
     if (type) {
         for (let index = 0; index < benchmark.length; index++) {
             const benchmarkTier = benchmark[index];
@@ -1393,13 +1433,16 @@ const getDesktopRank = (benchmark, renderer, rendererVersionNumber) => {
             for (let i = 0; i < benchmarkTier.length; i++) {
                 const entry = cleanEntryString(benchmarkTier[i]);
                 if (entry.includes(type) && getEntryVersionNumber(entry).includes(rendererVersionNumber)) {
-                    return [index, `BENCHMARK - ${entry}`];
+                    ranks.push({
+                        rank: [index, `BENCHMARK - ${entry}`],
+                        distance: getLevenshteinDistance(renderer, entry),
+                    });
                 }
             }
         }
     }
-    // Handle desktop edge cases
-    return [undefined, undefined];
+    const ordered = sortByLevenshteinDistance(ranks);
+    return ordered.length > 0 ? ordered[0].rank : [undefined, undefined];
 };
 
 export { getGPUTier };

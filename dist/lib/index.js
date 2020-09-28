@@ -11,6 +11,7 @@ const getBrowserType_1 = require("./internal/getBrowserType");
 const getEntryVersionNumber_1 = require("./internal/getEntryVersionNumber");
 const getWebGLUnmaskedRenderer_1 = require("./internal/getWebGLUnmaskedRenderer");
 const isWebGLSupported_1 = require("./internal/isWebGLSupported");
+const getLevenshteinDistance_1 = require("./internal/getLevenshteinDistance");
 exports.getGPUTier = ({ mobileBenchmarkPercentages = [
     0,
     50,
@@ -60,6 +61,7 @@ const getMobileRank = (benchmark, renderer, rendererVersionNumber) => {
         'nvidia',
         'powervr',
     ].find((rendererType) => renderer.includes(rendererType));
+    const ranks = [];
     if (type) {
         for (let index = 0; index < benchmark.length; index++) {
             const benchmarkTier = benchmark[index];
@@ -69,16 +71,21 @@ const getMobileRank = (benchmark, renderer, rendererVersionNumber) => {
                 if (entry.includes(type) &&
                     (entry !== 'mali' || !entry.includes('mali-t')) &&
                     getEntryVersionNumber_1.getEntryVersionNumber(entry).includes(rendererVersionNumber)) {
-                    return [index, `BENCHMARK - ${entry}`];
+                    ranks.push({
+                        rank: [index, `BENCHMARK - ${entry}`],
+                        distance: getLevenshteinDistance_1.getLevenshteinDistance(renderer, entry),
+                    });
                 }
             }
         }
     }
-    // Handle mobile edge cases
-    return [undefined, undefined];
+    const ordered = sortByLevenshteinDistance(ranks);
+    return ordered.length > 0 ? ordered[0].rank : [undefined, undefined];
 };
+const sortByLevenshteinDistance = (ranks) => ranks.sort((rank1, rank2) => rank1.distance - rank2.distance);
 const getDesktopRank = (benchmark, renderer, rendererVersionNumber) => {
     const type = ['intel', 'amd', 'nvidia'].find((rendererType) => renderer.includes(rendererType));
+    const ranks = [];
     if (type) {
         for (let index = 0; index < benchmark.length; index++) {
             const benchmarkTier = benchmark[index];
@@ -86,12 +93,15 @@ const getDesktopRank = (benchmark, renderer, rendererVersionNumber) => {
             for (let i = 0; i < benchmarkTier.length; i++) {
                 const entry = cleanEntryString_1.cleanEntryString(benchmarkTier[i]);
                 if (entry.includes(type) && getEntryVersionNumber_1.getEntryVersionNumber(entry).includes(rendererVersionNumber)) {
-                    return [index, `BENCHMARK - ${entry}`];
+                    ranks.push({
+                        rank: [index, `BENCHMARK - ${entry}`],
+                        distance: getLevenshteinDistance_1.getLevenshteinDistance(renderer, entry),
+                    });
                 }
             }
         }
     }
-    // Handle desktop edge cases
-    return [undefined, undefined];
+    const ordered = sortByLevenshteinDistance(ranks);
+    return ordered.length > 0 ? ordered[0].rank : [undefined, undefined];
 };
 //# sourceMappingURL=index.js.map
