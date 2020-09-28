@@ -1,5 +1,2 @@
-import { IResult } from 'detect-ua';
-import { TVoidable } from '../types';
-export declare const isWebGLSupported: ({ browser, }: {
-    browser: boolean | IResult;
-}) => TVoidable<WebGLRenderingContext>;
+import { IBrowserResult } from 'detect-ua';
+export declare const isWebGLSupported: (browser: boolean | IBrowserResult, failIfMajorPerformanceCaveat?: boolean) => WebGLRenderingContext | undefined;

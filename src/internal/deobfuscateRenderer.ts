@@ -17,10 +17,10 @@ import {
 // CREDIT: https://github.com/Samsy/appleGPUDetection/blob/master/index.js
 const deobfuscateAppleGPU = ({
   gl,
-  rendererString,
+  renderer,
 }: {
   gl: WebGLRenderingContext;
-  rendererString: string;
+  renderer: string;
 }): string => {
   const vertexShaderSource = /* glsl */ `
     precision highp float;
@@ -114,26 +114,26 @@ const deobfuscateAppleGPU = ({
     }
   }
 
-  return rendererString;
+  return renderer;
 };
 
-export const deobfuscateRendererString = ({
+export const deobfuscateRenderer = ({
   gl,
-  rendererString,
+  renderer,
 }: {
   gl: WebGLRenderingContext;
-  rendererString: string;
+  renderer: string;
 }): string => {
   // Apple GPU
   // SEE: https://github.com/TimvanScherpenzeel/detect-gpu/issues/7
   // CREDIT: https://medium.com/@Samsy/detecting-apple-a10-iphone-7-to-a11-iphone-8-and-b019b8f0eb87
   // CREDIT: https://github.com/Samsy/appleGPUDetection/blob/master/index.js
-  // if (rendererString === 'apple gpu') {
-    rendererString = deobfuscateAppleGPU({
+  if (renderer === 'apple gpu') {
+    renderer = deobfuscateAppleGPU({
       gl,
-      rendererString,
+      renderer,
     });
-  // }
+  }
 
-  return rendererString;
+  return renderer;
 };

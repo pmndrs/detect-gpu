@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.cleanRendererString = void 0;
 exports.cleanRendererString = (rendererString) => {
     let cleanedRendererString = rendererString.toLowerCase();
     // Strip off ANGLE and Direct3D version

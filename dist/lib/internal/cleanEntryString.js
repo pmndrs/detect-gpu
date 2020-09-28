@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.cleanEntryString = void 0;
 exports.cleanEntryString = (entryString) => entryString
     .toLowerCase() // Lowercase all for easier matching
     .split('- ')[1] // Remove prelude score (`3 - `)

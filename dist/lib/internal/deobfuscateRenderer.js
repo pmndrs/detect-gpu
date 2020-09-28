@@ -1,12 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.deobfuscateRenderer = void 0;
 // Vendor
 const webgl_constants_1 = require("webgl-constants");
 // Apple GPU
 // SEE: https://github.com/TimvanScherpenzeel/detect-gpu/issues/7
 // CREDIT: https://medium.com/@Samsy/detecting-apple-a10-iphone-7-to-a11-iphone-8-and-b019b8f0eb87
 // CREDIT: https://github.com/Samsy/appleGPUDetection/blob/master/index.js
-const deobfuscateAppleGPU = ({ gl, rendererString, }) => {
+const deobfuscateAppleGPU = ({ gl, renderer, }) => {
     const vertexShaderSource = /* glsl */ `
     precision highp float;
 
@@ -65,13 +66,11 @@ const deobfuscateAppleGPU = ({ gl, rendererString, }) => {
         gl.deleteProgram(program);
         gl.deleteBuffer(vertexArray);
         document.body.appendChild(document.createTextNode(result));
-        const resolution = `${Math.min(screen.width, screen.height)}x${Math.max(screen.width, screen.height)}`;
-        document.body.appendChild(document.createTextNode('\n' + resolution));
         switch (result) {
             // Unknown:
             // iPhone 11, 11 Pro, 11 Pro Max (Apple A13 GPU)
-            // iPad Pro (Apple A12X GPU)
             case '801621810':
+                // iPad Pro (Apple A12X GPU)
                 // iPhone XS, XS Max, XR (Apple A12 GPU)
                 // iPhone 8, 8 Plus (Apple A11 GPU)
                 return 'apple a11 gpu';
@@ -82,19 +81,19 @@ const deobfuscateAppleGPU = ({ gl, rendererString, }) => {
                 return 'apple a10 gpu';
         }
     }
-    return rendererString;
+    return renderer;
 };
-exports.deobfuscateRendererString = ({ gl, rendererString, }) => {
+exports.deobfuscateRenderer = ({ gl, renderer, }) => {
     // Apple GPU
     // SEE: https://github.com/TimvanScherpenzeel/detect-gpu/issues/7
     // CREDIT: https://medium.com/@Samsy/detecting-apple-a10-iphone-7-to-a11-iphone-8-and-b019b8f0eb87
     // CREDIT: https://github.com/Samsy/appleGPUDetection/blob/master/index.js
-    // if (rendererString === 'apple gpu') {
-    rendererString = deobfuscateAppleGPU({
-        gl,
-        rendererString,
-    });
-    // }
-    return rendererString;
+    if (renderer === 'apple gpu') {
+        renderer = deobfuscateAppleGPU({
+            gl,
+            renderer,
+        });
+    }
+    return renderer;
 };
-//# sourceMappingURL=deobfuscateRendererString.js.map
+//# sourceMappingURL=deobfuscateRenderer.js.map
