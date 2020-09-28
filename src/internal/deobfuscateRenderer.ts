@@ -95,8 +95,6 @@ const deobfuscateAppleGPU = ({
     gl.deleteProgram(program);
     gl.deleteBuffer(vertexArray);
 
-    document.body.appendChild(document.createTextNode(result));
-
     switch (result) {
       case '801621810':
         // iPhone 11, 11 Pro, 11 Pro Max (Apple A13 GPU)
