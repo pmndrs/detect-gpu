@@ -40,10 +40,7 @@ exports.getGPUTier = ({ mobileBenchmarkPercentages = [
         }
         renderer = getWebGLUnmaskedRenderer_1.getWebGLUnmaskedRenderer(gl);
         renderer = cleanRendererString_1.cleanRendererString(renderer);
-        renderer = deobfuscateRenderer_1.deobfuscateRenderer({
-            gl,
-            renderer,
-        });
+        renderer = deobfuscateRenderer_1.deobfuscateRenderer(gl, renderer, isMobileTier);
     }
     // GPU BLACKLIST
     // https://wiki.mozilla.org/Blocklisting/Blocked_Graphics_Drivers

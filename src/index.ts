@@ -57,13 +57,8 @@ export const getGPUTier = ({
     }
 
     renderer = getWebGLUnmaskedRenderer(gl);
-
     renderer = cleanRendererString(renderer);
-
-    renderer = deobfuscateRenderer({
-      gl,
-      renderer,
-    });
+    renderer = deobfuscateRenderer(gl, renderer, isMobileTier);
   }
 
   // GPU BLACKLIST

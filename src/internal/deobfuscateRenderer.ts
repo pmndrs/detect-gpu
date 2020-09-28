@@ -11,17 +11,21 @@ import {
   GL_VERTEX_SHADER,
 } from 'webgl-constants';
 
-// Apple GPU
+// Apple GPU (iOS 12.2+, Safari 14+)
 // SEE: https://github.com/TimvanScherpenzeel/detect-gpu/issues/7
 // CREDIT: https://medium.com/@Samsy/detecting-apple-a10-iphone-7-to-a11-iphone-8-and-b019b8f0eb87
 // CREDIT: https://github.com/Samsy/appleGPUDetection/blob/master/index.js
-const deobfuscateAppleGPU = ({
-  gl,
-  renderer,
-}: {
-  gl: WebGLRenderingContext;
-  renderer: string;
-}): string => {
+const deobfuscateAppleGPU = (
+  gl: WebGLRenderingContext,
+  renderer: string,
+  isMobileTier: boolean
+): string => {
+  // TODO: add support for deobfuscating Safari 14 GPU
+  if (!isMobileTier) {
+    console.warn('Safari 14+ obfuscates its GPU type and version');
+    return renderer;
+  }
+
   const vertexShaderSource = /* glsl */ `
     precision highp float;
 
@@ -110,25 +114,18 @@ const deobfuscateAppleGPU = ({
     }
   }
 
+  console.warn(`iOS 12.2+ obfuscates its GPU type and version, picking closest match: ${renderer}`);
+
   return renderer;
 };
 
-export const deobfuscateRenderer = ({
-  gl,
-  renderer,
-}: {
-  gl: WebGLRenderingContext;
-  renderer: string;
-}): string => {
-  // Apple GPU
-  // SEE: https://github.com/TimvanScherpenzeel/detect-gpu/issues/7
-  // CREDIT: https://medium.com/@Samsy/detecting-apple-a10-iphone-7-to-a11-iphone-8-and-b019b8f0eb87
-  // CREDIT: https://github.com/Samsy/appleGPUDetection/blob/master/index.js
+export const deobfuscateRenderer = (
+  gl: WebGLRenderingContext,
+  renderer: string,
+  isMobileTier: boolean
+): string => {
   if (renderer === 'apple gpu') {
-    renderer = deobfuscateAppleGPU({
-      gl,
-      renderer,
-    });
+    renderer = deobfuscateAppleGPU(gl, renderer, isMobileTier);
   }
 
   return renderer;

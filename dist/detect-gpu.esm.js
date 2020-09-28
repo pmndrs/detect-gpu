@@ -1076,11 +1076,16 @@ const GL_FRAGMENT_SHADER = 0x8b30;
 const GL_VERTEX_SHADER = 0x8b31;
 
 // Vendor
-// Apple GPU
+// Apple GPU (iOS 12.2+, Safari 14+)
 // SEE: https://github.com/TimvanScherpenzeel/detect-gpu/issues/7
 // CREDIT: https://medium.com/@Samsy/detecting-apple-a10-iphone-7-to-a11-iphone-8-and-b019b8f0eb87
 // CREDIT: https://github.com/Samsy/appleGPUDetection/blob/master/index.js
-const deobfuscateAppleGPU = ({ gl, renderer, }) => {
+const deobfuscateAppleGPU = (gl, renderer, isMobileTier) => {
+    // TODO: add support for deobfuscating Safari 14 GPU
+    if (!isMobileTier) {
+        console.warn('Safari 14+ obfuscates its GPU type and version');
+        return renderer;
+    }
     const vertexShaderSource = /* glsl */ `
     precision highp float;
 
@@ -1152,18 +1157,12 @@ const deobfuscateAppleGPU = ({ gl, renderer, }) => {
                 return 'apple a10 gpu';
         }
     }
+    console.warn(`iOS 12.2+ obfuscates its GPU type and version: ${renderer}`);
     return renderer;
 };
-const deobfuscateRenderer = ({ gl, renderer, }) => {
-    // Apple GPU
-    // SEE: https://github.com/TimvanScherpenzeel/detect-gpu/issues/7
-    // CREDIT: https://medium.com/@Samsy/detecting-apple-a10-iphone-7-to-a11-iphone-8-and-b019b8f0eb87
-    // CREDIT: https://github.com/Samsy/appleGPUDetection/blob/master/index.js
+const deobfuscateRenderer = (gl, renderer, isMobileTier) => {
     if (renderer === 'apple gpu') {
-        renderer = deobfuscateAppleGPU({
-            gl,
-            renderer,
-        });
+        renderer = deobfuscateAppleGPU(gl, renderer, isMobileTier);
     }
     return renderer;
 };
@@ -1532,10 +1531,7 @@ const getGPUTier = ({ mobileBenchmarkPercentages = [
         }
         renderer = getWebGLUnmaskedRenderer(gl);
         renderer = cleanRendererString(renderer);
-        renderer = deobfuscateRenderer({
-            gl,
-            renderer,
-        });
+        renderer = deobfuscateRenderer(gl, renderer, isMobileTier);
     }
     // GPU BLACKLIST
     // https://wiki.mozilla.org/Blocklisting/Blocked_Graphics_Drivers

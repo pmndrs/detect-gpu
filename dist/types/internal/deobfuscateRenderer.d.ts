@@ -1,4 +1,1 @@
-export declare const deobfuscateRenderer: ({ gl, renderer, }: {
-    gl: WebGLRenderingContext;
-    renderer: string;
-}) => string;
+export declare const deobfuscateRenderer: (gl: WebGLRenderingContext, renderer: string, isMobileTier: boolean) => string;
