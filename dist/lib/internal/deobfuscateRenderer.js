@@ -10,7 +10,7 @@ const webgl_constants_1 = require("webgl-constants");
 const deobfuscateAppleGPU = (gl, renderer, isMobileTier) => {
     // TODO: add support for deobfuscating Safari 14 GPU
     if (!isMobileTier) {
-        console.warn('Safari 14+ obfuscates its GPU type and version');
+        console.warn('Safari 14+ obfuscates its GPU type and version, using fallback');
         return renderer;
     }
     const vertexShaderSource = /* glsl */ `
@@ -76,15 +76,17 @@ const deobfuscateAppleGPU = (gl, renderer, isMobileTier) => {
                 // iPad Pro (Apple A12X GPU)
                 // iPhone XS, XS Max, XR (Apple A12 GPU)
                 // iPhone 8, 8 Plus (Apple A11 GPU)
-                return 'apple a13 gpu';
+                renderer = 'apple a13 gpu';
+                break;
             case '8016218135':
                 // iPhone SE, 6S, 6S Plus (Apple A9 GPU)
                 // iPhone 7, 7 Plus (Apple A10 GPU)
                 // iPad Pro (Apple A10X GPU)
-                return 'apple a10 gpu';
+                renderer = 'apple a10 gpu';
+                break;
         }
     }
-    console.warn(`iOS 12.2+ obfuscates its GPU type and version: ${renderer}`);
+    console.warn(`iOS 12.2+ obfuscates its GPU type and version, picking closest match: ${renderer}`);
     return renderer;
 };
 exports.deobfuscateRenderer = (gl, renderer, isMobileTier) => {
