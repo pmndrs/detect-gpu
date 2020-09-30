@@ -16,6 +16,7 @@ import { getLevenshteinDistance } from './internal/getLevenshteinDistance';
 
 // Types
 import { IGetGPUTier, TRank, IRankWithDistance } from './types';
+export { IGetGPUTier };
 
 export const getGPUTier = ({
   mobileBenchmarkPercentages = [
