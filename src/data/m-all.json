@@ -1,0 +1,292 @@
+[
+  [
+    "apple a12x gpu",
+    70,
+    true
+  ],
+  [
+    "apple a13 gpu",
+    63,
+    true
+  ],
+  [
+    "apple a12 gpu",
+    60,
+    true
+  ],
+  [
+    "qualcomm adreno 540",
+    54,
+    true
+  ],
+  [
+    "apple a12z gpu",
+    50,
+    true
+  ],
+  [
+    "arm mali-g76",
+    41,
+    true
+  ],
+  [
+    "qualcomm adreno 640",
+    41,
+    true
+  ],
+  [
+    "apple a11 gpu",
+    35,
+    true
+  ],
+  [
+    "qualcomm adreno 512",
+    31,
+    true
+  ],
+  [
+    "nvidia tegra x1",
+    30,
+    true
+  ],
+  [
+    "arm mali-g77",
+    30,
+    true
+  ],
+  [
+    "apple a10x gpu",
+    30,
+    true
+  ],
+  [
+    "apple a10 gpu",
+    29,
+    true
+  ],
+  [
+    "qualcomm adreno 530",
+    27,
+    true
+  ],
+  [
+    "qualcomm adreno 430",
+    25,
+    true
+  ],
+  [
+    "qualcomm adreno 650",
+    24,
+    true
+  ],
+  [
+    "arm mali-g72",
+    22,
+    true
+  ],
+  [
+    "arm mali-g71",
+    19,
+    true
+  ],
+  [
+    "intel intel hd graphics for atom x5/x7",
+    18,
+    true
+  ],
+  [
+    "apple a9x gpu",
+    18,
+    true
+  ],
+  [
+    "qualcomm adreno 630",
+    18,
+    true
+  ],
+  [
+    "arm mali-t880 mp12",
+    18,
+    true
+  ],
+  [
+    "nvidia tegra k1",
+    15,
+    true
+  ],
+  [
+    "qualcomm adreno 618",
+    15,
+    true
+  ],
+  [
+    "qualcomm adreno 510",
+    14,
+    true
+  ],
+  [
+    "imagination technologies powervr rogue marlowe",
+    13,
+    true
+  ],
+  [
+    "apple a9 gpu",
+    13,
+    true
+  ],
+  [
+    "qualcomm adreno 616",
+    12,
+    true
+  ],
+  [
+    "qualcomm adreno 505",
+    11,
+    true
+  ],
+  [
+    "arm mali-t860 mp2",
+    10,
+    true
+  ],
+  [
+    "arm mali-t760 mp8",
+    10,
+    true
+  ],
+  [
+    "arm mali-t880",
+    9,
+    true
+  ],
+  [
+    "arm mali-t880 mp2",
+    9,
+    true
+  ],
+  [
+    "qualcomm adreno 420",
+    9,
+    true
+  ],
+  [
+    "arm mali-t760",
+    9,
+    true
+  ],
+  [
+    "qualcomm adreno 506",
+    8,
+    true
+  ],
+  [
+    "qualcomm adreno 418",
+    8,
+    true
+  ],
+  [
+    "nvidia tegra",
+    8,
+    true
+  ],
+  [
+    "arm mali-t880 mp4",
+    7,
+    true
+  ],
+  [
+    "qualcomm adreno 615",
+    6,
+    true
+  ],
+  [
+    "arm mali-t760 mp6",
+    6,
+    true
+  ],
+  [
+    "qualcomm adreno 508",
+    6,
+    true
+  ],
+  [
+    "arm mali-t860",
+    6,
+    true
+  ],
+  [
+    "qualcomm adreno 405",
+    6,
+    true
+  ],
+  [
+    "arm mali-t830",
+    6,
+    true
+  ],
+  [
+    "imagination technologies powervr rogue gx6250",
+    5,
+    true
+  ],
+  [
+    "arm mali-t820",
+    3,
+    true
+  ],
+  [
+    "imagination technologies powervr rogue lando",
+    3,
+    true
+  ],
+  [
+    "arm mali-t764",
+    3,
+    true
+  ],
+  [
+    "arm mali-g31",
+    3,
+    true
+  ],
+  [
+    "imagination technologies powervr rogue ge8300",
+    3,
+    true
+  ],
+  [
+    "arm mali-g51",
+    2,
+    true
+  ],
+  [
+    "imagination technologies powervr rogue ge8100",
+    2,
+    true
+  ],
+  [
+    "arm mali-t604 mp4",
+    0,
+    true
+  ],
+  [
+    "intel open source technology center mesa dri intel hd graphics 615",
+    0,
+    true
+  ],
+  [
+    "imagination technologies powervr rogue gx6650",
+    0,
+    true
+  ],
+  [
+    "intel open source technology center mesa dri intel hd graphics 515",
+    0,
+    true
+  ],
+  [
+    "qualcomm adreno 612",
+    0,
+    true
+  ]
+]

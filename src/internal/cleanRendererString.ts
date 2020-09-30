@@ -1,15 +1,13 @@
 export const cleanRendererString = (rendererString: string): string => {
-  let cleanedRendererString = rendererString.toLowerCase();
+  let cleaned = rendererString.toLowerCase();
 
-  // Strip off ANGLE and Direct3D version
-  if (cleanedRendererString.includes('angle (') && cleanedRendererString.includes('direct3d')) {
-    cleanedRendererString = cleanedRendererString.replace('angle (', '').split(' direct3d')[0];
-  }
+  // Strip off ANGLE() - for example:
+  // 'ANGLE (NVIDIA TITAN Xp)' becomes 'NVIDIA TITAN Xp'':
+  cleaned = cleaned.replace(/angle \((.+)\)*$/, '$1');
 
-  // Strip off the GB amount (1060 6gb was being concatenated to 10606 and because of it using the fallback)
-  if (cleanedRendererString.includes('nvidia') && cleanedRendererString.includes('gb')) {
-    cleanedRendererString = cleanedRendererString.split(/\dgb/)[0];
-  }
-
-  return cleanedRendererString;
+  // Strip off [number]gb & strip off direct3d and after - for example:
+  // 'Radeon (TM) RX 470 Series Direct3D11 vs_5_0 ps_5_0' becomes
+  // 'Radeon (TM) RX 470 Series'
+  cleaned = cleaned.replace(/\s+([0-9]+gb|direct3d.+$)/g, '');
+  return cleaned;
 };

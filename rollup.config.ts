@@ -1,13 +1,10 @@
 // Vendor
 import commonjsPlugin from 'rollup-plugin-commonjs';
 import filesizePlugin from 'rollup-plugin-filesize';
+import json from '@rollup/plugin-json';
 import resolvePlugin from 'rollup-plugin-node-resolve';
 import { terser as terserPlugin } from 'rollup-plugin-terser';
 import typescriptPlugin from 'rollup-plugin-typescript2';
-
-// Package
-// @ts-ignore JSON is imported without any issue, TSLint still raises issues
-import pkg from './package.json';
 
 const input = './src/index.ts';
 const name = 'DetectGPU';
@@ -20,8 +17,9 @@ const plugins = ({ isUMD = false, isCJS = false, isES = false }) => [
     typescript: require('typescript'),
     useTsconfigDeclarationDir: true,
   }),
-  !isES && !process.env.ROLLUP_WATCH && terserPlugin(),
-  !isES && !process.env.ROLLUP_WATCH && filesizePlugin(),
+  !isES && terserPlugin(),
+  !isES && filesizePlugin(),
+  json()
 ];
 
 export default [
@@ -29,13 +27,11 @@ export default [
     input,
     output: [
       {
-        exports: 'named',
-        file: pkg.browser,
-        format: 'umd',
-        name,
+        dir: './dist/esm',
+        format: 'esm',
       },
     ],
-    plugins: plugins({ isUMD: true }),
+    plugins: plugins({ isES: true }),
     watch: {
       include: 'src/**',
     },
@@ -44,8 +40,7 @@ export default [
     input,
     output: [
       {
-        exports: 'named',
-        file: pkg.main,
+        dir: './dist/cjs',
         format: 'cjs',
       },
     ],
@@ -58,7 +53,7 @@ export default [
     input,
     output: [
       {
-        file: pkg.module,
+        dir: './dist/es',
         format: 'es',
         name,
       },

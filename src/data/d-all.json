@@ -1,0 +1,5972 @@
+[
+  [
+    "nvidia geforce rtx 2080 ti",
+    498,
+    false
+  ],
+  [
+    "nvidia geforce gtx 1080 ti",
+    468,
+    false
+  ],
+  [
+    "intel hd graphics 530",
+    465,
+    false
+  ],
+  [
+    "nvidia geforce gtx 1080",
+    427,
+    false
+  ],
+  [
+    "x.org radeon rx vega",
+    426,
+    false
+  ],
+  [
+    "intel hd graphics 4600",
+    421,
+    false
+  ],
+  [
+    "intel uhd graphics 620",
+    415,
+    false
+  ],
+  [
+    "nvidia geforce rtx 2080 super",
+    408,
+    false
+  ],
+  [
+    "nvidia device",
+    408,
+    false
+  ],
+  [
+    "nvidia geforce rtx 2080",
+    393,
+    false
+  ],
+  [
+    "nvidia geforce rtx 2070 super",
+    388,
+    false
+  ],
+  [
+    "nvidia geforce gtx 1070 ti",
+    384,
+    false
+  ],
+  [
+    "nvidia quadro rtx 6000",
+    381,
+    false
+  ],
+  [
+    "nvidia geforce rtx 2070",
+    361,
+    false
+  ],
+  [
+    "nvidia geforce rtx 2060 super",
+    359,
+    false
+  ],
+  [
+    "nvidia geforce rtx 2060",
+    349,
+    false
+  ],
+  [
+    "nvidia geforce gtx 980 ti",
+    347,
+    false
+  ],
+  [
+    "nvidia geforce rtx 2080 ti rev. a",
+    344,
+    false
+  ],
+  [
+    "nvidia titan xp",
+    343,
+    false
+  ],
+  [
+    "nvidia geforce gtx 1070",
+    339,
+    false
+  ],
+  [
+    "intel iris graphics 540",
+    339,
+    false
+  ],
+  [
+    "nvidia gv102",
+    337,
+    false
+  ],
+  [
+    "nvidia quadro p5000",
+    316,
+    false
+  ],
+  [
+    "x.org radeon rx 5700 xt",
+    314,
+    false
+  ],
+  [
+    "amd radeon rx 5700 xt",
+    312,
+    false
+  ],
+  [
+    "amd radeon vii",
+    307,
+    false
+  ],
+  [
+    "intel iris pro graphics 6200",
+    304,
+    false
+  ],
+  [
+    "x.org radeon rx 590 series",
+    303,
+    false
+  ],
+  [
+    "intel hd graphics 520",
+    300,
+    false
+  ],
+  [
+    "x.org radeon rx 480 graphics",
+    298,
+    false
+  ],
+  [
+    "nvidia geforce rtx 2070 mobile / max-q refresh",
+    298,
+    false
+  ],
+  [
+    "nvidia geforce gtx titan x",
+    296,
+    false
+  ],
+  [
+    "nvidia geforce gtx 1660 ti",
+    296,
+    false
+  ],
+  [
+    "nvidia geforce rtx 2060 mobile",
+    291,
+    false
+  ],
+  [
+    "nvidia geforce rtx 2070 mobile",
+    289,
+    false
+  ],
+  [
+    "nvidia geforce gtx 1660",
+    287,
+    false
+  ],
+  [
+    "nvidia geforce rtx 2070 super with max-q design",
+    287,
+    false
+  ],
+  [
+    "nvidia geforce rtx 2070 mobile / max-q",
+    287,
+    false
+  ],
+  [
+    "amd radeon rx 5700",
+    285,
+    false
+  ],
+  [
+    "nvidia quadro rtx 4000",
+    285,
+    false
+  ],
+  [
+    "nvidia geforce gtx 1660 super",
+    285,
+    false
+  ],
+  [
+    "nvidia geforce rtx 2070 with max-q design",
+    278,
+    false
+  ],
+  [
+    "x.org radeon rx 470 graphics",
+    277,
+    false
+  ],
+  [
+    "intel hd graphics 4400",
+    276,
+    false
+  ],
+  [
+    "amd radeon rx 5600 xt",
+    276,
+    false
+  ],
+  [
+    "amd radeon pro w5700",
+    275,
+    false
+  ],
+  [
+    "amd radeon rx 5700xt",
+    275,
+    false
+  ],
+  [
+    "nvidia geforce gtx 980",
+    272,
+    false
+  ],
+  [
+    "x.org radeon rx 580 series",
+    268,
+    false
+  ],
+  [
+    "nvidia geforce gtx 1070 mobile",
+    267,
+    false
+  ],
+  [
+    "nvidia geforce gtx 1060 6gb",
+    264,
+    false
+  ],
+  [
+    "nvidia quadro p6000",
+    256,
+    false
+  ],
+  [
+    "nvidia geforce gtx 1070 with max-q design",
+    256,
+    false
+  ],
+  [
+    "amd asus radeon rx 5600 xt",
+    255,
+    false
+  ],
+  [
+    "intel hd graphics 620",
+    255,
+    false
+  ],
+  [
+    "nvidia quadro m6000",
+    253,
+    false
+  ],
+  [
+    "nvidia geforce gtx 1660 ti mobile",
+    253,
+    false
+  ],
+  [
+    "nvidia geforce gtx 1060 3gb",
+    252,
+    false
+  ],
+  [
+    "amd asus radeon rx 5700",
+    249,
+    false
+  ],
+  [
+    "intel corporation xeon e3-1200 v3/4th gen core processor integrated graphics controller",
+    249,
+    false
+  ],
+  [
+    "nvidia gp102 [titan x]",
+    248,
+    false
+  ],
+  [
+    "nvidia geforce gtx 780 ti",
+    244,
+    false
+  ],
+  [
+    "amd inc. radeon rx 480",
+    240,
+    false
+  ],
+  [
+    "nvidia geforce rtx 2080 super with max-q design",
+    240,
+    false
+  ],
+  [
+    "nvidia geforce gtx 780",
+    239,
+    false
+  ],
+  [
+    "nvidia geforce rtx 2080 with max-q design",
+    239,
+    false
+  ],
+  [
+    "nvidia geforce gtx 970",
+    237,
+    false
+  ],
+  [
+    "amd radeon pro w5500",
+    236,
+    false
+  ],
+  [
+    "nvidia geforce gtx 1650 super",
+    235,
+    false
+  ],
+  [
+    "x.org radeon rx 570 series",
+    234,
+    false
+  ],
+  [
+    "intel hd graphics 515",
+    233,
+    false
+  ],
+  [
+    "nvidia geforce gtx 1060 mobile",
+    230,
+    false
+  ],
+  [
+    "nvidia geforce gtx 1060",
+    227,
+    false
+  ],
+  [
+    "amd radeon vega frontier",
+    226,
+    false
+  ],
+  [
+    "amd radeon pro vega ii duo",
+    225,
+    false
+  ],
+  [
+    "amd radeon r9 390",
+    224,
+    false
+  ],
+  [
+    "nvidia gp102 [titan xp]",
+    222,
+    false
+  ],
+  [
+    "nvidia geforce gtx 780 rev. 2",
+    221,
+    false
+  ],
+  [
+    "amd radeon rx 590",
+    220,
+    false
+  ],
+  [
+    "amd radeon r9 fury",
+    219,
+    false
+  ],
+  [
+    "intel uhd graphics 630",
+    216,
+    false
+  ],
+  [
+    "amd radeon r9 290x",
+    213,
+    false
+  ],
+  [
+    "nvidia geforce gtx titan black",
+    213,
+    false
+  ],
+  [
+    "amd radeon rx 580",
+    213,
+    false
+  ],
+  [
+    "amd radeon rx 480",
+    213,
+    false
+  ],
+  [
+    "amd radeon rx 5500 xt",
+    213,
+    false
+  ],
+  [
+    "amd radeon rx vega",
+    213,
+    false
+  ],
+  [
+    "amd asus radeon rx 5500 xt",
+    208,
+    false
+  ],
+  [
+    "nvidia geforce gtx 980m",
+    208,
+    false
+  ],
+  [
+    "nvidia geforce gtx 1660 ti with max-q design",
+    208,
+    false
+  ],
+  [
+    "nvidia quadro m5000",
+    206,
+    false
+  ],
+  [
+    "amd asus r9 390",
+    206,
+    false
+  ],
+  [
+    "amd radeon r9 200",
+    204,
+    false
+  ],
+  [
+    "nvidia geforce gtx titan",
+    204,
+    false
+  ],
+  [
+    "nvidia grid k520",
+    202,
+    false
+  ],
+  [
+    "amd radeon rx 570",
+    202,
+    false
+  ],
+  [
+    "amd radeon rx 470/480/570/570x/580/580x/590",
+    202,
+    false
+  ],
+  [
+    "amd radeont rx 5500m",
+    202,
+    false
+  ],
+  [
+    "amd radeon pro duo",
+    201,
+    false
+  ],
+  [
+    "amd radeon r9 290",
+    200,
+    false
+  ],
+  [
+    "amd radeon rx 470/480",
+    197,
+    false
+  ],
+  [
+    "nvidia geforce gtx 1060 with max-q design",
+    196,
+    false
+  ],
+  [
+    "amd radeon pro wx 7100",
+    194,
+    false
+  ],
+  [
+    "amd radeon r9 fury / nano",
+    192,
+    false
+  ],
+  [
+    "amd radeon pro vega 64x",
+    188,
+    false
+  ],
+  [
+    "nvidia geforce gtx 770",
+    186,
+    false
+  ],
+  [
+    "amd radeon pro wx 9100",
+    186,
+    false
+  ],
+  [
+    "nvidia geforce gtx 1650",
+    185,
+    false
+  ],
+  [
+    "amd firepro w9100",
+    183,
+    false
+  ],
+  [
+    "amd radeon rx 470/480/570/570x/580/580x",
+    182,
+    false
+  ],
+  [
+    "nvidia quadro p4000",
+    182,
+    false
+  ],
+  [
+    "amd device",
+    181,
+    false
+  ],
+  [
+    "amd radeon rx 470",
+    180,
+    false
+  ],
+  [
+    "amd asus radeon rx 570",
+    179,
+    false
+  ],
+  [
+    "amd radeon r9 280x",
+    177,
+    false
+  ],
+  [
+    "x.org radeon rx 5500 xt",
+    175,
+    false
+  ],
+  [
+    "nvidia titan v",
+    175,
+    false
+  ],
+  [
+    "amd radeon rx 580 2048sp",
+    175,
+    false
+  ],
+  [
+    "amd asus radeon rx vega",
+    174,
+    false
+  ],
+  [
+    "amd video controller",
+    174,
+    false
+  ],
+  [
+    "nvidia tu107",
+    172,
+    false
+  ],
+  [
+    "nvidia geforce gtx 680",
+    170,
+    false
+  ],
+  [
+    "nvidia quadro p2000",
+    170,
+    false
+  ],
+  [
+    "nvidia geforce gtx 670",
+    165,
+    false
+  ],
+  [
+    "x.org radeon vii",
+    165,
+    false
+  ],
+  [
+    "nvidia geforce gtx 1050 ti",
+    165,
+    false
+  ],
+  [
+    "nvidia titan rtx",
+    164,
+    false
+  ],
+  [
+    "nvidia quadro k5000",
+    164,
+    false
+  ],
+  [
+    "amd asus radeon rx 5700 xt",
+    164,
+    false
+  ],
+  [
+    "amd radeon rx 470/480/570/580",
+    164,
+    false
+  ],
+  [
+    "amd radeon r9 200 / hd 7900",
+    163,
+    false
+  ],
+  [
+    "amd radeon r9 390x",
+    162,
+    false
+  ],
+  [
+    "intel iris pro graphics 580",
+    162,
+    false
+  ],
+  [
+    "amd radeon hd 7950",
+    161,
+    false
+  ],
+  [
+    "nvidia geforce gtx 1650 with max-q design",
+    160,
+    false
+  ],
+  [
+    "amd radeon rx 5600m",
+    160,
+    false
+  ],
+  [
+    "amd radeon rx vega m gh",
+    159,
+    false
+  ],
+  [
+    "nvidia quadro p3000",
+    158,
+    false
+  ],
+  [
+    "nvidia geforce gtx 1050 ti mobile",
+    158,
+    false
+  ],
+  [
+    "nvidia geforce gtx 1650 ti",
+    157,
+    false
+  ],
+  [
+    "amd radeon r9 280",
+    157,
+    false
+  ],
+  [
+    "amd radeon r9 380",
+    156,
+    false
+  ],
+  [
+    "nvidia geforce gtx 760",
+    154,
+    false
+  ],
+  [
+    "amd radeon hd 7970",
+    153,
+    false
+  ],
+  [
+    "nvidia quadro t1000",
+    153,
+    false
+  ],
+  [
+    "amd asus radeon rx 470",
+    153,
+    false
+  ],
+  [
+    "nvidia quadro t1000 mobile",
+    152,
+    false
+  ],
+  [
+    "amd [amd/ati] fiji [radeon r9 fury / nano series]",
+    152,
+    false
+  ],
+  [
+    "intel uhd graphics 615",
+    152,
+    false
+  ],
+  [
+    "nvidia geforce gtx 960",
+    152,
+    false
+  ],
+  [
+    "amd radeon hd 7970/8970 / r9 280x",
+    149,
+    false
+  ],
+  [
+    "nvidia quadro m6000 24gb",
+    149,
+    false
+  ],
+  [
+    "amd radeon pro w5500m",
+    147,
+    false
+  ],
+  [
+    "nvidia geforce gtx 1080 with max-q design",
+    147,
+    false
+  ],
+  [
+    "nvidia geforce gtx 1650 mobile / max-q",
+    145,
+    false
+  ],
+  [
+    "amd asus radeon r9 280",
+    145,
+    false
+  ],
+  [
+    "x.org radeon vega frontier edition",
+    144,
+    false
+  ],
+  [
+    "amd radeon r9 m295x mac edition / r9 380x",
+    144,
+    false
+  ],
+  [
+    "x.org radeon rx 5700",
+    144,
+    false
+  ],
+  [
+    "nvidia geforce gtx 970m",
+    144,
+    false
+  ],
+  [
+    "nvidia geforce gtx 660 ti",
+    144,
+    false
+  ],
+  [
+    "nvidia geforce gtx 1050",
+    143,
+    false
+  ],
+  [
+    "amd radeon hd 7970x/8970/r9 280x",
+    143,
+    false
+  ],
+  [
+    "nvidia graphics device",
+    142,
+    false
+  ],
+  [
+    "amd radeon r9 270x",
+    141,
+    false
+  ],
+  [
+    "amd radeon rx 5500m",
+    141,
+    false
+  ],
+  [
+    "amd radeon hd 8870",
+    141,
+    false
+  ],
+  [
+    "amd radeon hd 7870 xt",
+    141,
+    false
+  ],
+  [
+    "amd radeon r9 290/390",
+    140,
+    false
+  ],
+  [
+    "nvidia geforce gtx 690",
+    140,
+    false
+  ],
+  [
+    "amd advanced micro devices [amd] nee ati device",
+    139,
+    false
+  ],
+  [
+    "x.org radeon hd 8800 series",
+    138,
+    false
+  ],
+  [
+    "amd radeon pro wx 8200",
+    138,
+    false
+  ],
+  [
+    "amd radeon infoshock rx 460",
+    136,
+    false
+  ],
+  [
+    "nvidia geforce gtx 1050 ti with max-q design",
+    135,
+    false
+  ],
+  [
+    "amd radeon hd 7870 ghz",
+    135,
+    false
+  ],
+  [
+    "intel hd",
+    135,
+    false
+  ],
+  [
+    "amd radeon r9 285",
+    135,
+    false
+  ],
+  [
+    "amd radeon rx580",
+    135,
+    false
+  ],
+  [
+    "nvidia quadro m4000",
+    134,
+    false
+  ],
+  [
+    "nvidia titan x",
+    132,
+    false
+  ],
+  [
+    "amd radeon rx 5300m",
+    131,
+    false
+  ],
+  [
+    "nvidia geforce gtx 880m",
+    130,
+    false
+  ],
+  [
+    "nvidia geforce rtx 2060 max-q",
+    129,
+    false
+  ],
+  [
+    "nvidia geforce gtx 950",
+    129,
+    false
+  ],
+  [
+    "amd radeon r7 370",
+    129,
+    false
+  ],
+  [
+    "amd radeon pro ssg",
+    128,
+    false
+  ],
+  [
+    "x.org radeon hd8800 series",
+    128,
+    false
+  ],
+  [
+    "amd radeon rx480",
+    127,
+    false
+  ],
+  [
+    "nvidia quadro m5000m",
+    127,
+    false
+  ],
+  [
+    "amd radeon rx 550 640sp / rx 560/560x",
+    127,
+    false
+  ],
+  [
+    "amd radeon r9 285/380",
+    122,
+    false
+  ],
+  [
+    "nvidia geforce gtx 660",
+    122,
+    false
+  ],
+  [
+    "amd radeon pro vega 64",
+    122,
+    false
+  ],
+  [
+    "intel iris pro graphics 5200",
+    121,
+    false
+  ],
+  [
+    "amd radeon hd 7950/8950 / r9 280",
+    121,
+    false
+  ],
+  [
+    "amd 15dd",
+    121,
+    false
+  ],
+  [
+    "nvidia geforce rtx 2060 with max-q design",
+    120,
+    false
+  ],
+  [
+    "nvidia geforce gtx 1060 mobile 6gb",
+    120,
+    false
+  ],
+  [
+    "nvidia geforce gtx 780m",
+    120,
+    false
+  ],
+  [
+    "nvidia geforce gtx 1080 mobile",
+    120,
+    false
+  ],
+  [
+    "amd firepro w7100",
+    120,
+    false
+  ],
+  [
+    "amd radeon hd 8970m",
+    119,
+    false
+  ],
+  [
+    "amd radeon hd 7850",
+    117,
+    false
+  ],
+  [
+    "amd mxgpu",
+    117,
+    false
+  ],
+  [
+    "amd radeon r7 200",
+    116,
+    false
+  ],
+  [
+    "amd radeon r9 370",
+    116,
+    false
+  ],
+  [
+    "amd tonga pro gl [firepro w7100]",
+    116,
+    false
+  ],
+  [
+    "amd radeon hd 7990",
+    116,
+    false
+  ],
+  [
+    "amd radeon r9 270",
+    115,
+    false
+  ],
+  [
+    "nvidia geforce gtx 870m",
+    115,
+    false
+  ],
+  [
+    "nvidia quadro k6000",
+    115,
+    false
+  ],
+  [
+    "amd radeon hd 8xxx",
+    114,
+    false
+  ],
+  [
+    "amd radeon rx 560",
+    113,
+    false
+  ],
+  [
+    "amd radeon r7 370 series",
+    113,
+    false
+  ],
+  [
+    "intel hd graphics 615",
+    113,
+    false
+  ],
+  [
+    "amd firepro d300",
+    112,
+    false
+  ],
+  [
+    "amd radeon r7 370 / r9 270x/370",
+    112,
+    false
+  ],
+  [
+    "nvidia geforce rtx 2060 rev. a",
+    112,
+    false
+  ],
+  [
+    "nvidia quadro m2200",
+    112,
+    false
+  ],
+  [
+    "amd firepro w7170m",
+    112,
+    false
+  ],
+  [
+    "amd radeon r9 m390x",
+    110,
+    false
+  ],
+  [
+    "amd radeon r9 270 1024sp",
+    110,
+    false
+  ],
+  [
+    "amd asus radeon rx 560",
+    109,
+    false
+  ],
+  [
+    "amd radeon rx 460",
+    109,
+    false
+  ],
+  [
+    "amd firepro w7000",
+    109,
+    false
+  ],
+  [
+    "nvidia quadro k4200",
+    109,
+    false
+  ],
+  [
+    "amd asus r7 370",
+    107,
+    false
+  ],
+  [
+    "intel iris graphics 6100",
+    107,
+    false
+  ],
+  [
+    "amd asus radeon r9 270x",
+    106,
+    false
+  ],
+  [
+    "amd radeon rx 5700 xt 50th anniversary",
+    106,
+    false
+  ],
+  [
+    "nvidia geforce gtx 965m",
+    105,
+    false
+  ],
+  [
+    "nvidia geforce rtx 2080 mobile",
+    104,
+    false
+  ],
+  [
+    "nvidia geforce gtx 650 ti boost",
+    104,
+    false
+  ],
+  [
+    "nvidia geforce gtx 750 ti",
+    104,
+    false
+  ],
+  [
+    "nvidia gk104gl [grid k520]",
+    104,
+    false
+  ],
+  [
+    "amd radeon hd 7970m",
+    102,
+    false
+  ],
+  [
+    "amd firepro w8100 graphic adapter",
+    100,
+    false
+  ],
+  [
+    "amd radeon rx 460/560d / pro 450/455/460/555/555x/560/560x",
+    100,
+    false
+  ],
+  [
+    "nvidia tesla k20m",
+    100,
+    false
+  ],
+  [
+    "amd asus radeon rx 460",
+    99,
+    false
+  ],
+  [
+    "amd firepro w4300",
+    98,
+    false
+  ],
+  [
+    "amd radeon pro 450",
+    98,
+    false
+  ],
+  [
+    "nvidia geforce gtx 680m",
+    96,
+    false
+  ],
+  [
+    "amd radeon r7 360",
+    96,
+    false
+  ],
+  [
+    "amd radeon r7 260x",
+    96,
+    false
+  ],
+  [
+    "amd r9 xxx",
+    96,
+    false
+  ],
+  [
+    "amd 67ef:cf",
+    96,
+    false
+  ],
+  [
+    "amd asus radeon rx 480",
+    95,
+    false
+  ],
+  [
+    "amd radeon rx vega 56/64",
+    95,
+    false
+  ],
+  [
+    "amd radeon hd 6990",
+    95,
+    false
+  ],
+  [
+    "amd radeon rx vega 64",
+    94,
+    false
+  ],
+  [
+    "amd radeon vega 56",
+    93,
+    false
+  ],
+  [
+    "amd radeon pro wx",
+    93,
+    false
+  ],
+  [
+    "nvidia geforce gtx 960m",
+    92,
+    false
+  ],
+  [
+    "nvidia geforce gtx 570",
+    92,
+    false
+  ],
+  [
+    "amd radeon hd 6970",
+    92,
+    false
+  ],
+  [
+    "amd radeon r9 380x / r9 m295x",
+    92,
+    false
+  ],
+  [
+    "amd radeon rx 550",
+    92,
+    false
+  ],
+  [
+    "amd radeon pro wx 4100",
+    91,
+    false
+  ],
+  [
+    "amd radeon hd 7790/8770 / r7 360 / r9 260/360",
+    90,
+    false
+  ],
+  [
+    "amd radeon hd 6950",
+    90,
+    false
+  ],
+  [
+    "nvidia quadro p1000",
+    89,
+    false
+  ],
+  [
+    "amd radeon hd 7790",
+    89,
+    false
+  ],
+  [
+    "nvidia geforce gtx 860m",
+    89,
+    false
+  ],
+  [
+    "amd radeon rx 460/560d / pro 450/455/460/560",
+    87,
+    false
+  ],
+  [
+    "amd radeon rx 5600 oem/5600 xt / 5700/5700 xt",
+    86,
+    false
+  ],
+  [
+    "nvidia geforce gtx 580",
+    86,
+    false
+  ],
+  [
+    "x.org radeon rx graphics",
+    86,
+    false
+  ],
+  [
+    "nvidia geforce gtx 750",
+    86,
+    false
+  ],
+  [
+    "amd radeon 550",
+    86,
+    false
+  ],
+  [
+    "amd radeon r7 370 / r9 270x/370x",
+    86,
+    false
+  ],
+  [
+    "nvidia tesla v100-sxm2-32gb",
+    85,
+    false
+  ],
+  [
+    "nvidia tesla p100-sxm2-16gb",
+    85,
+    false
+  ],
+  [
+    "amd radeon r9 m370x",
+    85,
+    false
+  ],
+  [
+    "amd radeon rx550/550",
+    85,
+    false
+  ],
+  [
+    "amd radeon hd 5870",
+    84,
+    false
+  ],
+  [
+    "nvidia geforce gtx 650 ti",
+    84,
+    false
+  ],
+  [
+    "amd radeon r9 360",
+    83,
+    false
+  ],
+  [
+    "nvidia geforce gt 1030",
+    82,
+    false
+  ],
+  [
+    "amd radeon r7 260x/360",
+    81,
+    false
+  ],
+  [
+    "nvidia quadro m1200",
+    81,
+    false
+  ],
+  [
+    "amd radeon r7 370 / r9 270/370",
+    81,
+    false
+  ],
+  [
+    "amd radeon pro wx 3100",
+    81,
+    false
+  ],
+  [
+    "nvidia geforce gtx 560 ti",
+    80,
+    false
+  ],
+  [
+    "amd radeon hd 8950",
+    80,
+    false
+  ],
+  [
+    "amd radeon rx 560x",
+    80,
+    false
+  ],
+  [
+    "amd firepro m6100",
+    79,
+    false
+  ],
+  [
+    "nvidia geforce mx150",
+    79,
+    false
+  ],
+  [
+    "amd radeon polaris",
+    78,
+    false
+  ],
+  [
+    "nvidia geforce gtx 770m",
+    78,
+    false
+  ],
+  [
+    "amd radeon e8870",
+    78,
+    false
+  ],
+  [
+    "amd firepro m6100 firegl v",
+    78,
+    false
+  ],
+  [
+    "nvidia geforce mx250",
+    78,
+    false
+  ],
+  [
+    "amd radeon pro 5300m",
+    77,
+    false
+  ],
+  [
+    "amd radeont rx 560x",
+    77,
+    false
+  ],
+  [
+    "amd asus r7 360",
+    77,
+    false
+  ],
+  [
+    "amd radeon hd 8330",
+    77,
+    false
+  ],
+  [
+    "nvidia quadro m2000m",
+    76,
+    false
+  ],
+  [
+    "nvidia geforce gtx 850m",
+    76,
+    false
+  ],
+  [
+    "amd radeon hd 8800m",
+    76,
+    false
+  ],
+  [
+    "nvidia geforce gtx 480",
+    76,
+    false
+  ],
+  [
+    "amd asus r9 295x2",
+    75,
+    false
+  ],
+  [
+    "intel iris pro graphics p6300",
+    75,
+    false
+  ],
+  [
+    "x.org radeon rx 580 2048sp",
+    75,
+    false
+  ],
+  [
+    "nvidia quadro m5500",
+    75,
+    false
+  ],
+  [
+    "amd radeon hd 6870",
+    75,
+    false
+  ],
+  [
+    "amd firepro w5100 graphics adapter",
+    74,
+    false
+  ],
+  [
+    "amd radeon r7 250x",
+    74,
+    false
+  ],
+  [
+    "nvidia geforce gtx 950m",
+    74,
+    false
+  ],
+  [
+    "nvidia quadro m1200 mobile",
+    74,
+    false
+  ],
+  [
+    "intel uhd",
+    74,
+    false
+  ],
+  [
+    "amd radeon r9 m380",
+    74,
+    false
+  ],
+  [
+    "amd radeon hd 7850 / r7 265 / r9 270 1024sp",
+    74,
+    false
+  ],
+  [
+    "amd radeon",
+    74,
+    false
+  ],
+  [
+    "amd radeon rx vega 10",
+    74,
+    false
+  ],
+  [
+    "amd radeon hd 7770",
+    73,
+    false
+  ],
+  [
+    "nvidia geforce gt 740",
+    73,
+    false
+  ],
+  [
+    "amd firepro w5000",
+    73,
+    false
+  ],
+  [
+    "amd firepro v7900",
+    73,
+    false
+  ],
+  [
+    "nvidia quadro m1000m",
+    73,
+    false
+  ],
+  [
+    "nvidia gp108",
+    72,
+    false
+  ],
+  [
+    "amd radeon rx560",
+    72,
+    false
+  ],
+  [
+    "amd radeon rx 460/560",
+    72,
+    false
+  ],
+  [
+    "nvidia geforce gtx 560",
+    72,
+    false
+  ],
+  [
+    "amd asus r7 265",
+    71,
+    false
+  ],
+  [
+    "amd 66af:f1",
+    71,
+    false
+  ],
+  [
+    "amd radeon pro 5600m",
+    71,
+    false
+  ],
+  [
+    "nvidia quadro k2200",
+    71,
+    false
+  ],
+  [
+    "intel iris pro graphics p580",
+    71,
+    false
+  ],
+  [
+    "amd radeon r9 m385x",
+    70,
+    false
+  ],
+  [
+    "amd firepro w5100",
+    70,
+    false
+  ],
+  [
+    "amd radeon hd 8670a/8670m/8750m",
+    70,
+    false
+  ],
+  [
+    "amd radeon hd 5850",
+    70,
+    false
+  ],
+  [
+    "amd radeon pro 480/575",
+    69,
+    false
+  ],
+  [
+    "amd radeon rx vega 11",
+    69,
+    false
+  ],
+  [
+    "amd radeon hd 7750",
+    69,
+    false
+  ],
+  [
+    "nvidia quadro p620",
+    69,
+    false
+  ],
+  [
+    "amd radeon r7",
+    69,
+    false
+  ],
+  [
+    "amd radeon hd 6850",
+    69,
+    false
+  ],
+  [
+    "nvidia tesla k80",
+    68,
+    false
+  ],
+  [
+    "amd radeon hd 5800",
+    67,
+    false
+  ],
+  [
+    "amd radeon vega 8",
+    67,
+    false
+  ],
+  [
+    "nvidia geforce gtx 765m",
+    67,
+    false
+  ],
+  [
+    "amd asus r7 250x",
+    66,
+    false
+  ],
+  [
+    "amd radeon hd 7770 ghz",
+    66,
+    false
+  ],
+  [
+    "nvidia geforce gtx 560 ti oem",
+    66,
+    false
+  ],
+  [
+    "nvidia quadro k4000m",
+    65,
+    false
+  ],
+  [
+    "nvidia geforce gtx 960a",
+    65,
+    false
+  ],
+  [
+    "nvidia grid k280q",
+    65,
+    false
+  ],
+  [
+    "nvidia grid t4-2q",
+    65,
+    false
+  ],
+  [
+    "nvidia grid p40-12q",
+    64,
+    false
+  ],
+  [
+    "amd radeon pro 5500m",
+    64,
+    false
+  ],
+  [
+    "amd firepro d500",
+    63,
+    false
+  ],
+  [
+    "nvidia quadro p1000 mobile",
+    63,
+    false
+  ],
+  [
+    "amd radeon vega 11",
+    63,
+    false
+  ],
+  [
+    "x.org radeon 550x series",
+    63,
+    false
+  ],
+  [
+    "amd radeon r5",
+    62,
+    false
+  ],
+  [
+    "nvidia grid m10-2a",
+    62,
+    false
+  ],
+  [
+    "amd radeon pro vega 20",
+    62,
+    false
+  ],
+  [
+    "nvidia tesla p40",
+    62,
+    false
+  ],
+  [
+    "nvidia quadro m620",
+    61,
+    false
+  ],
+  [
+    "nvidia tesla m60",
+    61,
+    false
+  ],
+  [
+    "nvidia grid m60-8q",
+    61,
+    false
+  ],
+  [
+    "nvidia grid k260q",
+    61,
+    false
+  ],
+  [
+    "nvidia geforce gtx 1050 mobile",
+    60,
+    false
+  ],
+  [
+    "nvidia quadro k3100m",
+    60,
+    false
+  ],
+  [
+    "nvidia quadro t2000",
+    60,
+    false
+  ],
+  [
+    "amd radeon rx 560 [baffin]",
+    60,
+    false
+  ],
+  [
+    "nvidia quadro rtx 3000",
+    60,
+    false
+  ],
+  [
+    "nvidia quadro rtx 5000",
+    60,
+    false
+  ],
+  [
+    "x.org radeon r9 200 series",
+    60,
+    false
+  ],
+  [
+    "nvidia quadro rtx 4000 mobile / max-q",
+    60,
+    false
+  ],
+  [
+    "x.org radeon rx 560 series",
+    60,
+    false
+  ],
+  [
+    "x.org radeon rx 5600 xt",
+    60,
+    false
+  ],
+  [
+    "x.org radeon hd 7900 series",
+    60,
+    false
+  ],
+  [
+    "x.org radeon r7 200 series",
+    60,
+    false
+  ],
+  [
+    "nvidia quadro m2000m special",
+    60,
+    false
+  ],
+  [
+    "nvidia geforce gtx 1050 with max-q design",
+    60,
+    false
+  ],
+  [
+    "x.org radeon r9 390 series",
+    60,
+    false
+  ],
+  [
+    "amd kamen rider black rx",
+    60,
+    false
+  ],
+  [
+    "x.org radeon r9 380 series",
+    60,
+    false
+  ],
+  [
+    "x.org radeon r9 fury series",
+    60,
+    false
+  ],
+  [
+    "nvidia pny geforce gtx 680",
+    60,
+    false
+  ],
+  [
+    "amd radeon rx 470/570",
+    60,
+    false
+  ],
+  [
+    "nvidia quadro gv100",
+    60,
+    false
+  ],
+  [
+    "amd radeon hd 7870",
+    60,
+    false
+  ],
+  [
+    "amd radeon r7 360 / r9 360",
+    60,
+    false
+  ],
+  [
+    "nvidia quadro m2000",
+    60,
+    false
+  ],
+  [
+    "amd radeon rx vega 56",
+    60,
+    false
+  ],
+  [
+    "nvidia quadro t2000 with max-q design",
+    60,
+    false
+  ],
+  [
+    "x.org radeon rx 460 graphics",
+    60,
+    false
+  ],
+  [
+    "x.org radeon rx 550 series",
+    60,
+    false
+  ],
+  [
+    "x.org radeon rx550/550 series",
+    60,
+    false
+  ],
+  [
+    "nvidia quadro p3200",
+    60,
+    false
+  ],
+  [
+    "x.org radeon rx 480",
+    60,
+    false
+  ],
+  [
+    "amd radeon pro vega ii",
+    60,
+    false
+  ],
+  [
+    "nvidia quadro k4000",
+    60,
+    false
+  ],
+  [
+    "nvidia quadro m3000m",
+    60,
+    false
+  ],
+  [
+    "nvidia asus geforce gtx 670",
+    60,
+    false
+  ],
+  [
+    "x.org radeon 550 series",
+    60,
+    false
+  ],
+  [
+    "x.org radeon rx series",
+    60,
+    false
+  ],
+  [
+    "nvidia quadro p600",
+    60,
+    false
+  ],
+  [
+    "nvidia asus geforce gtx 770",
+    60,
+    false
+  ],
+  [
+    "x.org radeon hd 7800 series",
+    60,
+    false
+  ],
+  [
+    "amd radeon rx5700xt",
+    60,
+    false
+  ],
+  [
+    "nvidia tesla t4",
+    60,
+    false
+  ],
+  [
+    "nvidia quadro k4100m",
+    60,
+    false
+  ],
+  [
+    "nvidia quadro k5200",
+    60,
+    false
+  ],
+  [
+    "amd rx xxx",
+    60,
+    false
+  ],
+  [
+    "nvidia gtx 1060q",
+    60,
+    false
+  ],
+  [
+    "nvidia geforce gtx 780 mac",
+    60,
+    false
+  ],
+  [
+    "amd baffin amd radeon rx 560",
+    60,
+    false
+  ],
+  [
+    "amd radeon rx rx 560",
+    60,
+    false
+  ],
+  [
+    "amd msi / amd rx 560",
+    60,
+    false
+  ],
+  [
+    "amd msi baffin rx650",
+    60,
+    false
+  ],
+  [
+    "amd radeon pro wx 4130",
+    60,
+    false
+  ],
+  [
+    "amd radeon hd 7xxx",
+    60,
+    false
+  ],
+  [
+    "amd radeon fury x",
+    60,
+    false
+  ],
+  [
+    "nvidia quadro k5100m",
+    60,
+    false
+  ],
+  [
+    "amd msi rx650",
+    60,
+    false
+  ],
+  [
+    "amd radeon vega 64 lc",
+    60,
+    false
+  ],
+  [
+    "amd radeon pro wx9100",
+    60,
+    false
+  ],
+  [
+    "nvidia grid v100dx-16q",
+    60,
+    false
+  ],
+  [
+    "nvidia grid p40-8q",
+    60,
+    false
+  ],
+  [
+    "amd msi / amd rx 560 4g",
+    60,
+    false
+  ],
+  [
+    "amd firepro d700",
+    60,
+    false
+  ],
+  [
+    "amd radeon polaris 10",
+    60,
+    false
+  ],
+  [
+    "x.org radeon hd 7700 series",
+    60,
+    false
+  ],
+  [
+    "nvidia quadro rtx 5000 with max-q design",
+    60,
+    false
+  ],
+  [
+    "nvidia grid t4-8q",
+    60,
+    false
+  ],
+  [
+    "amd rx 5700xt",
+    60,
+    false
+  ],
+  [
+    "nvidia geforce mx350",
+    60,
+    false
+  ],
+  [
+    "nvidia quadro p2200",
+    60,
+    false
+  ],
+  [
+    "nvidia quadro p3200 with max-q design",
+    60,
+    false
+  ],
+  [
+    "nvidia tu117m",
+    60,
+    false
+  ],
+  [
+    "nvidia titan xp collectors",
+    60,
+    false
+  ],
+  [
+    "x.org radeon r7 300 series",
+    60,
+    false
+  ],
+  [
+    "amd radeon rx vega 56 8gb",
+    60,
+    false
+  ],
+  [
+    "amd radeon fury",
+    60,
+    false
+  ],
+  [
+    "amd radeon rx5700",
+    60,
+    false
+  ],
+  [
+    "nvidia pny geforce gtx 970",
+    60,
+    false
+  ],
+  [
+    "nvidia geforce gtx titan xp",
+    60,
+    false
+  ],
+  [
+    "nvidia asus geforce gtx 960",
+    60,
+    false
+  ],
+  [
+    "nvidia geforce gtx 570 rev. 2",
+    60,
+    false
+  ],
+  [
+    "amd radeon r9 290,",
+    60,
+    false
+  ],
+  [
+    "amd powercolor radeon r9 280",
+    60,
+    false
+  ],
+  [
+    "nvidia gv100",
+    60,
+    false
+  ],
+  [
+    "nvidia evga geforce gtx 780",
+    60,
+    false
+  ],
+  [
+    "nvidia geforce rtx 2070 rev. a",
+    60,
+    false
+  ],
+  [
+    "amd radeon pro wx 7100 mobile",
+    60,
+    false
+  ],
+  [
+    "nvidia geforce gtx titan z",
+    60,
+    false
+  ],
+  [
+    "nvidia geforce rtx 3080",
+    60,
+    false
+  ],
+  [
+    "nvidia quadro k2200m",
+    60,
+    false
+  ],
+  [
+    "nvidia geforce gtx 1180",
+    60,
+    false
+  ],
+  [
+    "nvidia gp104",
+    60,
+    false
+  ],
+  [
+    "nvidia tu102 [titan rtx]",
+    60,
+    false
+  ],
+  [
+    "nvidia geforce gtx 670mx",
+    60,
+    false
+  ],
+  [
+    "nvidia gv100 [titan v]",
+    60,
+    false
+  ],
+  [
+    "nvidia geforce rtx 2080 rev. a",
+    60,
+    false
+  ],
+  [
+    "amd radeon r9 370x",
+    60,
+    false
+  ],
+  [
+    "amd ellesmere radeon rx 570",
+    60,
+    false
+  ],
+  [
+    "nvidia quadro rtx 4000 with max-q design",
+    60,
+    false
+  ],
+  [
+    "nvidia geforce gtx 750 v2",
+    60,
+    false
+  ],
+  [
+    "nvidia geforce gtx 1050 3gb",
+    60,
+    false
+  ],
+  [
+    "amd radeon r9 380x",
+    60,
+    false
+  ],
+  [
+    "nvidia tesla v100-sxm2-16gb",
+    60,
+    false
+  ],
+  [
+    "nvidia null graphics device",
+    60,
+    false
+  ],
+  [
+    "nvidia geforce gtx 760 ti",
+    60,
+    false
+  ],
+  [
+    "nvidia geforce gtx 470",
+    60,
+    false
+  ],
+  [
+    "nvidia geforce gtx 560 ti 448 cores",
+    60,
+    false
+  ],
+  [
+    "nvidia geforce gtx 680mx",
+    60,
+    false
+  ],
+  [
+    "amd radeon pro w5700x",
+    60,
+    false
+  ],
+  [
+    "nvidia quadro rtx 5000 mobile / max-q",
+    60,
+    false
+  ],
+  [
+    "amd asus radeon r7 260x",
+    60,
+    false
+  ],
+  [
+    "intel iris graphics 5100",
+    60,
+    false
+  ],
+  [
+    "amd radeon e8870mxm",
+    60,
+    false
+  ],
+  [
+    "nvidia geforce 840m",
+    60,
+    false
+  ],
+  [
+    "amd radeon hd 6900",
+    60,
+    false
+  ],
+  [
+    "nvidia quadro k5000m",
+    60,
+    false
+  ],
+  [
+    "amd radeon hd 7900",
+    60,
+    false
+  ],
+  [
+    "amd asus r9 380",
+    60,
+    false
+  ],
+  [
+    "nvidia geforce gtx 660 oem",
+    60,
+    false
+  ],
+  [
+    "nvidia quadro rtx 8000",
+    60,
+    false
+  ],
+  [
+    "nvidia asus geforce gtx 760",
+    60,
+    false
+  ],
+  [
+    "amd firepro w8000",
+    60,
+    false
+  ],
+  [
+    "amd radeon rx 580x",
+    60,
+    false
+  ],
+  [
+    "nvidia tesla p100 pcie 16gb",
+    60,
+    false
+  ],
+  [
+    "amd radeon hd 7800",
+    60,
+    false
+  ],
+  [
+    "amd firepro w8100",
+    60,
+    false
+  ],
+  [
+    "amd 6980:00",
+    60,
+    false
+  ],
+  [
+    "nvidia quadro p5200",
+    60,
+    false
+  ],
+  [
+    "nvidia tesla p4",
+    60,
+    false
+  ],
+  [
+    "nvidia quadro k1200",
+    60,
+    false
+  ],
+  [
+    "amd radeon rx 475m",
+    60,
+    false
+  ],
+  [
+    "nvidia unknown",
+    60,
+    false
+  ],
+  [
+    "intel hd graphics p4600/p4700",
+    60,
+    false
+  ],
+  [
+    "nvidia geforce gtx 675mx",
+    60,
+    false
+  ],
+  [
+    "amd asus radeon rx 550",
+    60,
+    false
+  ],
+  [
+    "nvidia geforce gtx 770 mac",
+    60,
+    false
+  ],
+  [
+    "nvidia geforce gtx780m by nikey22",
+    60,
+    false
+  ],
+  [
+    "nvidia geforce 930m",
+    59,
+    false
+  ],
+  [
+    "intel iris plus",
+    59,
+    false
+  ],
+  [
+    "nvidia geforce gtx 780m by nick[d]vb",
+    59,
+    false
+  ],
+  [
+    "nvidia geforce 930mx",
+    59,
+    false
+  ],
+  [
+    "nvidia grid m60-1q",
+    59,
+    false
+  ],
+  [
+    "nvidia geforce gtx 780m mac",
+    59,
+    false
+  ],
+  [
+    "amd radeon hd 5970",
+    59,
+    false
+  ],
+  [
+    "nvidia quadro rtx 3000 mobile / max-q",
+    59,
+    false
+  ],
+  [
+    "intel skl unknown",
+    59,
+    false
+  ],
+  [
+    "nvidia tesla v100-pcie-32gb",
+    59,
+    false
+  ],
+  [
+    "intel hd graphics 5000",
+    59,
+    false
+  ],
+  [
+    "nvidia geforce gt 640m",
+    59,
+    false
+  ],
+  [
+    "nvidia geforce gtx 775m mac",
+    58,
+    false
+  ],
+  [
+    "nvidia geforce gtx 760m",
+    58,
+    false
+  ],
+  [
+    "nvidia tesla k10.g1.8gb",
+    58,
+    false
+  ],
+  [
+    "amd radeon hd 6700 green",
+    58,
+    false
+  ],
+  [
+    "amd radeon hd 6900m",
+    58,
+    false
+  ],
+  [
+    "nvidia quadro p4200",
+    58,
+    false
+  ],
+  [
+    "nvidia geforce gtx 590",
+    58,
+    false
+  ],
+  [
+    "amd firepro v7800 graphics adapter",
+    58,
+    false
+  ],
+  [
+    "x.org radeon hd 8790m",
+    58,
+    false
+  ],
+  [
+    "nvidia geforce mx110",
+    58,
+    false
+  ],
+  [
+    "amd firepro v5800",
+    58,
+    false
+  ],
+  [
+    "amd baffin [polaris11]",
+    58,
+    false
+  ],
+  [
+    "amd radeon rx 550 640sp / rx 560",
+    58,
+    false
+  ],
+  [
+    "nvidia zotac geforce gtx 650",
+    58,
+    false
+  ],
+  [
+    "nvidia tesla c2050 / c2070",
+    58,
+    false
+  ],
+  [
+    "nvidia geforce gt 740m",
+    57,
+    false
+  ],
+  [
+    "amd radeon hd 6750",
+    57,
+    false
+  ],
+  [
+    "amd radeon rx 470/480/580",
+    57,
+    false
+  ],
+  [
+    "nvidia gtx 1060 hl",
+    56,
+    false
+  ],
+  [
+    "nvidia geforce gtx 465",
+    56,
+    false
+  ],
+  [
+    "amd radeon r7 350",
+    56,
+    false
+  ],
+  [
+    "amd radeon r7 250e",
+    56,
+    false
+  ],
+  [
+    "nvidia quadro k5100m by nikey22",
+    56,
+    false
+  ],
+  [
+    "amd radeon r7 series / hd 9000",
+    56,
+    false
+  ],
+  [
+    "nvidia quadro k600",
+    55,
+    false
+  ],
+  [
+    "nvidia tesla m10",
+    55,
+    false
+  ],
+  [
+    "nvidia grid k2",
+    55,
+    false
+  ],
+  [
+    "nvidia geforce gtx 675mx mac",
+    55,
+    false
+  ],
+  [
+    "amd 67e8:00",
+    55,
+    false
+  ],
+  [
+    "nvidia geforce gtx 460",
+    55,
+    false
+  ],
+  [
+    "amd radeon vega series / radeon vega mobile",
+    55,
+    false
+  ],
+  [
+    "nvidia quadro k620",
+    55,
+    false
+  ],
+  [
+    "nvidia evga geforce gt 640",
+    55,
+    false
+  ],
+  [
+    "nvidia quadro k2000",
+    55,
+    false
+  ],
+  [
+    "amd firepro w5170m",
+    55,
+    false
+  ],
+  [
+    "nvidia geforce gtx 770m by nick[d]vb",
+    54,
+    false
+  ],
+  [
+    "amd radeon pro 5700 xt",
+    54,
+    false
+  ],
+  [
+    "amd radeon 630",
+    54,
+    false
+  ],
+  [
+    "nvidia grid p40-4q",
+    54,
+    false
+  ],
+  [
+    "amd radeon hd 6790",
+    54,
+    false
+  ],
+  [
+    "amd radeon r7 graphics + hd 7700 dual",
+    53,
+    false
+  ],
+  [
+    "x.org radeong 0.4 on amd polaris10",
+    53,
+    false
+  ],
+  [
+    "intel radeong 0.4 on amd polaris10",
+    53,
+    false
+  ],
+  [
+    "amd radeon r9 260",
+    53,
+    false
+  ],
+  [
+    "intel iris plus graphics 650",
+    53,
+    false
+  ],
+  [
+    "amd radeon hd 5770",
+    53,
+    false
+  ],
+  [
+    "nvidia geforce mx230",
+    53,
+    false
+  ],
+  [
+    "amd 67ff:c8",
+    53,
+    false
+  ],
+  [
+    "amd radeon hd 7000",
+    53,
+    false
+  ],
+  [
+    "nvidia gk104 board - 2051b502",
+    53,
+    false
+  ],
+  [
+    "nvidia grid m60-4q",
+    53,
+    false
+  ],
+  [
+    "intel iris plus graphics 655",
+    52,
+    false
+  ],
+  [
+    "amd radeon r7 250",
+    52,
+    false
+  ],
+  [
+    "nvidia hp quadro k4000",
+    52,
+    false
+  ],
+  [
+    "intel corporation iris plus graphics 655",
+    52,
+    false
+  ],
+  [
+    "amd firepro m4000",
+    52,
+    false
+  ],
+  [
+    "nvidia geforce gtx 650",
+    52,
+    false
+  ],
+  [
+    "amd radeon r9 255",
+    52,
+    false
+  ],
+  [
+    "nvidia geforce gtx 645",
+    51,
+    false
+  ],
+  [
+    "amd radeon rx 640",
+    51,
+    false
+  ],
+  [
+    "nvidia geforce gtx 570m",
+    51,
+    false
+  ],
+  [
+    "amd radeon pro vega 56",
+    51,
+    false
+  ],
+  [
+    "amd asus r9 290x",
+    51,
+    false
+  ],
+  [
+    "nvidia geforce 940mx",
+    51,
+    false
+  ],
+  [
+    "nvidia geforce gt 755m",
+    51,
+    false
+  ],
+  [
+    "nvidia geforce gt 640m mac",
+    50,
+    false
+  ],
+  [
+    "intel corporation iris pro graphics 580",
+    50,
+    false
+  ],
+  [
+    "nvidia geforce 920mx",
+    50,
+    false
+  ],
+  [
+    "amd firepro m5100",
+    50,
+    false
+  ],
+  [
+    "nvidia tesla p100-pcie-16gb",
+    50,
+    false
+  ],
+  [
+    "nvidia geforce 920m",
+    50,
+    false
+  ],
+  [
+    "nvidia geforce gt 750m",
+    50,
+    false
+  ],
+  [
+    "amd radeon 500",
+    50,
+    false
+  ],
+  [
+    "amd radeon hd 8750m",
+    50,
+    false
+  ],
+  [
+    "amd radeon pro v340",
+    49,
+    false
+  ],
+  [
+    "amd radeon r6",
+    49,
+    false
+  ],
+  [
+    "amd radeon hd 8870m",
+    49,
+    false
+  ],
+  [
+    "nvidia msi geforce gtx 650",
+    49,
+    false
+  ],
+  [
+    "nvidia geforce gt 645m",
+    49,
+    false
+  ],
+  [
+    "nvidia geforce mx130",
+    49,
+    false
+  ],
+  [
+    "amd firepro m5100 firegl v",
+    49,
+    false
+  ],
+  [
+    "nvidia geforce 830m",
+    48,
+    false
+  ],
+  [
+    "amd radeon vega 10",
+    48,
+    false
+  ],
+  [
+    "intel corporation 8th gen core processor gaussian mixture model",
+    48,
+    false
+  ],
+  [
+    "x.org radeon pro wx3100",
+    48,
+    false
+  ],
+  [
+    "amd radeon hd 8550g + hd 8750m dual",
+    48,
+    false
+  ],
+  [
+    "amd firepro v7900 graphics adapter",
+    48,
+    false
+  ],
+  [
+    "nvidia quadro rtx 3000 with max-q design",
+    48,
+    false
+  ],
+  [
+    "amd 67ef:c0",
+    48,
+    false
+  ],
+  [
+    "amd radeon r9 m275x",
+    48,
+    false
+  ],
+  [
+    "amd radeon r7 450",
+    48,
+    false
+  ],
+  [
+    "amd 67df:c0",
+    48,
+    false
+  ],
+  [
+    "x.org radeon 500 series",
+    48,
+    false
+  ],
+  [
+    "amd radeon hd 7700",
+    48,
+    false
+  ],
+  [
+    "nvidia grid k240q",
+    47,
+    false
+  ],
+  [
+    "nvidia colorful geforce gtx 650",
+    47,
+    false
+  ],
+  [
+    "amd radeon hd 8830m",
+    47,
+    false
+  ],
+  [
+    "amd radeon pro 5700",
+    47,
+    false
+  ],
+  [
+    "nvidia grid m10-0b",
+    47,
+    false
+  ],
+  [
+    "nvidia grid t4-2b4",
+    46,
+    false
+  ],
+  [
+    "nvidia geforce gt 650m",
+    46,
+    false
+  ],
+  [
+    "nvidia geforce gtx 675m",
+    46,
+    false
+  ],
+  [
+    "nvidia quadro m600m",
+    46,
+    false
+  ],
+  [
+    "nvidia grid m60-1b",
+    46,
+    false
+  ],
+  [
+    "amd radeon r9 m200x",
+    46,
+    false
+  ],
+  [
+    "intel iris pro",
+    46,
+    false
+  ],
+  [
+    "amd mobility radeon hd 5870",
+    46,
+    false
+  ],
+  [
+    "amd radeon pro vega 16",
+    46,
+    false
+  ],
+  [
+    "nvidia geforce gtx 560 se",
+    46,
+    false
+  ],
+  [
+    "nvidia geforce gt 640",
+    46,
+    false
+  ],
+  [
+    "amd radeon hd 7750/8740 / r7 250e",
+    45,
+    false
+  ],
+  [
+    "amd radeon hd 7730m",
+    45,
+    false
+  ],
+  [
+    "nvidia geforce gtx 745",
+    45,
+    false
+  ],
+  [
+    "nvidia quadro k2100m",
+    45,
+    false
+  ],
+  [
+    "intel iris plus graphics 640",
+    45,
+    false
+  ],
+  [
+    "nvidia geforce gtx 660m",
+    45,
+    false
+  ],
+  [
+    "amd radeon hd 6770",
+    45,
+    false
+  ],
+  [
+    "amd bonaire",
+    45,
+    false
+  ],
+  [
+    "intel iris graphics 550",
+    45,
+    false
+  ],
+  [
+    "amd asus hd7970",
+    45,
+    false
+  ],
+  [
+    "amd radeon pro wx3200",
+    45,
+    false
+  ],
+  [
+    "amd radeon r8 m445dx",
+    45,
+    false
+  ],
+  [
+    "amd radeon rx 550x",
+    44,
+    false
+  ],
+  [
+    "amd radeon 540x",
+    44,
+    false
+  ],
+  [
+    "amd radeon hd 6700",
+    44,
+    false
+  ],
+  [
+    "amd radeon r8 m365dx",
+    44,
+    false
+  ],
+  [
+    "amd radeon pro vega 48",
+    44,
+    false
+  ],
+  [
+    "amd radeon hd 8600/8700m",
+    44,
+    false
+  ],
+  [
+    "amd radeon hd 8570",
+    44,
+    false
+  ],
+  [
+    "nvidia quadro 5000",
+    43,
+    false
+  ],
+  [
+    "nvidia grid m60-2q",
+    43,
+    false
+  ],
+  [
+    "nvidia geforce mx450",
+    43,
+    false
+  ],
+  [
+    "nvidia quadro p3200 mobile",
+    43,
+    false
+  ],
+  [
+    "amd radeon r9 m375",
+    43,
+    false
+  ],
+  [
+    "nvidia geforce gtx 550 ti",
+    43,
+    false
+  ],
+  [
+    "amd radeon 535dx",
+    43,
+    false
+  ],
+  [
+    "amd radeon rx vega 64 8gb",
+    43,
+    false
+  ],
+  [
+    "nvidia quadro k3000m",
+    43,
+    false
+  ],
+  [
+    "amd radeon vega 8 mobile",
+    43,
+    false
+  ],
+  [
+    "amd radeon 550x",
+    42,
+    false
+  ],
+  [
+    "amd radeon e9550",
+    42,
+    false
+  ],
+  [
+    "nvidia geforce 945m",
+    42,
+    false
+  ],
+  [
+    "nvidia geforce gtx 1650 ti with max-q design",
+    42,
+    false
+  ],
+  [
+    "amd radeon hd 7670m",
+    42,
+    false
+  ],
+  [
+    "amd asus r7 250",
+    42,
+    false
+  ],
+  [
+    "nvidia geforce gt 730",
+    42,
+    false
+  ],
+  [
+    "nvidia quadro k2000d",
+    42,
+    false
+  ],
+  [
+    "amd radeon r7 m260dx",
+    42,
+    false
+  ],
+  [
+    "intel hd graphics 630",
+    41,
+    false
+  ],
+  [
+    "amd radeon vega",
+    41,
+    false
+  ],
+  [
+    "amd firepro w5130m",
+    41,
+    false
+  ],
+  [
+    "nvidia quadro 6000",
+    41,
+    false
+  ],
+  [
+    "intel corporation device",
+    41,
+    false
+  ],
+  [
+    "nvidia geforce gt 750m mac",
+    41,
+    false
+  ],
+  [
+    "amd radeon hd 7770/8760 / r7 250x",
+    41,
+    false
+  ],
+  [
+    "amd radeon rx 5500/5500m / pro 5500m",
+    41,
+    false
+  ],
+  [
+    "nvidia quadro p400",
+    41,
+    false
+  ],
+  [
+    "nvidia geforce gtx 460 v2",
+    41,
+    false
+  ],
+  [
+    "amd firepro s10000",
+    40,
+    false
+  ],
+  [
+    "nvidia geforce gtx 670m",
+    40,
+    false
+  ],
+  [
+    "intel corporation hd graphics 520",
+    40,
+    false
+  ],
+  [
+    "amd radeon pro 560x",
+    40,
+    false
+  ],
+  [
+    "amd asus r7 240",
+    40,
+    false
+  ],
+  [
+    "amd radeon vega 64",
+    40,
+    false
+  ],
+  [
+    "nvidia geforce gt640",
+    40,
+    false
+  ],
+  [
+    "intel mesa dri intel iris graphics 540",
+    40,
+    false
+  ],
+  [
+    "amd radeon rx vega 64.1",
+    40,
+    false
+  ],
+  [
+    "amd radeon hd 6500",
+    40,
+    false
+  ],
+  [
+    "amd radeon hd 7700m",
+    40,
+    false
+  ],
+  [
+    "nvidia quadro p500",
+    40,
+    false
+  ],
+  [
+    "amd radeon vega 6",
+    40,
+    false
+  ],
+  [
+    "amd radeon pro wx 2100",
+    39,
+    false
+  ],
+  [
+    "amd radeon r9 350",
+    39,
+    false
+  ],
+  [
+    "amd radeon pro wx 5100",
+    39,
+    false
+  ],
+  [
+    "nvidia geforce gt 720m",
+    39,
+    false
+  ],
+  [
+    "amd radeon hd 6730m/6770m",
+    39,
+    false
+  ],
+  [
+    "nvidia geforce gt 650m mac",
+    39,
+    false
+  ],
+  [
+    "nvidia grid m10-2q",
+    39,
+    false
+  ],
+  [
+    "amd firepro m4150",
+    39,
+    false
+  ],
+  [
+    "nvidia geforce gtx 1070 with maxq design",
+    39,
+    false
+  ],
+  [
+    "amd firepro w4170m",
+    39,
+    false
+  ],
+  [
+    "amd firepro v4800",
+    39,
+    false
+  ],
+  [
+    "amd radeon vega 10 mobile",
+    39,
+    false
+  ],
+  [
+    "intel hd graphics 6000",
+    38,
+    false
+  ],
+  [
+    "nvidia geforce gtx 580m",
+    38,
+    false
+  ],
+  [
+    "amd radeon r5 m330",
+    38,
+    false
+  ],
+  [
+    "amd radeon hd 7600m",
+    38,
+    false
+  ],
+  [
+    "intel mesa dri intel hd graphics 630",
+    38,
+    false
+  ],
+  [
+    "nvidia geforce 940m",
+    38,
+    false
+  ],
+  [
+    "amd firepro w4100 graphics adapter",
+    38,
+    false
+  ],
+  [
+    "nvidia geforce gtx 1060 5gb",
+    37,
+    false
+  ],
+  [
+    "nvidia quadro t1000 with max-q design",
+    37,
+    false
+  ],
+  [
+    "nvidia quadro m4000m",
+    37,
+    false
+  ],
+  [
+    "amd firepro m4000 mobility pro",
+    37,
+    false
+  ],
+  [
+    "nvidia geforce gtx 765m by nick[d]vb",
+    37,
+    false
+  ],
+  [
+    "intel uhd graphics p630",
+    37,
+    false
+  ],
+  [
+    "nvidia geforce 710m",
+    37,
+    false
+  ],
+  [
+    "amd radeon r5 m335",
+    37,
+    false
+  ],
+  [
+    "amd radeon pro 5500 xt",
+    37,
+    false
+  ],
+  [
+    "amd firepro v5800 graphics adapter",
+    37,
+    false
+  ],
+  [
+    "amd 699f:c1",
+    37,
+    false
+  ],
+  [
+    "nvidia geforce gts 450 rev. 2",
+    37,
+    false
+  ],
+  [
+    "amd radeon hd 5750",
+    36,
+    false
+  ],
+  [
+    "nvidia geforce gts 450",
+    36,
+    false
+  ],
+  [
+    "amd radeon r5 m320",
+    36,
+    false
+  ],
+  [
+    "nvidia geforce gt 745m",
+    36,
+    false
+  ],
+  [
+    "amd radeon hd 8790m",
+    36,
+    false
+  ],
+  [
+    "amd radeon r3",
+    36,
+    false
+  ],
+  [
+    "nvidia geforce gt 630m",
+    36,
+    false
+  ],
+  [
+    "intel broxton-pro hd",
+    36,
+    false
+  ],
+  [
+    "amd rx 590",
+    36,
+    false
+  ],
+  [
+    "amd radeon 530",
+    36,
+    false
+  ],
+  [
+    "nvidia geforce 820m",
+    36,
+    false
+  ],
+  [
+    "amd radeon pro 560",
+    36,
+    false
+  ],
+  [
+    "intel corporation uhd graphics 630",
+    35,
+    false
+  ],
+  [
+    "amd firepro w2100",
+    35,
+    false
+  ],
+  [
+    "intel hd graphics kbl crb",
+    35,
+    false
+  ],
+  [
+    "amd radeon hd 8670a/8670m/8690m",
+    35,
+    false
+  ],
+  [
+    "amd rx 580",
+    35,
+    false
+  ],
+  [
+    "amd mobility radeon hd 5000",
+    35,
+    false
+  ],
+  [
+    "intel hd5500 graphics pg7",
+    35,
+    false
+  ],
+  [
+    "intel hd graphics 5500",
+    35,
+    false
+  ],
+  [
+    "amd radeon r7 m370",
+    35,
+    false
+  ],
+  [
+    "amd radeon hd 5600/5700",
+    35,
+    false
+  ],
+  [
+    "amd gigabyte radeon rx 580",
+    34,
+    false
+  ],
+  [
+    "amd radeon r7 m460",
+    34,
+    false
+  ],
+  [
+    "amd radeon rx",
+    34,
+    false
+  ],
+  [
+    "nvidia geforce 845m",
+    34,
+    false
+  ],
+  [
+    "amd radeon vega 3",
+    34,
+    false
+  ],
+  [
+    "nvidia geforce 840a",
+    34,
+    false
+  ],
+  [
+    "nvidia quadro p2000 mobile",
+    34,
+    false
+  ],
+  [
+    "amd radeon r7 m265",
+    34,
+    false
+  ],
+  [
+    "x.org radeon r7 m370",
+    34,
+    false
+  ],
+  [
+    "amd radeon r6 m435dx",
+    34,
+    false
+  ],
+  [
+    "x.org radeon hd 8500 series",
+    33,
+    false
+  ],
+  [
+    "amd firepro w4100",
+    33,
+    false
+  ],
+  [
+    "nvidia geforce gt 630",
+    33,
+    false
+  ],
+  [
+    "nvidia grid m60-2b",
+    33,
+    false
+  ],
+  [
+    "amd radeon r7 240",
+    33,
+    false
+  ],
+  [
+    "amd radeon r5 340x",
+    33,
+    false
+  ],
+  [
+    "amd radeon pro 460",
+    33,
+    false
+  ],
+  [
+    "amd radeon 535",
+    33,
+    false
+  ],
+  [
+    "amd radeon r5 m445",
+    33,
+    false
+  ],
+  [
+    "amd mobility radeon hd 5850",
+    33,
+    false
+  ],
+  [
+    "nvidia hp geforce gt 730",
+    33,
+    false
+  ],
+  [
+    "nvidia quadro p2000 with max-q design",
+    33,
+    false
+  ],
+  [
+    "nvidia quadro 4000",
+    33,
+    false
+  ],
+  [
+    "amd radeon r4",
+    33,
+    false
+  ],
+  [
+    "amd radeon hd 6670",
+    33,
+    false
+  ],
+  [
+    "amd radeon r5 340",
+    33,
+    false
+  ],
+  [
+    "nvidia quadro k1100m",
+    33,
+    false
+  ],
+  [
+    "amd radeon 6600m and 6700m series",
+    33,
+    false
+  ],
+  [
+    "amd radeon r5 m430",
+    33,
+    false
+  ],
+  [
+    "amd radeon r7 m340",
+    32,
+    false
+  ],
+  [
+    "amd radeon hd 7500/7600",
+    32,
+    false
+  ],
+  [
+    "nvidia geforce gtx 850a",
+    32,
+    false
+  ],
+  [
+    "nvidia geforce gt 635m",
+    32,
+    false
+  ],
+  [
+    "amd radeon pro 580",
+    32,
+    false
+  ],
+  [
+    "amd radeon r5 430",
+    32,
+    false
+  ],
+  [
+    "intel hd graphics 610",
+    32,
+    false
+  ],
+  [
+    "nvidia geforce gt 540m",
+    32,
+    false
+  ],
+  [
+    "amd radeon pro 580x",
+    32,
+    false
+  ],
+  [
+    "nvidia quadro k2000m by nick[d]vb",
+    32,
+    false
+  ],
+  [
+    "nvidia geforce gtx 560m",
+    32,
+    false
+  ],
+  [
+    "amd radeon hd 8730m",
+    32,
+    false
+  ],
+  [
+    "amd radeon hd 6630m/6650m/6750m/7670m/7690m",
+    32,
+    false
+  ],
+  [
+    "nvidia geforce 930a",
+    32,
+    false
+  ],
+  [
+    "amd radeon hd 7620g + hd 8670m dual",
+    32,
+    false
+  ],
+  [
+    "nvidia geforce gt 550m",
+    32,
+    false
+  ],
+  [
+    "amd radeon hd 8670m",
+    32,
+    false
+  ],
+  [
+    "amd radeon pro 5300",
+    32,
+    false
+  ],
+  [
+    "nvidia quadro k2000m",
+    31,
+    false
+  ],
+  [
+    "amd radeon rx570",
+    31,
+    false
+  ],
+  [
+    "amd picasso",
+    31,
+    false
+  ],
+  [
+    "nvidia quadro k620m",
+    31,
+    false
+  ],
+  [
+    "amd radeon r6 m340dx",
+    31,
+    false
+  ],
+  [
+    "nvidia geforce 610m/710m/810m/820m / gt 620m/625m/630m/720m",
+    31,
+    false
+  ],
+  [
+    "nvidia geforce gtx 460 se",
+    31,
+    false
+  ],
+  [
+    "nvidia quadro k420",
+    31,
+    false
+  ],
+  [
+    "x.org radeon r5 340",
+    31,
+    false
+  ],
+  [
+    "amd firepro m4170",
+    31,
+    false
+  ],
+  [
+    "amd firepro s7150",
+    31,
+    false
+  ],
+  [
+    "amd radeon hd 8570m",
+    31,
+    false
+  ],
+  [
+    "nvidia geforce gtx 555",
+    30,
+    false
+  ],
+  [
+    "amd radeon hd 8500m",
+    30,
+    false
+  ],
+  [
+    "nvidia grid m6-0b",
+    30,
+    false
+  ],
+  [
+    "nvidia geforce gt 620m",
+    30,
+    false
+  ],
+  [
+    "amd radeon r7 m440",
+    30,
+    false
+  ],
+  [
+    "nvidia geforce gt 525m",
+    30,
+    false
+  ],
+  [
+    "amd radeon hd 7640g + hd 8570m dual",
+    30,
+    false
+  ],
+  [
+    "intel corporation uhd graphics 620",
+    30,
+    false
+  ],
+  [
+    "amd radeon r5 m315",
+    30,
+    false
+  ],
+  [
+    "x.org radeon r5 m330",
+    30,
+    false
+  ],
+  [
+    "intel kbl unknown",
+    30,
+    false
+  ],
+  [
+    "amd radeon r7 graphics + r7 200 dual",
+    30,
+    false
+  ],
+  [
+    "intel corporation iris graphics 540",
+    30,
+    false
+  ],
+  [
+    "amd radeon 620",
+    30,
+    false
+  ],
+  [
+    "amd radeon hd 7500m/7600m",
+    30,
+    false
+  ],
+  [
+    "amd radeon rx vega11",
+    30,
+    false
+  ],
+  [
+    "nvidia msi geforce gtx 760",
+    30,
+    false
+  ],
+  [
+    "nvidia p106-100",
+    30,
+    false
+  ],
+  [
+    "nvidia quadro gp100",
+    30,
+    false
+  ],
+  [
+    "amd radeon r5 m230",
+    30,
+    false
+  ],
+  [
+    "nvidia geforce gt 640 rev. 2",
+    30,
+    false
+  ],
+  [
+    "nvidia quadro 2000d",
+    30,
+    false
+  ],
+  [
+    "amd 67ff:08",
+    30,
+    false
+  ],
+  [
+    "amd radeon rx vega m gl",
+    30,
+    false
+  ],
+  [
+    "amd firepro m6000 mobility pro",
+    30,
+    false
+  ],
+  [
+    "amd radeon r5 m420",
+    30,
+    false
+  ],
+  [
+    "intel corporation uhd",
+    30,
+    false
+  ],
+  [
+    "amd firepro v graphics adapter",
+    30,
+    false
+  ],
+  [
+    "amd firepro v4900",
+    30,
+    false
+  ],
+  [
+    "nvidia quadro 3000m",
+    29,
+    false
+  ],
+  [
+    "amd radeon pro 450/550",
+    29,
+    false
+  ],
+  [
+    "amd radeon pro 455",
+    29,
+    false
+  ],
+  [
+    "intel corporation hd graphics 620",
+    29,
+    false
+  ],
+  [
+    "amd firepro v5900 graphics adapter",
+    29,
+    false
+  ],
+  [
+    "nvidia geforce gt 720",
+    29,
+    false
+  ],
+  [
+    "amd radeon hd 7570m",
+    29,
+    false
+  ],
+  [
+    "nvidia quadro k2100m by nick[d]vb",
+    29,
+    false
+  ],
+  [
+    "nvidia geforce 830a",
+    29,
+    false
+  ],
+  [
+    "intel corporation hd graphics 630",
+    29,
+    false
+  ],
+  [
+    "nvidia geforce gtx 460m",
+    29,
+    false
+  ],
+  [
+    "nvidia quadro t2000 mobile / max-q",
+    29,
+    false
+  ],
+  [
+    "intel corporation xeon e3-1200 v3 processor integrated graphics controller",
+    29,
+    false
+  ],
+  [
+    "intel corporation hd graphics 530",
+    29,
+    false
+  ],
+  [
+    "amd radeon pro 575",
+    28,
+    false
+  ],
+  [
+    "amd radeon hd 8500m/8700m",
+    28,
+    false
+  ],
+  [
+    "nvidia geforce 810m",
+    28,
+    false
+  ],
+  [
+    "amd radeon pro 575x",
+    28,
+    false
+  ],
+  [
+    "nvidia geforce gt 755m mac",
+    28,
+    false
+  ],
+  [
+    "amd radeon hd 8690m",
+    28,
+    false
+  ],
+  [
+    "nvidia geforce gt 710m",
+    28,
+    false
+  ],
+  [
+    "amd radeon r9 m360",
+    28,
+    false
+  ],
+  [
+    "amd madison [mobility radeon hd 5650/5750 / 6530m/6550m]",
+    28,
+    false
+  ],
+  [
+    "amd radeon r7 m260",
+    28,
+    false
+  ],
+  [
+    "nvidia geforce gt 730m",
+    28,
+    false
+  ],
+  [
+    "nvidia quadro 4000m",
+    28,
+    false
+  ],
+  [
+    "amd firepro w4190m",
+    28,
+    false
+  ],
+  [
+    "nvidia geforce gt 820m",
+    28,
+    false
+  ],
+  [
+    "x.org radeon r7 m265 series",
+    27,
+    false
+  ],
+  [
+    "nvidia geforce gt 635",
+    27,
+    false
+  ],
+  [
+    "intel corporation iris pro graphics 6200",
+    27,
+    false
+  ],
+  [
+    "nvidia geforce gt 625m",
+    27,
+    false
+  ],
+  [
+    "amd radeon hd 7570",
+    27,
+    false
+  ],
+  [
+    "amd radeon r5 m435",
+    27,
+    false
+  ],
+  [
+    "nvidia geforce gt 560m",
+    27,
+    false
+  ],
+  [
+    "amd radeon 520",
+    27,
+    false
+  ],
+  [
+    "nvidia nvs 5400m",
+    27,
+    false
+  ],
+  [
+    "nvidia geforce gt 620m/630m/635m/640m le",
+    27,
+    false
+  ],
+  [
+    "amd radeon r7 m445",
+    27,
+    false
+  ],
+  [
+    "intel hd5500 broadwell pg7",
+    27,
+    false
+  ],
+  [
+    "amd firepro m4100 firegl v",
+    27,
+    false
+  ],
+  [
+    "amd radeon vega 9",
+    27,
+    false
+  ],
+  [
+    "amd radeon rx 540",
+    27,
+    false
+  ],
+  [
+    "amd radeon r7 m350",
+    27,
+    false
+  ],
+  [
+    "amd radeon 540",
+    26,
+    false
+  ],
+  [
+    "amd radeon hd 5670",
+    26,
+    false
+  ],
+  [
+    "amd radeon r7 m260x",
+    26,
+    false
+  ],
+  [
+    "amd radeon hd 8650g + hd 8750m dual",
+    26,
+    false
+  ],
+  [
+    "amd radeon hd 8650g",
+    26,
+    false
+  ],
+  [
+    "amd radeon hd 8650g + hd 7600m dual",
+    26,
+    false
+  ],
+  [
+    "nvidia geforce gt 640m le",
+    26,
+    false
+  ],
+  [
+    "amd radeon pro 555x",
+    26,
+    false
+  ],
+  [
+    "amd radeon instinct mi25",
+    26,
+    false
+  ],
+  [
+    "amd firepro m5950",
+    26,
+    false
+  ],
+  [
+    "amd radeon hd 7560d + hd 6570 dual",
+    26,
+    false
+  ],
+  [
+    "amd radeon hd 7670",
+    26,
+    false
+  ],
+  [
+    "amd firepro v4800 graphics adapter",
+    26,
+    false
+  ],
+  [
+    "intel mesa dri intel kabylake gt2",
+    26,
+    false
+  ],
+  [
+    "amd radeon hd 8670d",
+    26,
+    false
+  ],
+  [
+    "amd radeon hd 6800m",
+    26,
+    false
+  ],
+  [
+    "amd radeon hd 6570",
+    25,
+    false
+  ],
+  [
+    "intel mesa dri intel uhd graphics 620",
+    25,
+    false
+  ],
+  [
+    "amd radeon pro 570x",
+    25,
+    false
+  ],
+  [
+    "amd radeon r7 m270",
+    25,
+    false
+  ],
+  [
+    "intel corporation sky lake integrated",
+    25,
+    false
+  ],
+  [
+    "amd radeon r7 240/340",
+    25,
+    false
+  ],
+  [
+    "intel mesa dri intel hd graphics 5500",
+    25,
+    false
+  ],
+  [
+    "amd radeon pro 570",
+    25,
+    false
+  ],
+  [
+    "nvidia geforce gpu",
+    25,
+    false
+  ],
+  [
+    "intel corporation hd graphics p530",
+    25,
+    false
+  ],
+  [
+    "intel hd graphics 510",
+    25,
+    false
+  ],
+  [
+    "intel corporation, series chipset iris plus graphics 655",
+    25,
+    false
+  ],
+  [
+    "amd radeon hd 8690a",
+    25,
+    false
+  ],
+  [
+    "amd radeon hd 6730m/6770m/7690m xt",
+    25,
+    false
+  ],
+  [
+    "amd radeon hd 7540d",
+    25,
+    false
+  ],
+  [
+    "x.org radeon r7 m360",
+    25,
+    false
+  ],
+  [
+    "x.org radeon r7 m340",
+    25,
+    false
+  ],
+  [
+    "nvidia geforce gt 735m",
+    25,
+    false
+  ],
+  [
+    "amd radeon hd 6620g",
+    25,
+    false
+  ],
+  [
+    "intel mesa dri intel hd graphics 620",
+    24,
+    false
+  ],
+  [
+    "amd radeon r7 m360",
+    24,
+    false
+  ],
+  [
+    "amd firepro v4900 graphics adapter",
+    24,
+    false
+  ],
+  [
+    "nvidia quadro 2000",
+    24,
+    false
+  ],
+  [
+    "intel hd graphics p630",
+    24,
+    false
+  ],
+  [
+    "intel corporation skylake gt2 [hd graphics 520]",
+    24,
+    false
+  ],
+  [
+    "nvidia geforce gt 420m",
+    24,
+    false
+  ],
+  [
+    "amd radeon r5 435",
+    24,
+    false
+  ],
+  [
+    "apple a12z",
+    24,
+    false
+  ],
+  [
+    "nvidia geforce gt 520mx",
+    24,
+    false
+  ],
+  [
+    "intel corporation skylake integrated",
+    24,
+    false
+  ],
+  [
+    "amd radeon hd8730",
+    24,
+    false
+  ],
+  [
+    "nvidia nvs 5200m",
+    24,
+    false
+  ],
+  [
+    "amd radeon hd 7650a",
+    24,
+    false
+  ],
+  [
+    "intel mesa dri intel hd graphics 520",
+    24,
+    false
+  ],
+  [
+    "intel iris graphics 640",
+    23,
+    false
+  ],
+  [
+    "intel mesa dri intel uhd graphics 630",
+    23,
+    false
+  ],
+  [
+    "nvidia geforce gt 545",
+    23,
+    false
+  ],
+  [
+    "amd radeon r5 240",
+    23,
+    false
+  ],
+  [
+    "intel hd graphics 5600",
+    23,
+    false
+  ],
+  [
+    "intel corporation hd graphics 610",
+    23,
+    false
+  ],
+  [
+    "amd radeon 6600m and 6700m",
+    23,
+    false
+  ],
+  [
+    "amd radeon hd 8650g + hd 8600m dual",
+    23,
+    false
+  ],
+  [
+    "nvidia gp104gl",
+    23,
+    false
+  ],
+  [
+    "amd radeon 610",
+    23,
+    false
+  ],
+  [
+    "nvidia geforce 730a",
+    23,
+    false
+  ],
+  [
+    "amd radeon hd 7800m",
+    23,
+    false
+  ],
+  [
+    "amd radeon hd 7600",
+    23,
+    false
+  ],
+  [
+    "nvidia grid v100-2b",
+    23,
+    false
+  ],
+  [
+    "intel coffee lake uhd",
+    23,
+    false
+  ],
+  [
+    "amd radeon hd 7600a",
+    23,
+    false
+  ],
+  [
+    "amd radeon hd 7660g + hd 7600m dual",
+    22,
+    false
+  ],
+  [
+    "amd radeon pro wx 4150",
+    22,
+    false
+  ],
+  [
+    "amd radeon e6760",
+    22,
+    false
+  ],
+  [
+    "amd radeon e9260",
+    22,
+    false
+  ],
+  [
+    "intel iris",
+    22,
+    false
+  ],
+  [
+    "intel uhd graphics 605",
+    22,
+    false
+  ],
+  [
+    "nvidia gk104gl [grid k2]",
+    22,
+    false
+  ],
+  [
+    "amd radeon hd 6550d",
+    22,
+    false
+  ],
+  [
+    "amd radeon r9 m395x",
+    22,
+    false
+  ],
+  [
+    "amd radeon hd 7560d + r5 235 dual",
+    22,
+    false
+  ],
+  [
+    "nvidia geforce gt 555m",
+    22,
+    false
+  ],
+  [
+    "intel uhd graphics 617",
+    21,
+    false
+  ],
+  [
+    "nvidia geforce gt 435m",
+    21,
+    false
+  ],
+  [
+    "amd radeon r5 m255",
+    21,
+    false
+  ],
+  [
+    "amd radeon hd 5570",
+    21,
+    false
+  ],
+  [
+    "nvidia geforce 610m",
+    21,
+    false
+  ],
+  [
+    "amd radeon hd 7660d",
+    21,
+    false
+  ],
+  [
+    "nvidia geforce gt 440",
+    21,
+    false
+  ],
+  [
+    "nvidia evga geforce gt 710",
+    21,
+    false
+  ],
+  [
+    "amd radeon hd 7660g",
+    21,
+    false
+  ],
+  [
+    "nvidia geforce gt 710",
+    21,
+    false
+  ],
+  [
+    "nvidia quadro 2000m",
+    21,
+    false
+  ],
+  [
+    "amd mobility radeon hd 5750",
+    20,
+    false
+  ],
+  [
+    "amd radeon hd 6520g",
+    20,
+    false
+  ],
+  [
+    "nvidia quadro k1000m by nick[d]vb",
+    20,
+    false
+  ],
+  [
+    "amd radeon r4/r5",
+    20,
+    false
+  ],
+  [
+    "amd radeon r8 m535dx",
+    20,
+    false
+  ],
+  [
+    "nvidia geforce gt 430",
+    20,
+    false
+  ],
+  [
+    "intel iris xe",
+    20,
+    false
+  ],
+  [
+    "amd radeon hd 7650m",
+    20,
+    false
+  ],
+  [
+    "intel iris plus graphics 645",
+    20,
+    false
+  ],
+  [
+    "intel corporation hd",
+    20,
+    false
+  ],
+  [
+    "nvidia geforce gt 640 oem",
+    20,
+    false
+  ],
+  [
+    "amd radeon e8860",
+    20,
+    false
+  ],
+  [
+    "amd radeon r5 m200",
+    20,
+    false
+  ],
+  [
+    "amd radeon r9 m290",
+    20,
+    false
+  ],
+  [
+    "nvidia quadro k1000m",
+    20,
+    false
+  ],
+  [
+    "amd radeon hd 7400m",
+    20,
+    false
+  ],
+  [
+    "amd radeon hd 8550g",
+    20,
+    false
+  ],
+  [
+    "nvidia grid v100-1q",
+    19,
+    false
+  ],
+  [
+    "amd radeon hd 8610g",
+    19,
+    false
+  ],
+  [
+    "nvidia geforce 910m",
+    19,
+    false
+  ],
+  [
+    "intel hd graphics family",
+    19,
+    false
+  ],
+  [
+    "amd radeon r2",
+    19,
+    false
+  ],
+  [
+    "amd radeon r9 m295x mac",
+    19,
+    false
+  ],
+  [
+    "intel corporation hd graphics 5500",
+    19,
+    false
+  ],
+  [
+    "nvidia grid k1",
+    19,
+    false
+  ],
+  [
+    "nvidia grid k160q",
+    19,
+    false
+  ],
+  [
+    "amd radeon hd 5500",
+    19,
+    false
+  ],
+  [
+    "nvidia geforce gt 555m/635m",
+    19,
+    false
+  ],
+  [
+    "nvidia quadro k610m",
+    19,
+    false
+  ],
+  [
+    "nvidia grid k180q",
+    18,
+    false
+  ],
+  [
+    "intel gen12 desktop graphics controller",
+    18,
+    false
+  ],
+  [
+    "amd radeon r6 m255dx",
+    18,
+    false
+  ],
+  [
+    "amd radeon instinct mi25 mxgpu",
+    18,
+    false
+  ],
+  [
+    "amd radeon hd 6480g",
+    18,
+    false
+  ],
+  [
+    "intel uhd 630",
+    18,
+    false
+  ],
+  [
+    "intel corporation haswell-ult integrated graphics controller",
+    18,
+    false
+  ],
+  [
+    "nvidia null geforce 920a",
+    18,
+    false
+  ],
+  [
+    "intel corporation hd graphics 515",
+    18,
+    false
+  ],
+  [
+    "intel uhd graphics 600",
+    18,
+    false
+  ],
+  [
+    "nvidia quadro fx grid k1",
+    18,
+    false
+  ],
+  [
+    "intel corporation hd graphics 510",
+    18,
+    false
+  ],
+  [
+    "nvidia geforce gt 520m",
+    18,
+    false
+  ],
+  [
+    "intel corporation hd graphics 5300",
+    18,
+    false
+  ],
+  [
+    "nvidia asus geforce gt 710",
+    18,
+    false
+  ],
+  [
+    "amd radeon hd 8400 / r3",
+    18,
+    false
+  ],
+  [
+    "nvidia geforce gt 705",
+    18,
+    false
+  ],
+  [
+    "amd radeon hd 7640g + hd 7400m dual",
+    17,
+    false
+  ],
+  [
+    "amd radeon hd 7560d",
+    17,
+    false
+  ],
+  [
+    "nvidia geforce gt 630 rev. 2",
+    17,
+    false
+  ],
+  [
+    "amd radeon r5 m200 / hd 8500m",
+    17,
+    false
+  ],
+  [
+    "intel hd graphics 5300",
+    17,
+    false
+  ],
+  [
+    "amd radeon pro 555",
+    17,
+    false
+  ],
+  [
+    "nvidia quadro k510m",
+    17,
+    false
+  ],
+  [
+    "nvidia geforce 710a",
+    17,
+    false
+  ],
+  [
+    "intel uhd graphics 610",
+    17,
+    false
+  ],
+  [
+    "amd radeon r5e",
+    17,
+    false
+  ],
+  [
+    "intel hd graphics 505",
+    17,
+    false
+  ],
+  [
+    "intel corporation atom/celeron/pentium processor x5-e8000/j3xxx/n3xxx integrated graphics controller",
+    16,
+    false
+  ],
+  [
+    "intel hd graphics p530",
+    16,
+    false
+  ],
+  [
+    "nvidia msi geforce gt 710",
+    16,
+    false
+  ],
+  [
+    "amd radeon r9 m295x",
+    16,
+    false
+  ],
+  [
+    "amd radeon pro wx 3200",
+    16,
+    false
+  ],
+  [
+    "amd radeon hd 6400m/7400m",
+    16,
+    false
+  ],
+  [
+    "amd radeon hd 7640g",
+    16,
+    false
+  ],
+  [
+    "amd radeon hd 7870m",
+    16,
+    false
+  ],
+  [
+    "intel hd graphics 4000",
+    16,
+    false
+  ],
+  [
+    "amd firepro m2000",
+    16,
+    false
+  ],
+  [
+    "nvidia quadro p520",
+    16,
+    false
+  ],
+  [
+    "intel mesa dri intel hd graphics 400",
+    16,
+    false
+  ],
+  [
+    "amd radeon r9 m395",
+    16,
+    false
+  ],
+  [
+    "nvidia gigabyte geforce gtx 660",
+    16,
+    false
+  ],
+  [
+    "amd radeon hd 8550g + r5 m230 dual",
+    16,
+    false
+  ],
+  [
+    "intel uhd graphics, gen11 lp",
+    16,
+    false
+  ],
+  [
+    "nvidia grid k220q",
+    16,
+    false
+  ],
+  [
+    "nvidia nvs 510",
+    16,
+    false
+  ],
+  [
+    "nvidia quadro m500m",
+    16,
+    false
+  ],
+  [
+    "amd radeon hd 8470d",
+    15,
+    false
+  ],
+  [
+    "amd radeon hd 8550",
+    15,
+    false
+  ],
+  [
+    "amd radeon sky 500",
+    15,
+    false
+  ],
+  [
+    "nvidia quadro 1000m",
+    15,
+    false
+  ],
+  [
+    "nvidia geforce gt 710b",
+    15,
+    false
+  ],
+  [
+    "amd radeon hd 8570d",
+    15,
+    false
+  ],
+  [
+    "nvidia quadro 410",
+    15,
+    false
+  ],
+  [
+    "nvidia geforce gt 530",
+    15,
+    false
+  ],
+  [
+    "amd radeon r5 m240",
+    15,
+    false
+  ],
+  [
+    "amd firepro v5900",
+    15,
+    false
+  ],
+  [
+    "amd radeon r9 m375x",
+    15,
+    false
+  ],
+  [
+    "amd rx 560",
+    15,
+    false
+  ],
+  [
+    "nvidia geforce gtx 660m mac",
+    14,
+    false
+  ],
+  [
+    "intel corporation celeron n3350/pentium n4200/atom e3900 series integrated graphics controller",
+    14,
+    false
+  ],
+  [
+    "amd radeon hd5450",
+    14,
+    false
+  ],
+  [
+    "amd radeon hd 6470m",
+    14,
+    false
+  ],
+  [
+    "nvidia quadro 600",
+    14,
+    false
+  ],
+  [
+    "nvidia geforce gtx 950a",
+    14,
+    false
+  ],
+  [
+    "amd radeon hd 7520g",
+    14,
+    false
+  ],
+  [
+    "intel corporation atom/celeron/pentium processor n4200/n3350/e3900 series integrated graphics controller",
+    14,
+    false
+  ],
+  [
+    "intel iris graphics 650",
+    14,
+    false
+  ],
+  [
+    "intel corporation iris plus graphics g7",
+    14,
+    false
+  ],
+  [
+    "x.org ryzen embedded v1605b with radeon vega gfx",
+    13,
+    false
+  ],
+  [
+    "amd radeont 540x",
+    13,
+    false
+  ],
+  [
+    "intel 3rd gen core processor graphics controller",
+    13,
+    false
+  ],
+  [
+    "nvidia gf117",
+    13,
+    false
+  ],
+  [
+    "amd embedded radeon e9171",
+    13,
+    false
+  ],
+  [
+    "nvidia geforce gt 520",
+    13,
+    false
+  ],
+  [
+    "amd radeon hd 7340",
+    13,
+    false
+  ],
+  [
+    "amd firepro v3900",
+    13,
+    false
+  ],
+  [
+    "amd radeon hd 7660g + hd 7670m dual",
+    13,
+    false
+  ],
+  [
+    "amd radeon hd 6300m",
+    13,
+    false
+  ],
+  [
+    "amd radeon hd 8240 / r3",
+    13,
+    false
+  ],
+  [
+    "nvidia geforce gt 620",
+    13,
+    false
+  ],
+  [
+    "intel corporation hd graphics 500",
+    13,
+    false
+  ],
+  [
+    "amd radeon hd 7520g + hd 7400m dual",
+    13,
+    false
+  ],
+  [
+    "amd radeon hd 8200 / r3",
+    13,
+    false
+  ],
+  [
+    "intel 0x496e74656c2048442047726170686963000732034343",
+    13,
+    false
+  ],
+  [
+    "amd radeon hd 6530d",
+    13,
+    false
+  ],
+  [
+    "intel mesa dri intel haswell mobile",
+    12,
+    false
+  ],
+  [
+    "nvidia geforce gt 425m",
+    12,
+    false
+  ],
+  [
+    "amd radeon hd 6410d",
+    12,
+    false
+  ],
+  [
+    "x.org radeon rx vega 11 graphics",
+    12,
+    false
+  ],
+  [
+    "amd 694e:c0",
+    12,
+    false
+  ],
+  [
+    "nvidia geforce gt 415m",
+    12,
+    false
+  ],
+  [
+    "x.org radeon r9 m390x",
+    12,
+    false
+  ],
+  [
+    "amd radeon hd 7470",
+    12,
+    false
+  ],
+  [
+    "nvidia nvs 315",
+    12,
+    false
+  ],
+  [
+    "amd radeon hd 8600m",
+    12,
+    false
+  ],
+  [
+    "amd radeon hd 8250",
+    12,
+    false
+  ],
+  [
+    "intel broxton-p hd",
+    12,
+    false
+  ],
+  [
+    "nvidia quadro m520",
+    12,
+    false
+  ],
+  [
+    "amd radeon hd 7520g + hd 7600m dual",
+    12,
+    false
+  ],
+  [
+    "amd radeon hd 8450g + hd 8600m dual",
+    12,
+    false
+  ],
+  [
+    "amd radeon r8 m350dx",
+    12,
+    false
+  ],
+  [
+    "amd radeon hd 8490",
+    11,
+    false
+  ],
+  [
+    "amd radeon r9 m390",
+    11,
+    false
+  ],
+  [
+    "nvidia geforce 800m",
+    11,
+    false
+  ],
+  [
+    "amd radeon r5 230",
+    11,
+    false
+  ],
+  [
+    "amd radeon r5 220",
+    11,
+    false
+  ],
+  [
+    "nvidia quadro nvs 4200m",
+    11,
+    false
+  ],
+  [
+    "amd trinity scrapper mobile",
+    11,
+    false
+  ],
+  [
+    "amd radeon hd 7500g",
+    11,
+    false
+  ],
+  [
+    "intel hd graphics 500",
+    10,
+    false
+  ],
+  [
+    "amd radeon r5 235",
+    10,
+    false
+  ],
+  [
+    "intel mesa dri intel hd graphics 505",
+    10,
+    false
+  ],
+  [
+    "amd radeon hd 6450",
+    10,
+    false
+  ],
+  [
+    "nvidia geforce gt 620 oem",
+    10,
+    false
+  ],
+  [
+    "nvidia geforce 615",
+    10,
+    false
+  ],
+  [
+    "x.org radeon rx vega 8 graphics",
+    10,
+    false
+  ],
+  [
+    "amd radeon hd 6320",
+    10,
+    false
+  ],
+  [
+    "amd radeon hd 7620g",
+    10,
+    false
+  ],
+  [
+    "amd kaveri",
+    10,
+    false
+  ],
+  [
+    "nvidia geforce gt 610",
+    9,
+    false
+  ],
+  [
+    "amd radeon hd 8350",
+    9,
+    false
+  ],
+  [
+    "amd firepro w600",
+    9,
+    false
+  ],
+  [
+    "amd radeon hd 5000/6000/7350/8350",
+    9,
+    false
+  ],
+  [
+    "amd radeon hd 6370m",
+    9,
+    false
+  ],
+  [
+    "amd radeon hd 8510g",
+    9,
+    false
+  ],
+  [
+    "nvidia geforce gt 420",
+    9,
+    false
+  ],
+  [
+    "amd embedded radeon e9173",
+    9,
+    false
+  ],
+  [
+    "amd radeon hd 7400",
+    9,
+    false
+  ],
+  [
+    "amd radeon hd 7480d",
+    9,
+    false
+  ],
+  [
+    "amd radeon hd 7450",
+    9,
+    false
+  ],
+  [
+    "nvidia nvs 4200m",
+    9,
+    false
+  ],
+  [
+    "amd radeon hd 8210",
+    9,
+    false
+  ],
+  [
+    "amd radeon hd 6630m",
+    9,
+    false
+  ],
+  [
+    "amd radeon hd 8670d + r5 200 dual",
+    8,
+    false
+  ],
+  [
+    "amd 694c:c0",
+    8,
+    false
+  ],
+  [
+    "amd radeon hd 7640g + hd 7670m dual",
+    8,
+    false
+  ],
+  [
+    "amd radeon hd 8370d",
+    8,
+    false
+  ],
+  [
+    "amd radeon hd 7310",
+    8,
+    false
+  ],
+  [
+    "amd radeon hd 6400",
+    8,
+    false
+  ],
+  [
+    "amd radeon hd 6310",
+    8,
+    false
+  ],
+  [
+    "amd radeon hd 6230",
+    8,
+    false
+  ],
+  [
+    "amd radeon hd 6450/7450/8450 / r5 230",
+    8,
+    false
+  ],
+  [
+    "intel kabylake hd graphics ulx gt2",
+    8,
+    false
+  ],
+  [
+    "nvidia geforce mx330",
+    8,
+    false
+  ],
+  [
+    "amd radeon hd 8400e",
+    8,
+    false
+  ],
+  [
+    "amd asus r5 230",
+    8,
+    false
+  ],
+  [
+    "amd asus eah6450",
+    8,
+    false
+  ],
+  [
+    "amd radeon hd 7420g",
+    7,
+    false
+  ],
+  [
+    "amd radeon hd 8450g",
+    7,
+    false
+  ],
+  [
+    "nvidia nvs 310",
+    7,
+    false
+  ],
+  [
+    "intel corporation iris graphics 6100",
+    7,
+    false
+  ],
+  [
+    "amd radeon hd 8180",
+    7,
+    false
+  ],
+  [
+    "amd radeon hd 6350",
+    7,
+    false
+  ],
+  [
+    "amd radeon hd 5450",
+    7,
+    false
+  ],
+  [
+    "amd radeon r9 m290x",
+    7,
+    false
+  ],
+  [
+    "amd radeon r7 430",
+    7,
+    false
+  ],
+  [
+    "amd radeon hd 6290",
+    7,
+    false
+  ],
+  [
+    "x.org ryzen embedded r1305g with radeon vega gfx",
+    6,
+    false
+  ],
+  [
+    "amd radeon hd 7350",
+    6,
+    false
+  ],
+  [
+    "intel corporation atom/celeron/pentium processor x5-e8000/j3xxx/n3xxx series pci configuration registers",
+    6,
+    false
+  ],
+  [
+    "intel uhd graphics gfx-driver-user-comp_core-23599",
+    6,
+    false
+  ],
+  [
+    "intel corporation uhd graphics 605",
+    6,
+    false
+  ],
+  [
+    "amd radeon hd 5400",
+    6,
+    false
+  ],
+  [
+    "amd radeon r9 m265x",
+    6,
+    false
+  ],
+  [
+    "amd asus eah5450",
+    6,
+    false
+  ],
+  [
+    "intel kabylake hd graphics ult gt2",
+    5,
+    false
+  ],
+  [
+    "amd radeon hd 6250",
+    5,
+    false
+  ],
+  [
+    "amd oland gl [firepro w2100]",
+    5,
+    false
+  ],
+  [
+    "intel graphics gfx-driver-user-feature_dg1_poweron-27723 dch releaseinternal",
+    4,
+    false
+  ],
+  [
+    "amd barco mxrt 7600",
+    4,
+    false
+  ],
+  [
+    "nvidia geforce rtx t10-8",
+    3,
+    false
+  ],
+  [
+    "amd radeon r6e",
+    3,
+    false
+  ],
+  [
+    "amd radeon r4e",
+    3,
+    false
+  ],
+  [
+    "amd radeon hd 8280e",
+    3,
+    false
+  ],
+  [
+    "amd matrox c900 pcie x16",
+    3,
+    false
+  ],
+  [
+    "amd radeon r2e",
+    2,
+    false
+  ],
+  [
+    "intel hd graphics, gen10",
+    2,
+    false
+  ],
+  [
+    "amd 67ef:c5",
+    0,
+    false
+  ],
+  [
+    "amd bonaire [firepro w5100]",
+    0,
+    false
+  ],
+  [
+    "amd firepro s9150",
+    0,
+    false
+  ],
+  [
+    "amd firepro v7800",
+    0,
+    false
+  ],
+  [
+    "amd radeon e6460",
+    0,
+    false
+  ],
+  [
+    "amd radeon hd 5670 640sp",
+    0,
+    false
+  ],
+  [
+    "amd radeon hd 6670/7670",
+    0,
+    false
+  ],
+  [
+    "amd radeon navi14",
+    0,
+    false
+  ],
+  [
+    "amd radeon r9 290x/390x",
+    0,
+    false
+  ],
+  [
+    "amd radeon rx 580 oc",
+    0,
+    false
+  ],
+  [
+    "amd radeon r6 m335dx",
+    0,
+    false
+  ],
+  [
+    "amd radeon r8 m435dx",
+    0,
+    false
+  ],
+  [
+    "amd radeont r5 430",
+    0,
+    false
+  ],
+  [
+    "amd inc. radeon hd 7750",
+    0,
+    false
+  ],
+  [
+    "amd inc. radeon hd 7970",
+    0,
+    false
+  ],
+  [
+    "intel corporation graphics hd 630",
+    0,
+    false
+  ],
+  [
+    "intel corporation xeon e3-1200 v2/3rd gen core processor graphics controller",
+    0,
+    false
+  ],
+  [
+    "intel radeon hd 7970",
+    0,
+    false
+  ],
+  [
+    "intel radeong 0.4 on amd cape verde",
+    0,
+    false
+  ],
+  [
+    "intel radeong 0.4 on amd fiji",
+    0,
+    false
+  ],
+  [
+    "intel uhd graphics, gen12 lp releaseinternal",
+    0,
+    false
+  ],
+  [
+    "nvidia asus geforce gtx 1060",
+    0,
+    false
+  ],
+  [
+    "nvidia gp106",
+    0,
+    false
+  ],
+  [
+    "nvidia quadro fx grid k120q/pci/sse2",
+    0,
+    false
+  ],
+  [
+    "nvidia quadro k3100m by nikey22",
+    0,
+    false
+  ],
+  [
+    "nvidia quadro k610m by nick[d]vb",
+    0,
+    false
+  ],
+  [
+    "nvidia tesla c2070",
+    0,
+    false
+  ],
+  [
+    "nvidia tesla k10.g2.8gb",
+    0,
+    false
+  ],
+  [
+    "x.org radeon hd 7970",
+    0,
+    false
+  ],
+  [
+    "x.org radeong 0.4 on amd bonaire",
+    0,
+    false
+  ]
+]

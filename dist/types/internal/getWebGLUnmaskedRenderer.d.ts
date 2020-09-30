@@ -1,1 +1,1 @@
-export declare const getWebGLUnmaskedRenderer: (gl: WebGLRenderingContext) => string;
+export declare const getWebGLUnmaskedRenderer: (gl: WebGLRenderingContext) => string | undefined;
