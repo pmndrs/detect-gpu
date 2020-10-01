@@ -83,7 +83,7 @@
       });
 
       if (webgl2) {
-        // Supported WebGL extensions: [string, string, ...]
+        // Report supported WebGL extensions: [string, string, ...]
         var extensions = webgl2.getSupportedExtensions();
 
         $$__analytics(
