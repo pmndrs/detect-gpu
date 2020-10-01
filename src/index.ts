@@ -25,6 +25,7 @@ export interface IGetGPUTier {
 }
 
 export type TRank = [number, string] | [undefined, undefined];
+
 export interface IRankWithDistance {
   rank: TRank;
   distance: number;
