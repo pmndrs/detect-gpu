@@ -15,7 +15,20 @@ import { isWebGLSupported } from './internal/isWebGLSupported';
 import { getLevenshteinDistance } from './internal/getLevenshteinDistance';
 
 // Types
-import { IGetGPUTier, TRank, IRankWithDistance } from './types';
+export interface IGetGPUTier {
+  glContext?: WebGLRenderingContext | WebGL2RenderingContext;
+  mobileBenchmarkPercentages?: number[];
+  desktopBenchmarkPercentages?: number[];
+  failIfMajorPerformanceCaveat?: boolean;
+  forceRendererString?: string;
+  forceMobile?: boolean;
+}
+
+export type TRank = [number, string] | [undefined, undefined];
+export interface IRankWithDistance {
+  rank: TRank;
+  distance: number;
+}
 
 export const getGPUTier = ({
   mobileBenchmarkPercentages = [
