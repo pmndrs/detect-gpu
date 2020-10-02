@@ -95,7 +95,7 @@ const getTestFPS = async (
         nvidia: () => import('./data/d-nvidia.json'),
         geforce: () => import('./data/d-geforce.json'),
       };
-  const type = Object.keys(imports).find(renderer.includes.bind(renderer));
+  const type = Object.keys(imports).find((type) => renderer.includes(type));
   debug && debug({ renderer, mobile, type });
   if (!type) return [];
   // @ts-ignore
