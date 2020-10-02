@@ -1,8 +1,8 @@
+import leven from 'leven';
 import type { TierType, ModelEntry } from './types';
 import { cleanRendererString } from './internal/cleanRendererString';
 import { getEntryVersionNumber } from './internal/getEntryVersionNumber';
 import { getWebGLUnmaskedRenderer } from './internal/getWebGLUnmaskedRenderer';
-import { getLevenshteinDistance } from './internal/getLevenshteinDistance';
 import { getSupportedWebGLContext } from './internal/getSupportedWebGLContext';
 import { device } from './internal/device';
 
@@ -108,13 +108,7 @@ const getPercentile = async (
   const [model, , percentile, blacklisted] =
     count > 1
       ? matched
-          .map(
-            (match) =>
-              [
-                match,
-                getLevenshteinDistance(renderer, match[MODEL_INDEX]),
-              ] as const
-          )
+          .map((match) => [match, leven(renderer, match[MODEL_INDEX])] as const)
           .sort(([, a], [, b]) => a - b)[0][MODEL_INDEX]
       : matched[0];
   return [blacklisted ? -1 : percentile, model];

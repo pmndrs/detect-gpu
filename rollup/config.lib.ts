@@ -1,25 +1,22 @@
 // Vendor
-import commonjsPlugin from 'rollup-plugin-commonjs';
-import filesizePlugin from 'rollup-plugin-filesize';
+import commonjs from 'rollup-plugin-commonjs';
+import filesize from 'rollup-plugin-filesize';
+import resolve from '@rollup/plugin-node-resolve';
 import json from '@rollup/plugin-json';
-import resolvePlugin from 'rollup-plugin-node-resolve';
-import { terser as terserPlugin } from 'rollup-plugin-terser';
-import typescriptPlugin from 'rollup-plugin-typescript2';
+import { terser } from 'rollup-plugin-terser';
+import typescript from 'rollup-plugin-typescript2';
 
 const input = './src/index.ts';
 const name = 'DetectGPU';
 
 // tslint:disable-next-line:typedef
 const plugins = ({ isUMD = false, isCJS = false, isES = false }) => [
-  resolvePlugin(),
-  (isUMD || isCJS) && commonjsPlugin(),
-  typescriptPlugin({
-    typescript: require('typescript'),
-    useTsconfigDeclarationDir: true,
-  }),
-  !isES && terserPlugin(),
-  !isES && filesizePlugin(),
-  json()
+  typescript(),
+  resolve(),
+  commonjs(),
+  !isES && terser(),
+  !isES && filesize(),
+  json(),
 ];
 
 export default [

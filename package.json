@@ -14,13 +14,14 @@
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "prebuild": "rimraf dist",
-    "build": "tsc --module commonjs && rollup -c rollup.config.ts",
+    "build": "tsc --module commonjs && rollup -c rollup/config.lib.ts",
     "parse-analytics": "node ./scripts/analytics_parser.js",
     "update-benchmarks": "rimraf src/data && mkdir src/data && ts-node -O '{\"module\":\"commonjs\"}' ./scripts/update_benchmarks.ts"
   },
   "author": "Tim van Scherpenzeel",
   "devDependencies": {
     "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^9.0.0",
     "@types/jest": "^26.0.14",
     "@types/puppeteer": "^3.0.2",
     "@types/webgl2": "^0.0.5",
@@ -61,5 +62,9 @@
       "<rootDir>/test/data.ts"
     ],
     "preset": "ts-jest"
+  },
+  "dependencies": {
+    "leven": "^3.1.0",
+    "webgl-constants": "^1.1.1"
   }
 }
