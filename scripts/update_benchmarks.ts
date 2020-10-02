@@ -3,7 +3,7 @@ import fs from 'fs';
 
 import { getEntryVersionNumber } from '../src/internal/getEntryVersionNumber';
 
-const URL = `https://gfxbench.com/result.jsp?benchmark=gfx50&test=680&text-filter=&order=median&ff-lmobile=true&ff-smobile=true&os-Android_gl=true&os-Android_vulkan=true&os-iOS_gl=true&os-iOS_metal=true&os-Linux_gl=true&os-OS_X_gl=true&os-OS_X_metal=true&os-Windows_dx=true&os-Windows_dx12=true&os-Windows_gl=true&os-Windows_vulkan=true&pu-dGPU=true&pu-iGPU=true&pu-GPU=true&arch-ARM=true&arch-unknown=true&arch-x86=true&base=device`;
+const URL = `https://gfxbench.com/result.jsp?benchmark=gfx50&test=544&text-filter=&order=median&ff-lmobile=true&ff-smobile=true&os-Android_gl=true&os-Android_vulkan=true&os-iOS_gl=true&os-iOS_metal=true&os-Linux_gl=true&os-OS_X_gl=true&os-OS_X_metal=true&os-Windows_dx=true&os-Windows_dx12=true&os-Windows_gl=true&os-Windows_vulkan=true&pu-dGPU=true&pu-iGPU=true&pu-GPU=true&arch-ARM=true&arch-unknown=true&arch-x86=true&base=device`;
 
 const types = [
   'adreno',
@@ -25,59 +25,120 @@ const groupBy = (xs: any[], key: number | string) =>
     return rv;
   }, {});
 
-const getTypes = ([renderer]: [string, number, boolean]) =>
+const getTypes = <T extends [string]>([renderer]: T) =>
   types.filter((type) => renderer.includes(type));
-const hasType = (model: [string, number, boolean]) =>
-  getTypes(model).length > 0;
+
+type BenchmarkRow = {
+  device: string;
+  gpu: string;
+  fps: number;
+  mobile: boolean;
+  resolution: string;
+};
 
 (async () => {
   const browser = await puppeteer.launch({ headless: true });
-  await Promise.all([true, false].map(exportBenchmarks));
+  const benchmarks = await getBenchmarks();
+  await Promise.all(
+    [true, false].map((mobile) => exportBenchmarks(benchmarks, mobile))
+  );
   await browser.close();
 
-  async function exportBenchmarks(mobile: boolean) {
-    const getOutputFilename = (type: string) =>
-      `${mobile ? 'm' : 'd'}-${type}.json`;
+  async function getBenchmarks() {
     const page = await browser.newPage();
     await page.goto(URL, { waitUntil: 'networkidle2' });
-    let models: [string, number, boolean][] = await page.evaluate(() =>
+    return <BenchmarkRow[]>await page.evaluate(() =>
       // @ts-ignore
       window.gpuName
         // @ts-ignore
-        .map((index) => window.gpuNameLookup[index])
-        // @ts-ignore
-        .map((name, index) => [
-          name.toLowerCase().replace(/™ |nvidia corporation |apple inc\. |advanced micro devices, inc\. | (series|graphics|edition)$|\s*\([^\)]+(\)|$)/g, ''),
+        .map(
+          (gpuIndex: number, index: number): Partial<BenchmarkRow> => ({
+            // @ts-ignore
+            device: window.deviceName[index],
+            // @ts-ignore
+            gpu: window.gpuNameLookup[gpuIndex]
+              .toLowerCase()
+              .replace(
+                /open source technology center |imagination technologies |™ |nvidia corporation |apple inc\. |advanced micro devices, inc\. | (series|graphics|edition)$|\s*\([^\)]+(\)|$)/g,
+                ''
+              ),
+            fps:
+              // @ts-ignore
+              window.fpses[index] === ''
+                ? undefined
+                : // @ts-ignore
+                  Math.round(
+                    // @ts-ignore
+                    Number(window.fpses[index].replace(/[^0-9.]+/g, ''))
+                  ),
+            // @ts-ignore
+            mobile: window.formFactorLookup[
+              // @ts-ignore
+              window.formFactor[index]
+            ].includes('mobile'),
+            // @ts-ignore
+            resolution: window.screenSizeLookup[window.screenSizes[index]],
+          })
+        )
+        .filter(
           // @ts-ignore
-          Math.round(Number(window.fpses[index].replace(/[^0-9.]+/g, ''))),
-          // @ts-ignore
-          window.formFactorLookup[formFactor[index]].includes('mobile'),
-        ])
+          ({ fps }) => fps !== undefined
+        )
     );
-    models = Object.values(
-      groupBy(models, 0) as { [k: string]: [string, number, boolean][] }
-    )
-      .map((val) => val[0])
-      .filter(([, , mobileModel]) => mobileModel === mobile)
-      .filter(hasType);
+  }
+
+  async function exportBenchmarks(rows: BenchmarkRow[], isMobile: boolean) {
+    const getOutputFilename = (type: string) =>
+      `${isMobile ? 'm' : 'd'}-${type}.json`;
+    rows = rows.filter(
+      ({ mobile, gpu }: BenchmarkRow) =>
+        mobile === isMobile &&
+        types.filter((type) => gpu.includes(type)).length > 0
+    );
+    const rowsByGpu = Object.values(
+      groupBy(rows, 'gpu') as {
+        [k: string]: BenchmarkRow[];
+      }
+    );
     return Promise.all([
       ...types.map((type) => {
-        const typeModels = models
-          .filter((model) => getTypes(model).includes(type))
-          .map(([model, fps]): [string, string, number, 1 | 0] => [
-            model,
-            getEntryVersionNumber(model),
-            Math.round((fps / models[0][1]) * 100),
-            blacklistedModels.find((blacklistedModel) =>
-              model.includes(blacklistedModel)
-            )
-              ? 1
-              : 0,
-          ]);
+        const typeModels = rowsByGpu
+          .filter(([{ gpu }]) => gpu.includes(type))
+          .map((rows) => {
+            const { gpu } = rows[0];
+            return [
+              gpu,
+              getEntryVersionNumber(gpu),
+              blacklistedModels.find((blacklistedModel) =>
+                gpu.includes(blacklistedModel)
+              )
+                ? 1
+                : 0,
+              Object.entries(
+                rows.reduce(
+                  (
+                    fpsByResolution: { [k: string]: [string, number] },
+                    { resolution, fps, device }
+                  ) => {
+                    fpsByResolution[resolution] = [device, fps];
+                    return fpsByResolution;
+                  },
+                  {}
+                )
+              )
+                .map(([resolution, [device, fps]]) => {
+                  const [width, height] = resolution.split(' x ').map(Number);
+                  return isMobile
+                    ? ([width, height, fps, device] as const)
+                    : ([width, height, fps] as const);
+                })
+                .sort(([, aW, aH], [, bW, bH]) => aW * aH - bW * bH),
+            ];
+          });
         if (typeModels.length === 0) return;
         return outputFile(getOutputFilename(type), typeModels);
       }),
-      outputFile(getOutputFilename('all'), models),
+      outputFile(getOutputFilename('all'), rowsByGpu),
     ]);
   }
 })().catch((err) => {
