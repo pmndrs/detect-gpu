@@ -3,7 +3,7 @@ import { TierResult } from '../src/types';
 
 import { RENDERER_MOBILE, RENDERER_TABLET, RENDERER_DESKTOP } from './data';
 
-const debug = false;
+const isDebug = false;
 
 const getTier = ({ mobile, renderer }: { mobile: boolean; renderer: string }) =>
   getGPUTier({
@@ -18,6 +18,7 @@ const getTier = ({ mobile, renderer }: { mobile: boolean; renderer: string }) =>
 });
 
 const topTierDesktop = 'ANGLE (NVIDIA GeForce RTX 2080 Ti Direct3D11 vs_5_0 ps_5_0)';
+
 test(`Top tier desktop: ${topTierDesktop}`, async () => {
   expectGPUResults(
     {
@@ -33,6 +34,7 @@ test(`Top tier desktop: ${topTierDesktop}`, async () => {
 });
 
 const bottomTierDesktop = 'ANGLE (AMD Radeon HD 6290M Direct3D11 vs_5_0 ps_5_0)';
+
 test(`Bottom tier desktop: ${bottomTierDesktop}`, async () => {
   expectGPUResults(
     {
@@ -140,11 +142,21 @@ const expectGPUResults = (
   expected: Partial<TierResult>,
   result: TierResult
 ) => {
-  if (expected.type) expect(result.type).toBe(expected.type);
-  if (expected.tier !== undefined) expect(result.tier).toBe(expected.tier);
-  if (expected.mobile !== undefined)
+  if (expected.type) {
+    expect(result.type).toBe(expected.type);
+  }
+  
+  if (expected.tier !== undefined) {
+    expect(result.tier).toBe(expected.tier);
+  }
+  
+  if (expected.mobile !== undefined) {
     expect(result.mobile).toBe(expected.mobile);
-  if (expected.model !== undefined) expect(result.model).toBe(expected.model);
+  }
+  
+  if (expected.model !== undefined) {
+    expect(result.model).toBe(expected.model);
+  }
 };
 
 function testRenders(deviceType: string[], mobileDevice = false) {
@@ -154,7 +166,8 @@ function testRenders(deviceType: string[], mobileDevice = false) {
         mobile: mobileDevice,
         renderer,
       });
-      if (debug) {
+      
+      if (isDebug) {
         if (type === 'WEBGL_UNSUPPORTED') {
           console.log(
             `WEBGL_UNSUPPORTED -> Entry: ${renderer}, Mobile: ${mobile}, Tier: ${tier}, Type: ${type}`
