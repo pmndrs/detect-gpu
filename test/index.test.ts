@@ -23,7 +23,7 @@ test(`Top tier desktop: ${topTierDesktop}`, async () => {
   expectGPUResults(
     {
       type: 'BENCHMARK',
-      tier: 3,
+      tier: 2,
       mobile: false,
     },
     await getTier({
@@ -34,7 +34,7 @@ test(`Top tier desktop: ${topTierDesktop}`, async () => {
 });
 
 const bottomTierDesktop =
-  'ANGLE (AMD Radeon HD 6290M Direct3D11 vs_5_0 ps_5_0)';
+  'ANGLE (AMD Radeon(TM) HD 8280E Direct3D11 vs_5_0 ps_5_0)';
 
 test(`Bottom tier desktop: ${bottomTierDesktop}`, async () => {
   expectGPUResults(
@@ -72,7 +72,7 @@ test(`Bottom tier desktop: ${bottomTierDesktop}`, async () => {
   [
     'ANGLE (Radeon (TM) RX 470 Series Direct3D11 vs_5_0 ps_5_0)',
     false,
-    'amd radeon rx 470/480',
+    'amd radeon rx 470',
   ],
   [
     'ANGLE (Radeon (TM) HD 6470M Direct3D9Ex vs_3_0 ps_3_0)',
