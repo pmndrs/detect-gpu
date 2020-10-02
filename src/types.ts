@@ -11,4 +11,9 @@ export type TierResult = {
   model?: string;
 };
 
-export type ModelEntry = [string, string, number, 0 | 1];
+export type ModelEntry = [
+  string,
+  string,
+  0 | 1,
+  [number, number, number, string][]
+];

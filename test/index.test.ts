@@ -9,16 +9,16 @@ const getTier = ({ mobile, renderer }: { mobile: boolean; renderer: string }) =>
   getGPUTier({
     mobile,
     renderer,
-    mobilePercentiles: [10, 40, 30, 20],
-    desktopPercentiles: [10, 40, 30, 20],
+    mobileTiers: [10, 30, 60],
+    desktopTiers: [10, 30, 60],
   });
 
 [RENDERER_MOBILE, RENDERER_TABLET, RENDERER_DESKTOP].forEach((renderers) => {
   testRenders(renderers, renderers !== RENDERER_DESKTOP);
 });
 
-const topTierDesktop = 'ANGLE (NVIDIA GeForce RTX 2080 Ti Direct3D11 vs_5_0 ps_5_0)';
-
+const topTierDesktop =
+  'ANGLE (NVIDIA GeForce RTX 2080 Ti Direct3D11 vs_5_0 ps_5_0)';
 test(`Top tier desktop: ${topTierDesktop}`, async () => {
   expectGPUResults(
     {
@@ -33,7 +33,8 @@ test(`Top tier desktop: ${topTierDesktop}`, async () => {
   );
 });
 
-const bottomTierDesktop = 'ANGLE (AMD Radeon HD 6290M Direct3D11 vs_5_0 ps_5_0)';
+const bottomTierDesktop =
+  'ANGLE (AMD Radeon HD 6290M Direct3D11 vs_5_0 ps_5_0)';
 
 test(`Bottom tier desktop: ${bottomTierDesktop}`, async () => {
   expectGPUResults(
@@ -102,23 +103,23 @@ test(`Bottom tier desktop: ${bottomTierDesktop}`, async () => {
 });
 
 // expect FALLBACK results:
-(<[string, boolean][]>[
-  ['this renderer does not exist', true],
-]).map(([renderer, mobile]) => {
-  test(`${renderer} should return FALLBACK`, async () => {
-    expectGPUResults(
-      {
-        type: 'FALLBACK',
-        mobile,
-        model: undefined,
-      },
-      await getTier({
-        mobile,
-        renderer,
-      })
-    );
-  });
-});
+(<[string, boolean][]>[['this renderer does not exist', true]]).map(
+  ([renderer, mobile]) => {
+    test(`${renderer} should return FALLBACK`, async () => {
+      expectGPUResults(
+        {
+          type: 'FALLBACK',
+          mobile,
+          model: undefined,
+        },
+        await getTier({
+          mobile,
+          renderer,
+        })
+      );
+    });
+  }
+);
 
 // expect BLACKLISTED results:
 (<[string, boolean][]>[
@@ -145,15 +146,15 @@ const expectGPUResults = (
   if (expected.type) {
     expect(result.type).toBe(expected.type);
   }
-  
+
   if (expected.tier !== undefined) {
     expect(result.tier).toBe(expected.tier);
   }
-  
+
   if (expected.mobile !== undefined) {
     expect(result.mobile).toBe(expected.mobile);
   }
-  
+
   if (expected.model !== undefined) {
     expect(result.model).toBe(expected.model);
   }
@@ -166,7 +167,7 @@ function testRenders(deviceType: string[], mobileDevice = false) {
         mobile: mobileDevice,
         renderer,
       });
-      
+
       if (isDebug) {
         if (type === 'WEBGL_UNSUPPORTED') {
           console.log(
