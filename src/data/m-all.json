@@ -245,13 +245,6 @@
       "fps": 60,
       "mobile": true,
       "resolution": "1792 x 828"
-    },
-    {
-      "device": "Apple iPhone 11 Pro Max",
-      "gpu": "apple a13 gpu",
-      "fps": 59,
-      "mobile": true,
-      "resolution": "2688 x 1242"
     }
   ],
   [

@@ -352,6 +352,13 @@
       "fps": 134,
       "mobile": false,
       "resolution": "1920 x 1080"
+    },
+    {
+      "device": "NVIDIA GeForce GTX 1070",
+      "gpu": "nvidia geforce gtx 1070",
+      "fps": 60,
+      "mobile": false,
+      "resolution": "1280 x 720"
     }
   ],
   [
@@ -511,13 +518,6 @@
       "fps": 60,
       "mobile": false,
       "resolution": "1920 x 1080"
-    },
-    {
-      "device": "NVIDIA GeForce GTX 1660 SUPER",
-      "gpu": "nvidia geforce gtx 1660 super",
-      "fps": 60,
-      "mobile": false,
-      "resolution": "1920 x 1080"
     }
   ],
   [
@@ -629,13 +629,6 @@
       "device": "NVIDIA GeForce GTX 1060 6GB",
       "gpu": "nvidia geforce gtx 1060 6gb",
       "fps": 400,
-      "mobile": false,
-      "resolution": "1920 x 1080"
-    },
-    {
-      "device": "NVIDIA GeForce GTX 1060 6GB",
-      "gpu": "nvidia geforce gtx 1060 6gb",
-      "fps": 60,
       "mobile": false,
       "resolution": "1920 x 1080"
     },
@@ -778,6 +771,13 @@
       "resolution": "1920 x 1080"
     },
     {
+      "device": "AMD Radeon RX 580",
+      "gpu": "amd radeon rx 580",
+      "fps": 203,
+      "mobile": false,
+      "resolution": "1920 x 1080"
+    },
+    {
       "device": "AMD Radeon(TM) RX 580",
       "gpu": "amd radeon rx 580",
       "fps": 113,
@@ -792,25 +792,11 @@
       "resolution": "1920 x 1200"
     },
     {
-      "device": "AMD Radeon RX 580 Series",
-      "gpu": "amd radeon rx 580",
-      "fps": 75,
-      "mobile": false,
-      "resolution": "1920 x 1080"
-    },
-    {
       "device": "AMD Radeon (TM) RX 580 Graphics",
       "gpu": "amd radeon rx 580",
       "fps": 64,
       "mobile": false,
       "resolution": "3840 x 2160"
-    },
-    {
-      "device": "AMD Radeon RX 580",
-      "gpu": "amd radeon rx 580",
-      "fps": 60,
-      "mobile": false,
-      "resolution": "1920 x 1080"
     },
     {
       "device": "AMD Radeon(TM) RX 580",
@@ -910,6 +896,13 @@
       "fps": 308,
       "mobile": false,
       "resolution": "1920 x 1080"
+    },
+    {
+      "device": "AMD inc. Radeon RX 480",
+      "gpu": "amd radeon rx 480",
+      "fps": 267,
+      "mobile": false,
+      "resolution": "1400 x 1050"
     },
     {
       "device": "AMD Radeon (TM) RX 480",
@@ -1758,7 +1751,7 @@
       "gpu": "amd radeon rx 5700 xt",
       "fps": 60,
       "mobile": false,
-      "resolution": "3839 x 2159"
+      "resolution": "2560 x 1440"
     }
   ],
   [
@@ -1812,6 +1805,13 @@
       "device": "NVIDIA GeForce GTX 1650",
       "gpu": "nvidia geforce gtx 1650",
       "fps": 75,
+      "mobile": false,
+      "resolution": "1920 x 1080"
+    },
+    {
+      "device": "NVIDIA GeForce GTX 1650",
+      "gpu": "nvidia geforce gtx 1650",
+      "fps": 72,
       "mobile": false,
       "resolution": "1920 x 1080"
     }
@@ -3342,13 +3342,6 @@
       "resolution": "1920 x 1080"
     },
     {
-      "device": "NVIDIA GeForce GTX 760",
-      "gpu": "nvidia geforce gtx 760",
-      "fps": 60,
-      "mobile": false,
-      "resolution": "1920 x 1080"
-    },
-    {
       "device": "NVIDIA GeForce GTX 760 (192-bit)",
       "gpu": "nvidia geforce gtx 760",
       "fps": 60,
@@ -3506,15 +3499,6 @@
       "fps": 60,
       "mobile": false,
       "resolution": "3840 x 2160"
-    }
-  ],
-  [
-    {
-      "device": "AMD inc. Radeon RX 480",
-      "gpu": "amd inc. radeon rx 480",
-      "fps": 267,
-      "mobile": false,
-      "resolution": "1400 x 1050"
     }
   ],
   [
@@ -6816,13 +6800,6 @@
       "fps": 60,
       "mobile": false,
       "resolution": "3840 x 2160"
-    },
-    {
-      "device": "AMD Radeon RX Vega 56",
-      "gpu": "amd radeon rx vega 56",
-      "fps": 60,
-      "mobile": false,
-      "resolution": "1920 x 1080"
     }
   ],
   [
@@ -7584,13 +7561,6 @@
       "fps": 110,
       "mobile": false,
       "resolution": "3072 x 1920"
-    },
-    {
-      "device": "AMD Radeon Pro 5500M",
-      "gpu": "amd radeon pro 5500m",
-      "fps": 60,
-      "mobile": false,
-      "resolution": "3584 x 2240"
     },
     {
       "device": "AMD Radeon Pro 5500M",
@@ -13265,6 +13235,13 @@
       "fps": 35,
       "mobile": false,
       "resolution": "2880 x 1800"
+    },
+    {
+      "device": "Intel(R) Iris(TM) Pro Graphics 5200",
+      "gpu": "intel iris pro graphics 5200",
+      "fps": 31,
+      "mobile": false,
+      "resolution": "2560 x 1440"
     },
     {
       "device": "Intel(R) Core(TM) i7-4770HQ CPU with Iris(TM) Pro Graphics 5200",
@@ -24151,13 +24128,6 @@
     {
       "device": "AMD Radeon Pro 555",
       "gpu": "amd radeon pro 555",
-      "fps": 38,
-      "mobile": false,
-      "resolution": "4096 x 2304"
-    },
-    {
-      "device": "AMD Radeon Pro 555",
-      "gpu": "amd radeon pro 555",
       "fps": 36,
       "mobile": false,
       "resolution": "2880 x 1800"
@@ -29314,13 +29284,6 @@
       "fps": 22,
       "mobile": false,
       "resolution": "1680 x 1050"
-    },
-    {
-      "device": "NVIDIA GeForce GT 420",
-      "gpu": "nvidia geforce gt 420",
-      "fps": 21,
-      "mobile": false,
-      "resolution": "1680 x 1050"
     }
   ],
   [
@@ -31395,29 +31358,6 @@
   ],
   [
     {
-      "device": "NVIDIA GeForce 605",
-      "gpu": "nvidia geforce 605",
-      "fps": 22,
-      "mobile": false,
-      "resolution": "1200 x 900"
-    },
-    {
-      "device": "NVIDIA GeForce 605",
-      "gpu": "nvidia geforce 605",
-      "fps": 17,
-      "mobile": false,
-      "resolution": "1768 x 992"
-    },
-    {
-      "device": "NVIDIA GeForce 605",
-      "gpu": "nvidia geforce 605",
-      "fps": 15,
-      "mobile": false,
-      "resolution": "1920 x 1080"
-    }
-  ],
-  [
-    {
       "device": "NVIDIA GK104GL [GRID K2]",
       "gpu": "nvidia gk104gl [grid k2]",
       "fps": 21,
@@ -32006,6 +31946,29 @@
       "device": "AMD E2-1800 APU with Radeon(tm) HD Graphics",
       "gpu": "amd radeon hd 7340",
       "fps": 10,
+      "mobile": false,
+      "resolution": "1920 x 1080"
+    }
+  ],
+  [
+    {
+      "device": "NVIDIA GeForce 605",
+      "gpu": "nvidia geforce 605",
+      "fps": 17,
+      "mobile": false,
+      "resolution": "1768 x 992"
+    },
+    {
+      "device": "NVIDIA GeForce 605",
+      "gpu": "nvidia geforce 605",
+      "fps": 15,
+      "mobile": false,
+      "resolution": "1920 x 1048"
+    },
+    {
+      "device": "NVIDIA GeForce 605",
+      "gpu": "nvidia geforce 605",
+      "fps": 15,
       "mobile": false,
       "resolution": "1920 x 1080"
     }
