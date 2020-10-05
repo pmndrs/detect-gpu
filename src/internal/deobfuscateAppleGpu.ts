@@ -25,22 +25,22 @@ export const deobfuscate = (
   if (mobile) {
     const vertexShaderSource = /* glsl */ `
       precision highp float;
-      attribute vec3 p;
-      varying float v;
+      attribute vec3 aPosition;
+      varying float vvv;
       void main() {
-        v = 0.31622776601683794;
-        gl_Position = vec4(p, 1.0);
+        vvv = 0.31622776601683794;
+        gl_Position = vec4(aPosition, 1.0);
       }
     `;
 
     const fragmentShaderSource = /* glsl */ `
       precision highp float;
-      varying float v;
+      varying float vvv;
       void main() {
-        vec4 e = vec4(1.0, 255.0, 65025.0, 16581375.0) * v;
-        e = fract(e);
-        e -= e.yzww * vec4(1.0 / 255.0, 1.0 / 255.0, 1.0 / 255.0, 0.0);
-        gl_FragColor = e;
+        vec4 enc = vec4(1.0, 255.0, 65025.0, 16581375.0) * vvv;
+        enc = fract(enc);
+        enc -= enc.yzww * vec4(1.0 / 255.0, 1.0 / 255.0, 1.0 / 255.0, 0.0);
+        gl_FragColor = enc;
       }
     `;
 

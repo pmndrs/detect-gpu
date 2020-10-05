@@ -54,7 +54,7 @@ export const getGPUTier = async ({
       renderer = gl.getParameter(debugRendererInfo.UNMASKED_RENDERER_WEBGL);
     }
     if (!renderer) return fallback;
-    renderer = await deobfuscateRenderer(gl, renderer, mobile);
+    renderer = await deobfuscateRenderer(gl, renderer.toLowerCase(), mobile);
   }
   const [fps, model] = await queryBenchmarks(
     benchmarksUrl,

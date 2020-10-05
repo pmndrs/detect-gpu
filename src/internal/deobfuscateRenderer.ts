@@ -3,10 +3,10 @@ export const deobfuscateRenderer = async (
   renderer: string,
   isMobileTier: boolean
 ) => {
-  // if (renderer === 'apple gpu') {
-  //   const { deobfuscate } = await import('./deobfuscateAppleGpu');
-  //   renderer = deobfuscate(gl, renderer, isMobileTier);
-  // }
+  if (renderer === 'apple gpu') {
+    const { deobfuscate } = await import('./deobfuscateAppleGpu');
+    renderer = deobfuscate(gl, renderer, isMobileTier);
+  }
 
   return renderer;
 };
