@@ -1,7 +1,7 @@
 import puppeteer from 'puppeteer';
 import fs from 'fs';
 
-import { getEntryVersionNumber } from '../src/internal/getEntryVersionNumber';
+import { getGPUVersion } from '../src/internal/getGPUVersion';
 
 const URL = `https://gfxbench.com/result.jsp?benchmark=gfx50&test=544&text-filter=&order=median&ff-lmobile=true&ff-smobile=true&os-Android_gl=true&os-Android_vulkan=true&os-iOS_gl=true&os-iOS_metal=true&os-Linux_gl=true&os-OS_X_gl=true&os-OS_X_metal=true&os-Windows_dx=true&os-Windows_dx12=true&os-Windows_gl=true&os-Windows_vulkan=true&pu-dGPU=true&pu-iGPU=true&pu-GPU=true&arch-ARM=true&arch-unknown=true&arch-x86=true&base=device`;
 
@@ -58,8 +58,10 @@ type BenchmarkRow = {
             // @ts-ignore
             gpu: window.gpuNameLookup[gpuIndex]
               .toLowerCase()
+              .replace(/\s*\([^\)]+(\))/g, '')
+              .replace(/([0-9]+)\/[^ ]+/, '$1')
               .replace(
-                /open source technology center |imagination technologies |™ |nvidia corporation |apple inc\. |advanced micro devices, inc\. | (series|graphics|edition)$|\s*\([^\)]+(\)|$)/g,
+                /x\.org |inc\. |open source technology center |imagination technologies |™ |nvidia corporation |apple inc\. |advanced micro devices, inc\. | series$| edition$| graphics$/g,
                 ''
               ),
             fps:
@@ -108,7 +110,7 @@ type BenchmarkRow = {
             const { gpu } = rows[0];
             return [
               gpu,
-              getEntryVersionNumber(gpu),
+              getGPUVersion(gpu),
               blacklistedModels.find((blacklistedModel) =>
                 gpu.includes(blacklistedModel)
               )
@@ -138,7 +140,6 @@ type BenchmarkRow = {
         if (typeModels.length === 0) return;
         return outputFile(getOutputFilename(type), typeModels);
       }),
-      outputFile(getOutputFilename('all'), rowsByGpu),
     ]);
   }
 })().catch((err) => {
@@ -146,8 +147,8 @@ type BenchmarkRow = {
 });
 
 const outputFile = async (name: string, content: any) => {
-  const file = `./src/data/${name}`;
-  const data = JSON.stringify(content, null, 2);
+  const file = `./benchmarks/${name}`;
+  const data = JSON.stringify(content);
   await fs.promises.writeFile(file, data);
   console.log(`Exported ${file}`);
 };

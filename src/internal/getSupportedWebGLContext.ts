@@ -27,9 +27,11 @@ export const getSupportedWebGLContext = (
   // Keep reference to the canvas and context in order to clean up
   // after the necessary information has been extracted
   const canvas = document.createElement('canvas');
-  const gl =
-    canvas.getContext('webgl', attributes) ||
-    canvas.getContext('experimental-webgl', attributes);
+  const gl = (canvas.getContext('webgl', attributes) ||
+    canvas.getContext(
+      'experimental-webgl',
+      attributes
+    )) as WebGLRenderingContext | null;
 
-  return !(gl instanceof WebGLRenderingContext) ? undefined : gl;
+  return gl || undefined;
 };

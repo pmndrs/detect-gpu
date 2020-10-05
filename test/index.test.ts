@@ -1,5 +1,5 @@
 import { getGPUTier } from '../src/index';
-import { TierResult } from '../src/types';
+import { ModelEntry, TierResult } from '../src/types';
 
 import { RENDERER_MOBILE, RENDERER_TABLET, RENDERER_DESKTOP } from './data';
 
@@ -11,6 +11,8 @@ const getTier = ({ mobile, renderer }: { mobile: boolean; renderer: string }) =>
     renderer,
     mobileTiers: [10, 30, 60],
     desktopTiers: [10, 30, 60],
+    loadBenchmarks: async (file: string): Promise<ModelEntry[] | undefined> =>
+      (await import(`../benchmarks/${file}`)).default,
   });
 
 [RENDERER_MOBILE, RENDERER_TABLET, RENDERER_DESKTOP].forEach((renderers) => {
@@ -72,7 +74,7 @@ test(`Bottom tier desktop: ${bottomTierDesktop}`, async () => {
   [
     'ANGLE (Radeon (TM) RX 470 Series Direct3D11 vs_5_0 ps_5_0)',
     false,
-    'amd radeon rx 470',
+    'radeon rx 470',
   ],
   [
     'ANGLE (Radeon (TM) HD 6470M Direct3D9Ex vs_3_0 ps_3_0)',

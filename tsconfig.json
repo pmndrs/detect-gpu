@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
     "moduleResolution": "node",
-    "target": "esnext",
-    "module": "esnext",
+    "target": "ES2016",
+    "module": "ESNext",
     "lib": ["es2020", "dom"],
     "strict": true,
     "sourceMap": true,
