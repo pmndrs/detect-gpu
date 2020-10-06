@@ -1,9 +1,10 @@
 export declare type TierType = 'WEBGL_UNSUPPORTED' | 'BLACKLISTED' | 'FALLBACK' | 'BENCHMARK';
 export declare type TierResult = {
     tier: number;
-    mobile: boolean;
+    isMobile: boolean;
     type: TierType;
-    model?: string;
+    gpu?: string;
+    device?: string;
 };
 export declare type ModelEntry = [
     string,

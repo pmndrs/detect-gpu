@@ -138,136 +138,308 @@ const getSupportedWebGLContext = (isSafari12, failIfMajorPerformanceCaveat = tru
     return gl || undefined;
 };
 
-const device = (() => {
-    if (typeof window === 'undefined')
+const deviceInfo = (() => {
+    if (typeof window === 'undefined') {
         return {};
+    }
     const { userAgent, platform, maxTouchPoints } = window.navigator;
     const isIOS = /(iphone|ipod|ipad)/i.test(userAgent);
     // Workaround for ipadOS, force detection as tablet
     // SEE: https://github.com/lancedikson/bowser/issues/329
     // SEE: https://stackoverflow.com/questions/58019463/how-to-detect-device-name-in-safari-on-ios-13-while-it-doesnt-show-the-correct
-    const isIPad = platform === 'MacIntel' &&
-        maxTouchPoints > 0 &&
-        !window.MSStream;
+    const isIpad = platform === 'iPad' ||
+        (platform === 'MacIntel' && maxTouchPoints > 0 && !window.MSStream);
     const isAndroid = /android/i.test(userAgent);
     return {
-        mobile: isAndroid || isIOS || isIPad,
-        safari12: /Version\/12.+Safari/.test(userAgent)
+        isMobile: isAndroid || isIOS || isIpad,
+        isSafari12: /Version\/12.+Safari/.test(userAgent),
+        isIpad,
     };
 })();
 
-const deobfuscateRenderer = (gl, renderer, isMobileTier) => __awaiter(void 0, void 0, void 0, function* () {
-    // if (renderer === 'apple gpu') {
-    //   const { deobfuscate } = await import('./deobfuscateAppleGpu');
-    //   renderer = deobfuscate(gl, renderer, isMobileTier);
-    // }
-    return renderer;
-});
+/**
+ * The following defined constants and descriptions are directly ported from https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Constants
+ *
+ * Any copyright is dedicated to the Public Domain. http://creativecommons.org/publicdomain/zero/1.0/
+ *
+ * Contributors
+ *
+ * See: https://developer.mozilla.org/en-US/profiles/Sheppy
+ * See: https://developer.mozilla.org/en-US/profiles/fscholz
+ * See: https://developer.mozilla.org/en-US/profiles/AtiX
+ * See: https://developer.mozilla.org/en-US/profiles/Sebastianz
+ *
+ * These constants are defined on the WebGLRenderingContext / WebGL2RenderingContext interface
+ */
+/**
+ * Passed to clear to clear the current color buffer
+ * @constant {number}
+ */
+const GL_COLOR_BUFFER_BIT = 0x00004000;
+/**
+ * Passed to drawElements or drawArrays to draw triangles. Each set of three vertices creates a separate triangle
+ * @constant {number}
+ */
+const GL_TRIANGLES = 0x0004;
+// Buffers
+// Constants passed to WebGLRenderingContext.bufferData(), WebGLRenderingContext.bufferSubData(), WebGLRenderingContext.bindBuffer(), or WebGLRenderingContext.getBufferParameter()
+/**
+ * Passed to bufferData as a hint about whether the contents of the buffer are likely to be used often and not change often
+ * @constant {number}
+ */
+const GL_STATIC_DRAW = 0x88e4;
+/**
+ * Passed to bindBuffer or bufferData to specify the type of buffer being used
+ * @constant {number}
+ */
+const GL_ARRAY_BUFFER = 0x8892;
+/**
+ * @constant {number}
+ */
+const GL_UNSIGNED_BYTE = 0x1401;
+/**
+ * @constant {number}
+ */
+const GL_FLOAT = 0x1406;
+/**
+ * @constant {number}
+ */
+const GL_RGBA = 0x1908;
+// Shaders
+// Constants passed to WebGLRenderingContext.getShaderParameter()
+/**
+ * Passed to createShader to define a fragment shader
+ * @constant {number}
+ */
+const GL_FRAGMENT_SHADER = 0x8b30;
+/**
+ * Passed to createShader to define a vertex shader
+ * @constant {number}
+ */
+const GL_VERTEX_SHADER = 0x8b31;
 
-const getGPUTier = ({ mobileTiers = [0, 30, 60], desktopTiers = [0, 30, 60], renderer, mobile = !!device.mobile, glContext, failIfMajorPerformanceCaveat = true, screen = typeof window === 'undefined'
+// Apple GPU (iOS 12.2+, Safari 14+)
+// SEE: https://github.com/TimvanScherpenzeel/detect-gpu/issues/7
+// CREDIT: https://medium.com/@Samsy/detecting-apple-a10-iphone-7-to-a11-iphone-8-and-b019b8f0eb87
+// CREDIT: https://github.com/Samsy/appleGPUDetection/blob/master/index.js
+const deobfuscateAppleGpu = (gl, renderer, isMobileTier, logging) => {
+    let renderers = [renderer];
+    if (isMobileTier) {
+        const vertexShaderSource = /* glsl */ `
+      precision highp float;
+      attribute vec3 aPosition;
+      varying float vvv;
+      void main() {
+        vvv = 0.31622776601683794;
+        gl_Position = vec4(aPosition, 1.0);
+      }
+    `;
+        const fragmentShaderSource = /* glsl */ `
+      precision highp float;
+      varying float vvv;
+      void main() {
+        vec4 enc = vec4(1.0, 255.0, 65025.0, 16581375.0) * vvv;
+        enc = fract(enc);
+        enc -= enc.yzww * vec4(1.0 / 255.0, 1.0 / 255.0, 1.0 / 255.0, 0.0);
+        gl_FragColor = enc;
+      }
+    `;
+        const vertexShader = gl.createShader(GL_VERTEX_SHADER);
+        const fragmentShader = gl.createShader(GL_FRAGMENT_SHADER);
+        const program = gl.createProgram();
+        if (fragmentShader && vertexShader && program) {
+            gl.shaderSource(vertexShader, vertexShaderSource);
+            gl.shaderSource(fragmentShader, fragmentShaderSource);
+            gl.compileShader(vertexShader);
+            gl.compileShader(fragmentShader);
+            gl.attachShader(program, vertexShader);
+            gl.attachShader(program, fragmentShader);
+            gl.linkProgram(program);
+            gl.detachShader(program, vertexShader);
+            gl.detachShader(program, fragmentShader);
+            gl.deleteShader(vertexShader);
+            gl.deleteShader(fragmentShader);
+            gl.useProgram(program);
+            const vertexArray = gl.createBuffer();
+            gl.bindBuffer(GL_ARRAY_BUFFER, vertexArray);
+            gl.bufferData(GL_ARRAY_BUFFER, new Float32Array([-1, -1, 0, 3, -1, 0, -1, 3, 0]), GL_STATIC_DRAW);
+            const aPosition = gl.getAttribLocation(program, 'aPosition');
+            gl.vertexAttribPointer(aPosition, 3, GL_FLOAT, false, 0, 0);
+            gl.enableVertexAttribArray(aPosition);
+            gl.clearColor(1.0, 1.0, 1.0, 1.0);
+            gl.clear(GL_COLOR_BUFFER_BIT);
+            gl.viewport(0, 0, 1, 1);
+            gl.drawArrays(GL_TRIANGLES, 0, 3);
+            const pixels = new Uint8Array(4);
+            gl.readPixels(0, 0, 1, 1, GL_RGBA, GL_UNSIGNED_BYTE, pixels);
+            gl.deleteProgram(program);
+            gl.deleteBuffer(vertexArray);
+            renderers =
+                // @ts-ignore
+                {
+                    // iPhone 11, 11 Pro, 11 Pro Max (Apple A13 GPU)
+                    // iPad Pro (Apple A12X GPU)
+                    // iPhone XS, XS Max, XR (Apple A12 GPU)
+                    // iPhone 8, 8 Plus (Apple A11 GPU)
+                    '801621810': deviceInfo.isIpad
+                        ? ['apple a12x gpu']
+                        : ['apple a11 gpu', 'apple a12 gpu', 'apple a13 gpu'],
+                    // iPhone SE, 6S, 6S Plus (Apple A9 GPU)
+                    // iPhone 7, 7 Plus (Apple A10 GPU)
+                    // iPad Pro (Apple A10X GPU)
+                    '8016218135': deviceInfo.isIpad
+                        ? ['apple a9x gpu', 'apple a10 gpu', 'apple a10x gpu']
+                        : ['apple a9 gpu', 'apple a10 gpu'],
+                }[pixels.join('')] || renderers;
+            if (logging) {
+                console.warn(`iOS 12.2+ obfuscates its GPU type and version, using closest matches: ${renderers}`);
+            }
+        }
+    }
+    else {
+        if (logging) {
+            console.warn('Safari 14+ obfuscates its GPU type and version, using fallback');
+        }
+    }
+    return renderers;
+};
+
+// Internal
+const deobfuscateRenderer = (gl, renderer, isMobileTier, logging) => renderer === 'apple gpu'
+    ? deobfuscateAppleGpu(gl, renderer, isMobileTier, logging)
+    : [renderer];
+
+const queryCache = {};
+const getGPUTier = ({ mobileTiers = [0, 30, 60], desktopTiers = [0, 30, 60], logging = false, override: { renderer, isIpad = !!deviceInfo.isIpad, isMobile = !!deviceInfo.isMobile, screen = typeof window === 'undefined'
     ? { width: 1920, height: 1080 }
-    : window.screen, benchmarksUrl = '/benchmarks', loadBenchmarks, } = {}) => __awaiter(void 0, void 0, void 0, function* () {
-    const toResult = (tier, type, model, fps) => ({
-        tier,
-        mobile,
-        type,
-        model,
-        fps,
+    : window.screen, loadBenchmarks, } = {}, glContext, failIfMajorPerformanceCaveat = true, benchmarksUrl = '/benchmarks', } = {}) => __awaiter(void 0, void 0, void 0, function* () {
+    const MODEL_INDEX = 0;
+    const queryBenchmarks = (benchmarksUrl, loadBenchmarks = (file) => __awaiter(void 0, void 0, void 0, function* () {
+        try {
+            const data = yield fetch(`${benchmarksUrl}/${file}`).then((response) => response.json());
+            return data;
+        }
+        catch (err) {
+            console.log(err);
+            return undefined;
+        }
+    }), renderer) => __awaiter(void 0, void 0, void 0, function* () {
+        renderer = renderer
+            .toLowerCase()
+            // Strip off ANGLE() - for example:
+            // 'ANGLE (NVIDIA TITAN Xp)' becomes 'NVIDIA TITAN Xp'':
+            .replace(/angle \((.+)\)*$/, '$1')
+            // Strip off [number]gb & strip off direct3d and after - for example:
+            // 'Radeon (TM) RX 470 Series Direct3D11 vs_5_0 ps_5_0' becomes
+            // 'Radeon (TM) RX 470 Series'
+            .replace(/\s+([0-9]+gb|direct3d.+$)|\(r\)| \([^\)]+\)$/g, '');
+        const types = isMobile
+            ? ['adreno', 'apple', 'mali-t', 'mali', 'nvidia', 'powervr']
+            : ['intel', 'amd', 'radeon', 'nvidia', 'geforce'];
+        let type;
+        // tslint:disable-next-line:prefer-for-of
+        for (let i = 0; i < types.length; i++) {
+            const typesType = types[i];
+            if (renderer.indexOf(typesType) > -1) {
+                type = typesType;
+                break;
+            }
+        }
+        if (!type) {
+            return [];
+        }
+        const benchmarkFile = `${isMobile ? 'm' : 'd'}-${type}.json`;
+        const benchmarkP = (queryCache[benchmarkFile] = queryCache[benchmarkFile] || loadBenchmarks(benchmarkFile));
+        const benchmarks = yield benchmarkP;
+        if (!benchmarks) {
+            return [];
+        }
+        const version = getGPUVersion(renderer);
+        const isApple = type === 'apple';
+        let matched = benchmarks.filter(([, modelVersion]) => modelVersion === version);
+        // If nothing matched, try comparing model names:
+        if (!matched.length) {
+            matched = benchmarks.filter(([model]) => model.indexOf(renderer) > -1);
+        }
+        const count = matched.length;
+        if (count === 0)
+            return [];
+        let [gpu, , blacklisted, fpsesByScreenSize] = count > 1
+            ? matched
+                .map((match) => [match, leven_1(renderer, match[MODEL_INDEX])])
+                .sort(([, a], [, b]) => a - b)[0][MODEL_INDEX]
+            : matched[0];
+        let minDistance = Number.MAX_VALUE;
+        let closest;
+        const { devicePixelRatio } = window;
+        const screenSize = screen.width * devicePixelRatio * (screen.height * devicePixelRatio);
+        if (isApple) {
+            fpsesByScreenSize = fpsesByScreenSize.filter(([, , , device]) => device.indexOf(isIpad ? 'ipad' : 'iphone') > -1);
+        }
+        for (let i = 0; i < fpsesByScreenSize.length; i++) {
+            const match = fpsesByScreenSize[i];
+            const [width, height] = match;
+            const entryScreenSize = width * height;
+            const distance = Math.abs(screenSize - entryScreenSize);
+            if (distance < minDistance) {
+                minDistance = distance;
+                closest = match;
+            }
+        }
+        // If blacklisted change fps to -1
+        // TODO: move this to update benchmarks script
+        const [, , fps, device] = closest;
+        return [minDistance, blacklisted ? -1 : fps, gpu, device];
     });
+    const toResult = (tier, type, fps, gpu, device) => ({
+        tier,
+        isMobile,
+        type,
+        fps,
+        gpu,
+        device,
+    });
+    let renderers;
     const fallback = toResult(1, 'FALLBACK');
     if (!renderer) {
         const gl = glContext ||
-            getSupportedWebGLContext(device.safari12, failIfMajorPerformanceCaveat);
-        if (!gl)
+            getSupportedWebGLContext(deviceInfo.isSafari12, failIfMajorPerformanceCaveat);
+        if (!gl) {
             return toResult(0, 'WEBGL_UNSUPPORTED');
+        }
         const debugRendererInfo = gl.getExtension('WEBGL_debug_renderer_info');
         if (debugRendererInfo) {
-            renderer = gl.getParameter(debugRendererInfo.UNMASKED_RENDERER_WEBGL);
+            renderer = gl
+                .getParameter(debugRendererInfo.UNMASKED_RENDERER_WEBGL)
+                .toLowerCase();
         }
-        if (!renderer)
+        if (!renderer) {
             return fallback;
-        renderer = yield deobfuscateRenderer(gl, renderer);
+        }
+        renderers = deobfuscateRenderer(gl, renderer, isMobile, logging);
     }
-    const [fps, model] = yield queryBenchmarks(benchmarksUrl, loadBenchmarks, renderer, mobile, screen);
-    if (fps === undefined) {
+    else {
+        renderers = [renderer];
+    }
+    const results = yield Promise.all(renderers.map((renderer) => queryBenchmarks(benchmarksUrl, loadBenchmarks, renderer)));
+    const result = results.length === 1
+        ? results[0]
+        : results.sort(([aDis = Number.MAX_VALUE], [bDis = Number.MAX_VALUE]) => aDis - bDis)[0];
+    if (result.length === 0) {
         return fallback;
     }
-    else if (fps === -1) {
-        return toResult(0, 'BLACKLISTED');
+    const [, fps, model, device] = result;
+    if (fps === -1) {
+        return toResult(0, 'BLACKLISTED', fps, model, device);
     }
-    const tiers = mobile ? mobileTiers : desktopTiers;
+    const tiers = isMobile ? mobileTiers : desktopTiers;
     let tier = 0;
     for (let i = 0; i < tiers.length; i++) {
         if (fps >= tiers[i]) {
             tier = i;
         }
     }
-    return toResult(tier, 'BENCHMARK', model, fps);
-});
-const MODEL_INDEX = 0;
-const queryBenchmarks = (benchmarksUrl, loadBenchmarks = (file) => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        const data = yield fetch(`${benchmarksUrl}/${file}`).then((res) => res.json());
-        return data;
-    }
-    catch (err) {
-        console.log(err);
-        return undefined;
-    }
-}), renderer, mobile, screen) => __awaiter(void 0, void 0, void 0, function* () {
-    renderer = renderer
-        .toLowerCase()
-        // Strip off ANGLE() - for example:
-        // 'ANGLE (NVIDIA TITAN Xp)' becomes 'NVIDIA TITAN Xp'':
-        .replace(/angle \((.+)\)*$/, '$1')
-        // Strip off [number]gb & strip off direct3d and after - for example:
-        // 'Radeon (TM) RX 470 Series Direct3D11 vs_5_0 ps_5_0' becomes
-        // 'Radeon (TM) RX 470 Series'
-        .replace(/\s+([0-9]+gb|direct3d.+$)|\(r\)| \([^\)]+\)$/g, '');
-    const types = mobile
-        ? ['adreno', 'apple', 'mali-t', 'mali', 'nvidia', 'powervr']
-        : ['intel', 'amd', 'radeon', 'nvidia', 'geforce'];
-    let type;
-    for (let i = 0; i < types.length; i++) {
-        const typesType = types[i];
-        if (renderer.indexOf(typesType) > -1) {
-            type = typesType;
-            break;
-        }
-    }
-    if (!type)
-        return [];
-    const benchmarkFile = `${mobile ? 'm' : 'd'}-${type}.json`;
-    const benchmarks = yield loadBenchmarks(benchmarkFile);
-    if (!benchmarks)
-        return [];
-    const version = getGPUVersion(renderer);
-    let matched = benchmarks.filter(([, modelVersion]) => modelVersion === version);
-    // If nothing matched, try comparing model names:
-    if (!matched.length) {
-        matched = benchmarks.filter(([model]) => model.indexOf(renderer) > -1);
-    }
-    const count = matched.length;
-    if (count === 0)
-        return [];
-    const [model, , blacklisted, fpsesByScreenSize] = count > 1
-        ? matched
-            .map((match) => [match, leven_1(renderer, match[MODEL_INDEX])])
-            .sort(([, a], [, b]) => a - b)[0][MODEL_INDEX]
-        : matched[0];
-    let closestFps = 0;
-    let minDistance = Number.MAX_VALUE;
-    const screenSize = screen.width * screen.height;
-    for (let i = 0; i < fpsesByScreenSize.length; i++) {
-        let [width, height, fps] = fpsesByScreenSize[i];
-        const entryScreenSize = width * height;
-        const distance = Math.abs(screenSize - entryScreenSize);
-        if (distance < minDistance) {
-            minDistance = distance;
-            closestFps = fps;
-        }
-    }
-    return [blacklisted ? -1 : closestFps, model];
+    return toResult(tier, 'BENCHMARK', fps, model, device);
 });
 
 export { getGPUTier };

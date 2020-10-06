@@ -13,8 +13,6 @@ import {
   GL_VERTEX_SHADER,
 } from 'webgl-constants';
 
-const warn = false ? console.warn : undefined;
-
 // Apple GPU (iOS 12.2+, Safari 14+)
 // SEE: https://github.com/TimvanScherpenzeel/detect-gpu/issues/7
 // CREDIT: https://medium.com/@Samsy/detecting-apple-a10-iphone-7-to-a11-iphone-8-and-b019b8f0eb87
@@ -22,10 +20,11 @@ const warn = false ? console.warn : undefined;
 export const deobfuscateAppleGpu = (
   gl: WebGLRenderingContext,
   renderer: string,
-  mobile: boolean
-) => {
+  isMobileTier: boolean,
+  logging: boolean
+): string[] => {
   let renderers = [renderer];
-  if (mobile) {
+  if (isMobileTier) {
     const vertexShaderSource = /* glsl */ `
       precision highp float;
       attribute vec3 aPosition;
@@ -90,6 +89,7 @@ export const deobfuscateAppleGpu = (
 
       gl.deleteProgram(program);
       gl.deleteBuffer(vertexArray);
+
       renderers =
         // @ts-ignore
         {
@@ -107,15 +107,19 @@ export const deobfuscateAppleGpu = (
             ? ['apple a9x gpu', 'apple a10 gpu', 'apple a10x gpu']
             : ['apple a9 gpu', 'apple a10 gpu'],
         }[pixels.join('')] || renderers;
-      warn &&
-        warn(
+
+      if (logging) {
+        console.warn(
           `iOS 12.2+ obfuscates its GPU type and version, using closest matches: ${renderers}`
         );
+      }
     }
   } else {
-    // TODO: add support for deobfuscating Safari 14 GPU
-    warn &&
-      warn('Safari 14+ obfuscates its GPU type and version, using fallback');
+    if (logging) {
+      console.warn(
+        'Safari 14+ obfuscates its GPU type and version, using fallback'
+      );
+    }
   }
 
   return renderers;

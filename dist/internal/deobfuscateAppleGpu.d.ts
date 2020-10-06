@@ -1,1 +1,1 @@
-export declare const deobfuscate: (gl: WebGLRenderingContext, renderer: string, mobile: boolean) => string;
+export declare const deobfuscateAppleGpu: (gl: WebGLRenderingContext, renderer: string, isMobileTier: boolean, logging: boolean) => string[];

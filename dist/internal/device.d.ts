@@ -1,7 +1,5 @@
-export declare const device: {
-    mobile?: undefined;
-    safari12?: undefined;
-} | {
-    mobile: boolean;
-    safari12: boolean;
+export declare const deviceInfo: {
+    isMobile?: boolean | undefined;
+    isSafari12?: boolean | undefined;
+    isIpad?: boolean | undefined;
 };

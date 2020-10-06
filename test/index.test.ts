@@ -10,8 +10,8 @@ const getTier = ({
   renderer,
   isIpad,
 }: {
-  isMobile: boolean;
-  renderer: string;
+  isMobile?: boolean;
+  renderer?: string;
   isIpad?: boolean;
 }) =>
   getGPUTier({

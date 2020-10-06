@@ -1,10 +1,12 @@
+// Internal
 import { deobfuscateAppleGpu } from './deobfuscateAppleGpu';
 
 export const deobfuscateRenderer = (
   gl: WebGLRenderingContext,
   renderer: string,
-  isMobileTier: boolean
+  isMobileTier: boolean,
+  logging: boolean
 ): string[] =>
   renderer === 'apple gpu'
-    ? deobfuscateAppleGpu(gl, renderer, isMobileTier)
+    ? deobfuscateAppleGpu(gl, renderer, isMobileTier, logging)
     : [renderer];
