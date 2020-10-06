@@ -1,9 +1,11 @@
+// Vendor
 import puppeteer from 'puppeteer';
 import fs from 'fs';
 
+// Application
 import { getGPUVersion } from '../src/internal/getGPUVersion';
 
-const URL = `https://gfxbench.com/result.jsp?benchmark=gfx50&test=544&text-filter=&order=median&ff-lmobile=true&ff-smobile=true&os-Android_gl=true&os-Android_vulkan=true&os-iOS_gl=true&os-iOS_metal=true&os-Linux_gl=true&os-OS_X_gl=true&os-OS_X_metal=true&os-Windows_dx=true&os-Windows_dx12=true&os-Windows_gl=true&os-Windows_vulkan=true&pu-dGPU=true&pu-iGPU=true&pu-GPU=true&arch-ARM=true&arch-unknown=true&arch-x86=true&base=device`;
+const BENCHMARK_URL = `https://gfxbench.com/result.jsp?benchmark=gfx50&test=544&text-filter=&order=median&ff-lmobile=true&ff-smobile=true&os-Android_gl=true&os-Android_vulkan=true&os-iOS_gl=true&os-iOS_metal=true&os-Linux_gl=true&os-OS_X_gl=true&os-OS_X_metal=true&os-Windows_dx=true&os-Windows_dx12=true&os-Windows_gl=true&os-Windows_vulkan=true&pu-dGPU=true&pu-iGPU=true&pu-GPU=true&arch-ARM=true&arch-unknown=true&arch-x86=true&base=device`;
 
 const types = [
   'adreno',
@@ -20,7 +22,7 @@ const types = [
 ];
 
 const groupBy = (xs: any[], key: number | string): {} =>
-  xs.reduce((rv, x) => {
+  xs.reduce((rv: any, x: any): any => {
     (rv[x[key]] = rv[x[key]] || []).push(x);
     return rv;
   }, {});
@@ -37,6 +39,7 @@ type BenchmarkRow = {
 (async (): Promise<void> => {
   const browser = await puppeteer.launch({ headless: true });
   const benchmarks = await getBenchmarks();
+
   await Promise.all(
     [true, false].map(
       (mobile): Promise<void[]> => exportBenchmarks(benchmarks, mobile)
@@ -44,9 +47,11 @@ type BenchmarkRow = {
   );
   await browser.close();
 
-  async function getBenchmarks() {
+  async function getBenchmarks(): Promise<BenchmarkRow[]> {
     const page = await browser.newPage();
-    await page.goto(URL, { waitUntil: 'networkidle2' });
+
+    await page.goto(BENCHMARK_URL, { waitUntil: 'networkidle2' });
+
     return (await page.evaluate((): BenchmarkRow[] =>
       (window as any).gpuName
         .map(
@@ -84,7 +89,10 @@ type BenchmarkRow = {
     )) as BenchmarkRow[];
   }
 
-  async function exportBenchmarks(rows: BenchmarkRow[], isMobile: boolean) {
+  async function exportBenchmarks(
+    rows: BenchmarkRow[],
+    isMobile: boolean
+  ): Promise<void[]> {
     const getOutputFilename = (type: string): string =>
       `${isMobile ? 'm' : 'd'}-${type}.json`;
 
@@ -101,47 +109,57 @@ type BenchmarkRow = {
     );
 
     return Promise.all([
-      ...types.map((type) => {
-        const typeModels = rowsByGpu
-          .filter(([{ gpu }]) => gpu.includes(type))
-          .map((rows) => {
-            const { gpu } = rows[0];
-            return [
-              gpu,
-              getGPUVersion(gpu),
-              blacklistedModels.find((blacklistedModel) =>
-                gpu.includes(blacklistedModel)
-              )
-                ? 1
-                : 0,
-              Object.entries(
-                rows.reduce(
-                  (
-                    fpsByResolution: { [k: string]: [string, number] },
-                    { resolution, fps, device }
-                  ): { [s: string]: [string, number] } => {
-                    fpsByResolution[resolution] = [device, fps];
-                    return fpsByResolution;
-                  },
-                  {}
+      ...types.map(
+        (type): Promise<void> => {
+          const typeModels = rowsByGpu
+            .filter(([{ gpu }]: BenchmarkRow[]): boolean => gpu.includes(type))
+            // tslint:disable-next-line:no-shadowed-variable
+            .map((rows: any): any => {
+              const { gpu } = rows[0];
+              return [
+                gpu,
+                getGPUVersion(gpu),
+                blacklistedModels.find((blacklistedModel: string): boolean =>
+                  gpu.includes(blacklistedModel)
                 )
-              )
-                .map(([resolution, [device, fps]]) => {
-                  const [width, height] = resolution.split(' x ').map(Number);
-                  return isMobile
-                    ? ([width, height, fps, device] as const)
-                    : ([width, height, fps] as const);
-                })
-                .sort(([, aW, aH], [, bW, bH]) => aW * aH - bW * bH),
-            ];
-          });
+                  ? 1
+                  : 0,
+                Object.entries(
+                  rows.reduce(
+                    (
+                      fpsByResolution: { [k: string]: [string, number] },
+                      {
+                        resolution,
+                        fps,
+                        device,
+                      }: { resolution: string; fps: number; device: string }
+                    ): { [s: string]: [string, number] } => {
+                      fpsByResolution[resolution] = [device, fps];
+                      return fpsByResolution;
+                    },
+                    {}
+                  )
+                )
+                  // @ts-ignore
+                  // tslint:disable-next-line:typedef
+                  .map(([resolution, [device, fps]]) => {
+                    const [width, height] = resolution.split(' x ').map(Number);
 
-        if (typeModels.length === 0) {
-          return;
+                    return isMobile
+                      ? ([width, height, fps, device] as const)
+                      : ([width, height, fps] as const);
+                  })
+                  .sort(([, aW, aH], [, bW, bH]): number => aW * aH - bW * bH),
+              ];
+            });
+
+          if (typeModels.length === 0) {
+            return Promise.resolve();
+          }
+
+          return outputFile(getOutputFilename(type), typeModels);
         }
-
-        return outputFile(getOutputFilename(type), typeModels);
-      }),
+      ),
       // outputFile(getOutputFilename(`all-${isMobile ? 'm' : 'd'}`), rowsByGpu),
     ]);
   }
