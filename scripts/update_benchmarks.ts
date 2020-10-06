@@ -133,7 +133,7 @@ type BenchmarkRow = {
                         fps,
                         device,
                       }: { resolution: string; fps: number; device: string }
-                    ): { [s: string]: [string, number] } => {
+                    ): { [k: string]: [string, number] } => {
                       fpsByResolution[resolution] = [device, fps];
                       return fpsByResolution;
                     },
