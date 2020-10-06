@@ -5,7 +5,7 @@ import fetch from 'unfetch';
 
 // Internal
 import { getGPUVersion } from './internal/getGPUVersion';
-import { getSupportedWebGLContext } from './internal/getSupportedWebGLContext';
+import { getWebGLContext } from './internal/getWebGLContext';
 import { deviceInfo, isSSR } from './internal/deviceInfo';
 import { deobfuscateRenderer } from './internal/deobfuscateRenderer';
 
@@ -233,10 +233,7 @@ export const getGPUTier = async ({
   if (!renderer) {
     const gl =
       glContext ||
-      getSupportedWebGLContext(
-        deviceInfo?.isSafari12,
-        failIfMajorPerformanceCaveat
-      );
+      getWebGLContext(deviceInfo?.isSafari12, failIfMajorPerformanceCaveat);
 
     if (!gl) {
       return toResult(0, 'WEBGL_UNSUPPORTED');
