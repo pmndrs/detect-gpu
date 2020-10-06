@@ -3,16 +3,7 @@ import { RENDERER_MOBILE, RENDERER_TABLET, RENDERER_DESKTOP } from './data';
 
 // Application
 import { getGPUTier } from '../src/index';
-import { ModelEntry, TierType } from '../src/types';
-
-// Types
-type TierResult = {
-  tier: number;
-  isMobile: boolean;
-  type: TierType;
-  gpu?: string;
-  device?: string;
-};
+import { TModelEntry, TTierType, TTierResult } from '../src/types';
 
 const isDebug = false;
 
@@ -30,7 +21,9 @@ const getTier = ({
       isMobile,
       isIpad,
       renderer,
-      loadBenchmarks: async (file: string): Promise<ModelEntry[] | undefined> =>
+      loadBenchmarks: async (
+        file: string
+      ): Promise<TModelEntry[] | undefined> =>
         (await import(`../benchmarks/${file}`)).default,
     },
     mobileTiers: [10, 30, 60],
@@ -267,8 +260,8 @@ test(`Bottom tier desktop: ${bottomTierDesktop}`, async (): Promise<void> => {
 );
 
 const expectGPUResults = (
-  expected: Partial<TierResult>,
-  result: TierResult
+  expected: Partial<TTierResult>,
+  result: TTierResult
 ): void => {
   if (expected.type) {
     expect(result.type).toBe(expected.type);

@@ -10,9 +10,9 @@ import { deviceInfo, isSSR } from './internal/deviceInfo';
 import { deobfuscateRenderer } from './internal/deobfuscateRenderer';
 
 // Types
-import type { ModelEntry, TierResult, TierType } from './types';
+import type { IGetGPUTier, TModelEntry, TTierResult, TTierType } from './types';
 
-const queryCache: { [k: string]: Promise<ModelEntry[] | undefined> } = {};
+const queryCache: { [k: string]: Promise<TModelEntry[] | undefined> } = {};
 
 export const getGPUTier = async ({
   mobileTiers = [0, 30, 60],
@@ -28,28 +28,14 @@ export const getGPUTier = async ({
   glContext,
   failIfMajorPerformanceCaveat = true,
   benchmarksURL = '/benchmarks',
-}: {
-  glContext?: WebGLRenderingContext | WebGL2RenderingContext;
-  failIfMajorPerformanceCaveat?: boolean;
-  mobileTiers?: number[];
-  desktopTiers?: number[];
-  debug?: boolean;
-  override?: {
-    renderer?: string;
-    isIpad?: boolean;
-    isMobile?: boolean;
-    screen?: { width: number; height: number };
-    loadBenchmarks?: (file: string) => Promise<ModelEntry[] | undefined>;
-  };
-  benchmarksURL?: string;
-} = {}): Promise<TierResult> => {
+}: IGetGPUTier = {}): Promise<TTierResult> => {
   const MODEL_INDEX = 0;
 
   const queryBenchmarks = async (
     // tslint:disable-next-line:no-shadowed-variable
     loadBenchmarks = async (
       file: string
-    ): Promise<ModelEntry[] | undefined> => {
+    ): Promise<TModelEntry[] | undefined> => {
       try {
         const data = await fetch(`${benchmarksURL}/${file}`).then(
           (response: UnfetchResponse): Promise<any> => response.json()
@@ -108,7 +94,7 @@ export const getGPUTier = async ({
 
     const benchmarkFile = `${isMobile ? 'm' : 'd'}-${type}.json`;
 
-    const benchmark: Promise<ModelEntry[] | undefined> = (queryCache[
+    const benchmark: Promise<TModelEntry[] | undefined> = (queryCache[
       benchmarkFile
     ] = queryCache[benchmarkFile] || loadBenchmarks(benchmarkFile));
 
@@ -122,7 +108,7 @@ export const getGPUTier = async ({
 
     const isApple = type === 'apple';
 
-    let matched: ModelEntry[] = benchmarks.filter(
+    let matched: TModelEntry[] = benchmarks.filter(
       ([, modelVersion]): boolean => modelVersion === version
     );
 
@@ -150,6 +136,7 @@ export const getGPUTier = async ({
         );
       }
     }
+
     const count = matched.length;
 
     if (count === 0) {
@@ -161,7 +148,7 @@ export const getGPUTier = async ({
       count > 1
         ? matched
             .map(
-              (match): readonly [ModelEntry, number] =>
+              (match): readonly [TModelEntry, number] =>
                 [match, leven(renderer, match[MODEL_INDEX])] as const
             )
             .sort(([, a], [, b]): number => a - b)[0][MODEL_INDEX]
@@ -212,13 +199,13 @@ export const getGPUTier = async ({
   const toResult = (
     // tslint:disable-next-line:no-shadowed-variable
     tier: number,
-    type: TierType,
+    type: TTierType,
     // tslint:disable-next-line:no-shadowed-variable
     fps?: number,
     gpu?: string,
     // tslint:disable-next-line:no-shadowed-variable
     device?: string
-  ): TierResult => ({
+  ): TTierResult => ({
     tier,
     isMobile,
     type,
