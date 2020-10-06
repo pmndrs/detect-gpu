@@ -7,6 +7,7 @@ export type TierType =
 export type TierResult = {
   tier: number;
   type: TierType;
+  isMobile: boolean;
   fps?: number;
   gpu?: string;
   device?: string;
