@@ -8,16 +8,16 @@ const isDebug = false;
 const getTier = ({
   isMobile,
   renderer,
-  isIPad,
+  isIpad,
 }: {
   isMobile: boolean;
   renderer: string;
-  isIPad?: boolean;
+  isIpad?: boolean;
 }) =>
   getGPUTier({
     override: {
       isMobile,
-      isIPad,
+      isIpad,
       renderer,
       loadBenchmarks: async (file: string): Promise<ModelEntry[] | undefined> =>
         (await import(`../benchmarks/${file}`)).default,
@@ -87,7 +87,7 @@ test(`Bottom tier desktop: ${bottomTierDesktop}`, async () => {
     input: {
       renderer: 'Apple A12X GPU',
       isMobile: true,
-      isIPad: true,
+      isIpad: true,
       screen: {
         width: 2224,
         height: 1668,
@@ -102,7 +102,7 @@ test(`Bottom tier desktop: ${bottomTierDesktop}`, async () => {
     input: {
       renderer: 'Apple A12X GPU',
       isMobile: true,
-      isIPad: true,
+      isIpad: true,
     },
     expected: {
       gpu: 'apple a12x gpu',
@@ -112,7 +112,7 @@ test(`Bottom tier desktop: ${bottomTierDesktop}`, async () => {
     input: {
       renderer: 'Apple a9x GPU',
       isMobile: true,
-      isIPad: true,
+      isIpad: true,
     },
     expected: {
       gpu: 'apple a9x gpu',
@@ -274,7 +274,7 @@ function testRenders(deviceType: string[], mobileDevice = false) {
     test(`${renderer} -> GPUTier returns a valid tier`, async () => {
       const input = {
         isMobile: mobileDevice,
-        isIPad: /apple.+x/i.test(renderer),
+        isIpad: /apple.+x/i.test(renderer),
         renderer,
       };
       const result = await getTier(input);

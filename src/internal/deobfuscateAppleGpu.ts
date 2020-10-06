@@ -97,13 +97,13 @@ export const deobfuscateAppleGpu = (
           // iPad Pro (Apple A12X GPU)
           // iPhone XS, XS Max, XR (Apple A12 GPU)
           // iPhone 8, 8 Plus (Apple A11 GPU)
-          '801621810': deviceInfo.isIPad
+          '801621810': deviceInfo.isIpad
             ? ['apple a12x gpu']
             : ['apple a11 gpu', 'apple a12 gpu', 'apple a13 gpu'],
           // iPhone SE, 6S, 6S Plus (Apple A9 GPU)
           // iPhone 7, 7 Plus (Apple A10 GPU)
           // iPad Pro (Apple A10X GPU)
-          '8016218135': deviceInfo.isIPad
+          '8016218135': deviceInfo.isIpad
             ? ['apple a9x gpu', 'apple a10 gpu', 'apple a10x gpu']
             : ['apple a9 gpu', 'apple a10 gpu'],
         }[pixels.join('')] || renderers;

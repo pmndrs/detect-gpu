@@ -14,7 +14,7 @@ export const getGPUTier = async ({
   desktopTiers = [0, 30, 60],
   override: {
     renderer,
-    isIPad = !!deviceInfo.isIPad,
+    isIpad = !!deviceInfo.isIpad,
     isMobile = !!deviceInfo.isMobile,
     screen = typeof window === 'undefined'
       ? { width: 1920, height: 1080 }
@@ -31,7 +31,7 @@ export const getGPUTier = async ({
   desktopTiers?: number[];
   override?: {
     renderer?: string;
-    isIPad?: boolean;
+    isIpad?: boolean;
     isMobile?: boolean;
     screen?: { width: number; height: number };
     loadBenchmarks?: (file: string) => Promise<ModelEntry[] | undefined>;
@@ -127,7 +127,7 @@ export const getGPUTier = async ({
       screen.width * devicePixelRatio * (screen.height * devicePixelRatio);
     if (isApple) {
       fpsesByScreenSize = fpsesByScreenSize.filter(
-        ([, , , device]) => device.indexOf(isIPad ? 'ipad' : 'iphone') > -1
+        ([, , , device]) => device.indexOf(isIpad ? 'ipad' : 'iphone') > -1
       );
     }
     for (let i = 0; i < fpsesByScreenSize.length; i++) {

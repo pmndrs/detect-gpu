@@ -1,4 +1,4 @@
-export const getGPUVersion = (model: string) => {
+export const getGPUVersion = (model: string): string => {
   model = model.replace(/\([^\)]+\)/, '');
 
   const matches =
