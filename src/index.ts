@@ -17,11 +17,11 @@ const queryCache: { [k: string]: Promise<ModelEntry[] | undefined> } = {};
 export const getGPUTier = async ({
   mobileTiers = [0, 30, 60],
   desktopTiers = [0, 30, 60],
-  logging = false,
+  debug = false,
   override: {
     renderer,
-    isIpad = Boolean(deviceInfo.isIpad),
-    isMobile = Boolean(deviceInfo.isMobile),
+    isIpad = Boolean(deviceInfo?.isIpad),
+    isMobile = Boolean(deviceInfo?.isMobile),
     screen = isSSR ? { width: 1920, height: 1080 } : window.screen,
     loadBenchmarks,
   } = {},
@@ -33,7 +33,7 @@ export const getGPUTier = async ({
   failIfMajorPerformanceCaveat?: boolean;
   mobileTiers?: number[];
   desktopTiers?: number[];
-  logging?: boolean;
+  debug?: boolean;
   override?: {
     renderer?: string;
     isIpad?: boolean;
@@ -64,7 +64,7 @@ export const getGPUTier = async ({
     // tslint:disable-next-line:no-shadowed-variable
     renderer: string
   ): Promise<[number, number, string, string | undefined] | []> => {
-    if (logging) {
+    if (debug) {
       console.log('queryBenchmarks', { renderer });
     }
 
@@ -78,7 +78,7 @@ export const getGPUTier = async ({
       // 'Radeon (TM) RX 470 Series'
       .replace(/\s+([0-9]+gb|direct3d.+$)|\(r\)| \([^\)]+\)$/g, '');
 
-    if (logging) {
+    if (debug) {
       console.log('queryBenchmarks - renderer cleaned to', { renderer });
     }
 
@@ -102,7 +102,7 @@ export const getGPUTier = async ({
       return [];
     }
 
-    if (logging) {
+    if (debug) {
       console.log('queryBenchmarks - found type:', { type });
     }
 
@@ -126,7 +126,7 @@ export const getGPUTier = async ({
       ([, modelVersion]): boolean => modelVersion === version
     );
 
-    if (logging) {
+    if (debug) {
       console.log(
         `found ${matched.length} matching entries using version '${version}':`,
         // tslint:disable-next-line:no-shadowed-variable
@@ -141,7 +141,7 @@ export const getGPUTier = async ({
         ([model]): boolean => model.indexOf(renderer) > -1
       );
 
-      if (logging) {
+      if (debug) {
         console.log(
           `found ${matched.length} matching entries comparing model names`,
           {
@@ -167,7 +167,7 @@ export const getGPUTier = async ({
             .sort(([, a], [, b]): number => a - b)[0][MODEL_INDEX]
         : matched[0];
 
-    if (logging) {
+    if (debug) {
       console.log(
         `${renderer} matched closest to ${gpu} with the following screen sizes`,
         JSON.stringify(fpsesByScreenSize)
@@ -234,7 +234,7 @@ export const getGPUTier = async ({
     const gl =
       glContext ||
       getSupportedWebGLContext(
-        deviceInfo!.isSafari12,
+        deviceInfo?.isSafari12,
         failIfMajorPerformanceCaveat
       );
 
@@ -254,7 +254,7 @@ export const getGPUTier = async ({
       return fallback;
     }
 
-    renderers = deobfuscateRenderer(gl, renderer, isMobile, logging);
+    renderers = deobfuscateRenderer(gl, renderer, isMobile, debug);
   } else {
     renderers = [renderer];
   }
