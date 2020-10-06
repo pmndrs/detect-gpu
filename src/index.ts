@@ -1,5 +1,6 @@
 // Vendor
 import leven from 'leven';
+// @ts-ignore unfetch doesn't properly export its types
 import fetch from 'unfetch';
 
 // Internal
@@ -9,9 +10,8 @@ import { deviceInfo } from './internal/device';
 import { deobfuscateRenderer } from './internal/deobfuscateRenderer';
 
 // Types
-import type { TierType, ModelEntry } from './types';
+import type { ModelEntry, TierResult } from './types';
 
-const debug = false ? console.log : undefined;
 const queryCache: { [k: string]: Promise<ModelEntry[] | undefined> } = {};
 
 export const getGPUTier = async ({
@@ -20,8 +20,8 @@ export const getGPUTier = async ({
   logging = false,
   override: {
     renderer,
-    isIpad = !!deviceInfo.isIpad,
-    isMobile = !!deviceInfo.isMobile,
+    isIpad = Boolean(deviceInfo.isIpad),
+    isMobile = Boolean(deviceInfo.isMobile),
     screen = typeof window === 'undefined'
       ? { width: 1920, height: 1080 }
       : window.screen,
@@ -29,7 +29,7 @@ export const getGPUTier = async ({
   } = {},
   glContext,
   failIfMajorPerformanceCaveat = true,
-  benchmarksUrl = '/benchmarks',
+  benchmarksURL = '/benchmarks',
 }: {
   glContext?: WebGLRenderingContext | WebGL2RenderingContext;
   failIfMajorPerformanceCaveat?: boolean;
@@ -43,17 +43,17 @@ export const getGPUTier = async ({
     screen?: { width: number; height: number };
     loadBenchmarks?: (file: string) => Promise<ModelEntry[] | undefined>;
   };
-  benchmarksUrl?: string;
-} = {}) => {
+  benchmarksURL?: string;
+} = {}): Promise<TierResult> => {
   const MODEL_INDEX = 0;
+
   const queryBenchmarks = async (
-    benchmarksUrl: string,
     loadBenchmarks = async (
       file: string
     ): Promise<ModelEntry[] | undefined> => {
       try {
-        const data = await fetch(`${benchmarksUrl}/${file}`).then((response) =>
-          response.json()
+        const data = await fetch(`${benchmarksURL}/${file}`).then(
+          (response: UnfetchResponse): Promise<any> => response.json()
         );
 
         return data;
@@ -64,7 +64,9 @@ export const getGPUTier = async ({
     },
     renderer: string
   ): Promise<[number, number, string, string | undefined] | []> => {
-    debug?.('queryBenchmarks', { renderer });
+    if (logging) {
+      console.log('queryBenchmarks', { renderer });
+    }
 
     renderer = renderer
       .toLowerCase()
@@ -76,7 +78,9 @@ export const getGPUTier = async ({
       // 'Radeon (TM) RX 470 Series'
       .replace(/\s+([0-9]+gb|direct3d.+$)|\(r\)| \([^\)]+\)$/g, '');
 
-    debug?.('queryBenchmarks - renderer cleaned to', { renderer });
+    if (logging) {
+      console.log('queryBenchmarks - renderer cleaned to', { renderer });
+    }
 
     const types = isMobile
       ? ['adreno', 'apple', 'mali-t', 'mali', 'nvidia', 'powervr']
@@ -98,15 +102,17 @@ export const getGPUTier = async ({
       return [];
     }
 
-    debug?.('queryBenchmarks - found type:', { type });
+    if (logging) {
+      console.log('queryBenchmarks - found type:', { type });
+    }
 
     const benchmarkFile = `${isMobile ? 'm' : 'd'}-${type}.json`;
 
-    const benchmarkP: Promise<ModelEntry[] | undefined> = (queryCache[
+    const benchmark: Promise<ModelEntry[] | undefined> = (queryCache[
       benchmarkFile
     ] = queryCache[benchmarkFile] || loadBenchmarks(benchmarkFile));
 
-    const benchmarks = await benchmarkP;
+    const benchmarks = await benchmark;
 
     if (!benchmarks) {
       return [];
@@ -120,23 +126,31 @@ export const getGPUTier = async ({
       ([, modelVersion]): boolean => modelVersion === version
     );
 
-    debug?.(
-      `found ${matched.length} matching entries using version '${version}':`,
-      matched.map(([model]) => model)
-    );
+    if (logging) {
+      console.log(
+        `found ${matched.length} matching entries using version '${version}':`,
+        matched.map(([model]) => model)
+      );
+    }
 
     // If nothing matched, try comparing model names:
     if (!matched.length) {
       matched = benchmarks.filter(([model]) => model.indexOf(renderer) > -1);
-      debug?.(
-        `found ${matched.length} matching entries comparing model names`,
-        {
-          matched,
-        }
-      );
+      if (logging) {
+        console.log(
+          `found ${matched.length} matching entries comparing model names`,
+          {
+            matched,
+          }
+        );
+      }
     }
     const count = matched.length;
-    if (count === 0) return [];
+
+    if (count === 0) {
+      return [];
+    }
+
     let [gpu, , blacklisted, fpsesByScreenSize] =
       count > 1
         ? matched
@@ -145,16 +159,20 @@ export const getGPUTier = async ({
             )
             .sort(([, a], [, b]) => a - b)[0][MODEL_INDEX]
         : matched[0];
-    debug?.(
-      `${renderer} matched closest to ${gpu} with the following screen sizes`,
-      JSON.stringify(fpsesByScreenSize)
-    );
+
+    if (logging) {
+      console.log(
+        `${renderer} matched closest to ${gpu} with the following screen sizes`,
+        JSON.stringify(fpsesByScreenSize)
+      );
+    }
 
     let minDistance = Number.MAX_VALUE;
     let closest: [number, number, number, string];
     const { devicePixelRatio } = window;
     const screenSize =
       screen.width * devicePixelRatio * (screen.height * devicePixelRatio);
+
     if (isApple) {
       fpsesByScreenSize = fpsesByScreenSize.filter(
         ([, , , device]) => device.indexOf(isIpad ? 'ipad' : 'iphone') > -1
@@ -166,6 +184,7 @@ export const getGPUTier = async ({
       const [width, height] = match;
       const entryScreenSize = width * height;
       const distance = Math.abs(screenSize - entryScreenSize);
+
       if (distance < minDistance) {
         minDistance = distance;
         closest = match;
@@ -179,23 +198,11 @@ export const getGPUTier = async ({
     return [minDistance, blacklisted ? -1 : fps, gpu, device];
   };
 
-  const toResult = (
-    tier: number,
-    type: TierType,
-    fps?: number,
-    gpu?: string,
-    device?: string
-  ) => ({
-    tier,
-    isMobile,
-    type,
-    fps,
-    gpu,
-    device,
-  });
-
   let renderers: string[];
-  const fallback = toResult(1, 'FALLBACK');
+  const fallback: TierResult = {
+    tier: 1,
+    type: 'FALLBACK',
+  };
 
   if (!renderer) {
     const gl =
@@ -206,7 +213,7 @@ export const getGPUTier = async ({
       );
 
     if (!gl) {
-      return toResult(0, 'WEBGL_UNSUPPORTED');
+      return { tier: 0, type: 'WEBGL_UNSUPPORTED' } as TierResult;
     }
 
     const debugRendererInfo = gl.getExtension('WEBGL_debug_renderer_info');
@@ -227,8 +234,11 @@ export const getGPUTier = async ({
   }
 
   const results = await Promise.all(
-    renderers.map((renderer) =>
-      queryBenchmarks(benchmarksUrl, loadBenchmarks, renderer)
+    renderers.map(
+      (
+        renderer: string
+      ): Promise<[number, number, string, string | undefined] | []> =>
+        queryBenchmarks(loadBenchmarks, renderer)
     )
   );
 
@@ -247,7 +257,7 @@ export const getGPUTier = async ({
   const [, fps, model, device] = result;
 
   if (fps === -1) {
-    return toResult(0, 'BLACKLISTED', fps, model, device);
+    return { tier: 0, type: 'BLACKLISTED', fps, model, device } as TierResult;
   }
 
   const tiers = isMobile ? mobileTiers : desktopTiers;
@@ -259,5 +269,5 @@ export const getGPUTier = async ({
     }
   }
 
-  return toResult(tier, 'BENCHMARK', fps, model, device);
+  return { tier, type: 'BENCHMARK', fps, model, device } as TierResult;
 };

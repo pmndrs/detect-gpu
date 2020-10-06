@@ -310,13 +310,13 @@ const deobfuscateRenderer = (gl, renderer, isMobileTier, logging) => renderer ==
     : [renderer];
 
 const queryCache = {};
-const getGPUTier = ({ mobileTiers = [0, 30, 60], desktopTiers = [0, 30, 60], logging = false, override: { renderer, isIpad = !!deviceInfo.isIpad, isMobile = !!deviceInfo.isMobile, screen = typeof window === 'undefined'
+const getGPUTier = ({ mobileTiers = [0, 30, 60], desktopTiers = [0, 30, 60], logging = false, override: { renderer, isIpad = Boolean(deviceInfo.isIpad), isMobile = Boolean(deviceInfo.isMobile), screen = typeof window === 'undefined'
     ? { width: 1920, height: 1080 }
-    : window.screen, loadBenchmarks, } = {}, glContext, failIfMajorPerformanceCaveat = true, benchmarksUrl = '/benchmarks', } = {}) => __awaiter(void 0, void 0, void 0, function* () {
+    : window.screen, loadBenchmarks, } = {}, glContext, failIfMajorPerformanceCaveat = true, benchmarksURL = '/benchmarks', } = {}) => __awaiter(void 0, void 0, void 0, function* () {
     const MODEL_INDEX = 0;
-    const queryBenchmarks = (benchmarksUrl, loadBenchmarks = (file) => __awaiter(void 0, void 0, void 0, function* () {
+    const queryBenchmarks = (loadBenchmarks = (file) => __awaiter(void 0, void 0, void 0, function* () {
         try {
-            const data = yield fetch(`${benchmarksUrl}/${file}`).then((response) => response.json());
+            const data = yield fetch(`${benchmarksURL}/${file}`).then((response) => response.json());
             return data;
         }
         catch (err) {
@@ -324,6 +324,9 @@ const getGPUTier = ({ mobileTiers = [0, 30, 60], desktopTiers = [0, 30, 60], log
             return undefined;
         }
     }), renderer) => __awaiter(void 0, void 0, void 0, function* () {
+        if (logging) {
+            console.log('queryBenchmarks', { renderer });
+        }
         renderer = renderer
             .toLowerCase()
             // Strip off ANGLE() - for example:
@@ -333,6 +336,9 @@ const getGPUTier = ({ mobileTiers = [0, 30, 60], desktopTiers = [0, 30, 60], log
             // 'Radeon (TM) RX 470 Series Direct3D11 vs_5_0 ps_5_0' becomes
             // 'Radeon (TM) RX 470 Series'
             .replace(/\s+([0-9]+gb|direct3d.+$)|\(r\)| \([^\)]+\)$/g, '');
+        if (logging) {
+            console.log('queryBenchmarks - renderer cleaned to', { renderer });
+        }
         const types = isMobile
             ? ['adreno', 'apple', 'mali-t', 'mali', 'nvidia', 'powervr']
             : ['intel', 'amd', 'radeon', 'nvidia', 'geforce'];
@@ -348,27 +354,42 @@ const getGPUTier = ({ mobileTiers = [0, 30, 60], desktopTiers = [0, 30, 60], log
         if (!type) {
             return [];
         }
+        if (logging) {
+            console.log('queryBenchmarks - found type:', { type });
+        }
         const benchmarkFile = `${isMobile ? 'm' : 'd'}-${type}.json`;
-        const benchmarkP = (queryCache[benchmarkFile] = queryCache[benchmarkFile] || loadBenchmarks(benchmarkFile));
-        const benchmarks = yield benchmarkP;
+        const benchmark = (queryCache[benchmarkFile] = queryCache[benchmarkFile] || loadBenchmarks(benchmarkFile));
+        const benchmarks = yield benchmark;
         if (!benchmarks) {
             return [];
         }
         const version = getGPUVersion(renderer);
         const isApple = type === 'apple';
         let matched = benchmarks.filter(([, modelVersion]) => modelVersion === version);
+        if (logging) {
+            console.log(`found ${matched.length} matching entries using version '${version}':`, matched.map(([model]) => model));
+        }
         // If nothing matched, try comparing model names:
         if (!matched.length) {
             matched = benchmarks.filter(([model]) => model.indexOf(renderer) > -1);
+            if (logging) {
+                console.log(`found ${matched.length} matching entries comparing model names`, {
+                    matched,
+                });
+            }
         }
         const count = matched.length;
-        if (count === 0)
+        if (count === 0) {
             return [];
+        }
         let [gpu, , blacklisted, fpsesByScreenSize] = count > 1
             ? matched
                 .map((match) => [match, leven_1(renderer, match[MODEL_INDEX])])
                 .sort(([, a], [, b]) => a - b)[0][MODEL_INDEX]
             : matched[0];
+        if (logging) {
+            console.log(`${renderer} matched closest to ${gpu} with the following screen sizes`, JSON.stringify(fpsesByScreenSize));
+        }
         let minDistance = Number.MAX_VALUE;
         let closest;
         const { devicePixelRatio } = window;
@@ -391,21 +412,16 @@ const getGPUTier = ({ mobileTiers = [0, 30, 60], desktopTiers = [0, 30, 60], log
         const [, , fps, device] = closest;
         return [minDistance, blacklisted ? -1 : fps, gpu, device];
     });
-    const toResult = (tier, type, fps, gpu, device) => ({
-        tier,
-        isMobile,
-        type,
-        fps,
-        gpu,
-        device,
-    });
     let renderers;
-    const fallback = toResult(1, 'FALLBACK');
+    const fallback = {
+        tier: 1,
+        type: 'FALLBACK',
+    };
     if (!renderer) {
         const gl = glContext ||
             getSupportedWebGLContext(deviceInfo.isSafari12, failIfMajorPerformanceCaveat);
         if (!gl) {
-            return toResult(0, 'WEBGL_UNSUPPORTED');
+            return { tier: 0, type: 'WEBGL_UNSUPPORTED' };
         }
         const debugRendererInfo = gl.getExtension('WEBGL_debug_renderer_info');
         if (debugRendererInfo) {
@@ -421,7 +437,7 @@ const getGPUTier = ({ mobileTiers = [0, 30, 60], desktopTiers = [0, 30, 60], log
     else {
         renderers = [renderer];
     }
-    const results = yield Promise.all(renderers.map((renderer) => queryBenchmarks(benchmarksUrl, loadBenchmarks, renderer)));
+    const results = yield Promise.all(renderers.map((renderer) => queryBenchmarks(loadBenchmarks, renderer)));
     const result = results.length === 1
         ? results[0]
         : results.sort(([aDis = Number.MAX_VALUE], [bDis = Number.MAX_VALUE]) => aDis - bDis)[0];
@@ -430,7 +446,7 @@ const getGPUTier = ({ mobileTiers = [0, 30, 60], desktopTiers = [0, 30, 60], log
     }
     const [, fps, model, device] = result;
     if (fps === -1) {
-        return toResult(0, 'BLACKLISTED', fps, model, device);
+        return { tier: 0, type: 'BLACKLISTED', fps, model, device };
     }
     const tiers = isMobile ? mobileTiers : desktopTiers;
     let tier = 0;
@@ -439,7 +455,7 @@ const getGPUTier = ({ mobileTiers = [0, 30, 60], desktopTiers = [0, 30, 60], log
             tier = i;
         }
     }
-    return toResult(tier, 'BENCHMARK', fps, model, device);
+    return { tier, type: 'BENCHMARK', fps, model, device };
 });
 
 export { getGPUTier };
