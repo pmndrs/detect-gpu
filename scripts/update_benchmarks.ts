@@ -77,10 +77,10 @@ type BenchmarkRow = {
             ],
           })
         )
-        .sort((a, b): number => {
+        .sort((a: any, b: any): number => {
           return a.date.localeCompare(b.date);
         })
-        .filter(({ fps }): boolean => fps !== undefined)
+        .filter(({ fps }: { fps: number }): boolean => fps !== undefined)
     )) as BenchmarkRow[];
   }
 
@@ -119,7 +119,7 @@ type BenchmarkRow = {
                   (
                     fpsByResolution: { [k: string]: [string, number] },
                     { resolution, fps, device }
-                  ) => {
+                  ): { [s: string]: [string, number] } => {
                     fpsByResolution[resolution] = [device, fps];
                     return fpsByResolution;
                   },
