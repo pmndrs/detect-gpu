@@ -54,7 +54,9 @@ type BenchmarkRow = {
         .map(
           (gpuIndex: number, index: number): Partial<BenchmarkRow> => ({
             // @ts-ignore
-            device: window.deviceName[index],
+            date: window.firstResult[index],
+            // @ts-ignore
+            device: window.deviceName[index].toLowerCase(),
             // @ts-ignore
             gpu: window.gpuNameLookup[gpuIndex]
               .toLowerCase()
@@ -82,6 +84,12 @@ type BenchmarkRow = {
             resolution: window.screenSizeLookup[window.screenSizes[index]],
           })
         )
+        // @ts-ignore
+        .sort((a, b) => {
+          // sort by date ascending
+          // @ts-ignore
+          return a.date.localeCompare(b.date);
+        })
         .filter(
           // @ts-ignore
           ({ fps }) => fps !== undefined
@@ -140,6 +148,7 @@ type BenchmarkRow = {
         if (typeModels.length === 0) return;
         return outputFile(getOutputFilename(type), typeModels);
       }),
+      // outputFile(getOutputFilename(`all-${isMobile ? 'm' : 'd'}`), rowsByGpu),
     ]);
   }
 })().catch((err) => {

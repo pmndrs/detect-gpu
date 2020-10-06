@@ -1,3 +1,5 @@
+import { deviceInfo } from '../internal/device';
+
 // Vendor
 import {
   GL_ARRAY_BUFFER,
@@ -17,11 +19,12 @@ const warn = false ? console.warn : undefined;
 // SEE: https://github.com/TimvanScherpenzeel/detect-gpu/issues/7
 // CREDIT: https://medium.com/@Samsy/detecting-apple-a10-iphone-7-to-a11-iphone-8-and-b019b8f0eb87
 // CREDIT: https://github.com/Samsy/appleGPUDetection/blob/master/index.js
-export const deobfuscate = (
+export const deobfuscateAppleGpu = (
   gl: WebGLRenderingContext,
   renderer: string,
   mobile: boolean
-): string => {
+) => {
+  let renderers = [renderer];
   if (mobile) {
     const vertexShaderSource = /* glsl */ `
       precision highp float;
@@ -87,22 +90,26 @@ export const deobfuscate = (
 
       gl.deleteProgram(program);
       gl.deleteBuffer(vertexArray);
-      renderer =
+      renderers =
         // @ts-ignore
         {
           // iPhone 11, 11 Pro, 11 Pro Max (Apple A13 GPU)
           // iPad Pro (Apple A12X GPU)
           // iPhone XS, XS Max, XR (Apple A12 GPU)
           // iPhone 8, 8 Plus (Apple A11 GPU)
-          '801621810': 'apple a13 gpu',
+          '801621810': deviceInfo.isIPad
+            ? ['apple a12x gpu']
+            : ['apple a11 gpu', 'apple a12 gpu', 'apple a13 gpu'],
           // iPhone SE, 6S, 6S Plus (Apple A9 GPU)
           // iPhone 7, 7 Plus (Apple A10 GPU)
           // iPad Pro (Apple A10X GPU)
-          '8016218135': 'apple a10 gpu',
-        }[pixels.join('')] || renderer;
+          '8016218135': deviceInfo.isIPad
+            ? ['apple a9x gpu', 'apple a10 gpu', 'apple a10x gpu']
+            : ['apple a9 gpu', 'apple a10 gpu'],
+        }[pixels.join('')] || renderers;
       warn &&
         warn(
-          `iOS 12.2+ obfuscates its GPU type and version, using closest match: ${renderer}`
+          `iOS 12.2+ obfuscates its GPU type and version, using closest matches: ${renderers}`
         );
     }
   } else {
@@ -111,5 +118,5 @@ export const deobfuscate = (
       warn('Safari 14+ obfuscates its GPU type and version, using fallback');
   }
 
-  return renderer;
+  return renderers;
 };

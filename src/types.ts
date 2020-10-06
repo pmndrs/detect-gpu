@@ -6,9 +6,10 @@ export type TierType =
 
 export type TierResult = {
   tier: number;
-  mobile: boolean;
+  isMobile: boolean;
   type: TierType;
-  model?: string;
+  gpu?: string;
+  device?: string;
 };
 
 export type ModelEntry = [
