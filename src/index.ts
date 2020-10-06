@@ -6,7 +6,7 @@ import fetch from 'unfetch';
 // Internal
 import { getGPUVersion } from './internal/getGPUVersion';
 import { getSupportedWebGLContext } from './internal/getSupportedWebGLContext';
-import { deviceInfo, isSSR } from './internal/device';
+import { deviceInfo, isSSR } from './internal/deviceInfo';
 import { deobfuscateRenderer } from './internal/deobfuscateRenderer';
 
 // Types

@@ -1,5 +1,3 @@
-import { deviceInfo } from '../internal/device';
-
 // Vendor
 import {
   GL_ARRAY_BUFFER,
@@ -12,6 +10,9 @@ import {
   GL_UNSIGNED_BYTE,
   GL_VERTEX_SHADER,
 } from 'webgl-constants';
+
+// Internal
+import { deviceInfo } from './deviceInfo';
 
 // Apple GPU (iOS 12.2+, Safari 14+)
 // SEE: https://github.com/TimvanScherpenzeel/detect-gpu/issues/7
