@@ -1,9 +1,11 @@
+export const isSSR = typeof window === 'undefined';
+
 export const deviceInfo = ((): {
   isMobile?: boolean;
   isSafari12?: boolean;
   isIpad?: boolean;
 } => {
-  if (typeof window === 'undefined') {
+  if (isSSR) {
     return {};
   }
 

@@ -6,7 +6,7 @@ import fetch from 'unfetch';
 // Internal
 import { getGPUVersion } from './internal/getGPUVersion';
 import { getSupportedWebGLContext } from './internal/getSupportedWebGLContext';
-import { deviceInfo } from './internal/device';
+import { deviceInfo, isSSR } from './internal/device';
 import { deobfuscateRenderer } from './internal/deobfuscateRenderer';
 
 // Types
@@ -22,9 +22,7 @@ export const getGPUTier = async ({
     renderer,
     isIpad = Boolean(deviceInfo.isIpad),
     isMobile = Boolean(deviceInfo.isMobile),
-    screen = typeof window === 'undefined'
-      ? { width: 1920, height: 1080 }
-      : window.screen,
+    screen = isSSR ? { width: 1920, height: 1080 } : window.screen,
     loadBenchmarks,
   } = {},
   glContext,
