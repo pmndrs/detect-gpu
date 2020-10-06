@@ -15,13 +15,15 @@ const getTier = ({
   isIPad?: boolean;
 }) =>
   getGPUTier({
-    isMobile,
-    isIPad,
-    renderer,
+    override: {
+      isMobile,
+      isIPad,
+      renderer,
+      loadBenchmarks: async (file: string): Promise<ModelEntry[] | undefined> =>
+        (await import(`../benchmarks/${file}`)).default,
+    },
     mobileTiers: [10, 30, 60],
     desktopTiers: [10, 30, 60],
-    loadBenchmarks: async (file: string): Promise<ModelEntry[] | undefined> =>
-      (await import(`../benchmarks/${file}`)).default,
   });
 
 [RENDERER_MOBILE, RENDERER_TABLET, RENDERER_DESKTOP].forEach((renderers) => {
@@ -250,7 +252,6 @@ const expectGPUResults = (
   expected: Partial<TierResult>,
   result: TierResult
 ) => {
-  console.log({ result });
   if (expected.type) {
     expect(result.type).toBe(expected.type);
   }

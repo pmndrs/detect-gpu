@@ -12,27 +12,31 @@ const queryCache: { [k: string]: Promise<ModelEntry[] | undefined> } = {};
 export const getGPUTier = async ({
   mobileTiers = [0, 30, 60],
   desktopTiers = [0, 30, 60],
-  renderer,
-  isIPad = !!deviceInfo.isIPad,
-  isMobile = !!deviceInfo.isMobile,
+  override: {
+    renderer,
+    isIPad = !!deviceInfo.isIPad,
+    isMobile = !!deviceInfo.isMobile,
+    screen = typeof window === 'undefined'
+      ? { width: 1920, height: 1080 }
+      : window.screen,
+    loadBenchmarks,
+  } = {},
   glContext,
   failIfMajorPerformanceCaveat = true,
-  screen = typeof window === 'undefined'
-    ? { width: 1920, height: 1080 }
-    : window.screen,
   benchmarksUrl = '/benchmarks',
-  loadBenchmarks,
 }: {
   glContext?: WebGLRenderingContext | WebGL2RenderingContext;
   failIfMajorPerformanceCaveat?: boolean;
   mobileTiers?: number[];
   desktopTiers?: number[];
-  renderer?: string;
-  isIPad?: boolean;
-  isMobile?: boolean;
-  screen?: { width: number; height: number };
+  override?: {
+    renderer?: string;
+    isIPad?: boolean;
+    isMobile?: boolean;
+    screen?: { width: number; height: number };
+    loadBenchmarks?: (file: string) => Promise<ModelEntry[] | undefined>;
+  };
   benchmarksUrl?: string;
-  loadBenchmarks?: (file: string) => Promise<ModelEntry[] | undefined>;
 } = {}) => {
   const MODEL_INDEX = 0;
   const queryBenchmarks = async (
@@ -85,7 +89,7 @@ export const getGPUTier = async ({
     const version = getGPUVersion(renderer);
     const isApple = type === 'apple';
     let matched: ModelEntry[] = benchmarks.filter(
-      ([model, modelVersion]) => modelVersion === version
+      ([, modelVersion]) => modelVersion === version
     );
     debug?.(
       `found ${matched.length} matching entries using version '${version}':`,
