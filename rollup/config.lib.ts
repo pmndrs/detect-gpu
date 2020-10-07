@@ -12,9 +12,9 @@ export default formats.map(
   (format): RollupOptions => ({
     input: './src/index.ts',
     output: {
-      name: 'DetectGPU',
       file: `./dist/detect-gpu.${format}.js`,
       format,
+      name: 'DetectGPU',
     },
     plugins: [
       terser({
@@ -29,8 +29,8 @@ export default formats.map(
           : {
               tsconfigOverride: {
                 compilerOptions: {
-                  target: 'es6',
                   module: 'es2015',
+                  target: 'es6',
                 },
               },
             }

@@ -16,22 +16,22 @@ export default {
   ],
   plugins: [
     livereload({
-      verbose: true,
       exts: ['ts', 'html', 'js', 'css'],
+      verbose: true,
       watch: './example/**',
     }),
     typescript(),
     resolve(),
     commonjs(),
     serve({
+      contentBase: ['./example'],
+      host: 'localhost',
       open: true,
       openPage: '/',
-      host: 'localhost',
       port: 3003,
-      contentBase: ['./example'],
     }),
     copy({
-      targets: [{ src: 'benchmarks', dest: 'example/build' }],
+      targets: [{ dest: 'example/build', src: 'benchmarks' }],
     }),
   ],
 };
