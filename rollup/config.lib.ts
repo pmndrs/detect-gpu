@@ -7,7 +7,7 @@ import { terser } from 'rollup-plugin-terser';
 import typescript from 'rollup-plugin-typescript2';
 import { RollupOptions, ModuleFormat } from 'rollup';
 
-const formats: ModuleFormat[] = ['esm', 'cjs', 'es', 'amd'];
+const formats: ModuleFormat[] = ['esm', 'cjs'];
 
 export default formats.map(
   (format): RollupOptions => ({
@@ -18,18 +18,14 @@ export default formats.map(
       format,
     },
     plugins: [
-      ...(format !== 'es'
-        ? [
-            terser({
-              format: {
-                comments: false,
-              },
-            }),
-            filesize(),
-          ]
-        : []),
+      terser({
+        format: {
+          comments: false,
+        },
+      }),
+      filesize(),
       typescript(
-        ['es', 'esm'].includes(format)
+        ['esm'].includes(format)
           ? {}
           : {
               tsconfigOverride: {
