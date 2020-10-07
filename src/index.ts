@@ -15,8 +15,8 @@ import type { IGetGPUTier, TModelEntry, TTierResult, TTierType } from './types';
 const queryCache: { [k: string]: Promise<TModelEntry[] | undefined> } = {};
 
 export const getGPUTier = async ({
-  mobileTiers = [0, 30, 60],
-  desktopTiers = [0, 30, 60],
+  mobileTiers = [15, 30, 60],
+  desktopTiers = [15, 30, 60],
   debug = false,
   override: {
     renderer,
@@ -274,9 +274,9 @@ export const getGPUTier = async ({
   }
 
   const tiers = isMobile ? mobileTiers : desktopTiers;
-  let tier = 0;
+  let tier = 1;
 
-  for (let i = 0; i < tiers.length; i++) {
+  for (let i = 1; i < tiers.length; i++) {
     if (fps >= tiers[i]) {
       tier = i;
     }
