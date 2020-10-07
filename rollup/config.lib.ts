@@ -5,7 +5,6 @@ import resolve from '@rollup/plugin-node-resolve';
 import { terser } from 'rollup-plugin-terser';
 import typescript from 'rollup-plugin-typescript2';
 import { RollupOptions, ModuleFormat } from 'rollup';
-import copy from 'rollup-plugin-copy';
 
 const formats: ModuleFormat[] = ['esm', 'umd'];
 
@@ -38,9 +37,6 @@ export default formats.map(
       ),
       resolve(),
       commonjs(),
-      copy({
-        targets: [{ src: 'benchmarks', dest: 'dist' }],
-      }),
     ],
   })
 );
