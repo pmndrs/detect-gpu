@@ -45,7 +45,7 @@ import { getGPUTier } from 'detect-gpu';
 });
 ```
 
-`detect-gpu` uses rendering benchmark scores (framerate, normalized by resolution) in order to determine what tier should be assigned to the user's GPU. If no `WebGLContext` can be created or the GPU is blacklisted `tier: 0` is assigned. One should provide a fallback to a non-WebGL experience.
+`detect-gpu` uses rendering benchmark scores (framerate, normalized by resolution) in order to determine what tier should be assigned to the user's GPU. If no `WebGLContext` can be created, the GPU is blacklisted or the GPU has reported to render on less than `15 fps` `tier: 0` is assigned. One should provide a fallback to a non-WebGL experience.
 
 By default are all GPU's that have met these preconditions classified as `tier: 1`.
 
