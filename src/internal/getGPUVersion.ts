@@ -7,7 +7,7 @@ export const getGPUVersion = (model: string): string => {
     // If the renderer did not contain any numbers, match letters
     model.match(/(\W|^)([a-zA-Z]{1,3})(\W|$)/g);
 
-  // Remove any non word characters and also remove 'amd' which could be matched
+  // Remove any non-word characters and also remove 'amd' which could be matched
   // in the clause above
   return matches?.join('').replace(/\W|amd/g, '') ?? '';
 };
