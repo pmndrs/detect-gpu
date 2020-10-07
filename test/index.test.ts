@@ -17,17 +17,17 @@ const getTier = ({
   isIpad?: boolean;
 }): Promise<TTierResult> =>
   getGPUTier({
+    desktopTiers: [0, 15, 30, 60],
+    mobileTiers: [0, 15, 30, 60],
     override: {
-      isMobile,
       isIpad,
-      renderer,
+      isMobile,
       loadBenchmarks: async (
         file: string
       ): Promise<TModelEntry[] | undefined> =>
         (await import(`../benchmarks/${file}`)).default,
+      renderer,
     },
-    mobileTiers: [0, 15, 30, 60],
-    desktopTiers: [0, 15, 30, 60],
   });
 
 [RENDERER_MOBILE, RENDERER_TABLET, RENDERER_DESKTOP].forEach(
@@ -41,9 +41,9 @@ const topTierDesktop =
 test(`Top tier desktop: ${topTierDesktop}`, async (): Promise<void> => {
   expectGPUResults(
     {
-      type: 'BENCHMARK',
-      tier: 3,
       isMobile: false,
+      tier: 3,
+      type: 'BENCHMARK',
     },
     await getTier({
       isMobile: false,
@@ -58,9 +58,9 @@ const bottomTierDesktop =
 test(`Bottom tier desktop: ${bottomTierDesktop}`, async (): Promise<void> => {
   expectGPUResults(
     {
-      type: 'BENCHMARK',
-      tier: 0,
       isMobile: false,
+      tier: 0,
+      type: 'BENCHMARK',
     },
     await getTier({
       isMobile: false,
@@ -72,137 +72,137 @@ test(`Bottom tier desktop: ${bottomTierDesktop}`, async (): Promise<void> => {
 // expect BENCHMARK results:
 [
   {
-    input: {
-      renderer: 'Intel UHD Graphics 620',
-      isMobile: false,
-    },
     expected: {
       gpu: 'intel uhd graphics 620',
     },
+    input: {
+      isMobile: false,
+      renderer: 'Intel UHD Graphics 620',
+    },
   },
   {
-    input: {
-      renderer: 'ANGLE (Radeon RX Vega M GH Graphics Direct3D11 vs_5_0 ps_5_0)',
-      isMobile: false,
-    },
     expected: {
       gpu: 'amd radeon rx vega m gh',
     },
+    input: {
+      isMobile: false,
+      renderer: 'ANGLE (Radeon RX Vega M GH Graphics Direct3D11 vs_5_0 ps_5_0)',
+    },
   },
   {
+    expected: {
+      device: 'apple ipad pro (11-inch)',
+      gpu: 'apple a12x gpu',
+    },
     input: {
-      renderer: 'Apple A12X GPU',
-      isMobile: true,
       isIpad: true,
+      isMobile: true,
+      renderer: 'Apple A12X GPU',
       screen: {
-        width: 2224,
         height: 1668,
+        width: 2224,
       },
     },
-    expected: {
-      gpu: 'apple a12x gpu',
-      device: 'apple ipad pro (11-inch)',
-    },
   },
   {
+    expected: {
+      gpu: 'apple a12x gpu',
+    },
     input: {
+      isIpad: true,
+      isMobile: true,
       renderer: 'Apple A12X GPU',
-      isMobile: true,
-      isIpad: true,
-    },
-    expected: {
-      gpu: 'apple a12x gpu',
     },
   },
   {
-    input: {
-      renderer: 'Apple a9x GPU',
-      isMobile: true,
-      isIpad: true,
-    },
     expected: {
       gpu: 'apple a9x gpu',
     },
+    input: {
+      isIpad: true,
+      isMobile: true,
+      renderer: 'Apple a9x GPU',
+    },
   },
   {
-    input: {
-      renderer: 'Apple a10 GPU',
-      isMobile: true,
-    },
     expected: {
       gpu: 'apple a10 gpu',
     },
+    input: {
+      isMobile: true,
+      renderer: 'Apple a10 GPU',
+    },
   },
   {
-    input: {
-      renderer: 'Mesa DRI Intel(R) UHD Graphics 630 (Coffeelake 3x8 GT2)',
-      isMobile: false,
-    },
     expected: {
       gpu: 'intel mesa dri intel uhd graphics 630',
     },
+    input: {
+      isMobile: false,
+      renderer: 'Mesa DRI Intel(R) UHD Graphics 630 (Coffeelake 3x8 GT2)',
+    },
   },
   {
-    input: {
-      renderer: 'GeForce GTX 750/PCIe/SSE2',
-      isMobile: false,
-    },
     expected: {
       gpu: 'nvidia geforce gtx 750 ti',
     },
+    input: {
+      isMobile: false,
+      renderer: 'GeForce GTX 750/PCIe/SSE2',
+    },
   },
   {
-    input: {
-      renderer: 'GeForce GTX 1060',
-      isMobile: false,
-    },
     expected: {
       gpu: 'nvidia geforce gtx 1060',
     },
+    input: {
+      isMobile: false,
+      renderer: 'GeForce GTX 1060',
+    },
   },
   {
-    input: {
-      renderer: 'ANGLE (Radeon (TM) RX 470 Series Direct3D11 vs_5_0 ps_5_0)',
-      isMobile: false,
-    },
     expected: {
       gpu: 'radeon rx 470',
     },
+    input: {
+      isMobile: false,
+      renderer: 'ANGLE (Radeon (TM) RX 470 Series Direct3D11 vs_5_0 ps_5_0)',
+    },
   },
   {
-    input: {
-      renderer: 'ANGLE (Radeon (TM) HD 6470M Direct3D9Ex vs_3_0 ps_3_0)',
-      isMobile: false,
-    },
     expected: {
       gpu: 'amd radeon hd 6470m',
     },
+    input: {
+      isMobile: false,
+      renderer: 'ANGLE (Radeon (TM) HD 6470M Direct3D9Ex vs_3_0 ps_3_0)',
+    },
   },
   {
-    input: {
-      renderer: 'ANGLE (NVIDIA GeForce GTX 1060 6GB Direct3D11 vs_5_0 ps_5_0)',
-      isMobile: false,
-    },
     expected: {
       gpu: 'nvidia geforce gtx 1060',
     },
+    input: {
+      isMobile: false,
+      renderer: 'ANGLE (NVIDIA GeForce GTX 1060 6GB Direct3D11 vs_5_0 ps_5_0)',
+    },
   },
   {
-    input: {
-      renderer: 'NVIDIA Tegra',
-      isMobile: true,
-    },
     expected: {
       gpu: 'nvidia tegra',
     },
+    input: {
+      isMobile: true,
+      renderer: 'NVIDIA Tegra',
+    },
   },
   {
-    input: {
-      renderer: 'Mali-G51',
-      isMobile: true,
-    },
     expected: {
       gpu: 'arm mali-g51',
+    },
+    input: {
+      isMobile: true,
+      renderer: 'Mali-G51',
     },
   },
 ].map(({ input, expected }): void => {
@@ -225,9 +225,9 @@ test(`Bottom tier desktop: ${bottomTierDesktop}`, async (): Promise<void> => {
     test(`${renderer} should return FALLBACK`, async (): Promise<void> => {
       expectGPUResults(
         {
-          type: 'FALLBACK',
-          isMobile,
           gpu: undefined,
+          isMobile,
+          type: 'FALLBACK',
         },
         await getTier({
           isMobile,
@@ -247,8 +247,8 @@ test(`Bottom tier desktop: ${bottomTierDesktop}`, async (): Promise<void> => {
     test(`${renderer} should return BLACKLISTED`, async (): Promise<void> => {
       expectGPUResults(
         {
-          type: 'BLACKLISTED',
           isMobile,
+          type: 'BLACKLISTED',
         },
         await getTier({
           isMobile,
@@ -287,8 +287,8 @@ function testRenders(deviceType: string[], mobileDevice = false): void {
         void
       > => {
         const input = {
-          isMobile: mobileDevice,
           isIpad: /apple.+x/i.test(renderer),
+          isMobile: mobileDevice,
           renderer,
         };
 

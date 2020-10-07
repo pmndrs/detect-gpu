@@ -108,6 +108,7 @@ export const deobfuscateAppleGpu = (
           '8016218135': deviceInfo?.isIpad
             ? ['apple a9x gpu', 'apple a10 gpu', 'apple a10x gpu']
             : ['apple a9 gpu', 'apple a10 gpu'],
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
         } as any)[pixels.join('')] || renderers;
 
       debug?.(
