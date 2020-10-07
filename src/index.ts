@@ -134,7 +134,7 @@ export const getGPUTier = async ({
     }
 
     // tslint:disable-next-line:prefer-const
-    let [gpu, , blacklisted, fpsesByPixelCount] =
+    let [gpu, , , fpsesByPixelCount] =
       count > 1
         ? matched
             .map(
