@@ -1,9 +1,8 @@
-// Vendor
-import puppeteer from 'puppeteer';
+// Native
 import fs from 'fs';
 
-// Application
-import { getGPUVersion } from '../src/internal/getGPUVersion';
+// Vendor
+import puppeteer from 'puppeteer';
 
 const BENCHMARK_URL = `https://gfxbench.com/result.jsp?benchmark=gfx50&test=544&text-filter=&order=median&ff-lmobile=true&ff-smobile=true&os-Android_gl=true&os-Android_vulkan=true&os-iOS_gl=true&os-iOS_metal=true&os-Linux_gl=true&os-OS_X_gl=true&os-OS_X_metal=true&os-Windows_dx=true&os-Windows_dx12=true&os-Windows_gl=true&os-Windows_vulkan=true&pu-dGPU=true&pu-iGPU=true&pu-GPU=true&arch-ARM=true&arch-unknown=true&arch-x86=true&base=device`;
 
@@ -116,9 +115,9 @@ type BenchmarkRow = {
             // tslint:disable-next-line:no-shadowed-variable
             .map((rows: any): any => {
               const { gpu } = rows[0];
+
               return [
                 gpu,
-                getGPUVersion(gpu),
                 blacklistedModels.find((blacklistedModel: string): boolean =>
                   gpu.includes(blacklistedModel)
                 )

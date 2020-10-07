@@ -29,9 +29,4 @@ export type TTierResult = {
   device?: string;
 };
 
-export type TModelEntry = [
-  string,
-  string,
-  0 | 1,
-  [number, number, number, string][]
-];
+export type TModelEntry = [string, 0 | 1, [number, number, number, string][]];

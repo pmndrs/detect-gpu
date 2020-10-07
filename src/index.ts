@@ -109,7 +109,8 @@ export const getGPUTier = async ({
     const isApple = type === 'apple';
 
     let matched: TModelEntry[] = benchmarks.filter(
-      ([, modelVersion]): boolean => modelVersion === version
+      // tslint:disable-next-line:no-shadowed-variable
+      ([model]): boolean => getGPUVersion(model) === version
     );
 
     if (debug) {
@@ -144,7 +145,7 @@ export const getGPUTier = async ({
     }
 
     // tslint:disable-next-line:prefer-const
-    let [gpu, , blacklisted, fpsesByPixelCount] =
+    let [gpu, blacklisted, fpsesByPixelCount] =
       count > 1
         ? matched
             .map(
