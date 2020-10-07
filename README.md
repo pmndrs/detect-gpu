@@ -19,22 +19,37 @@ import { getGPUTier } from 'detect-gpu';
 
 (async () => {
   const gpuTier = await getGPUTier({
-    glContext?: WebGLRenderingContext | WebGL2RenderingContext; // Optionally pass in a WebGL context to avoid creating a temporary one internally
-    failIfMajorPerformanceCaveat?: boolean; // Fail to detect if the WebGL implementation determines the performance would be dramatically lower than the equivalent OpenGL
-    mobileTiers?: number[];
-    desktopTiers?: number[];
-    debug?: boolean;
-    override?: {
-      renderer?: string;
-      isIpad?: boolean;
-      isMobile?: boolean;
-      screenSize?: { width: number; height: number };
-      loadBenchmarks?: (file: string) => Promise<TModelEntry[] | undefined>;
+    glContext?: WebGLRenderingContext | WebGL2RenderingContext; // (Default, undefined) Optionally pass in a WebGL context to avoid creating a temporary one internally
+    failIfMajorPerformanceCaveat?: boolean; // (Default, true) Fail to detect if the WebGL implementation determines the performance would be dramatically lower than the equivalent OpenGL
+    mobileTiers?: number[]; // (Default, [0, 15, 30, 60]) Framerate per tier
+    desktopTiers?: number[]; // (Default, [0, 15, 30, 60]) Framerate per tier
+    debug?: boolean; // (Default, false) Log debug information in the console
+    override?: { // (Default, false) Override specific functionality, useful for development
+      renderer?: string; // Manually override reported GPU renderer string
+      isIpad?: boolean; // Manually report device as being an iPad
+      isMobile?: boolean; // Manually report device as being a mobile device
+      screenSize?: { width: number; height: number }; // Manually adjust reported screenSize
+      loadBenchmarks?: (file: string) => Promise<TModelEntry[] | undefined>; // Optionally modify method for loading benchmark data
     };
-    benchmarksURL?: string;
+    benchmarksURL?: string; // (Default, /benchmarks) Provide location of where to access benchmark data
   })
+
+  // Example output:
+  // {
+  //   "tier": 1,
+  //   "isMobile": false,
+  //   "type": "BENCHMARK",
+  //   "fps": 21,
+  //   "gpu": "intel iris graphics 6100"
+  // }
 });
 ```
+
+`detect-gpu` uses rendering benchmark scores (framerate, normalized by resolution) in order to determine what tier should be assigned to the user's GPU. If no `WebGLContext` can be created or the GPU is blacklisted `tier: 0` is assigned. One should provide a fallback to a non-WebGL experience.
+
+By default are all GPU's that have met these preconditions classified as `tier: 1`.
+
+Based on the reported `fps` the GPU is then classified into either `tier: 1`, `tier: 2` or `tier: 3`. The higher the tier the more graphically intensive workload you can offer to the user.
 
 ## Licence
 
