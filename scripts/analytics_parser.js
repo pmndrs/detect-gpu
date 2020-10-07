@@ -29,7 +29,9 @@ function parseAnalytics(file) {
         // Remove static header and footer information
         const dateEntry = data.slice(3, 4);
         const dateRange = dateEntry[0].field1.replace('# ', '').split('-');
-        const timeSpan = moment.duration(moment(dateRange[1]).diff(moment(dateRange[0]))).asDays();
+        const timeSpan = moment
+          .duration(moment(dateRange[1]).diff(moment(dateRange[0])))
+          .asDays();
         const entries = data.slice(6, data.length - (timeSpan + 4));
 
         const mobileData = getRendererData('mobile', entries);
@@ -41,10 +43,6 @@ function parseAnalytics(file) {
           tabletData,
           desktopData,
         });
-      })
-      // @ts-ignore
-      .catch((error) => {
-        reject(error);
       });
   });
 }
@@ -53,7 +51,9 @@ parseAnalytics(path.resolve('./data/analytics.csv')).then((result) => {
   const output = './test/data.ts';
   const data = `
         export const RENDERER_DESKTOP = [
-          ${result.desktopData.map((entry) => `\n\'${entry.replace(',', '')}\'`)}
+          ${result.desktopData.map(
+            (entry) => `\n\'${entry.replace(',', '')}\'`
+          )}
         ];
 
         export const RENDERER_TABLET = [
