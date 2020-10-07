@@ -116,14 +116,15 @@ type BenchmarkRow = {
             // tslint:disable-next-line:no-shadowed-variable
             .map((rows: any): any => {
               const { gpu } = rows[0];
+              const isBlacklisted = blacklistedModels.find(
+                (blacklistedModel: string): boolean =>
+                  gpu.includes(blacklistedModel)
+              );
+
               return [
                 gpu,
                 getGPUVersion(gpu),
-                blacklistedModels.find((blacklistedModel: string): boolean =>
-                  gpu.includes(blacklistedModel)
-                )
-                  ? 1
-                  : 0,
+                isBlacklisted ? 1 : 0,
                 Object.entries(
                   rows.reduce(
                     (
@@ -134,7 +135,10 @@ type BenchmarkRow = {
                         device,
                       }: { resolution: string; fps: number; device: string }
                     ): { [k: string]: [string, number] } => {
-                      fpsByResolution[resolution] = [device, fps];
+                      fpsByResolution[resolution] = [
+                        device,
+                        isBlacklisted ? -1 : fps,
+                      ];
                       return fpsByResolution;
                     },
                     {}
