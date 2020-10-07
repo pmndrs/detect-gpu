@@ -3,9 +3,9 @@ import { getGPUTier } from '../src';
 
 (async (): Promise<void> => {
   const data = await getGPUTier({
-    override: {
-      renderer: 'radeon hd 4870',
-    },
+    // override: {
+    //   renderer: 'intel mesa dri intel hd',
+    // },
     benchmarksURL: '/build/benchmarks',
     debug: true,
   });
