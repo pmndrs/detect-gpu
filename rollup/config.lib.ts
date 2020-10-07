@@ -14,7 +14,7 @@ export default formats.map(
     input: './src/index.ts',
     output: {
       name: 'DetectGPU',
-      file: `./dist/detectgpu.${format}.js`,
+      file: `./dist/detect-gpu.${format}.js`,
       format,
     },
     plugins: [
