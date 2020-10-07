@@ -20,6 +20,11 @@
     "update-benchmarks": "rimraf benchmarks && mkdir -p benchmarks && ts-node -O '{\"module\":\"commonjs\"}' ./scripts/update_benchmarks.ts"
   },
   "author": "Tim van Scherpenzeel",
+  "dependencies": {
+    "leven": "^3.1.0",
+    "unfetch": "^4.2.0",
+    "webgl-constants": "^1.1.1"
+  },
   "devDependencies": {
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^9.0.0",
@@ -65,10 +70,5 @@
       "<rootDir>/test/data.ts"
     ],
     "preset": "ts-jest"
-  },
-  "dependencies": {
-    "leven": "^3.1.0",
-    "unfetch": "^4.2.0",
-    "webgl-constants": "^1.1.1"
   }
 }
