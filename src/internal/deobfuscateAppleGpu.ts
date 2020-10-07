@@ -25,6 +25,7 @@ export const deobfuscateAppleGpu = (
   debug: boolean
 ): string[] => {
   let renderers = [renderer];
+
   if (isMobileTier) {
     const vertexShaderSource = /* glsl */ `
       precision highp float;
