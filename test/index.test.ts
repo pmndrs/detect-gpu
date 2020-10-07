@@ -3,7 +3,7 @@ import { RENDERER_MOBILE, RENDERER_TABLET, RENDERER_DESKTOP } from './data';
 
 // Application
 import { getGPUTier } from '../src/index';
-import { TModelEntry, TTierType, TTierResult } from '../src/types';
+import { TModelEntry, TTierResult } from '../src/types';
 
 const isDebug = false;
 
@@ -15,7 +15,7 @@ const getTier = ({
   isMobile?: boolean;
   renderer?: string;
   isIpad?: boolean;
-}): any =>
+}): Promise<TTierResult> =>
   getGPUTier({
     override: {
       isMobile,
