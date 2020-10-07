@@ -21,7 +21,9 @@ const types = [
   'geforce',
 ];
 
-const groupBy = (xs: any[], key: number | string): {} =>
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const groupBy = (xs: any[], key: number | string): any =>
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   xs.reduce((rv: any, x: any): any => {
     (rv[x[key]] = rv[x[key]] || []).push(x);
     return rv;
@@ -53,11 +55,25 @@ type BenchmarkRow = {
     await page.goto(BENCHMARK_URL, { waitUntil: 'networkidle2' });
 
     return (await page.evaluate((): BenchmarkRow[] =>
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (window as any).gpuName
         .map(
           (gpuIndex: number, index: number): Partial<BenchmarkRow> => ({
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             date: (window as any).firstResult[index],
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             device: (window as any).deviceName[index].toLowerCase(),
+            fps:
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              (window as any).fpses[index] === ''
+                ? undefined
+                : Math.round(
+                    Number(
+                      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                      (window as any).fpses[index].replace(/[^0-9.]+/g, '')
+                    )
+                  ),
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             gpu: (window as any).gpuNameLookup[gpuIndex]
               .toLowerCase()
               .replace(/\s*\([^\)]+(\))/g, '')
@@ -66,22 +82,20 @@ type BenchmarkRow = {
                 /x\.org |inc\. |open source technology center |imagination technologies |™ |nvidia corporation |apple inc\. |advanced micro devices, inc\. | series$| edition$| graphics$/g,
                 ''
               ),
-            fps:
-              (window as any).fpses[index] === ''
-                ? undefined
-                : Math.round(
-                    Number(
-                      (window as any).fpses[index].replace(/[^0-9.]+/g, '')
-                    )
-                  ),
+
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             mobile: (window as any).formFactorLookup[
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
               (window as any).formFactor[index]
             ].includes('mobile'),
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             resolution: (window as any).screenSizeLookup[
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
               (window as any).screenSizes[index]
             ],
           })
         )
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         .sort((a: any, b: any): number => {
           return a.date.localeCompare(b.date);
         })
@@ -113,7 +127,7 @@ type BenchmarkRow = {
         (type): Promise<void> => {
           const typeModels = rowsByGpu
             .filter(([{ gpu }]: BenchmarkRow[]): boolean => gpu.includes(type))
-            // tslint:disable-next-line:no-shadowed-variable
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             .map((rows: any): any => {
               const { gpu } = rows[0];
               const isBlacklisted = blacklistedModels.find(
@@ -144,8 +158,8 @@ type BenchmarkRow = {
                     {}
                   )
                 )
+                  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                   // @ts-ignore: Type 'unknown' must have a '[Symbol.iterator]()' method that returns an iterator
-                  // tslint:disable-next-line:typedef
                   .map(([resolution, [device, fps]]) => {
                     const [width, height] = resolution.split(' x ').map(Number);
 
@@ -171,6 +185,7 @@ type BenchmarkRow = {
   throw err;
 });
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const outputFile = async (name: string, content: any): Promise<void> => {
   const file = `./benchmarks/${name}`;
   const data = JSON.stringify(content);

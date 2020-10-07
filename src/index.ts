@@ -22,7 +22,7 @@ export const getGPUTier = async ({
     renderer,
     isIpad = Boolean(deviceInfo?.isIpad),
     isMobile = Boolean(deviceInfo?.isMobile),
-    screenSize = isSSR ? { width: 1920, height: 1080 } : window.screen,
+    screenSize = isSSR ? { height: 1080, width: 1920 } : window.screen,
     loadBenchmarks,
   } = {},
   glContext,
@@ -32,12 +32,12 @@ export const getGPUTier = async ({
   const MODEL_INDEX = 0;
 
   const queryBenchmarks = async (
-    // tslint:disable-next-line:no-shadowed-variable
     loadBenchmarks = async (
       file: string
     ): Promise<TModelEntry[] | undefined> => {
       try {
         const data = await fetch(`${benchmarksURL}/${file}`).then(
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           (response): Promise<any> => response.json()
         );
 
@@ -47,7 +47,7 @@ export const getGPUTier = async ({
         return undefined;
       }
     },
-    // tslint:disable-next-line:no-shadowed-variable
+
     renderer: string
   ): Promise<[number, number, string, string | undefined] | []> => {
     debug?.('queryBenchmarks', { renderer });
@@ -70,7 +70,6 @@ export const getGPUTier = async ({
 
     let type: string | undefined;
 
-    // tslint:disable-next-line:prefer-for-of
     for (let i = 0; i < types.length; i++) {
       const typesType = types[i];
 
@@ -108,14 +107,13 @@ export const getGPUTier = async ({
 
     debug?.(
       `found ${matched.length} matching entries using version '${version}':`,
-      // tslint:disable-next-line:no-shadowed-variable
+
       matched.map(([model]): string => model)
     );
 
     // If nothing matched, try comparing model names:
     if (!matched.length) {
       matched = benchmarks.filter(
-        // tslint:disable-next-line:no-shadowed-variable
         ([model]): boolean => model.indexOf(renderer) > -1
       );
 
@@ -133,8 +131,8 @@ export const getGPUTier = async ({
       return [];
     }
 
-    // tslint:disable-next-line:prefer-const
-    let [gpu, , blacklisted, fpsesByPixelCount] =
+    // eslint-disable-next-line prefer-const
+    let [gpu, , , fpsesByPixelCount] =
       count > 1
         ? matched
             .map(
@@ -159,13 +157,11 @@ export const getGPUTier = async ({
 
     if (isApple) {
       fpsesByPixelCount = fpsesByPixelCount.filter(
-        // tslint:disable-next-line:no-shadowed-variable
         ([, , , device]): boolean =>
           device.indexOf(isIpad ? 'ipad' : 'iphone') > -1
       );
     }
 
-    // tslint:disable-next-line:prefer-for-of
     for (let i = 0; i < fpsesByPixelCount.length; i++) {
       const match = fpsesByPixelCount[i];
       const [width, height] = match;
@@ -178,28 +174,25 @@ export const getGPUTier = async ({
       }
     }
 
-    // tslint:disable-next-line:no-shadowed-variable
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const [, , fps, device] = closest!;
 
     return [minDistance, fps, gpu, device];
   };
 
   const toResult = (
-    // tslint:disable-next-line:no-shadowed-variable
     tier: number,
     type: TTierType,
-    // tslint:disable-next-line:no-shadowed-variable
     fps?: number,
     gpu?: string,
-    // tslint:disable-next-line:no-shadowed-variable
     device?: string
   ): TTierResult => ({
-    tier,
-    isMobile,
-    type,
+    device,
     fps,
     gpu,
-    device,
+    isMobile,
+    tier,
+    type,
   });
 
   let renderers: string[];
@@ -234,7 +227,6 @@ export const getGPUTier = async ({
   const results = await Promise.all(
     renderers.map(
       (
-        // tslint:disable-next-line:no-shadowed-variable
         renderer: string
       ): Promise<[number, number, string, string | undefined] | []> =>
         queryBenchmarks(loadBenchmarks, renderer)
