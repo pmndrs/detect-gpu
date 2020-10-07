@@ -47,9 +47,7 @@ import { getGPUTier } from 'detect-gpu';
 
 `detect-gpu` uses rendering benchmark scores (framerate, normalized by resolution) in order to determine what tier should be assigned to the user's GPU. If no `WebGLContext` can be created, the GPU is blacklisted or the GPU has reported to render on less than `15 fps` `tier: 0` is assigned. One should provide a fallback to a non-WebGL experience.
 
-By default are all GPU's that have met these preconditions classified as `tier: 1`.
-
-Based on the reported `fps` the GPU is then classified into either `tier: 1`, `tier: 2` or `tier: 3`. The higher the tier the more graphically intensive workload you can offer to the user.
+Based on the reported `fps` the GPU is then classified into either `tier: 1 (> 15 fps)`, `tier: 2 (> 30 fps)` or `tier: 3 (> 60 fps)`. The higher the tier the more graphically intensive workload you can offer to the user.
 
 ## Licence
 
