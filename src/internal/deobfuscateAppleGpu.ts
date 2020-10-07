@@ -14,6 +14,8 @@ import {
 // Internal
 import { deviceInfo } from './deviceInfo';
 
+const debug = false ? console.warn : undefined;
+
 // Apple GPU (iOS 12.2+, Safari 14+)
 // SEE: https://github.com/TimvanScherpenzeel/detect-gpu/issues/7
 // CREDIT: https://medium.com/@Samsy/detecting-apple-a10-iphone-7-to-a11-iphone-8-and-b019b8f0eb87
@@ -21,8 +23,7 @@ import { deviceInfo } from './deviceInfo';
 export const deobfuscateAppleGpu = (
   gl: WebGLRenderingContext,
   renderer: string,
-  isMobileTier: boolean,
-  debug: boolean
+  isMobileTier: boolean
 ): string[] => {
   let renderers = [renderer];
 
@@ -109,18 +110,12 @@ export const deobfuscateAppleGpu = (
             : ['apple a9 gpu', 'apple a10 gpu'],
         } as any)[pixels.join('')] || renderers;
 
-      if (debug) {
-        console.warn(
-          `iOS 12.2+ obfuscates its GPU type and version, using closest matches: ${renderers}`
-        );
-      }
-    }
-  } else {
-    if (debug) {
-      console.warn(
-        'Safari 14+ obfuscates its GPU type and version, using fallback'
+      debug?.(
+        `iOS 12.2+ obfuscates its GPU type and version, using closest matches: ${renderers}`
       );
     }
+  } else {
+    debug?.('Safari 14+ obfuscates its GPU type and version, using fallback');
   }
 
   return renderers;

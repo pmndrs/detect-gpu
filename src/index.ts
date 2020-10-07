@@ -11,12 +11,13 @@ import { deobfuscateRenderer } from './internal/deobfuscateRenderer';
 // Types
 import type { IGetGPUTier, TModelEntry, TTierResult, TTierType } from './types';
 
+const debug = false ? console.log : undefined;
+
 const queryCache: { [k: string]: Promise<TModelEntry[] | undefined> } = {};
 
 export const getGPUTier = async ({
   mobileTiers = [0, 15, 30, 60],
   desktopTiers = [0, 15, 30, 60],
-  debug = false,
   override: {
     renderer,
     isIpad = Boolean(deviceInfo?.isIpad),
@@ -49,9 +50,7 @@ export const getGPUTier = async ({
     // tslint:disable-next-line:no-shadowed-variable
     renderer: string
   ): Promise<[number, number, string, string | undefined] | []> => {
-    if (debug) {
-      console.log('queryBenchmarks', { renderer });
-    }
+    debug?.('queryBenchmarks', { renderer });
 
     renderer = renderer
       .toLowerCase()
@@ -63,9 +62,7 @@ export const getGPUTier = async ({
       // 'Radeon (TM) RX 470 Series'
       .replace(/\s+([0-9]+gb|direct3d.+$)|\(r\)| \([^\)]+\)$/g, '');
 
-    if (debug) {
-      console.log('queryBenchmarks - renderer cleaned to', { renderer });
-    }
+    debug?.('queryBenchmarks - renderer cleaned to', { renderer });
 
     const types = isMobile
       ? ['adreno', 'apple', 'mali-t', 'mali', 'nvidia', 'powervr']
@@ -87,9 +84,7 @@ export const getGPUTier = async ({
       return [];
     }
 
-    if (debug) {
-      console.log('queryBenchmarks - found type:', { type });
-    }
+    debug?.('queryBenchmarks - found type:', { type });
 
     const benchmarkFile = `${isMobile ? 'm' : 'd'}-${type}.json`;
 
@@ -111,13 +106,11 @@ export const getGPUTier = async ({
       ([, modelVersion]): boolean => modelVersion === version
     );
 
-    if (debug) {
-      console.log(
-        `found ${matched.length} matching entries using version '${version}':`,
-        // tslint:disable-next-line:no-shadowed-variable
-        matched.map(([model]): string => model)
-      );
-    }
+    debug?.(
+      `found ${matched.length} matching entries using version '${version}':`,
+      // tslint:disable-next-line:no-shadowed-variable
+      matched.map(([model]): string => model)
+    );
 
     // If nothing matched, try comparing model names:
     if (!matched.length) {
@@ -126,14 +119,12 @@ export const getGPUTier = async ({
         ([model]): boolean => model.indexOf(renderer) > -1
       );
 
-      if (debug) {
-        console.log(
-          `found ${matched.length} matching entries comparing model names`,
-          {
-            matched,
-          }
-        );
-      }
+      debug?.(
+        `found ${matched.length} matching entries comparing model names`,
+        {
+          matched,
+        }
+      );
     }
 
     const count = matched.length;
@@ -153,12 +144,10 @@ export const getGPUTier = async ({
             .sort(([, a], [, b]): number => a - b)[0][MODEL_INDEX]
         : matched[0];
 
-    if (debug) {
-      console.log(
-        `${renderer} matched closest to ${gpu} with the following screen sizes`,
-        JSON.stringify(fpsesByPixelCount)
-      );
-    }
+    debug?.(
+      `${renderer} matched closest to ${gpu} with the following screen sizes`,
+      JSON.stringify(fpsesByPixelCount)
+    );
 
     let minDistance = Number.MAX_VALUE;
     let closest: [number, number, number, string];
@@ -239,7 +228,7 @@ export const getGPUTier = async ({
       return fallback;
     }
 
-    renderers = deobfuscateRenderer(gl, renderer, isMobile, debug);
+    renderers = deobfuscateRenderer(gl, renderer, isMobile);
   } else {
     renderers = [renderer];
   }

@@ -4,9 +4,8 @@ import { deobfuscateAppleGpu } from './deobfuscateAppleGpu';
 export const deobfuscateRenderer = (
   gl: WebGLRenderingContext,
   renderer: string,
-  isMobileTier: boolean,
-  debug: boolean
+  isMobileTier: boolean
 ): string[] =>
   renderer === 'apple gpu'
-    ? deobfuscateAppleGpu(gl, renderer, isMobileTier, debug)
+    ? deobfuscateAppleGpu(gl, renderer, isMobileTier)
     : [renderer];
