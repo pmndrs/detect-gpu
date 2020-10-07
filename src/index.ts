@@ -1,6 +1,5 @@
 // Vendor
 import leven from 'leven';
-// @ts-ignore unfetch doesn't properly export its types
 import fetch from 'unfetch';
 
 // Internal
@@ -38,7 +37,7 @@ export const getGPUTier = async ({
     ): Promise<TModelEntry[] | undefined> => {
       try {
         const data = await fetch(`${benchmarksURL}/${file}`).then(
-          (response: UnfetchResponse): Promise<any> => response.json()
+          (response): Promise<any> => response.json()
         );
 
         return data;

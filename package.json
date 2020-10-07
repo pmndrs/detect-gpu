@@ -26,10 +26,12 @@
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^9.0.0",
     "@types/jest": "^26.0.14",
+    "@types/node-fetch": "^2.5.7",
     "@types/puppeteer": "^3.0.2",
     "csvtojson": "^2.0.10",
     "jest": "^26.5.2",
     "moment": "^2.29.1",
+    "node-fetch": "^2.6.1",
     "prettier": "^2.1.2",
     "puppeteer": "^5.3.1",
     "rimraf": "^3.0.2",
