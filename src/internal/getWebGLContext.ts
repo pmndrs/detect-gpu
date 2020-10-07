@@ -3,12 +3,12 @@ export const getWebGLContext = (
   failIfMajorPerformanceCaveat = true
 ): WebGLRenderingContext | undefined => {
   const attributes: {
-    alpha?: boolean;
-    antialias?: boolean;
-    depth?: boolean;
-    failIfMajorPerformanceCaveat?: boolean;
+    alpha: boolean;
+    antialias: boolean;
+    depth: boolean;
+    failIfMajorPerformanceCaveat: boolean;
     powerPreference?: string;
-    stencil?: boolean;
+    stencil: boolean;
   } = {
     alpha: false,
     antialias: false,
@@ -24,9 +24,8 @@ export const getWebGLContext = (
     delete attributes.powerPreference;
   }
 
-  // Keep reference to the canvas and context in order to clean up
-  // after the necessary information has been extracted
   const canvas = document.createElement('canvas');
+
   const gl = (canvas.getContext('webgl', attributes) ||
     canvas.getContext(
       'experimental-webgl',
