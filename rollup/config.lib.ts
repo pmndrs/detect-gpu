@@ -2,10 +2,10 @@
 import commonjs from 'rollup-plugin-commonjs';
 import filesize from 'rollup-plugin-filesize';
 import resolve from '@rollup/plugin-node-resolve';
-import json from '@rollup/plugin-json';
 import { terser } from 'rollup-plugin-terser';
 import typescript from 'rollup-plugin-typescript2';
 import { RollupOptions, ModuleFormat } from 'rollup';
+import copy from 'rollup-plugin-copy';
 
 const formats: ModuleFormat[] = ['esm', 'umd'];
 
@@ -38,7 +38,9 @@ export default formats.map(
       ),
       resolve(),
       commonjs(),
-      json(),
+      copy({
+        targets: [{ src: 'benchmarks', dest: 'dist' }],
+      }),
     ],
   })
 );

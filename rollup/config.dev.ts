@@ -4,7 +4,6 @@ import resolve from '@rollup/plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import serve from 'rollup-plugin-serve';
 import livereload from 'rollup-plugin-livereload';
-import json from '@rollup/plugin-json';
 import copy from 'rollup-plugin-copy';
 
 export default {
@@ -31,7 +30,6 @@ export default {
       port: 3003,
       contentBase: ['./example'],
     }),
-    json(),
     copy({
       targets: [{ src: 'benchmarks', dest: 'example/build' }],
     }),
