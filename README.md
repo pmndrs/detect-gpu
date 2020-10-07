@@ -23,7 +23,6 @@ import { getGPUTier } from 'detect-gpu';
     failIfMajorPerformanceCaveat?: boolean; // (Default, true) Fail to detect if the WebGL implementation determines the performance would be dramatically lower than the equivalent OpenGL
     mobileTiers?: number[]; // (Default, [0, 15, 30, 60]) Framerate per tier
     desktopTiers?: number[]; // (Default, [0, 15, 30, 60]) Framerate per tier
-    debug?: boolean; // (Default, false) Log debug information in the console
     override?: { // (Default, false) Override specific functionality, useful for development
       renderer?: string; // Manually override reported GPU renderer string
       isIpad?: boolean; // Manually report device as being an iPad

@@ -3,7 +3,6 @@ export interface IGetGPUTier {
   failIfMajorPerformanceCaveat?: boolean;
   mobileTiers?: number[];
   desktopTiers?: number[];
-  debug?: boolean;
   override?: {
     renderer?: string;
     isIpad?: boolean;
