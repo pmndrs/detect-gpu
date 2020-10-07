@@ -15,3 +15,6 @@ coverage
 
 # Logging
 *.log
+
+/example/build/*
+/dist/*

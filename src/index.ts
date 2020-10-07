@@ -1,178 +1,284 @@
-// Generated data
-import {
-  GPU_BENCHMARK_SCORE_DESKTOP,
-  GPU_BENCHMARK_SCORE_MOBILE,
-} from './__generated__/GPUBenchmark';
+// Vendor
+import leven from 'leven';
+// @ts-ignore unfetch doesn't properly export its types
+import fetch from 'unfetch';
 
 // Internal
-import { cleanEntryString } from './internal/cleanEntryString';
-import { cleanRendererString } from './internal/cleanRendererString';
-import { getBenchmarkByPercentage } from './internal/getBenchmarkByPercentage';
-import { browser, isMobile, isTablet } from './internal/getBrowserType';
-import { getEntryVersionNumber } from './internal/getEntryVersionNumber';
-import { getWebGLUnmaskedRenderer } from './internal/getWebGLUnmaskedRenderer';
-import { isWebGLSupported } from './internal/isWebGLSupported';
-import { getLevenshteinDistance } from './internal/getLevenshteinDistance';
+import { getGPUVersion } from './internal/getGPUVersion';
+import { getWebGLContext } from './internal/getWebGLContext';
+import { deviceInfo, isSSR } from './internal/deviceInfo';
+import { deobfuscateRenderer } from './internal/deobfuscateRenderer';
 
 // Types
-export interface IGetGPUTier {
-  glContext?: WebGLRenderingContext | WebGL2RenderingContext;
-  mobileBenchmarkPercentages?: number[];
-  desktopBenchmarkPercentages?: number[];
-  failIfMajorPerformanceCaveat?: boolean;
-  forceRendererString?: string;
-  forceMobile?: boolean;
-}
+import type { IGetGPUTier, TModelEntry, TTierResult, TTierType } from './types';
 
-export type TRank = [number, string] | [undefined, undefined];
+const queryCache: { [k: string]: Promise<TModelEntry[] | undefined> } = {};
 
-export interface IRankWithDistance {
-  rank: TRank;
-  distance: number;
-}
-
-export const getGPUTier = ({
-  mobileBenchmarkPercentages = [
-    0, // TIER_0
-    50, // TIER_1
-    30, // TIER_2
-    20, // TIER_3
-  ],
-  desktopBenchmarkPercentages = [
-    0, // TIER_0
-    50, // TIER_1
-    30, // TIER_2
-    20, // TIER_3
-  ],
-  forceRendererString = '',
-  forceMobile = false,
+export const getGPUTier = async ({
+  mobileTiers = [0, 30, 60],
+  desktopTiers = [0, 30, 60],
+  debug = false,
+  override: {
+    renderer,
+    isIpad = Boolean(deviceInfo?.isIpad),
+    isMobile = Boolean(deviceInfo?.isMobile),
+    screen = isSSR ? { width: 1920, height: 1080 } : window.screen,
+    loadBenchmarks,
+  } = {},
   glContext,
   failIfMajorPerformanceCaveat = true,
-}: IGetGPUTier = {}): { tier: string; type: string } => {
-  let renderer: string;
-  const isMobileTier = isMobile || isTablet || forceMobile;
+  benchmarksURL = '/benchmarks',
+}: IGetGPUTier = {}): Promise<TTierResult> => {
+  const MODEL_INDEX = 0;
 
-  const createGPUTier = (
-    index: number = 1,
-    GPUType: string = 'FALLBACK'
-  ): { tier: string; type: string } => ({
-    tier: `GPU_${isMobileTier ? 'MOBILE' : 'DESKTOP'}_TIER_${index}`,
-    type: GPUType,
+  const queryBenchmarks = async (
+    // tslint:disable-next-line:no-shadowed-variable
+    loadBenchmarks = async (
+      file: string
+    ): Promise<TModelEntry[] | undefined> => {
+      try {
+        const data = await fetch(`${benchmarksURL}/${file}`).then(
+          (response: UnfetchResponse): Promise<any> => response.json()
+        );
+
+        return data;
+      } catch (err) {
+        console.log(err);
+        return undefined;
+      }
+    },
+    // tslint:disable-next-line:no-shadowed-variable
+    renderer: string
+  ): Promise<[number, number, string, string | undefined] | []> => {
+    if (debug) {
+      console.log('queryBenchmarks', { renderer });
+    }
+
+    renderer = renderer
+      .toLowerCase()
+      // Strip off ANGLE() - for example:
+      // 'ANGLE (NVIDIA TITAN Xp)' becomes 'NVIDIA TITAN Xp'':
+      .replace(/angle \((.+)\)*$/, '$1')
+      // Strip off [number]gb & strip off direct3d and after - for example:
+      // 'Radeon (TM) RX 470 Series Direct3D11 vs_5_0 ps_5_0' becomes
+      // 'Radeon (TM) RX 470 Series'
+      .replace(/\s+([0-9]+gb|direct3d.+$)|\(r\)| \([^\)]+\)$/g, '');
+
+    if (debug) {
+      console.log('queryBenchmarks - renderer cleaned to', { renderer });
+    }
+
+    const types = isMobile
+      ? ['adreno', 'apple', 'mali-t', 'mali', 'nvidia', 'powervr']
+      : ['intel', 'amd', 'radeon', 'nvidia', 'geforce'];
+
+    let type: string | undefined;
+
+    // tslint:disable-next-line:prefer-for-of
+    for (let i = 0; i < types.length; i++) {
+      const typesType = types[i];
+
+      if (renderer.indexOf(typesType) > -1) {
+        type = typesType;
+        break;
+      }
+    }
+
+    if (!type) {
+      return [];
+    }
+
+    if (debug) {
+      console.log('queryBenchmarks - found type:', { type });
+    }
+
+    const benchmarkFile = `${isMobile ? 'm' : 'd'}-${type}.json`;
+
+    const benchmark: Promise<TModelEntry[] | undefined> = (queryCache[
+      benchmarkFile
+    ] = queryCache[benchmarkFile] || loadBenchmarks(benchmarkFile));
+
+    const benchmarks = await benchmark;
+
+    if (!benchmarks) {
+      return [];
+    }
+
+    const version = getGPUVersion(renderer);
+
+    const isApple = type === 'apple';
+
+    let matched: TModelEntry[] = benchmarks.filter(
+      ([, modelVersion]): boolean => modelVersion === version
+    );
+
+    if (debug) {
+      console.log(
+        `found ${matched.length} matching entries using version '${version}':`,
+        // tslint:disable-next-line:no-shadowed-variable
+        matched.map(([model]): string => model)
+      );
+    }
+
+    // If nothing matched, try comparing model names:
+    if (!matched.length) {
+      matched = benchmarks.filter(
+        // tslint:disable-next-line:no-shadowed-variable
+        ([model]): boolean => model.indexOf(renderer) > -1
+      );
+
+      if (debug) {
+        console.log(
+          `found ${matched.length} matching entries comparing model names`,
+          {
+            matched,
+          }
+        );
+      }
+    }
+
+    const count = matched.length;
+
+    if (count === 0) {
+      return [];
+    }
+
+    // tslint:disable-next-line:prefer-const
+    let [gpu, , blacklisted, fpsesByScreenSize] =
+      count > 1
+        ? matched
+            .map(
+              (match): readonly [TModelEntry, number] =>
+                [match, leven(renderer, match[MODEL_INDEX])] as const
+            )
+            .sort(([, a], [, b]): number => a - b)[0][MODEL_INDEX]
+        : matched[0];
+
+    if (debug) {
+      console.log(
+        `${renderer} matched closest to ${gpu} with the following screen sizes`,
+        JSON.stringify(fpsesByScreenSize)
+      );
+    }
+
+    let minDistance = Number.MAX_VALUE;
+    let closest: [number, number, number, string];
+    const { devicePixelRatio } = window;
+    const screenSize =
+      screen.width * devicePixelRatio * (screen.height * devicePixelRatio);
+
+    if (isApple) {
+      fpsesByScreenSize = fpsesByScreenSize.filter(
+        // tslint:disable-next-line:no-shadowed-variable
+        ([, , , device]): boolean =>
+          device.indexOf(isIpad ? 'ipad' : 'iphone') > -1
+      );
+    }
+
+    // tslint:disable-next-line:prefer-for-of
+    for (let i = 0; i < fpsesByScreenSize.length; i++) {
+      const match = fpsesByScreenSize[i];
+      const [width, height] = match;
+      const entryScreenSize = width * height;
+      const distance = Math.abs(screenSize - entryScreenSize);
+
+      if (distance < minDistance) {
+        minDistance = distance;
+        closest = match;
+      }
+    }
+
+    // If blacklisted change fps to -1
+    // TODO: move this to update benchmarks script
+    // tslint:disable-next-line:no-shadowed-variable
+    const [, , fps, device] = closest!;
+
+    return [minDistance, blacklisted ? -1 : fps, gpu, device];
+  };
+
+  const toResult = (
+    // tslint:disable-next-line:no-shadowed-variable
+    tier: number,
+    type: TTierType,
+    // tslint:disable-next-line:no-shadowed-variable
+    fps?: number,
+    gpu?: string,
+    // tslint:disable-next-line:no-shadowed-variable
+    device?: string
+  ): TTierResult => ({
+    tier,
+    isMobile,
+    type,
+    fps,
+    gpu,
+    device,
   });
 
-  if (forceRendererString) {
-    renderer = forceRendererString;
-  } else {
-    const gl = glContext || isWebGLSupported(browser, failIfMajorPerformanceCaveat);
+  let renderers: string[];
+  const fallback = toResult(1, 'FALLBACK');
+
+  if (!renderer) {
+    const gl =
+      glContext ||
+      getWebGLContext(deviceInfo?.isSafari12, failIfMajorPerformanceCaveat);
 
     if (!gl) {
-      return createGPUTier(0, 'WEBGL_UNSUPPORTED');
+      return toResult(0, 'WEBGL_UNSUPPORTED');
     }
 
-    renderer = getWebGLUnmaskedRenderer(gl);
+    const debugRendererInfo = gl.getExtension('WEBGL_debug_renderer_info');
+
+    if (debugRendererInfo) {
+      renderer = gl
+        .getParameter(debugRendererInfo.UNMASKED_RENDERER_WEBGL)
+        .toLowerCase();
+    }
+
+    if (!renderer) {
+      return fallback;
+    }
+
+    renderers = deobfuscateRenderer(gl, renderer, isMobile, debug);
+  } else {
+    renderers = [renderer];
   }
 
-  renderer = cleanRendererString(renderer);
-
-  // GPU BLACKLIST
-  // https://wiki.mozilla.org/Blocklisting/Blocked_Graphics_Drivers
-  // https://www.khronos.org/webgl/wiki/BlacklistsAndWhitelists
-  // https://chromium.googlesource.com/chromium/src/+/master/gpu/config/software_rendering_list.json
-  // https://chromium.googlesource.com/chromium/src/+/master/gpu/config/gpu_driver_bug_list.json
-  const isGPUBlacklisted = /(radeon hd 6970m|radeon hd 6770m|radeon hd 6490m|radeon hd 6630m|radeon hd 6750m|radeon hd 5750|radeon hd 5670|radeon hd 4850|radeon hd 4870|radeon hd 4670|geforce 9400m|geforce 320m|geforce 330m|geforce gt 130|geforce gt 120|geforce gtx 285|geforce 8600|geforce 9600m|geforce 9400m|geforce 8800 gs|geforce 8800 gt|quadro fx 5|quadro fx 4|radeon hd 2600|radeon hd 2400|radeon r9 200|mali-4|mali-3|mali-2|google swiftshader|sgx543|legacy|sgx 543)/.test(
-    renderer
+  const results = await Promise.all(
+    renderers.map(
+      (
+        // tslint:disable-next-line:no-shadowed-variable
+        renderer: string
+      ): Promise<[number, number, string, string | undefined] | []> =>
+        queryBenchmarks(loadBenchmarks, renderer)
+    )
   );
 
-  if (isGPUBlacklisted) {
-    return createGPUTier(0, 'BLACKLISTED');
+  const result =
+    results.length === 1
+      ? results[0]
+      : results.sort(
+          ([aDis = Number.MAX_VALUE], [bDis = Number.MAX_VALUE]): number =>
+            aDis - bDis
+        )[0];
+
+  if (result.length === 0) {
+    return fallback;
   }
 
-  const [tier, type] = (isMobileTier ? getMobileRank : getDesktopRank)(
-    getBenchmarkByPercentage(
-      isMobileTier ? GPU_BENCHMARK_SCORE_MOBILE : GPU_BENCHMARK_SCORE_DESKTOP,
-      isMobileTier ? mobileBenchmarkPercentages : desktopBenchmarkPercentages
-    ),
-    renderer,
-    getEntryVersionNumber(renderer)
-  );
+  const [, fps, model, device] = result;
 
-  return createGPUTier(tier, type);
-};
+  if (fps === -1) {
+    return toResult(0, 'BLACKLISTED', fps, model, device);
+  }
 
-const getMobileRank = (
-  benchmark: string[][],
-  renderer: string,
-  rendererVersionNumber: string
-): TRank => {
-  const type = [
-    'adreno',
-    'apple',
-    'mali-t',
-    'mali',
-    'nvidia',
-    'powervr',
-  ].find((rendererType: string): boolean => renderer.includes(rendererType));
+  const tiers = isMobile ? mobileTiers : desktopTiers;
+  let tier = 0;
 
-  const ranks: IRankWithDistance[] = [];
-  if (type) {
-    for (let index = 0; index < benchmark.length; index++) {
-      const benchmarkTier = benchmark[index];
-
-      // tslint:disable-next-line:prefer-for-of
-      for (let i = 0; i < benchmarkTier.length; i++) {
-        const entry = cleanEntryString(benchmarkTier[i]);
-
-        if (
-          entry.includes(type) &&
-          (entry !== 'mali' || !entry.includes('mali-t')) &&
-          getEntryVersionNumber(entry).includes(rendererVersionNumber)
-        ) {
-          ranks.push({
-            rank: [index, `BENCHMARK - ${entry}`],
-            distance: getLevenshteinDistance(renderer, entry),
-          });
-        }
-      }
+  for (let i = 0; i < tiers.length; i++) {
+    if (fps >= tiers[i]) {
+      tier = i;
     }
   }
 
-  const ordered = sortByLevenshteinDistance(ranks);
-  return ordered.length > 0 ? ordered[0].rank : [undefined, undefined];
-};
-
-const sortByLevenshteinDistance = (ranks: IRankWithDistance[]): IRankWithDistance[] =>
-  ranks.sort(
-    (rank1: IRankWithDistance, rank2: IRankWithDistance): number => rank1.distance - rank2.distance
-  );
-
-const getDesktopRank = (
-  benchmark: string[][],
-  renderer: string,
-  rendererVersionNumber: string
-): TRank => {
-  const type = ['intel', 'amd', 'nvidia'].find((rendererType: string): boolean =>
-    renderer.includes(rendererType)
-  );
-
-  const ranks: IRankWithDistance[] = [];
-  if (type) {
-    for (let index = 0; index < benchmark.length; index++) {
-      const benchmarkTier = benchmark[index];
-
-      // tslint:disable-next-line:prefer-for-of
-      for (let i = 0; i < benchmarkTier.length; i++) {
-        const entry = cleanEntryString(benchmarkTier[i]);
-
-        if (entry.includes(type) && getEntryVersionNumber(entry).includes(rendererVersionNumber)) {
-          ranks.push({
-            rank: [index, `BENCHMARK - ${entry}`],
-            distance: getLevenshteinDistance(renderer, entry),
-          });
-        }
-      }
-    }
-  }
-
-  const ordered = sortByLevenshteinDistance(ranks);
-  return ordered.length > 0 ? ordered[0].rank : [undefined, undefined];
+  return toResult(tier, 'BENCHMARK', fps, model, device);
 };
