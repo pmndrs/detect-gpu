@@ -7,7 +7,7 @@ import { terser } from 'rollup-plugin-terser';
 import typescript from 'rollup-plugin-typescript2';
 import { RollupOptions, ModuleFormat } from 'rollup';
 
-const formats: ModuleFormat[] = ['esm', 'cjs'];
+const formats: ModuleFormat[] = ['esm', 'umd'];
 
 export default formats.map(
   (format): RollupOptions => ({
