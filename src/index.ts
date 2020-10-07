@@ -190,12 +190,10 @@ export const getGPUTier = async ({
       }
     }
 
-    // If blacklisted change fps to -1
-    // TODO: move this to update benchmarks script
     // tslint:disable-next-line:no-shadowed-variable
     const [, , fps, device] = closest!;
 
-    return [minDistance, blacklisted ? -1 : fps, gpu, device];
+    return [minDistance, fps, gpu, device];
   };
 
   const toResult = (
