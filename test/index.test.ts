@@ -17,8 +17,8 @@ const getTier = ({
   isIpad?: boolean;
 }): Promise<TTierResult> =>
   getGPUTier({
-    desktopTiers: [10, 30, 60],
-    mobileTiers: [10, 30, 60],
+    desktopTiers: [0, 15, 30, 60],
+    mobileTiers: [0, 15, 30, 60],
     override: {
       isIpad,
       isMobile,
@@ -42,7 +42,7 @@ test(`Top tier desktop: ${topTierDesktop}`, async (): Promise<void> => {
   expectGPUResults(
     {
       isMobile: false,
-      tier: 2,
+      tier: 3,
       type: 'BENCHMARK',
     },
     await getTier({
