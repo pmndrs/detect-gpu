@@ -55,8 +55,7 @@
     "testURL": "http://localhost",
     "moduleFileExtensions": [
       "js",
-      "ts",
-      "tsx"
+      "ts"
     ],
     "globals": {
       "ts-jest": {
@@ -64,7 +63,7 @@
       }
     },
     "testMatch": [
-      "**/test/**/*.+(ts|tsx|js)"
+      "**/test/**/*.test.ts"
     ],
     "testPathIgnorePatterns": [
       "<rootDir>/test/data.ts"
