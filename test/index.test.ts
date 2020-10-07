@@ -26,8 +26,8 @@ const getTier = ({
       ): Promise<TModelEntry[] | undefined> =>
         (await import(`../benchmarks/${file}`)).default,
     },
-    mobileTiers: [10, 30, 60],
-    desktopTiers: [10, 30, 60],
+    mobileTiers: [0, 15, 30, 60],
+    desktopTiers: [0, 15, 30, 60],
   });
 
 [RENDERER_MOBILE, RENDERER_TABLET, RENDERER_DESKTOP].forEach(
@@ -42,7 +42,7 @@ test(`Top tier desktop: ${topTierDesktop}`, async (): Promise<void> => {
   expectGPUResults(
     {
       type: 'BENCHMARK',
-      tier: 2,
+      tier: 3,
       isMobile: false,
     },
     await getTier({
