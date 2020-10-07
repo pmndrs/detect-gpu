@@ -22,7 +22,7 @@ export const getGPUTier = async ({
     renderer,
     isIpad = Boolean(deviceInfo?.isIpad),
     isMobile = Boolean(deviceInfo?.isMobile),
-    screen = isSSR ? { width: 1920, height: 1080 } : window.screen,
+    screenSize = isSSR ? { width: 1920, height: 1080 } : window.screen,
     loadBenchmarks,
   } = {},
   glContext,
@@ -144,7 +144,7 @@ export const getGPUTier = async ({
     }
 
     // tslint:disable-next-line:prefer-const
-    let [gpu, , blacklisted, fpsesByScreenSize] =
+    let [gpu, , blacklisted, fpsesByPixelCount] =
       count > 1
         ? matched
             .map(
@@ -157,18 +157,20 @@ export const getGPUTier = async ({
     if (debug) {
       console.log(
         `${renderer} matched closest to ${gpu} with the following screen sizes`,
-        JSON.stringify(fpsesByScreenSize)
+        JSON.stringify(fpsesByPixelCount)
       );
     }
 
     let minDistance = Number.MAX_VALUE;
     let closest: [number, number, number, string];
     const { devicePixelRatio } = window;
-    const screenSize =
-      screen.width * devicePixelRatio * (screen.height * devicePixelRatio);
+    const pixelCount =
+      screenSize.width *
+      devicePixelRatio *
+      (screenSize.height * devicePixelRatio);
 
     if (isApple) {
-      fpsesByScreenSize = fpsesByScreenSize.filter(
+      fpsesByPixelCount = fpsesByPixelCount.filter(
         // tslint:disable-next-line:no-shadowed-variable
         ([, , , device]): boolean =>
           device.indexOf(isIpad ? 'ipad' : 'iphone') > -1
@@ -176,11 +178,11 @@ export const getGPUTier = async ({
     }
 
     // tslint:disable-next-line:prefer-for-of
-    for (let i = 0; i < fpsesByScreenSize.length; i++) {
-      const match = fpsesByScreenSize[i];
+    for (let i = 0; i < fpsesByPixelCount.length; i++) {
+      const match = fpsesByPixelCount[i];
       const [width, height] = match;
-      const entryScreenSize = width * height;
-      const distance = Math.abs(screenSize - entryScreenSize);
+      const entryPixelCount = width * height;
+      const distance = Math.abs(pixelCount - entryPixelCount);
 
       if (distance < minDistance) {
         minDistance = distance;

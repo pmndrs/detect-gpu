@@ -28,7 +28,7 @@ import { getGPUTier } from 'detect-gpu';
       renderer?: string;
       isIpad?: boolean;
       isMobile?: boolean;
-      screen?: { width: number; height: number };
+      screenSize?: { width: number; height: number };
       loadBenchmarks?: (file: string) => Promise<TModelEntry[] | undefined>;
     };
     benchmarksURL?: string;
