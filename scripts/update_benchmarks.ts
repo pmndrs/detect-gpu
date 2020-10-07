@@ -140,7 +140,7 @@ type BenchmarkRow = {
                     {}
                   )
                 )
-                  // @ts-ignore
+                  // @ts-ignore: Type 'unknown' must have a '[Symbol.iterator]()' method that returns an iterator
                   // tslint:disable-next-line:typedef
                   .map(([resolution, [device, fps]]) => {
                     const [width, height] = resolution.split(' x ').map(Number);

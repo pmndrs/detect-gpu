@@ -93,7 +93,7 @@ export const deobfuscateAppleGpu = (
       gl.deleteBuffer(vertexArray);
 
       renderers =
-        // @ts-ignore
+        // @ts-ignore: implicitly has type 'any'
         {
           // iPhone 11, 11 Pro, 11 Pro Max (Apple A13 GPU)
           // iPad Pro (Apple A12X GPU)
