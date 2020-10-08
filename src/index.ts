@@ -39,7 +39,7 @@ export const getGPUTier = async ({
   if (isSSR) {
     return {
       tier: 0,
-      type: 'WEBGL_UNSUPPORTED',
+      type: 'IS_SRR',
     };
   }
 
