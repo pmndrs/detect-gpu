@@ -1,6 +1,9 @@
 # Detect GPU
 
+[![gzip size](https://img.badgesize.io/https:/unpkg.com/detect-gpu/dist/detect-gpu.umd.js?compression=gzip)](https://unpkg.com/detect-gpu)
 [![npm version](https://badge.fury.io/js/detect-gpu.svg)](https://badge.fury.io/js/detect-gpu)
+[![license](https://img.shields.io/npm/l/detect-gpu.svg)](https://github.com/TimvanScherpenzeel/detect-gpu/blob/master/LICENSE)
+[![TypeScript](https://img.shields.io/static/v1.svg?label=&message=TypeScript&color=294E80)](https://www.typescriptlang.org/)
 
 Classify GPU's based on their benchmark score in order to provide an adaptive experience.
 
