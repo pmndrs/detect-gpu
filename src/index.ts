@@ -36,23 +36,11 @@ export const getGPUTier = async ({
   failIfMajorPerformanceCaveat = true,
   benchmarksURL = '/benchmarks',
 }: GetGPUTier = {}): Promise<TierResult> => {
-  const toResult = (
-    tier: number,
-    type: TierType,
-    fps?: number,
-    gpu?: string,
-    device?: string
-  ) => ({
-    device,
-    fps,
-    gpu,
-    isMobile,
-    tier,
-    type,
-  });
-
   if (isSSR) {
-    return toResult(0, 'WEBGL_UNSUPPORTED');
+    return {
+      tier: 0,
+      type: 'WEBGL_UNSUPPORTED',
+    };
   }
 
   const queryBenchmarks = async (
@@ -200,6 +188,21 @@ export const getGPUTier = async ({
 
     return [minDistance, fps, gpu, device];
   };
+
+  const toResult = (
+    tier: number,
+    type: TierType,
+    fps?: number,
+    gpu?: string,
+    device?: string
+  ) => ({
+    device,
+    fps,
+    gpu,
+    isMobile,
+    tier,
+    type,
+  });
 
   let renderers: string[];
   const fallback = toResult(1, 'FALLBACK');
