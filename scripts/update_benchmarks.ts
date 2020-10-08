@@ -10,7 +10,7 @@ import { version } from '../package.json';
 
 const BENCHMARK_URL = `https://gfxbench.com/result.jsp?benchmark=gfx50&test=544&text-filter=&order=median&ff-lmobile=true&ff-smobile=true&os-Android_gl=true&os-Android_vulkan=true&os-iOS_gl=true&os-iOS_metal=true&os-Linux_gl=true&os-OS_X_gl=true&os-OS_X_metal=true&os-Windows_dx=true&os-Windows_dx12=true&os-Windows_gl=true&os-Windows_vulkan=true&pu-dGPU=true&pu-iGPU=true&pu-GPU=true&arch-ARM=true&arch-unknown=true&arch-x86=true&base=device`;
 
-const types = [
+const TYPES = [
   'adreno',
   'apple',
   'mali-t',
@@ -29,7 +29,7 @@ const types = [
 // https://www.khronos.org/webgl/wiki/BlacklistsAndWhitelists
 // https://chromium.googlesource.com/chromium/src/+/master/gpu/config/software_rendering_list.json
 // https://chromium.googlesource.com/chromium/src/+/master/gpu/config/gpu_driver_bug_list.json
-const blacklistedModels = [
+const BLACKLISTED_MODELS = [
   'radeon hd 6970m',
   'radeon hd 6770m',
   'radeon hd 6490m',
@@ -146,7 +146,7 @@ type Optional<T, K extends keyof T> = Pick<Partial<T>, K> & Omit<T, K>;
     rows = rows.filter(
       ({ mobile, gpu }) =>
         mobile === isMobile &&
-        types.filter((type): boolean => gpu.includes(type)).length > 0
+        TYPES.filter((type): boolean => gpu.includes(type)).length > 0
     );
 
     const rowsByGpu = Object.values(
@@ -158,12 +158,12 @@ type Optional<T, K extends keyof T> = Pick<Partial<T>, K> & Omit<T, K>;
     );
 
     return Promise.all([
-      ...types.map((type) => {
+      ...TYPES.map((type) => {
         const typeModels = rowsByGpu
           .filter(([{ gpu }]) => gpu.includes(type))
           .map((rows) => {
             const { gpu } = rows[0];
-            const isBlacklisted = blacklistedModels.find((blacklistedModel) =>
+            const isBlacklisted = BLACKLISTED_MODELS.find((blacklistedModel) =>
               gpu.includes(blacklistedModel)
             );
 

@@ -15,7 +15,8 @@
     "build": "rollup -c rollup/config.lib.js",
     "example": "rollup -w -c rollup/config.dev.ts",
     "parse-analytics": "node ./scripts/analytics_parser.js",
-    "update-benchmarks": "rimraf benchmarks && mkdir -p benchmarks && ts-node -O '{\"module\":\"commonjs\"}' ./scripts/update_benchmarks.ts && tar -czvf benchmarks.tar.gz benchmarks/*.json"
+    "update-benchmarks": "rimraf benchmarks && mkdir -p benchmarks && ts-node -O '{\"module\":\"commonjs\"}' ./scripts/update_benchmarks.ts && tar -czvf benchmarks.tar.gz benchmarks/*.json",
+    "update-blacklist": "rimraf blacklist && mkdir -p blacklist && node ./scripts/update_blacklist.js"
   },
   "author": "Tim van Scherpenzeel",
   "dependencies": {
