@@ -25,8 +25,8 @@ const TYPES = [
 ];
 
 // GPU BLACKLIST
-// https://chromium.googlesource.com/chromium/src/+/master/gpu/config/software_rendering_list.json
-// https://hg.mozilla.org/mozilla-central/raw-file/tip/services/settings/dumps/blocklists/gfx.json
+// SEE: https://chromium.googlesource.com/chromium/src/+/master/gpu/config/software_rendering_list.json
+// SEE: https://hg.mozilla.org/mozilla-central/raw-file/tip/services/settings/dumps/blocklists/gfx.json
 const BLACKLISTED_MODELS = [
   'geforce 320m',
   'geforce 8600',
