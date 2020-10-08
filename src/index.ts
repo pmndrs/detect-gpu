@@ -9,11 +9,17 @@ import { deviceInfo, isSSR } from './internal/deviceInfo';
 import { deobfuscateRenderer } from './internal/deobfuscateRenderer';
 
 // Types
-import type { IGetGPUTier, TModelEntry, TTierResult, TTierType } from './types';
+import type {
+  GetGPUTier,
+  ModelEntry,
+  TierResult,
+  TierType,
+  ModelEntryScreen,
+} from './types';
 
 const debug = false ? console.log : undefined;
 
-const queryCache: { [k: string]: Promise<TModelEntry[] | undefined> } = {};
+const queryCache: { [k: string]: Promise<ModelEntry[] | undefined> } = {};
 
 export const getGPUTier = async ({
   mobileTiers = [0, 15, 30, 60],
@@ -28,17 +34,15 @@ export const getGPUTier = async ({
   glContext,
   failIfMajorPerformanceCaveat = true,
   benchmarksURL = '/benchmarks',
-}: IGetGPUTier = {}): Promise<TTierResult> => {
+}: GetGPUTier = {}): Promise<TierResult> => {
   const MODEL_INDEX = 0;
 
   const queryBenchmarks = async (
-    loadBenchmarks = async (
-      file: string
-    ): Promise<TModelEntry[] | undefined> => {
+    loadBenchmarks = async (file: string) => {
       try {
-        const data = await fetch(`${benchmarksURL}/${file}`).then(
+        const data: ModelEntry[] = await fetch(`${benchmarksURL}/${file}`).then(
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          (response): Promise<any> => response.json()
+          (response) => response.json()
         );
 
         // Remove version tag
@@ -90,7 +94,7 @@ export const getGPUTier = async ({
 
     const benchmarkFile = `${isMobile ? 'm' : 'd'}-${type}.json`;
 
-    const benchmark: Promise<TModelEntry[] | undefined> = (queryCache[
+    const benchmark: Promise<ModelEntry[] | undefined> = (queryCache[
       benchmarkFile
     ] = queryCache[benchmarkFile] || loadBenchmarks(benchmarkFile));
 
@@ -104,21 +108,19 @@ export const getGPUTier = async ({
 
     const isApple = type === 'apple';
 
-    let matched: TModelEntry[] = benchmarks.filter(
-      ([, modelVersion]): boolean => modelVersion === version
+    let matched: ModelEntry[] = benchmarks.filter(
+      ([, modelVersion]) => modelVersion === version
     );
 
     debug?.(
       `found ${matched.length} matching entries using version '${version}':`,
 
-      matched.map(([model]): string => model)
+      matched.map(([model]) => model)
     );
 
     // If nothing matched, try comparing model names:
     if (!matched.length) {
-      matched = benchmarks.filter(
-        ([model]): boolean => model.indexOf(renderer) > -1
-      );
+      matched = benchmarks.filter(([model]) => model.indexOf(renderer) > -1);
 
       debug?.(
         `found ${matched.length} matching entries comparing model names`,
@@ -139,10 +141,9 @@ export const getGPUTier = async ({
       count > 1
         ? matched
             .map(
-              (match): readonly [TModelEntry, number] =>
-                [match, leven(renderer, match[MODEL_INDEX])] as const
+              (match) => [match, leven(renderer, match[MODEL_INDEX])] as const
             )
-            .sort(([, a], [, b]): number => a - b)[0][MODEL_INDEX]
+            .sort(([, a], [, b]) => a - b)[0][MODEL_INDEX]
         : matched[0];
 
     debug?.(
@@ -151,17 +152,19 @@ export const getGPUTier = async ({
     );
 
     let minDistance = Number.MAX_VALUE;
-    let closest: [number, number, number, string];
+    let closest: ModelEntryScreen;
     const { devicePixelRatio } = window;
     const pixelCount =
       screenSize.width *
       devicePixelRatio *
       (screenSize.height * devicePixelRatio);
 
-    if (isApple) {
+    // Extra step for apple devices to distinguish between ipad and iphone
+    // devices (which often share screen resolutions):
+    if (isApple && isMobile) {
       fpsesByPixelCount = fpsesByPixelCount.filter(
-        ([, , , device]): boolean =>
-          device.indexOf(isIpad ? 'ipad' : 'iphone') > -1
+        ([, , , device]) =>
+          (device?.indexOf(isIpad ? 'ipad' : 'iphone') ?? -1) > -1
       );
     }
 
@@ -185,11 +188,11 @@ export const getGPUTier = async ({
 
   const toResult = (
     tier: number,
-    type: TTierType,
+    type: TierType,
     fps?: number,
     gpu?: string,
     device?: string
-  ): TTierResult => ({
+  ) => ({
     device,
     fps,
     gpu,
@@ -240,8 +243,7 @@ export const getGPUTier = async ({
     results.length === 1
       ? results[0]
       : results.sort(
-          ([aDis = Number.MAX_VALUE], [bDis = Number.MAX_VALUE]): number =>
-            aDis - bDis
+          ([aDis = Number.MAX_VALUE], [bDis = Number.MAX_VALUE]) => aDis - bDis
         )[0];
 
   if (result.length === 0) {

@@ -24,7 +24,7 @@ export const deobfuscateAppleGpu = (
   gl: WebGLRenderingContext,
   renderer: string,
   isMobileTier: boolean
-): string[] => {
+) => {
   let renderers = [renderer];
 
   if (isMobileTier) {

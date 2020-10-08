@@ -1,7 +1,7 @@
 // Application
 import { getGPUTier } from '../src';
 
-(async (): Promise<void> => {
+(async () => {
   const data = await getGPUTier({
     benchmarksURL: '/build/benchmarks',
   });
