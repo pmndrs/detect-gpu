@@ -3,7 +3,7 @@ import puppeteer from 'puppeteer';
 import fs from 'fs';
 
 // Application
-import { BLOCKLISTED_MODELS } from '../src/internal/blocklist';
+import { BLOCKLISTED_GPU } from '../src/internal/GPUBlocklist';
 import { getGPUVersion } from '../src/internal/getGPUVersion';
 
 // Package
@@ -123,7 +123,7 @@ type Optional<T, K extends keyof T> = Pick<Partial<T>, K> & Omit<T, K>;
           .filter(([{ gpu }]) => gpu.includes(type))
           .map((rows) => {
             const { gpu } = rows[0];
-            const isBlocklisted = BLOCKLISTED_MODELS.find((blocklistedModel) =>
+            const isBlocklisted = BLOCKLISTED_GPU.find((blocklistedModel) =>
               gpu.includes(blocklistedModel)
             );
 

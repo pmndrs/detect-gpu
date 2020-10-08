@@ -2,7 +2,7 @@
 import leven from 'leven';
 
 // Internal
-import { BLOCKLISTED_MODELS } from './internal/blocklist';
+import { BLOCKLISTED_GPU } from './internal/GPUBlocklist';
 import { getGPUVersion } from './internal/getGPUVersion';
 import { getWebGLContext } from './internal/getWebGLContext';
 import { deviceInfo } from './internal/deviceInfo';
@@ -246,7 +246,7 @@ export const getGPUTier = async ({
   if (result.length === 0) {
     renderer = cleanRenderer(renderer);
 
-    return BLOCKLISTED_MODELS.find((blocklistedModel) =>
+    return BLOCKLISTED_GPU.find((blocklistedModel) =>
       renderer?.includes(blocklistedModel)
     )
       ? toResult(0, 'BLOCKLISTED')
