@@ -55,8 +55,6 @@ export const getGPUTier = async ({
     return toResult(0, 'WEBGL_UNSUPPORTED');
   }
 
-  const MODEL_INDEX = 0;
-
   const queryBenchmarks = async (
     loadBenchmarks = async (file: string) => {
       try {
@@ -159,10 +157,8 @@ export const getGPUTier = async ({
     let [gpu, , , fpsesByPixelCount] =
       count > 1
         ? matched
-            .map(
-              (match) => [match, leven(renderer, match[MODEL_INDEX])] as const
-            )
-            .sort(([, a], [, b]) => a - b)[0][MODEL_INDEX]
+            .map((match) => [match, leven(renderer, match[0])] as const)
+            .sort(([, a], [, b]) => a - b)[0][0]
         : matched[0];
 
     debug?.(
