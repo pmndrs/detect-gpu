@@ -215,20 +215,10 @@ export const getGPUTier = async ({
       return toResult(1, 'FALLBACK');
     }
 
-    debug?.('getGPUTier', { renderer });
-
     renderer = cleanRenderer(renderer);
-
-    debug?.('getGPUTier - renderer cleaned to', { renderer });
-
     renderers = deobfuscateRenderer(gl, renderer, isMobile);
   } else {
-    debug?.('getGPUTier', { renderer });
-
     renderer = cleanRenderer(renderer);
-
-    debug?.('getGPUTier - renderer cleaned to', { renderer });
-
     renderers = [renderer];
   }
 
