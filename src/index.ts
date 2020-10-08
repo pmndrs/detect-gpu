@@ -246,15 +246,11 @@ export const getGPUTier = async ({
   if (result.length === 0) {
     renderer = cleanRenderer(renderer);
 
-    const isBlocklisted = BLOCKLISTED_MODELS.find((blocklistedModel) =>
+    return BLOCKLISTED_MODELS.find((blocklistedModel) =>
       renderer?.includes(blocklistedModel)
-    );
-
-    if (isBlocklisted) {
-      return toResult(0, 'BLOCKLISTED');
-    } else {
-      return fallback;
-    }
+    )
+      ? toResult(0, 'BLOCKLISTED')
+      : fallback;
   }
 
   const [, fps, model, device] = result;
