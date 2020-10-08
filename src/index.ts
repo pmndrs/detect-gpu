@@ -1,6 +1,6 @@
 // Vendor
+import 'unfetch/polyfill';
 import leven from 'leven';
-import fetch from 'unfetch';
 
 // Internal
 import { getGPUVersion } from './internal/getGPUVersion';
@@ -40,10 +40,9 @@ export const getGPUTier = async ({
   const queryBenchmarks = async (
     loadBenchmarks = async (file: string) => {
       try {
-        const data: ModelEntry[] = await fetch(`${benchmarksURL}/${file}`).then(
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          (response) => response.json()
-        );
+        const data: ModelEntry[] = await fetch(
+          `${benchmarksURL}/${file}`
+        ).then((response) => response.json());
 
         // Remove version tag
         data.shift();

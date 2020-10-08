@@ -36,7 +36,6 @@
     "eslint-plugin-prettier": "^3.1.4",
     "jest": "^26.5.2",
     "moment": "^2.29.1",
-    "node-fetch": "^2.6.1",
     "prettier": "^2.1.2",
     "puppeteer": "^5.3.1",
     "rimraf": "^3.0.2",
