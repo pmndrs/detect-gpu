@@ -1,11 +1,10 @@
 // Vendor
 import leven from 'leven';
-import fetch from 'unfetch';
 
 // Internal
 import { getGPUVersion } from './internal/getGPUVersion';
 import { getWebGLContext } from './internal/getWebGLContext';
-import { deviceInfo, isSSR } from './internal/deviceInfo';
+import { deviceInfo } from './internal/deviceInfo';
 import { deobfuscateRenderer } from './internal/deobfuscateRenderer';
 
 // Types
@@ -19,6 +18,8 @@ import type {
 
 const debug = false ? console.log : undefined;
 
+const isSSR = typeof window === 'undefined';
+
 const queryCache: { [k: string]: Promise<ModelEntry[] | undefined> } = {};
 
 export const getGPUTier = async ({
@@ -28,22 +29,26 @@ export const getGPUTier = async ({
     renderer,
     isIpad = Boolean(deviceInfo?.isIpad),
     isMobile = Boolean(deviceInfo?.isMobile),
-    screenSize = isSSR ? { height: 1080, width: 1920 } : window.screen,
+    screenSize = window.screen,
     loadBenchmarks,
   } = {},
   glContext,
   failIfMajorPerformanceCaveat = true,
   benchmarksURL = '/benchmarks',
 }: GetGPUTier = {}): Promise<TierResult> => {
-  const MODEL_INDEX = 0;
+  if (isSSR) {
+    return {
+      tier: 0,
+      type: 'IS_SRR',
+    };
+  }
 
   const queryBenchmarks = async (
     loadBenchmarks = async (file: string) => {
       try {
-        const data: ModelEntry[] = await fetch(`${benchmarksURL}/${file}`).then(
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          (response) => response.json()
-        );
+        const data: ModelEntry[] = await fetch(
+          `${benchmarksURL}/${file}`
+        ).then((response) => response.json());
 
         // Remove version tag
         data.shift();
@@ -140,10 +145,8 @@ export const getGPUTier = async ({
     let [gpu, , , fpsesByPixelCount] =
       count > 1
         ? matched
-            .map(
-              (match) => [match, leven(renderer, match[MODEL_INDEX])] as const
-            )
-            .sort(([, a], [, b]) => a - b)[0][MODEL_INDEX]
+            .map((match) => [match, leven(renderer, match[0])] as const)
+            .sort(([, a], [, b]) => a - b)[0][0]
         : matched[0];
 
     debug?.(
