@@ -256,7 +256,7 @@ export const getGPUTier = async ({
   const [, fps, model, device] = result;
 
   if (fps === -1) {
-    return toResult(0, 'BLACKLISTED', fps, model, device);
+    return toResult(0, 'BLOCKLISTED', fps, model, device);
   }
 
   const tiers = isMobile ? mobileTiers : desktopTiers;

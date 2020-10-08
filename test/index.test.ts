@@ -234,14 +234,14 @@ test(`Bottom tier desktop: ${bottomTierDesktop}`, async () => {
   }
 );
 
-// expect BLACKLISTED results:
+// expect BLOCKLISTED results:
 [['ANGLE (ATI Radeon HD 5670 Direct3D11 vs_5_0 ps_5_0)', false] as const].map(
   ([renderer, isMobile]) => {
-    test(`${renderer} should return BLACKLISTED`, async () => {
+    test(`${renderer} should return BLOCKLISTED`, async () => {
       expectGPUResults(
         {
           isMobile,
-          type: 'BLACKLISTED',
+          type: 'BLOCKLISTED',
         },
         await getTier({
           isMobile,
@@ -300,7 +300,7 @@ function testRenders(deviceType: string[], mobileDevice = false) {
 
       expect([
         'WEBGL_UNSUPPORTED',
-        'BLACKLISTED',
+        'BLOCKLISTED',
         'FALLBACK',
         'BENCHMARK',
       ]).toContain(type);

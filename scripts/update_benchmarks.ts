@@ -24,10 +24,10 @@ const TYPES = [
   'geforce',
 ];
 
-// GPU BLACKLIST
+// GPU blocklist
 // SEE: https://chromium.googlesource.com/chromium/src/+/master/gpu/config/software_rendering_list.json
 // SEE: https://hg.mozilla.org/mozilla-central/raw-file/tip/services/settings/dumps/blocklists/gfx.json
-const BLACKLISTED_MODELS = [
+const BLOCKLISTED_MODELS = [
   'geforce 320m',
   'geforce 8600',
   'geforce 8600m gt',
@@ -176,14 +176,14 @@ type Optional<T, K extends keyof T> = Pick<Partial<T>, K> & Omit<T, K>;
           .filter(([{ gpu }]) => gpu.includes(type))
           .map((rows) => {
             const { gpu } = rows[0];
-            const isBlacklisted = BLACKLISTED_MODELS.find((blacklistedModel) =>
-              gpu.includes(blacklistedModel)
+            const isBlocklisted = BLOCKLISTED_MODELS.find((blocklistedModel) =>
+              gpu.includes(blocklistedModel)
             );
 
             return [
               gpu,
               getGPUVersion(gpu),
-              isBlacklisted ? 1 : 0,
+              isBlocklisted ? 1 : 0,
               Object.entries(
                 rows.reduce(
                   (
@@ -192,7 +192,7 @@ type Optional<T, K extends keyof T> = Pick<Partial<T>, K> & Omit<T, K>;
                   ) => {
                     fpsByResolution[resolution] = [
                       device,
-                      isBlacklisted ? -1 : fps,
+                      isBlocklisted ? -1 : fps,
                     ];
                     return fpsByResolution;
                   },
