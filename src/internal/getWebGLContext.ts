@@ -1,7 +1,7 @@
 export const getWebGLContext = (
   isSafari12?: boolean,
   failIfMajorPerformanceCaveat = true
-): WebGLRenderingContext | undefined => {
+) => {
   const attributes: {
     alpha: boolean;
     antialias: boolean;

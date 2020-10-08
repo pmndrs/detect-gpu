@@ -1,10 +1,6 @@
 export const isSSR = typeof window === 'undefined';
 
-export const deviceInfo = ((): {
-  isMobile?: boolean;
-  isSafari12?: boolean;
-  isIpad?: boolean;
-} => {
+export const deviceInfo = (() => {
   if (isSSR) {
     return {};
   }

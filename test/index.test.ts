@@ -3,7 +3,7 @@ import { RENDERER_MOBILE, RENDERER_TABLET, RENDERER_DESKTOP } from './data';
 
 // Application
 import { getGPUTier } from '../src/index';
-import { TModelEntry, TTierResult } from '../src/types';
+import { ModelEntry, TierResult } from '../src/types';
 
 const isDebug = false;
 
@@ -15,30 +15,28 @@ const getTier = ({
   isMobile?: boolean;
   renderer?: string;
   isIpad?: boolean;
-}): Promise<TTierResult> =>
+}) =>
   getGPUTier({
     desktopTiers: [0, 15, 30, 60],
     mobileTiers: [0, 15, 30, 60],
     override: {
       isIpad,
       isMobile,
-      loadBenchmarks: async (
-        file: string
-      ): Promise<TModelEntry[] | undefined> =>
+      loadBenchmarks: async (file: string): Promise<ModelEntry[] | undefined> =>
         (await import(`../benchmarks/${file}`)).default,
       renderer,
     },
   });
 
 [RENDERER_MOBILE, RENDERER_TABLET, RENDERER_DESKTOP].forEach(
-  (renderers: string[]): void => {
+  (renderers: string[]) => {
     testRenders(renderers, renderers !== RENDERER_DESKTOP);
   }
 );
 
 const topTierDesktop =
   'ANGLE (NVIDIA GeForce RTX 2080 Ti Direct3D11 vs_5_0 ps_5_0)';
-test(`Top tier desktop: ${topTierDesktop}`, async (): Promise<void> => {
+test(`Top tier desktop: ${topTierDesktop}`, async () => {
   expectGPUResults(
     {
       isMobile: false,
@@ -55,7 +53,7 @@ test(`Top tier desktop: ${topTierDesktop}`, async (): Promise<void> => {
 const bottomTierDesktop =
   'ANGLE (AMD Radeon(TM) HD 8280E Direct3D11 vs_5_0 ps_5_0)';
 
-test(`Bottom tier desktop: ${bottomTierDesktop}`, async (): Promise<void> => {
+test(`Bottom tier desktop: ${bottomTierDesktop}`, async () => {
   expectGPUResults(
     {
       isMobile: false,
@@ -205,10 +203,8 @@ test(`Bottom tier desktop: ${bottomTierDesktop}`, async (): Promise<void> => {
       renderer: 'Mali-G51',
     },
   },
-].map(({ input, expected }): void => {
-  test(`${input.renderer} should find ${expected.gpu}`, async (): Promise<
-    void
-  > => {
+].map(({ input, expected }) => {
+  test(`${input.renderer} should find ${expected.gpu}`, async () => {
     expectGPUResults(
       {
         type: 'BENCHMARK',
@@ -220,9 +216,9 @@ test(`Bottom tier desktop: ${bottomTierDesktop}`, async (): Promise<void> => {
 });
 
 // expect FALLBACK results:
-([['this renderer does not exist', true]] as [string, boolean][]).map(
-  ([renderer, isMobile]: [renderer: string, isMobile: boolean]): void => {
-    test(`${renderer} should return FALLBACK`, async (): Promise<void> => {
+[['this renderer does not exist', true] as const].map(
+  ([renderer, isMobile]) => {
+    test(`${renderer} should return FALLBACK`, async () => {
       expectGPUResults(
         {
           gpu: undefined,
@@ -239,12 +235,9 @@ test(`Bottom tier desktop: ${bottomTierDesktop}`, async (): Promise<void> => {
 );
 
 // expect BLACKLISTED results:
-([['ANGLE (ATI Radeon HD 5670 Direct3D11 vs_5_0 ps_5_0)', false]] as [
-  string,
-  boolean
-][]).map(
-  ([renderer, isMobile]: [renderer: string, isMobile: boolean]): void => {
-    test(`${renderer} should return BLACKLISTED`, async (): Promise<void> => {
+[['ANGLE (ATI Radeon HD 5670 Direct3D11 vs_5_0 ps_5_0)', false] as const].map(
+  ([renderer, isMobile]) => {
+    test(`${renderer} should return BLACKLISTED`, async () => {
       expectGPUResults(
         {
           isMobile,
@@ -260,9 +253,9 @@ test(`Bottom tier desktop: ${bottomTierDesktop}`, async (): Promise<void> => {
 );
 
 const expectGPUResults = (
-  expected: Partial<TTierResult>,
-  result: TTierResult
-): void => {
+  expected: Partial<TierResult>,
+  result: TierResult
+) => {
   if (expected.type) {
     expect(result.type).toBe(expected.type);
   }
@@ -280,41 +273,37 @@ const expectGPUResults = (
   }
 };
 
-function testRenders(deviceType: string[], mobileDevice = false): void {
-  deviceType.forEach(
-    async (renderer: string): Promise<void> => {
-      test(`${renderer} -> GPUTier returns a valid tier`, async (): Promise<
-        void
-      > => {
-        const input = {
-          isIpad: /apple.+x/i.test(renderer),
-          isMobile: mobileDevice,
-          renderer,
-        };
+function testRenders(deviceType: string[], mobileDevice = false) {
+  deviceType.forEach(async (renderer: string) => {
+    test(`${renderer} -> GPUTier returns a valid tier`, async () => {
+      const input = {
+        isIpad: /apple.+x/i.test(renderer),
+        isMobile: mobileDevice,
+        renderer,
+      };
 
-        const result = await getTier(input);
-        const jsonResult = JSON.stringify(result, null, 2);
-        const { type, tier } = result;
+      const result = await getTier(input);
+      const jsonResult = JSON.stringify(result, null, 2);
+      const { type, tier } = result;
 
-        if (isDebug) {
-          console.log(
-            `${tier === 0 ? `TIER 0` : type} -> Input: ${JSON.stringify(
-              input,
-              null,
-              2
-            )} - Output: ${jsonResult}`
-          );
-        }
+      if (isDebug) {
+        console.log(
+          `${tier === 0 ? `TIER 0` : type} -> Input: ${JSON.stringify(
+            input,
+            null,
+            2
+          )} - Output: ${jsonResult}`
+        );
+      }
 
-        expect([0, 1, 2, 3]).toContain(tier);
+      expect([0, 1, 2, 3]).toContain(tier);
 
-        expect([
-          'WEBGL_UNSUPPORTED',
-          'BLACKLISTED',
-          'FALLBACK',
-          'BENCHMARK',
-        ]).toContain(type);
-      });
-    }
-  );
+      expect([
+        'WEBGL_UNSUPPORTED',
+        'BLACKLISTED',
+        'FALLBACK',
+        'BENCHMARK',
+      ]).toContain(type);
+    });
+  });
 }
