@@ -266,6 +266,16 @@ test(`Bottom tier desktop: ${bottomTierDesktop}`, async () => {
       renderer: 'Google SwiftShader',
     },
   },
+  {
+    input: {
+      renderer: 'Intel GMA X3100 OpenGL Engine',
+    },
+  },
+  {
+    input: {
+      renderer: 'NVIDIA GeForce GT 120 OpenGL Engine',
+    },
+  },
 ].map(({ input }) => {
   test(`${input.renderer} should return BLOCKLISTED`, async () => {
     expectGPUResults(
