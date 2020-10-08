@@ -45,6 +45,9 @@ export const getGPUTier = async ({
           (response) => response.json()
         );
 
+        // Remove version tag
+        data.shift();
+
         return data;
       } catch (err) {
         console.error(err);

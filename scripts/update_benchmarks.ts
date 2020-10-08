@@ -5,6 +5,9 @@ import fs from 'fs';
 // Application
 import { getGPUVersion } from '../src/internal/getGPUVersion';
 
+// Package
+import { version } from '../package.json';
+
 const BENCHMARK_URL = `https://gfxbench.com/result.jsp?benchmark=gfx50&test=544&text-filter=&order=median&ff-lmobile=true&ff-smobile=true&os-Android_gl=true&os-Android_vulkan=true&os-iOS_gl=true&os-iOS_metal=true&os-Linux_gl=true&os-OS_X_gl=true&os-OS_X_metal=true&os-Windows_dx=true&os-Windows_dx12=true&os-Windows_gl=true&os-Windows_vulkan=true&pu-dGPU=true&pu-iGPU=true&pu-GPU=true&arch-ARM=true&arch-unknown=true&arch-x86=true&base=device`;
 
 const types = [
@@ -198,7 +201,9 @@ type Optional<T, K extends keyof T> = Pick<Partial<T>, K> & Omit<T, K>;
           return Promise.resolve();
         }
 
-        return outputFile(getOutputFilename(type), typeModels);
+        const output = [version, ...typeModels];
+
+        return outputFile(getOutputFilename(type), output);
       }),
       // outputFile(getOutputFilename(`all-${isMobile ? 'm' : 'd'}`), rowsByGpu),
     ]);
