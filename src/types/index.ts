@@ -16,7 +16,7 @@ export interface GetGPUTier {
 export type TierType =
   | 'IS_SRR'
   | 'WEBGL_UNSUPPORTED'
-  | 'BLACKLISTED'
+  | 'BLOCKLISTED'
   | 'FALLBACK'
   | 'BENCHMARK';
 

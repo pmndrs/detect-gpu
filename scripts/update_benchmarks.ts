@@ -10,7 +10,7 @@ import { version } from '../package.json';
 
 const BENCHMARK_URL = `https://gfxbench.com/result.jsp?benchmark=gfx50&test=544&text-filter=&order=median&ff-lmobile=true&ff-smobile=true&os-Android_gl=true&os-Android_vulkan=true&os-iOS_gl=true&os-iOS_metal=true&os-Linux_gl=true&os-OS_X_gl=true&os-OS_X_metal=true&os-Windows_dx=true&os-Windows_dx12=true&os-Windows_gl=true&os-Windows_vulkan=true&pu-dGPU=true&pu-iGPU=true&pu-GPU=true&arch-ARM=true&arch-unknown=true&arch-x86=true&base=device`;
 
-const types = [
+const TYPES = [
   'adreno',
   'apple',
   'mali-t',
@@ -24,45 +24,58 @@ const types = [
   'geforce',
 ];
 
-// GPU BLACKLIST
-// https://wiki.mozilla.org/Blocklisting/Blocked_Graphics_Drivers
-// https://www.khronos.org/webgl/wiki/BlacklistsAndWhitelists
-// https://chromium.googlesource.com/chromium/src/+/master/gpu/config/software_rendering_list.json
-// https://chromium.googlesource.com/chromium/src/+/master/gpu/config/gpu_driver_bug_list.json
-const blacklistedModels = [
-  'radeon hd 6970m',
-  'radeon hd 6770m',
+// GPU blocklist
+// SEE: https://chromium.googlesource.com/chromium/src/+/master/gpu/config/software_rendering_list.json
+// SEE: https://hg.mozilla.org/mozilla-central/raw-file/tip/services/settings/dumps/blocklists/gfx.json
+const BLOCKLISTED_MODELS = [
+  'geforce 320m',
+  'geforce 8600',
+  'geforce 8600m gt',
+  'geforce 8800 gs',
+  'geforce 8800 gt',
+  'geforce 9400',
+  'geforce 9400m g',
+  'geforce 9400m',
+  'geforce 9600m gt',
+  'geforce 9600m',
+  'geforce fx go5200',
+  'geforce gt 120',
+  'geforce gt 130',
+  'geforce gt 330m',
+  'geforce gtx 285',
+  'google swiftshader',
+  'intel g41',
+  'intel g45',
+  'intel gma 4500mhd',
+  'intel gma x3100',
+  'intel hd 3000',
+  'intel q45',
+  'legacy',
+  'mali-2',
+  'mali-3',
+  'mali-4',
+  'quadro fx 1500',
+  'quadro fx 4',
+  'quadro fx 5',
+  'radeon hd 2400',
+  'radeon hd 2600',
+  'radeon hd 4670',
+  'radeon hd 4850',
+  'radeon hd 4870',
+  'radeon hd 5670',
+  'radeon hd 5750',
+  'radeon hd 6290',
+  'radeon hd 6300',
+  'radeon hd 6310',
+  'radeon hd 6320',
   'radeon hd 6490m',
   'radeon hd 6630m',
   'radeon hd 6750m',
-  'radeon hd 5750',
-  'radeon hd 5670',
-  'radeon hd 4850',
-  'radeon hd 4870',
-  'radeon hd 4670',
-  'geforce 9400m',
-  'geforce 320m',
-  'geforce 330m',
-  'geforce gt 130',
-  'geforce gt 120',
-  'geforce gtx 285',
-  'geforce 8600',
-  'geforce 9600m',
-  'geforce 9400m',
-  'geforce 8800 gs',
-  'geforce 8800 gt',
-  'quadro fx 5',
-  'quadro fx 4',
-  'radeon hd 2600',
-  'radeon hd 2400',
+  'radeon hd 6770m',
+  'radeon hd 6970m',
   'radeon r9 200',
-  'mali-4',
-  'mali-3',
-  'mali-2',
-  'google swiftshader',
-  'sgx543',
-  'legacy',
   'sgx 543',
+  'sgx543',
 ];
 
 type BenchmarkRow = {
@@ -146,7 +159,7 @@ type Optional<T, K extends keyof T> = Pick<Partial<T>, K> & Omit<T, K>;
     rows = rows.filter(
       ({ mobile, gpu }) =>
         mobile === isMobile &&
-        types.filter((type): boolean => gpu.includes(type)).length > 0
+        TYPES.filter((type): boolean => gpu.includes(type)).length > 0
     );
 
     const rowsByGpu = Object.values(
@@ -158,19 +171,19 @@ type Optional<T, K extends keyof T> = Pick<Partial<T>, K> & Omit<T, K>;
     );
 
     return Promise.all([
-      ...types.map((type) => {
+      ...TYPES.map((type) => {
         const typeModels = rowsByGpu
           .filter(([{ gpu }]) => gpu.includes(type))
           .map((rows) => {
             const { gpu } = rows[0];
-            const isBlacklisted = blacklistedModels.find((blacklistedModel) =>
-              gpu.includes(blacklistedModel)
+            const isBlocklisted = BLOCKLISTED_MODELS.find((blocklistedModel) =>
+              gpu.includes(blocklistedModel)
             );
 
             return [
               gpu,
               getGPUVersion(gpu),
-              isBlacklisted ? 1 : 0,
+              isBlocklisted ? 1 : 0,
               Object.entries(
                 rows.reduce(
                   (
@@ -179,7 +192,7 @@ type Optional<T, K extends keyof T> = Pick<Partial<T>, K> & Omit<T, K>;
                   ) => {
                     fpsByResolution[resolution] = [
                       device,
-                      isBlacklisted ? -1 : fps,
+                      isBlocklisted ? -1 : fps,
                     ];
                     return fpsByResolution;
                   },
