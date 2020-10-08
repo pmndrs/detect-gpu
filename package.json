@@ -20,7 +20,6 @@
   "author": "Tim van Scherpenzeel",
   "dependencies": {
     "leven": "^3.1.0",
-    "unfetch": "^4.2.0",
     "webgl-constants": "^1.1.1"
   },
   "devDependencies": {
