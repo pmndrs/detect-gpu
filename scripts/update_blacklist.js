@@ -2691,6 +2691,7 @@ const GPU_VENDOR_MAP = {
 // https://dxr.mozilla.org/mozilla-central/source/widget/GfxDriverInfo.h
 // https://dxr.mozilla.org/mozilla-central/source/widget/GfxDriverInfo.cpp
 const GPU_DEVICES_MAP = {
+  // Mozilla
   '0x2a42': 'IntelGMA4500MHD_1',
   '0x2e22': 'IntelG45_1',
   '0x2e12': 'IntelQ45_1',
@@ -2730,6 +2731,33 @@ const GPU_DEVICES_MAP = {
   '0x9805': 'AMD Radeon HD 6320',
   '0x9806': 'AMD Radeon HD 6320',
   '0x9807': 'AMD Radeon HD 6320',
+
+  // Chromium
+  '0x0324': 'NVIDIA GeForce FX Go5200',
+  '0x029e': 'NVIDIA Quadro FX 1500',
+  '0x8811': 'google swiftshader',
+  '0x3151': 'ATI FireMV 2400',
+  '0x0116': 'Intel HD 3000',
+  '0x0126': 'Intel HD 3000',
+  // '0xbeef': '',
+  '0x0407': 'GeForce 8600M GT',
+  '0x0647': 'GeForce 9600M GT',
+  '0x0863': 'GeForce 9400M',
+  '0x2a02': 'Intel GMA X3100',
+
+  '0x0861': 'GeForce 9400',
+  '0x0866': 'GeForce 9400M G',
+  '0x0867': 'GeForce 9400',
+  '0x0869': 'GeForce 9400',
+  '0x08a0': 'GeForce 320M',
+  '0x08a2': 'GeForce 320M',
+  '0x08a4': 'GeForce 320M',
+  '0x0a29': 'GeForce GT 330M',
+
+  '0x944a': 'ATI Radeon HD 4850',
+  '0x9488': 'ATI Mobility Radeon HD 4670',
+  '0x94c8': 'Radeon HD 2400 XT',
+  '0x9583': 'ATI Mobility Radeon HD 2600 XT',
 };
 
 const MOZILLA_LIST = MOZILLA_DATA.map((entry) => {
@@ -2744,10 +2772,9 @@ const MOZILLA_LIST = MOZILLA_DATA.map((entry) => {
 const CHROMIUM_DATA = CHROMIUM_BLACKLIST[0].entries;
 
 const CHROMIUM_LIST = CHROMIUM_DATA.filter(
+  // Only blocklist cases where all features are blocked and remove default test case
   (entry) => entry.features[0] === 'all' && entry.test_group !== 1
 ).map((entry) => {
-  console.log(entry);
-
   return {
     os: entry.os && entry.os.type,
     description: entry.description,
