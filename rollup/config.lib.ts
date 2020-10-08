@@ -29,8 +29,7 @@ export default formats.map(
           : {
               tsconfigOverride: {
                 compilerOptions: {
-                  module: 'es2015',
-                  target: 'es6',
+                  target: 'es5',
                 },
               },
             }
