@@ -206,9 +206,7 @@ export const getGPUTier = async ({
     const debugRendererInfo = gl.getExtension('WEBGL_debug_renderer_info');
 
     if (debugRendererInfo) {
-      renderer = gl
-        .getParameter(debugRendererInfo.UNMASKED_RENDERER_WEBGL)
-        .toLowerCase();
+      renderer = gl.getParameter(debugRendererInfo.UNMASKED_RENDERER_WEBGL);
     }
 
     if (!renderer) {
