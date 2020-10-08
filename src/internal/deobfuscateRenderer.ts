@@ -1,11 +1,14 @@
 // Internal
-import { deobfuscateAppleGpu } from './deobfuscateAppleGpu';
+import { deobfuscateAppleGPU } from './deobfuscateAppleGPU';
 
 export const deobfuscateRenderer = (
-  gl: WebGLRenderingContext,
+  gl: WebGLRenderingContext | WebGL2RenderingContext,
   renderer: string,
   isMobileTier: boolean
-) =>
-  renderer === 'apple gpu'
-    ? deobfuscateAppleGpu(gl, renderer, isMobileTier)
-    : [renderer];
+) => {
+  if (renderer === 'apple gpu') {
+    return deobfuscateAppleGPU(gl, renderer, isMobileTier);
+  } else {
+    return [renderer];
+  }
+};

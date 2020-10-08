@@ -2,18 +2,20 @@
 import leven from 'leven';
 
 // Internal
+import { cleanRenderer } from './internal/cleanRenderer';
+import { deobfuscateRenderer } from './internal/deobfuscateRenderer';
+import { deviceInfo } from './internal/deviceInfo';
 import { getGPUVersion } from './internal/getGPUVersion';
 import { getWebGLContext } from './internal/getWebGLContext';
-import { deviceInfo } from './internal/deviceInfo';
-import { deobfuscateRenderer } from './internal/deobfuscateRenderer';
+import { BLOCKLISTED_GPU } from './internal/GPUBlocklist';
 
 // Types
 import type {
   GetGPUTier,
   ModelEntry,
+  ModelEntryScreen,
   TierResult,
   TierType,
-  ModelEntryScreen,
 } from './types';
 
 const debug = false ? console.log : undefined;
@@ -62,20 +64,6 @@ export const getGPUTier = async ({
 
     renderer: string
   ): Promise<[number, number, string, string | undefined] | []> => {
-    debug?.('queryBenchmarks', { renderer });
-
-    renderer = renderer
-      .toLowerCase()
-      // Strip off ANGLE() - for example:
-      // 'ANGLE (NVIDIA TITAN Xp)' becomes 'NVIDIA TITAN Xp'':
-      .replace(/angle \((.+)\)*$/, '$1')
-      // Strip off [number]gb & strip off direct3d and after - for example:
-      // 'Radeon (TM) RX 470 Series Direct3D11 vs_5_0 ps_5_0' becomes
-      // 'Radeon (TM) RX 470 Series'
-      .replace(/\s+([0-9]+gb|direct3d.+$)|\(r\)| \([^\)]+\)$/g, '');
-
-    debug?.('queryBenchmarks - renderer cleaned to', { renderer });
-
     const types = isMobile
       ? ['adreno', 'apple', 'mali-t', 'mali', 'nvidia', 'powervr']
       : ['intel', 'amd', 'radeon', 'nvidia', 'geforce'];
@@ -205,7 +193,6 @@ export const getGPUTier = async ({
   });
 
   let renderers: string[];
-  const fallback = toResult(1, 'FALLBACK');
 
   if (!renderer) {
     const gl =
@@ -219,17 +206,17 @@ export const getGPUTier = async ({
     const debugRendererInfo = gl.getExtension('WEBGL_debug_renderer_info');
 
     if (debugRendererInfo) {
-      renderer = gl
-        .getParameter(debugRendererInfo.UNMASKED_RENDERER_WEBGL)
-        .toLowerCase();
+      renderer = gl.getParameter(debugRendererInfo.UNMASKED_RENDERER_WEBGL);
     }
 
     if (!renderer) {
-      return fallback;
+      return toResult(1, 'FALLBACK');
     }
 
+    renderer = cleanRenderer(renderer);
     renderers = deobfuscateRenderer(gl, renderer, isMobile);
   } else {
+    renderer = cleanRenderer(renderer);
     renderers = [renderer];
   }
 
@@ -250,7 +237,11 @@ export const getGPUTier = async ({
         )[0];
 
   if (result.length === 0) {
-    return fallback;
+    return BLOCKLISTED_GPU.find((blocklistedModel) =>
+      renderer?.includes(blocklistedModel)
+    )
+      ? toResult(0, 'BLOCKLISTED')
+      : toResult(1, 'FALLBACK');
   }
 
   const [, fps, model, device] = result;

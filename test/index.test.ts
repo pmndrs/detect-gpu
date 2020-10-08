@@ -235,22 +235,58 @@ test(`Bottom tier desktop: ${bottomTierDesktop}`, async () => {
 );
 
 // expect BLOCKLISTED results:
-[['ANGLE (ATI Radeon HD 5670 Direct3D11 vs_5_0 ps_5_0)', false] as const].map(
-  ([renderer, isMobile]) => {
-    test(`${renderer} should return BLOCKLISTED`, async () => {
-      expectGPUResults(
-        {
-          isMobile,
-          type: 'BLOCKLISTED',
-        },
-        await getTier({
-          isMobile,
-          renderer,
-        })
-      );
-    });
-  }
-);
+[
+  {
+    input: {
+      renderer: 'ANGLE (ATI Radeon HD 5670 Direct3D11 vs_5_0 ps_5_0)',
+    },
+  },
+  {
+    input: {
+      renderer: 'AMD Radeon HD 6970M OpenGL Engine',
+    },
+  },
+  {
+    input: {
+      renderer: 'ANGLE (NVIDIA Quadro FX 1500 Direct3D9Ex vs_3_0 ps_3_0)',
+    },
+  },
+  {
+    input: {
+      renderer: 'Intel(R) G45/G43 Express Chipset',
+    },
+  },
+  {
+    input: {
+      renderer: 'PowerVR SGX 543',
+    },
+  },
+  {
+    input: {
+      renderer: 'Google SwiftShader',
+    },
+  },
+  {
+    input: {
+      renderer: 'Intel GMA X3100 OpenGL Engine',
+    },
+  },
+  {
+    input: {
+      renderer: 'NVIDIA GeForce GT 120 OpenGL Engine',
+    },
+  },
+].map(({ input }) => {
+  test(`${input.renderer} should return BLOCKLISTED`, async () => {
+    expectGPUResults(
+      {
+        tier: 0,
+        type: 'BLOCKLISTED',
+      },
+      await getTier(input)
+    );
+  });
+});
 
 const expectGPUResults = (
   expected: Partial<TierResult>,

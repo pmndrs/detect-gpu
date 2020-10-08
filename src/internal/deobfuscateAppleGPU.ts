@@ -20,7 +20,7 @@ const debug = false ? console.warn : undefined;
 // SEE: https://github.com/TimvanScherpenzeel/detect-gpu/issues/7
 // CREDIT: https://medium.com/@Samsy/detecting-apple-a10-iphone-7-to-a11-iphone-8-and-b019b8f0eb87
 // CREDIT: https://github.com/Samsy/appleGPUDetection/blob/master/index.js
-export const deobfuscateAppleGpu = (
+export const deobfuscateAppleGPU = (
   gl: WebGLRenderingContext,
   renderer: string,
   isMobileTier: boolean
