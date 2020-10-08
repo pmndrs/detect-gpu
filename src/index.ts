@@ -16,7 +16,7 @@ import type {
   ModelEntryScreen,
 } from './types';
 
-const debug = false ? console.log : undefined;
+const debug = true ? console.log : undefined;
 
 const isSSR = typeof window === 'undefined';
 
