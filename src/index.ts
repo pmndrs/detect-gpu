@@ -2,6 +2,7 @@
 import leven from 'leven';
 
 // Internal
+import { BLOCKLISTED_MODELS } from './internal/blocklist';
 import { getGPUVersion } from './internal/getGPUVersion';
 import { getWebGLContext } from './internal/getWebGLContext';
 import { deviceInfo } from './internal/deviceInfo';
@@ -15,8 +16,9 @@ import type {
   TierType,
   ModelEntryScreen,
 } from './types';
+import { cleanRenderer } from './internal/cleanRenderer';
 
-const debug = true ? console.log : undefined;
+const debug = false ? console.log : undefined;
 
 const isSSR = typeof window === 'undefined';
 
@@ -64,15 +66,7 @@ export const getGPUTier = async ({
   ): Promise<[number, number, string, string | undefined] | []> => {
     debug?.('queryBenchmarks', { renderer });
 
-    renderer = renderer
-      .toLowerCase()
-      // Strip off ANGLE() - for example:
-      // 'ANGLE (NVIDIA TITAN Xp)' becomes 'NVIDIA TITAN Xp'':
-      .replace(/angle \((.+)\)*$/, '$1')
-      // Strip off [number]gb & strip off direct3d and after - for example:
-      // 'Radeon (TM) RX 470 Series Direct3D11 vs_5_0 ps_5_0' becomes
-      // 'Radeon (TM) RX 470 Series'
-      .replace(/\s+([0-9]+gb|direct3d.+$)|\(r\)| \([^\)]+\)$/g, '');
+    renderer = cleanRenderer(renderer);
 
     debug?.('queryBenchmarks - renderer cleaned to', { renderer });
 
@@ -250,7 +244,17 @@ export const getGPUTier = async ({
         )[0];
 
   if (result.length === 0) {
-    return fallback;
+    renderer = cleanRenderer(renderer);
+
+    const isBlocklisted = BLOCKLISTED_MODELS.find((blocklistedModel) =>
+      renderer?.includes(blocklistedModel)
+    );
+
+    if (isBlocklisted) {
+      return toResult(0, 'BLOCKLISTED');
+    } else {
+      return fallback;
+    }
   }
 
   const [, fps, model, device] = result;

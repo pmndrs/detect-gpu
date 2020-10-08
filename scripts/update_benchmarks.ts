@@ -3,6 +3,7 @@ import puppeteer from 'puppeteer';
 import fs from 'fs';
 
 // Application
+import { BLOCKLISTED_MODELS } from '../src/internal/blocklist';
 import { getGPUVersion } from '../src/internal/getGPUVersion';
 
 // Package
@@ -22,60 +23,6 @@ const TYPES = [
   'radeon',
   'nvidia',
   'geforce',
-];
-
-// GPU blocklist
-// SEE: https://chromium.googlesource.com/chromium/src/+/master/gpu/config/software_rendering_list.json
-// SEE: https://hg.mozilla.org/mozilla-central/raw-file/tip/services/settings/dumps/blocklists/gfx.json
-const BLOCKLISTED_MODELS = [
-  'geforce 320m',
-  'geforce 8600',
-  'geforce 8600m gt',
-  'geforce 8800 gs',
-  'geforce 8800 gt',
-  'geforce 9400',
-  'geforce 9400m g',
-  'geforce 9400m',
-  'geforce 9600m gt',
-  'geforce 9600m',
-  'geforce fx go5200',
-  'geforce gt 120',
-  'geforce gt 130',
-  'geforce gt 330m',
-  'geforce gtx 285',
-  'google swiftshader',
-  'intel g41',
-  'intel g45',
-  'intel gma 4500mhd',
-  'intel gma x3100',
-  'intel hd 3000',
-  'intel q45',
-  'legacy',
-  'mali-2',
-  'mali-3',
-  'mali-4',
-  'quadro fx 1500',
-  'quadro fx 4',
-  'quadro fx 5',
-  'radeon hd 2400',
-  'radeon hd 2600',
-  'radeon hd 4670',
-  'radeon hd 4850',
-  'radeon hd 4870',
-  'radeon hd 5670',
-  'radeon hd 5750',
-  'radeon hd 6290',
-  'radeon hd 6300',
-  'radeon hd 6310',
-  'radeon hd 6320',
-  'radeon hd 6490m',
-  'radeon hd 6630m',
-  'radeon hd 6750m',
-  'radeon hd 6770m',
-  'radeon hd 6970m',
-  'radeon r9 200',
-  'sgx 543',
-  'sgx543',
 ];
 
 type BenchmarkRow = {
