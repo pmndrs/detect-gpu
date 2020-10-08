@@ -2,21 +2,21 @@
 import leven from 'leven';
 
 // Internal
-import { BLOCKLISTED_GPU } from './internal/GPUBlocklist';
+import { cleanRenderer } from './internal/cleanRenderer';
+import { deobfuscateRenderer } from './internal/deobfuscateRenderer';
+import { deviceInfo } from './internal/deviceInfo';
 import { getGPUVersion } from './internal/getGPUVersion';
 import { getWebGLContext } from './internal/getWebGLContext';
-import { deviceInfo } from './internal/deviceInfo';
-import { deobfuscateRenderer } from './internal/deobfuscateRenderer';
+import { BLOCKLISTED_GPU } from './internal/GPUBlocklist';
 
 // Types
 import type {
   GetGPUTier,
   ModelEntry,
+  ModelEntryScreen,
   TierResult,
   TierType,
-  ModelEntryScreen,
 } from './types';
-import { cleanRenderer } from './internal/cleanRenderer';
 
 const debug = false ? console.log : undefined;
 
@@ -64,12 +64,6 @@ export const getGPUTier = async ({
 
     renderer: string
   ): Promise<[number, number, string, string | undefined] | []> => {
-    debug?.('queryBenchmarks', { renderer });
-
-    renderer = cleanRenderer(renderer);
-
-    debug?.('queryBenchmarks - renderer cleaned to', { renderer });
-
     const types = isMobile
       ? ['adreno', 'apple', 'mali-t', 'mali', 'nvidia', 'powervr']
       : ['intel', 'amd', 'radeon', 'nvidia', 'geforce'];
@@ -199,7 +193,6 @@ export const getGPUTier = async ({
   });
 
   let renderers: string[];
-  const fallback = toResult(1, 'FALLBACK');
 
   if (!renderer) {
     const gl =
@@ -219,11 +212,23 @@ export const getGPUTier = async ({
     }
 
     if (!renderer) {
-      return fallback;
+      return toResult(1, 'FALLBACK');
     }
+
+    debug?.('getGPUTier', { renderer });
+
+    renderer = cleanRenderer(renderer);
+
+    debug?.('getGPUTier - renderer cleaned to', { renderer });
 
     renderers = deobfuscateRenderer(gl, renderer, isMobile);
   } else {
+    debug?.('getGPUTier', { renderer });
+
+    renderer = cleanRenderer(renderer);
+
+    debug?.('getGPUTier - renderer cleaned to', { renderer });
+
     renderers = [renderer];
   }
 
@@ -244,13 +249,11 @@ export const getGPUTier = async ({
         )[0];
 
   if (result.length === 0) {
-    renderer = cleanRenderer(renderer);
-
     return BLOCKLISTED_GPU.find((blocklistedModel) =>
       renderer?.includes(blocklistedModel)
     )
       ? toResult(0, 'BLOCKLISTED')
-      : fallback;
+      : toResult(1, 'FALLBACK');
   }
 
   const [, fps, model, device] = result;
