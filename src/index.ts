@@ -2,12 +2,12 @@
 import leven from 'leven';
 
 // Internal
+import { BLOCKLISTED_GPU } from './internal/GPUBlocklist';
 import { cleanRenderer } from './internal/cleanRenderer';
 import { deobfuscateRenderer } from './internal/deobfuscateRenderer';
 import { deviceInfo } from './internal/deviceInfo';
 import { getGPUVersion } from './internal/getGPUVersion';
 import { getWebGLContext } from './internal/getWebGLContext';
-import { BLOCKLISTED_GPU } from './internal/GPUBlocklist';
 
 // Types
 import type {

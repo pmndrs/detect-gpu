@@ -1,10 +1,10 @@
 // Vendor
+import { ModuleFormat, RollupOptions } from 'rollup';
 import commonjs from 'rollup-plugin-commonjs';
 import filesize from 'rollup-plugin-filesize';
 import resolve from '@rollup/plugin-node-resolve';
 import { terser } from 'rollup-plugin-terser';
 import typescript from 'rollup-plugin-typescript2';
-import { RollupOptions, ModuleFormat } from 'rollup';
 
 const formats: ModuleFormat[] = ['esm', 'umd'];
 

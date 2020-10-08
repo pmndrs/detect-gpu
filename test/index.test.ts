@@ -1,9 +1,9 @@
 // Data
-import { RENDERER_MOBILE, RENDERER_TABLET, RENDERER_DESKTOP } from './data';
+import { RENDERER_DESKTOP, RENDERER_MOBILE, RENDERER_TABLET } from './data';
 
 // Application
-import { getGPUTier } from '../src/index';
 import { ModelEntry, TierResult } from '../src/types';
+import { getGPUTier } from '../src/index';
 
 const isDebug = false;
 

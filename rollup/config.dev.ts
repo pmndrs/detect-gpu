@@ -1,10 +1,10 @@
 // Vendor
-import typescript from 'rollup-plugin-typescript2';
-import resolve from '@rollup/plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
-import serve from 'rollup-plugin-serve';
-import livereload from 'rollup-plugin-livereload';
 import copy from 'rollup-plugin-copy';
+import livereload from 'rollup-plugin-livereload';
+import resolve from '@rollup/plugin-node-resolve';
+import serve from 'rollup-plugin-serve';
+import typescript from 'rollup-plugin-typescript2';
 
 export default {
   input: 'example/index.ts',
