@@ -13,6 +13,7 @@ module.exports = {
         sourceType: 'module',
     },
     rules: {
+        '@typescript-eslint/explicit-module-boundary-types': OFF,
         '@typescript-eslint/ban-ts-ignore': OFF,
         'sort-keys': [
             ERROR,

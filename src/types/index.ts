@@ -1,4 +1,4 @@
-export interface IGetGPUTier {
+export interface GetGPUTier {
   glContext?: WebGLRenderingContext | WebGL2RenderingContext;
   failIfMajorPerformanceCaveat?: boolean;
   mobileTiers?: number[];
@@ -8,29 +8,26 @@ export interface IGetGPUTier {
     isIpad?: boolean;
     isMobile?: boolean;
     screenSize?: { width: number; height: number };
-    loadBenchmarks?: (file: string) => Promise<TModelEntry[] | undefined>;
+    loadBenchmarks?: (file: string) => Promise<ModelEntry[] | undefined>;
   };
   benchmarksURL?: string;
 }
 
-export type TTierType =
+export type TierType =
   | 'WEBGL_UNSUPPORTED'
   | 'BLACKLISTED'
   | 'FALLBACK'
   | 'BENCHMARK';
 
-export type TTierResult = {
+export type TierResult = {
   tier: number;
-  type: TTierType;
+  type: TierType;
   isMobile: boolean;
   fps?: number;
   gpu?: string;
   device?: string;
 };
 
-export type TModelEntry = [
-  string,
-  string,
-  0 | 1,
-  [number, number, number, string][]
-];
+export type ModelEntryScreen = [number, number, number, string | undefined];
+
+export type ModelEntry = [string, string, 0 | 1, ModelEntryScreen[]];

@@ -21,14 +21,6 @@ const types = [
   'geforce',
 ];
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const groupBy = (xs: any[], key: number | string): any =>
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  xs.reduce((rv: any, x: any): any => {
-    (rv[x[key]] = rv[x[key]] || []).push(x);
-    return rv;
-  }, {});
-
 type BenchmarkRow = {
   date: string;
   device: string;
@@ -38,43 +30,53 @@ type BenchmarkRow = {
   resolution: string;
 };
 
-(async (): Promise<void> => {
+(async () => {
   const browser = await puppeteer.launch({ headless: true });
   const benchmarks = await getBenchmarks();
 
   await Promise.all(
-    [true, false].map(
-      (mobile): Promise<void[]> => exportBenchmarks(benchmarks, mobile)
-    )
+    [true, false].map((mobile) => exportBenchmarks(benchmarks, mobile))
   );
   await browser.close();
 
-  async function getBenchmarks(): Promise<BenchmarkRow[]> {
+  async function getBenchmarks() {
     const page = await browser.newPage();
 
     await page.goto(BENCHMARK_URL, { waitUntil: 'networkidle2' });
+    type Optional<T, K extends keyof T> = Pick<Partial<T>, K> & Omit<T, K>;
 
-    return (await page.evaluate((): BenchmarkRow[] =>
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      (window as any).gpuName
+    return await page.evaluate((): BenchmarkRow[] => {
+      const {
+        firstResult,
+        deviceName,
+        fpses,
+        gpuNameLookup,
+        screenSizeLookup,
+        screenSizes,
+        gpuName,
+        formFactorLookup,
+        formFactor,
+      } = (window as unknown) as {
+        firstResult: string[];
+        deviceName: string[];
+        fpses: string[];
+        gpuNameLookup: string[];
+        screenSizeLookup: string[];
+        screenSizes: number[];
+        gpuName: number[];
+        formFactorLookup: string[];
+        formFactor: number[];
+      };
+      return gpuName
         .map(
-          (gpuIndex: number, index: number): Partial<BenchmarkRow> => ({
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            date: (window as any).firstResult[index],
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            device: (window as any).deviceName[index].toLowerCase(),
+          (gpuIndex, index): Optional<BenchmarkRow, 'fps'> => ({
+            date: firstResult[index],
+            device: deviceName[index].toLowerCase(),
             fps:
-              // eslint-disable-next-line @typescript-eslint/no-explicit-any
-              (window as any).fpses[index] === ''
+              fpses[index] === ''
                 ? undefined
-                : Math.round(
-                    Number(
-                      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                      (window as any).fpses[index].replace(/[^0-9.]+/g, '')
-                    )
-                  ),
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            gpu: (window as any).gpuNameLookup[gpuIndex]
+                : Math.round(Number(fpses[index].replace(/[^0-9.]+/g, ''))),
+            gpu: gpuNameLookup[gpuIndex]
               .toLowerCase()
               .replace(/\s*\([^\)]+(\))/g, '')
               .replace(/([0-9]+)\/[^ ]+/, '$1')
@@ -82,111 +84,87 @@ type BenchmarkRow = {
                 /x\.org |inc\. |open source technology center |imagination technologies |™ |nvidia corporation |apple inc\. |advanced micro devices, inc\. | series$| edition$| graphics$/g,
                 ''
               ),
-
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            mobile: (window as any).formFactorLookup[
-              // eslint-disable-next-line @typescript-eslint/no-explicit-any
-              (window as any).formFactor[index]
-            ].includes('mobile'),
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            resolution: (window as any).screenSizeLookup[
-              // eslint-disable-next-line @typescript-eslint/no-explicit-any
-              (window as any).screenSizes[index]
-            ],
+            mobile: formFactorLookup[formFactor[index]].includes('mobile'),
+            resolution: screenSizeLookup[screenSizes[index]],
           })
         )
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        .sort((a: any, b: any): number => {
-          return a.date.localeCompare(b.date);
-        })
-        .filter(({ fps }: { fps: number }): boolean => fps !== undefined)
-    )) as BenchmarkRow[];
+        .sort((a, b) => a.date.localeCompare(b.date))
+        .filter((row): row is BenchmarkRow => row.fps !== undefined);
+    });
   }
 
-  async function exportBenchmarks(
-    rows: BenchmarkRow[],
-    isMobile: boolean
-  ): Promise<void[]> {
-    const getOutputFilename = (type: string): string =>
+  async function exportBenchmarks(rows: BenchmarkRow[], isMobile: boolean) {
+    const getOutputFilename = (type: string) =>
       `${isMobile ? 'm' : 'd'}-${type}.json`;
 
     rows = rows.filter(
-      ({ mobile, gpu }: BenchmarkRow): boolean =>
+      ({ mobile, gpu }) =>
         mobile === isMobile &&
         types.filter((type): boolean => gpu.includes(type)).length > 0
     );
 
     const rowsByGpu = Object.values(
-      groupBy(rows, 'gpu') as {
-        [k: string]: BenchmarkRow[];
-      }
+      rows.reduce((groupedByKey, row) => {
+        const groupKey = row.gpu;
+        (groupedByKey[groupKey] = groupedByKey[groupKey] || []).push(row);
+        return groupedByKey;
+      }, {} as Record<string, BenchmarkRow[]>)
     );
 
     return Promise.all([
-      ...types.map(
-        (type): Promise<void> => {
-          const typeModels = rowsByGpu
-            .filter(([{ gpu }]: BenchmarkRow[]): boolean => gpu.includes(type))
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            .map((rows: any): any => {
-              const { gpu } = rows[0];
-              const isBlacklisted = blacklistedModels.find(
-                (blacklistedModel: string): boolean =>
-                  gpu.includes(blacklistedModel)
-              );
+      ...types.map((type) => {
+        const typeModels = rowsByGpu
+          .filter(([{ gpu }]) => gpu.includes(type))
+          .map((rows) => {
+            const { gpu } = rows[0];
+            const isBlacklisted = blacklistedModels.find((blacklistedModel) =>
+              gpu.includes(blacklistedModel)
+            );
 
-              return [
-                gpu,
-                getGPUVersion(gpu),
-                isBlacklisted ? 1 : 0,
-                Object.entries(
-                  rows.reduce(
-                    (
-                      fpsByResolution: { [k: string]: [string, number] },
-                      {
-                        resolution,
-                        fps,
-                        device,
-                      }: { resolution: string; fps: number; device: string }
-                    ): { [k: string]: [string, number] } => {
-                      fpsByResolution[resolution] = [
-                        device,
-                        isBlacklisted ? -1 : fps,
-                      ];
-                      return fpsByResolution;
-                    },
-                    {}
-                  )
+            return [
+              gpu,
+              getGPUVersion(gpu),
+              isBlacklisted ? 1 : 0,
+              Object.entries(
+                rows.reduce(
+                  (
+                    fpsByResolution: { [k: string]: [string, number] },
+                    { resolution, fps, device }
+                  ) => {
+                    fpsByResolution[resolution] = [
+                      device,
+                      isBlacklisted ? -1 : fps,
+                    ];
+                    return fpsByResolution;
+                  },
+                  {}
                 )
-                  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                  // @ts-ignore: Type 'unknown' must have a '[Symbol.iterator]()' method that returns an iterator
-                  .map(([resolution, [device, fps]]) => {
-                    const [width, height] = resolution.split(' x ').map(Number);
+              )
+                .map(([resolution, [device, fps]]) => {
+                  const [width, height] = resolution.split(' x ').map(Number);
 
-                    return isMobile
-                      ? ([width, height, fps, device] as const)
-                      : ([width, height, fps] as const);
-                  })
-                  .sort(([, aW, aH], [, bW, bH]): number => aW * aH - bW * bH),
-              ];
-            });
+                  return isMobile
+                    ? ([width, height, fps, device] as const)
+                    : ([width, height, fps] as const);
+                })
+                .sort(([, aW, aH], [, bW, bH]) => aW * aH - bW * bH),
+            ];
+          });
 
-          if (typeModels.length === 0) {
-            return Promise.resolve();
-          }
-
-          return outputFile(getOutputFilename(type), typeModels);
+        if (typeModels.length === 0) {
+          return Promise.resolve();
         }
-      ),
+
+        return outputFile(getOutputFilename(type), typeModels);
+      }),
       // outputFile(getOutputFilename(`all-${isMobile ? 'm' : 'd'}`), rowsByGpu),
     ]);
   }
-})().catch((err): void => {
+})().catch((err) => {
   throw err;
 });
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const outputFile = async (name: string, content: any): Promise<void> => {
+const outputFile = async (name: string, content: any) => {
   const file = `./benchmarks/${name}`;
   const data = JSON.stringify(content);
   await fs.promises.writeFile(file, data);
