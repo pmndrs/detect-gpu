@@ -1,10 +1,4 @@
-export const isSSR = typeof window === 'undefined';
-
 export const deviceInfo = (() => {
-  if (isSSR) {
-    return {};
-  }
-
   const { userAgent, platform, maxTouchPoints } = window.navigator;
 
   const isIOS = /(iphone|ipod|ipad)/i.test(userAgent);

@@ -1,11 +1,10 @@
 // Vendor
-import 'unfetch/polyfill';
 import leven from 'leven';
 
 // Internal
 import { getGPUVersion } from './internal/getGPUVersion';
 import { getWebGLContext } from './internal/getWebGLContext';
-import { deviceInfo, isSSR } from './internal/deviceInfo';
+import { deviceInfo } from './internal/deviceInfo';
 import { deobfuscateRenderer } from './internal/deobfuscateRenderer';
 
 // Types
@@ -16,6 +15,8 @@ import type {
   TierType,
   ModelEntryScreen,
 } from './types';
+
+const isSSR = typeof window === 'undefined';
 
 const debug = false ? console.log : undefined;
 
@@ -28,13 +29,32 @@ export const getGPUTier = async ({
     renderer,
     isIpad = Boolean(deviceInfo?.isIpad),
     isMobile = Boolean(deviceInfo?.isMobile),
-    screenSize = isSSR ? { height: 1080, width: 1920 } : window.screen,
+    screenSize = window.screen,
     loadBenchmarks,
   } = {},
   glContext,
   failIfMajorPerformanceCaveat = true,
   benchmarksURL = '/benchmarks',
 }: GetGPUTier = {}): Promise<TierResult> => {
+  const toResult = (
+    tier: number,
+    type: TierType,
+    fps?: number,
+    gpu?: string,
+    device?: string
+  ) => ({
+    device,
+    fps,
+    gpu,
+    isMobile,
+    tier,
+    type,
+  });
+
+  if (isSSR) {
+    return toResult(0, 'WEBGL_UNSUPPORTED');
+  }
+
   const MODEL_INDEX = 0;
 
   const queryBenchmarks = async (
@@ -184,21 +204,6 @@ export const getGPUTier = async ({
 
     return [minDistance, fps, gpu, device];
   };
-
-  const toResult = (
-    tier: number,
-    type: TierType,
-    fps?: number,
-    gpu?: string,
-    device?: string
-  ) => ({
-    device,
-    fps,
-    gpu,
-    isMobile,
-    tier,
-    type,
-  });
 
   let renderers: string[];
   const fallback = toResult(1, 'FALLBACK');
