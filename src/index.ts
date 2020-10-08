@@ -16,9 +16,9 @@ import type {
   ModelEntryScreen,
 } from './types';
 
-const isSSR = typeof window === 'undefined';
-
 const debug = false ? console.log : undefined;
+
+const isSSR = typeof window === 'undefined';
 
 const queryCache: { [k: string]: Promise<ModelEntry[] | undefined> } = {};
 
