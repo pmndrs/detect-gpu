@@ -80,6 +80,24 @@ test(`Bottom tier desktop: ${bottomTierDesktop}`, async () => {
   },
   {
     expected: {
+      gpu: 'nvidia geforce rtx 2080 ti rev. a',
+    },
+    input: {
+      isMobile: false,
+      renderer: 'GeForce RTX 2080 Ti/PCIe/SSE2',
+    },
+  },
+  {
+    expected: {
+      gpu: 'nvidia geforce rtx 2080 ti',
+    },
+    input: {
+      isMobile: false,
+      renderer: 'ANGLE (NVIDIA GeForce RTX 2080 Ti Direct3D11 vs_5_0 ps_5_0)',
+    },
+  },
+  {
+    expected: {
       gpu: 'amd radeon rx vega m gh',
     },
     input: {
