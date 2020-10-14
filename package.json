@@ -6,7 +6,7 @@
   "module": "dist/detect-gpu.esm.js",
   "types": "dist/types/index.d.ts",
   "scripts": {
-    "start": "rollup -c rollup.config.ts -w",
+    "start": "rollup -c rollup/config.lib.js -w",
     "lint": "eslint \"src/**/*.ts\" \"test/**/*.ts\" \"rollup/**/*.ts\" --fix --cache --cache-location ~/.eslintcache/eslintcache",
     "test": "jest --verbose=false",
     "test:watch": "jest --watch",
