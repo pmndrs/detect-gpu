@@ -1,5 +1,6 @@
 // Vendor
 import { ModuleFormat, RollupOptions } from 'rollup';
+import copy from 'rollup-plugin-copy';
 import commonjs from 'rollup-plugin-commonjs';
 import filesize from 'rollup-plugin-filesize';
 import resolve from '@rollup/plugin-node-resolve';
@@ -36,6 +37,9 @@ export default formats.map(
       ),
       resolve(),
       commonjs(),
+      copy({
+        targets: [{ dest: 'dist', src: 'benchmarks' }],
+      }),
     ],
   })
 );

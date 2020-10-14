@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 // Vendor
 import puppeteer from 'puppeteer';
 import fs from 'fs';
@@ -35,6 +37,13 @@ type BenchmarkRow = {
 };
 
 type Optional<T, K extends keyof T> = Pick<Partial<T>, K> & Omit<T, K>;
+
+const outputFile = async (name: string, content: any) => {
+  const file = `./benchmarks/${name}`;
+  const data = JSON.stringify(content);
+  await fs.promises.writeFile(file, data);
+  console.log(`Exported ${file}`);
+};
 
 (async () => {
   const browser = await puppeteer.launch({ headless: true });
@@ -171,10 +180,3 @@ type Optional<T, K extends keyof T> = Pick<Partial<T>, K> & Omit<T, K>;
 })().catch((err) => {
   throw err;
 });
-
-const outputFile = async (name: string, content: any) => {
-  const file = `./benchmarks/${name}`;
-  const data = JSON.stringify(content);
-  await fs.promises.writeFile(file, data);
-  console.log(`Exported ${file}`);
-};

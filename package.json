@@ -15,7 +15,8 @@
     "build": "rollup -c rollup/config.lib.js",
     "example": "rollup -w -c rollup/config.dev.ts",
     "parse-analytics": "node ./scripts/analytics_parser.js",
-    "update-benchmarks": "rimraf benchmarks && mkdir -p benchmarks && ts-node -O '{\"module\":\"commonjs\"}' ./scripts/update_benchmarks.ts && tar -czvf benchmarks.tar.gz benchmarks/*.json"
+    "update-benchmarks": "rimraf benchmarks && mkdir -p benchmarks && ts-node -O '{\"module\":\"commonjs\"}' ./scripts/update_benchmarks.ts && npm run merge-benchmarks && tar -czvf benchmarks.tar.gz benchmarks/*.json",
+    "merge-benchmarks": "ts-node -O '{\"module\":\"commonjs\"}' ./scripts/merge_benchmarks.ts"
   },
   "author": "Tim van Scherpenzeel",
   "dependencies": {
@@ -23,6 +24,7 @@
     "webgl-constants": "^1.1.1"
   },
   "devDependencies": {
+    "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^9.0.0",
     "@types/jest": "^26.0.14",
     "@types/node-fetch": "^2.5.7",

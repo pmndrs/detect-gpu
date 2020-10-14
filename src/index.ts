@@ -18,6 +18,8 @@ import type {
   TierType,
 } from './types';
 
+export { GetGPUTier, ModelEntry, ModelEntryScreen, TierResult, TierType };
+
 const debug = false ? console.log : undefined;
 
 const isSSR = typeof window === 'undefined';
