@@ -5,6 +5,7 @@ import livereload from 'rollup-plugin-livereload';
 import resolve from '@rollup/plugin-node-resolve';
 import serve from 'rollup-plugin-serve';
 import typescript from 'rollup-plugin-typescript2';
+import json from '@rollup/plugin-json';
 
 export default {
   input: 'example/index.ts',
@@ -33,5 +34,6 @@ export default {
     copy({
       targets: [{ dest: 'example/build', src: 'benchmarks' }],
     }),
+    json(),
   ],
 };
