@@ -1,15 +1,14 @@
 # Detect GPU
 
-![](http://img.badgesize.io/TimvanScherpenzeel/detect-gpu/master/dist/detect-gpu.umd.js.svg?compression=gzip&maxAge=60)
 [![npm version](https://badge.fury.io/js/detect-gpu.svg)](https://badge.fury.io/js/detect-gpu)
+[![gzip size](https://img.badgesize.io/https:/unpkg.com/detect-gpu/dist/detect-gpu.umd.js?compression=gzip)](https://unpkg.com/detect-gpu)
+[![install size](https://packagephobia.now.sh/badge?p=detect-gpu)](https://packagephobia.now.sh/result?p=detect-gpu)
 
 Classify GPU's based on their benchmark score in order to provide an adaptive experience.
 
-## Demo
-
-[Live demo](https://timvanscherpenzeel.github.io/detect-gpu/)
-
 ## Installation
+
+By default we use the [UNPKG](https://unpkg.com) CDN to host the benchmark data. If you would like to serve the benchmark data yourself download the required benchmarking data from [benchmarks.tar.gz](https://github.com/TimvanScherpenzeel/detect-gpu/raw/master/benchmarks.tar.gz) and serve it from a public directory.
 
 Make sure you have [Node.js](http://nodejs.org/) installed.
 
@@ -19,51 +18,42 @@ Make sure you have [Node.js](http://nodejs.org/) installed.
 
 ## Usage
 
-`detect-gpu` uses benchmarking scores in order to determine what tier should be assigned to the user's GPU. If no `WebGLContext` can be created or the GPU is blacklisted `TIER_0` is assigned. One should provide a HTML fallback page that a user should be redirected to.
-
-By default are all GPU's that have met these preconditions classified as `TIER_1`. Using user agent detection a distinction is made between mobile (mobile and tablet) prefixed using `GPU_MOBILE_` and desktop devices prefixed with `GPU_DESKTOP_`. Both are then followed by `TIER_N` where `N` is the tier number.
-
-In order to keep up to date with new GPU's coming out `detect-gpu` splits the benchmarking scores in `4 tiers` based on rough estimates of the market share.
-
-By default `detect-gpu` assumes `0%` of the lowest scores to be insufficient to run the experience and is assigned `TIER_0`. `50%` of the GPU's are considered good enough to run the experience and are assigned `TIER_1`. `30%` of the GPU's are considered powerful and are classified as `TIER_2`. The last `20%` of the GPU's are considered to be very powerful, are assigned `TIER_3`, and can run the experience with all bells and whistles.
-
-You can tweak these percentages when registering the application as shown below:
-
-```js
+```ts
 import { getGPUTier } from 'detect-gpu';
 
-const GPUTier = getGPUTier({
-  glContext?: gl, // Optionally pass in a WebGL context to avoid creating a temporary one internally
-  mobileBenchmarkPercentages?: [0, 50, 30, 20], // (Default) [TIER_0, TIER_1, TIER_2, TIER_3]
-  desktopBenchmarkPercentages?: [0, 50, 30, 20], // (Default) [TIER_0, TIER_1, TIER_2, TIER_3]
-  failIfMajorPerformanceCaveat?: true, // (Default) Fail to detect if the WebGL implementation determines the performance would be dramatically lower than the equivalent OpenGL implementation
-  forceRendererString?: 'Apple A11 GPU', // (Development) Force a certain renderer string
-  forceMobile?: true, // (Development) Force the use of mobile benchmarking scores
-});
+(async () => {
+  const gpuTier = await getGPUTier({
+    benchmarksURL?: string; // (Default, "https://unpkg.com/detect-gpu@${PKG_VERSION}/dist/benchmarks") Provide location of where to access benchmark data
+    failIfMajorPerformanceCaveat?: boolean; // (Default, true) Fail to detect if the WebGL implementation determines the performance would be dramatically lower than the equivalent OpenGL
+    glContext?: WebGLRenderingContext | WebGL2RenderingContext; // (Default, undefined) Optionally pass in a WebGL context to avoid creating a temporary one internally
+    desktopTiers?: number[]; // (Default, [0, 15, 30, 60]) Framerate per tier
+    mobileTiers?: number[]; // (Default, [0, 15, 30, 60]) Framerate per tier
+    override?: { // (Default, false) Override specific functionality, useful for development
+      renderer?: string; // Manually override reported GPU renderer string
+      isIpad?: boolean; // Manually report device as being an iPad
+      isMobile?: boolean; // Manually report device as being a mobile device
+      screenSize?: { width: number; height: number }; // Manually adjust reported screenSize
+      loadBenchmarks?: (file: string) => Promise<TModelEntry[] | undefined>; // Optionally modify method for loading benchmark data
+    };
+  })
+
+  // Example output:
+  // {
+  //   "tier": 1,
+  //   "isMobile": false,
+  //   "type": "BENCHMARK",
+  //   "fps": 21,
+  //   "gpu": "intel iris graphics 6100"
+  // }
+})();
 ```
 
-## Development
+`detect-gpu` uses rendering benchmark scores (framerate, normalized by resolution) in order to determine what tier should be assigned to the user's GPU. If no `WebGLContext` can be created, the GPU is blocklisted or the GPU has reported to render on less than `15 fps` `tier: 0` is assigned. One should provide a fallback to a non-WebGL experience.
 
-```sh
-$ yarn start
-
-$ yarn serve
-
-$ yarn lint
-
-$ yarn test
-
-$ yarn build
-
-$ yarn parse-analytics
-
-$ yarn update-benchmarks
-```
+Based on the reported `fps` the GPU is then classified into either `tier: 1 (> 15 fps)`, `tier: 2 (> 30 fps)` or `tier: 3 (> 60 fps)`. The higher the tier the more graphically intensive workload you can offer to the user.
 
 ## Licence
 
 My work is released under the [MIT license](https://raw.githubusercontent.com/TimvanScherpenzeel/detect-gpu/master/LICENSE).
 
-`detect-gpu` uses both mobile and desktop benchmarking scores from [https://www.notebookcheck.net/](https://www.notebookcheck.net/).
-
-The unmasked renderers have been gathered using the analytics script that one can find in `scripts/analytics_embed.js`.
+`detect-gpu` uses both mobile and desktop benchmarking scores from [https://gfxbench.com](https://gfxbench.com).

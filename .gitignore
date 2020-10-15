@@ -1,17 +1,72 @@
-# OS
+# ============================================================================ #
+# Operating System Files
+# ============================================================================ #
+
+# Windows
+web.config
+ehthumbs.db
+ehthumbs_vista.db
+[Tt]humbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# MacOS / Mac OS X
+._*
 .DS_Store
+.DS_Store?
+.AppleDouble
+.LSOverride
+.Spotlight-V100
+.Trashes
+Icon?
 
-# Editor
-.vscode
+# Linux
+*~
+.directory
 
-# Cache
-.rpt2_cache
+# ============================================================================ #
+# Logs
+# ============================================================================ #
 
-# Node
+# Logs
+*.log
+
+# ============================================================================ #
+# IDE / Editor
+# ============================================================================ #
+
+# Sublime Text
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+*.sublime-workspace
+*.sublime-project
+sftp-config.json
+
+# Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Visual Studio
+.vs
+
+# XCode
+xcuserdata/
+
+# ============================================================================ #
+# Languages
+# ============================================================================ #
+
+# Typescript
 node_modules
 
-# Directories
-coverage
+# ============================================================================ #
+# Application
+# ============================================================================ #
 
-# Logging
-*.log
+# Directories
+dist
+/example/build/*
