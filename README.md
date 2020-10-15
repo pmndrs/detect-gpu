@@ -56,6 +56,10 @@ import { getGPUTier } from 'detect-gpu';
 
 Based on the reported `fps` the GPU is then classified into either `tier: 1 (> 15 fps)`, `tier: 2 (> 30 fps)` or `tier: 3 (> 60 fps)`. The higher the tier the more graphically intensive workload you can offer to the user.
 
+## Support
+
+Special care has been taken to make sure all browsers that support `WebGL` are also supported by `detect-gpu` including `IE 11`.
+
 ## Changelog
 
 [Changelog](CHANGELOG.md)
