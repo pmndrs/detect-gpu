@@ -5,6 +5,7 @@ import json from '@rollup/plugin-json';
 import livereload from 'rollup-plugin-livereload';
 import resolve from '@rollup/plugin-node-resolve';
 import serve from 'rollup-plugin-serve';
+import sourcemaps from 'rollup-plugin-sourcemaps';
 import typescript from 'rollup-plugin-typescript2';
 
 export default {
@@ -13,6 +14,7 @@ export default {
     {
       dir: `./example/build`,
       format: 'esm',
+      sourcemap: true,
     },
   ],
   plugins: [
@@ -35,5 +37,6 @@ export default {
       targets: [{ dest: 'example/build', src: 'benchmarks' }],
     }),
     json(),
+    sourcemaps(),
   ],
 };

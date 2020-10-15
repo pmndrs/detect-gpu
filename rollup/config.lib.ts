@@ -5,6 +5,7 @@ import commonjs from 'rollup-plugin-commonjs';
 import json from '@rollup/plugin-json';
 import filesize from 'rollup-plugin-filesize';
 import resolve from '@rollup/plugin-node-resolve';
+import sourcemaps from 'rollup-plugin-sourcemaps';
 import { terser } from 'rollup-plugin-terser';
 import typescript from 'rollup-plugin-typescript2';
 
@@ -17,6 +18,7 @@ export default formats.map(
       file: `./dist/detect-gpu.${format}.js`,
       format,
       name: 'DetectGPU',
+      sourcemap: true,
     },
     plugins: [
       terser({
@@ -42,6 +44,7 @@ export default formats.map(
         targets: [{ dest: 'dist', src: 'benchmarks' }],
       }),
       json(),
+      sourcemaps(),
     ],
   })
 );

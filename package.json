@@ -20,6 +20,7 @@
   "author": "Tim van Scherpenzeel",
   "dependencies": {
     "leven": "^3.1.0",
+    "rollup-plugin-sourcemaps": "^0.6.3",
     "webgl-constants": "^1.1.1"
   },
   "devDependencies": {
