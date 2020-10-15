@@ -1,7 +1,7 @@
 {
   "name": "detect-gpu",
   "license": "MIT",
-  "version": "2.0.0-rc5",
+  "version": "2.0.0",
   "description": "Classify GPU's based on their benchmark score in order to provide an adaptive experience.",
   "main": "dist/detect-gpu.umd.js",
   "module": "dist/detect-gpu.esm.js",
