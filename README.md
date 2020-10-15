@@ -18,15 +18,16 @@ Make sure you have [Node.js](http://nodejs.org/) installed.
 
 ## Usage
 
-```js
+```ts
 import { getGPUTier } from 'detect-gpu';
 
 (async () => {
   const gpuTier = await getGPUTier({
-    glContext?: WebGLRenderingContext | WebGL2RenderingContext; // (Default, undefined) Optionally pass in a WebGL context to avoid creating a temporary one internally
+    benchmarksURL?: string; // (Default, "https://unpkg.com/detect-gpu@${PKG_VERSION}/dist/benchmarks") Provide location of where to access benchmark data
     failIfMajorPerformanceCaveat?: boolean; // (Default, true) Fail to detect if the WebGL implementation determines the performance would be dramatically lower than the equivalent OpenGL
-    mobileTiers?: number[]; // (Default, [0, 15, 30, 60]) Framerate per tier
+    glContext?: WebGLRenderingContext | WebGL2RenderingContext; // (Default, undefined) Optionally pass in a WebGL context to avoid creating a temporary one internally
     desktopTiers?: number[]; // (Default, [0, 15, 30, 60]) Framerate per tier
+    mobileTiers?: number[]; // (Default, [0, 15, 30, 60]) Framerate per tier
     override?: { // (Default, false) Override specific functionality, useful for development
       renderer?: string; // Manually override reported GPU renderer string
       isIpad?: boolean; // Manually report device as being an iPad
@@ -34,7 +35,6 @@ import { getGPUTier } from 'detect-gpu';
       screenSize?: { width: number; height: number }; // Manually adjust reported screenSize
       loadBenchmarks?: (file: string) => Promise<TModelEntry[] | undefined>; // Optionally modify method for loading benchmark data
     };
-    benchmarksURL?: string; // (Default, /benchmarks) Provide location of where to access benchmark data
   })
 
   // Example output:
@@ -45,7 +45,7 @@ import { getGPUTier } from 'detect-gpu';
   //   "fps": 21,
   //   "gpu": "intel iris graphics 6100"
   // }
-});
+})();
 ```
 
 `detect-gpu` uses rendering benchmark scores (framerate, normalized by resolution) in order to determine what tier should be assigned to the user's GPU. If no `WebGLContext` can be created, the GPU is blocklisted or the GPU has reported to render on less than `15 fps` `tier: 0` is assigned. One should provide a fallback to a non-WebGL experience.
