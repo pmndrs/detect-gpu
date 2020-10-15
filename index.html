@@ -18,7 +18,7 @@
     <script src="https://unpkg.com/detect-gpu@2.0.0-rc4/dist/detect-gpu.umd.js"></script>
     <script>
       (async () => {
-        var data = await DetectGPU.getGPUTier();
+        const data = await DetectGPU.getGPUTier();
 
         document.body.innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
       })();
