@@ -1,6 +1,3 @@
-// Vendor
-import leven from 'leven';
-
 // Data
 import pkg from '../package.json';
 
@@ -9,6 +6,7 @@ import { BLOCKLISTED_GPU } from './internal/GPUBlocklist';
 import { cleanRenderer } from './internal/cleanRenderer';
 import { deobfuscateRenderer } from './internal/deobfuscateRenderer';
 import { deviceInfo } from './internal/deviceInfo';
+import { getLevenshteinDistance } from './internal/getLevenshteinDistance';
 import { getGPUVersion } from './internal/getGPUVersion';
 import { getWebGLContext } from './internal/getWebGLContext';
 
@@ -163,7 +161,10 @@ export const getGPUTier = async ({
     let [gpu, , , fpsesByPixelCount] =
       count > 1
         ? matched
-            .map((match) => [match, leven(renderer, match[0])] as const)
+            .map(
+              (match) =>
+                [match, getLevenshteinDistance(renderer, match[0])] as const
+            )
             .sort(([, a], [, b]) => a - b)[0][0]
         : matched[0];
 
