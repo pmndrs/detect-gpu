@@ -1,11 +1,11 @@
 // Vendor
 import commonjs from 'rollup-plugin-commonjs';
 import copy from 'rollup-plugin-copy';
+import json from '@rollup/plugin-json';
 import livereload from 'rollup-plugin-livereload';
 import resolve from '@rollup/plugin-node-resolve';
 import serve from 'rollup-plugin-serve';
 import typescript from 'rollup-plugin-typescript2';
-import json from '@rollup/plugin-json';
 
 export default {
   input: 'example/index.ts',
