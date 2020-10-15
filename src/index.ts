@@ -1,6 +1,9 @@
 // Vendor
 import leven from 'leven';
 
+// Data
+import pkg from '../package.json';
+
 // Internal
 import { BLOCKLISTED_GPU } from './internal/GPUBlocklist';
 import { cleanRenderer } from './internal/cleanRenderer';
@@ -10,15 +13,40 @@ import { getGPUVersion } from './internal/getGPUVersion';
 import { getWebGLContext } from './internal/getWebGLContext';
 
 // Types
-import type {
-  GetGPUTier,
-  ModelEntry,
-  ModelEntryScreen,
-  TierResult,
-  TierType,
-} from './types';
+export interface GetGPUTier {
+  glContext?: WebGLRenderingContext | WebGL2RenderingContext;
+  failIfMajorPerformanceCaveat?: boolean;
+  mobileTiers?: number[];
+  desktopTiers?: number[];
+  override?: {
+    renderer?: string;
+    isIpad?: boolean;
+    isMobile?: boolean;
+    screenSize?: { width: number; height: number };
+    loadBenchmarks?: (file: string) => Promise<ModelEntry[] | undefined>;
+  };
+  benchmarksURL?: string;
+}
 
-export { GetGPUTier, ModelEntry, ModelEntryScreen, TierResult, TierType };
+export type TierType =
+  | 'IS_SRR'
+  | 'WEBGL_UNSUPPORTED'
+  | 'BLOCKLISTED'
+  | 'FALLBACK'
+  | 'BENCHMARK';
+
+export type TierResult = {
+  tier: number;
+  type: TierType;
+  isMobile?: boolean;
+  fps?: number;
+  gpu?: string;
+  device?: string;
+};
+
+export type ModelEntryScreen = [number, number, number, string | undefined];
+
+export type ModelEntry = [string, string, 0 | 1, ModelEntryScreen[]];
 
 const debug = false ? console.log : undefined;
 
@@ -38,7 +66,7 @@ export const getGPUTier = async ({
   } = {},
   glContext,
   failIfMajorPerformanceCaveat = true,
-  benchmarksURL = '/benchmarks',
+  benchmarksURL = `https://unpkg.com/detect-gpu@${pkg.version}/benchmarks`,
 }: GetGPUTier = {}): Promise<TierResult> => {
   if (isSSR) {
     return {
