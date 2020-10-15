@@ -2,8 +2,7 @@
 import { RENDERER_DESKTOP, RENDERER_MOBILE, RENDERER_TABLET } from './data';
 
 // Application
-import { ModelEntry, TierResult } from '../src/types';
-import { getGPUTier } from '../src/index';
+import { getGPUTier, ModelEntry, TierResult } from '../src';
 
 const isDebug = false;
 
