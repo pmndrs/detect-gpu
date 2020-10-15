@@ -19,7 +19,8 @@
     "build": "rollup -c rollup/config.lib.js",
     "example": "rollup -w -c rollup/config.dev.ts",
     "parse-analytics": "node ./scripts/analytics_parser.js",
-    "update-benchmarks": "rimraf benchmarks && mkdir -p benchmarks && ts-node -O '{\"module\":\"commonjs\"}' ./scripts/update_benchmarks.ts && tar -czvf benchmarks.tar.gz benchmarks/*.json"
+    "update-benchmarks": "rimraf benchmarks && mkdir -p benchmarks && ts-node -O '{\"module\":\"commonjs\"}' ./scripts/update_benchmarks.ts && tar -czvf benchmarks.tar.gz benchmarks/*.json",
+    "release": "cross-var npm run build && cross-var git commit -am $npm_package_version && cross-var git tag $npm_package_version && git push && git push --tags && npm publish"
   },
   "author": "Tim van Scherpenzeel",
   "dependencies": {
@@ -33,6 +34,7 @@
     "@types/puppeteer": "^3.0.2",
     "@typescript-eslint/eslint-plugin": "^4.4.0",
     "@typescript-eslint/parser": "^4.4.0",
+    "cross-var": "^1.1.0",
     "csvtojson": "^2.0.10",
     "eslint": "^7.10.0",
     "eslint-config-prettier": "^6.12.0",
