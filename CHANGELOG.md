@@ -41,7 +41,7 @@ import { getGPUTier } from 'detect-gpu';
       screenSize?: { width: number; height: number }; // Manually adjust reported screenSize
       loadBenchmarks?: (file: string) => Promise<TModelEntry[] | undefined>; // Optionally modify method for loading benchmark data
     };
-    benchmarksURL?: string; // (Default, /benchmarks) Provide location of where to access benchmark data
+    benchmarksURL?: string; // (Default, https://unpkg.com/detect-gpu@${pkg.version}/dist/benchmarks) Provide location of where to access benchmark data
   })
 
   // Example output:
@@ -61,7 +61,7 @@ Please note that the benchmark tier is now picked based on a `resolution normali
 
 ## Benchmark data
 
-Previously the benchmark data was included inside of the `detect-gpu` bundle. By default we now use the benchmark data served on `https://unpkg.com/detect-gpu@${pkg.version}/benchmarks` but you can also serve the benchmark data yourself.
+Previously the benchmark data was included inside of the `detect-gpu` bundle. By default we now use the benchmark data served on `https://unpkg.com/detect-gpu@${pkg.version}/dist/benchmarks` but you can also serve the benchmark data yourself.
 
 This is possible by downloading [benchmarks.tar.gz](https://github.com/TimvanScherpenzeel/detect-gpu/raw/master/benchmarks.tar.gz) and serving it from a public directory on your webserver (optimal, prevents loading of redundant benchmarks) like this:
 

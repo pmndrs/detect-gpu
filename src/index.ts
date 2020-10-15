@@ -66,7 +66,7 @@ export const getGPUTier = async ({
   } = {},
   glContext,
   failIfMajorPerformanceCaveat = true,
-  benchmarksURL = `https://unpkg.com/detect-gpu@${pkg.version}/benchmarks`,
+  benchmarksURL = `https://unpkg.com/detect-gpu@${pkg.version}/dist/benchmarks`,
 }: GetGPUTier = {}): Promise<TierResult> => {
   if (isSSR) {
     return {
