@@ -7,7 +7,7 @@ Classify GPU's based on their benchmark score in order to provide an adaptive ex
 
 ## Installation
 
-Download the required benchmarking data from [benchmarks.tar.gz](https://github.com/TimvanScherpenzeel/detect-gpu/raw/benchmark-delivery/benchmarks.tar.gz) and serve it from a public directory.
+By default we use the `unpkg` CDN to host the benchmark data. If you would like to serve the benchmark data yourself download the required benchmarking data from [benchmarks.tar.gz](https://github.com/TimvanScherpenzeel/detect-gpu/raw/benchmark-delivery/benchmarks.tar.gz) and serve it from a public directory.
 
 Make sure you have [Node.js](http://nodejs.org/) installed.
 

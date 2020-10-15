@@ -61,7 +61,7 @@ Please note that the benchmark tier is now picked based on a `resolution normali
 
 ## Benchmark data
 
-Previously the benchmark data was included in `detect-gpu`, you will now have to load it yourself.
+Previously the benchmark data was included inside of the `detect-gpu` bundle. By default we now use the benchmark data served on `https://unpkg.com/detect-gpu@${pkg.version}/benchmarks` but you can also serve the benchmark data yourself.
 
 This is possible by downloading [benchmarks.tar.gz](https://github.com/TimvanScherpenzeel/detect-gpu/raw/benchmark-delivery/benchmarks.tar.gz) and serving it from a public directory on your webserver (optimal, prevents loading of redundant benchmarks) like this:
 
@@ -72,24 +72,6 @@ import { getGPUTier } from '../src';
 (async () => {
   const data = await getGPUTier({
     benchmarksURL: '/benchmarks',
-  });
-})();
-```
-
-Or you can import the benchmark data from `detect-gpu/benchmarks/all.json` as follows (not optimal as it loads all benchmarks):
-
-```ts
-// Application
-import { getGPUTier } from 'detect-gpu';
-
-// Data (use a bundler with a JSON file loader)
-import benchmarks from '../benchmarks/all.json';
-
-(async () => {
-  const data = await getGPUTier({
-    override: {
-      loadBenchmarks: async (file: string) => await (benchmarks as any)[file],
-    },
   });
 })();
 ```
