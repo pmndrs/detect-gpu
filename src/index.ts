@@ -268,9 +268,9 @@ export const getGPUTier = async ({
         )[0];
 
   if (result.length === 0) {
-    return BLOCKLISTED_GPU.find((blocklistedModel) =>
-      renderer?.includes(blocklistedModel)
-    )
+    return BLOCKLISTED_GPU.filter(
+      (blocklistedModel) => (renderer?.indexOf(blocklistedModel) as number) > -1
+    )[0]
       ? toResult(0, 'BLOCKLISTED')
       : toResult(1, 'FALLBACK');
   }
