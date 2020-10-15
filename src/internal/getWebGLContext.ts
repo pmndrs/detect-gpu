@@ -1,6 +1,6 @@
 export const getWebGLContext = (
   isSafari12?: boolean,
-  failIfMajorPerformanceCaveat = true
+  failIfMajorPerformanceCaveat = false
 ) => {
   const attributes: {
     alpha: boolean;

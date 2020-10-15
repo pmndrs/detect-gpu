@@ -28,7 +28,7 @@ import { getGPUTier } from 'detect-gpu';
 (async () => {
   const gpuTier = await getGPUTier({
     benchmarksURL?: string; // (Default, "https://unpkg.com/detect-gpu@${PKG_VERSION}/dist/benchmarks") Provide location of where to access benchmark data
-    failIfMajorPerformanceCaveat?: boolean; // (Default, true) Fail to detect if the WebGL implementation determines the performance would be dramatically lower than the equivalent OpenGL
+    failIfMajorPerformanceCaveat?: boolean; // (Default, false) Fail to detect if the WebGL implementation determines the performance would be dramatically lower than the equivalent OpenGL
     glContext?: WebGLRenderingContext | WebGL2RenderingContext; // (Default, undefined) Optionally pass in a WebGL context to avoid creating a temporary one internally
     desktopTiers?: number[]; // (Default, [0, 15, 30, 60]) Framerate per tier
     mobileTiers?: number[]; // (Default, [0, 15, 30, 60]) Framerate per tier
