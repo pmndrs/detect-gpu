@@ -211,8 +211,8 @@ export const getGPUTier = async ({
   const toResult = (
     tier: number,
     type: TierType,
-    fps?: number,
     gpu?: string,
+    fps?: number,
     device?: string
   ) => ({
     device,
@@ -271,14 +271,14 @@ export const getGPUTier = async ({
     return BLOCKLISTED_GPU.filter(
       (blocklistedModel) => (renderer?.indexOf(blocklistedModel) as number) > -1
     )[0]
-      ? toResult(0, 'BLOCKLISTED')
+      ? toResult(0, 'BLOCKLISTED', renderer)
       : toResult(1, 'FALLBACK');
   }
 
   const [, fps, model, device] = result;
 
   if (fps === -1) {
-    return toResult(0, 'BLOCKLISTED', fps, model, device);
+    return toResult(0, 'BLOCKLISTED', model, fps, device);
   }
 
   const tiers = isMobile ? mobileTiers : desktopTiers;
@@ -290,5 +290,5 @@ export const getGPUTier = async ({
     }
   }
 
-  return toResult(tier, 'BENCHMARK', fps, model, device);
+  return toResult(tier, 'BENCHMARK', model, fps, device);
 };
