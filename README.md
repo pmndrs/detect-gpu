@@ -1,7 +1,8 @@
 # Detect GPU
 
-[![gzip size](https://img.badgesize.io/https:/unpkg.com/detect-gpu/dist/detect-gpu.umd.js?compression=gzip)](https://unpkg.com/detect-gpu)
 [![npm version](https://badge.fury.io/js/detect-gpu.svg)](https://badge.fury.io/js/detect-gpu)
+[![gzip size](https://img.badgesize.io/https:/unpkg.com/detect-gpu/dist/detect-gpu.umd.js?compression=gzip)](https://unpkg.com/detect-gpu)
+[![install size](https://packagephobia.now.sh/badge?p=detect-gpu)](https://packagephobia.now.sh/result?p=detect-gpu)
 
 Classify GPU's based on their benchmark score in order to provide an adaptive experience.
 
