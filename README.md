@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.com/TimvanScherpenzeel/detect-gpu.svg?branch=master)](https://travis-ci.com/TimvanScherpenzeel/detect-gpu)
 [![npm version](https://badge.fury.io/js/detect-gpu.svg)](https://badge.fury.io/js/detect-gpu)
-[![gzip size](https://img.badgesize.io/https:/unpkg.com/detect-gpu/dist/detect-gpu.umd.js?compression=gzip)](https://unpkg.com/detect-gpu)
+[![gzip size](https://img.badgesize.io/https:/unpkg.com/detect-gpu/dist/detect-gpu.esm.js?compression=gzip)](https://unpkg.com/detect-gpu)
 [![install size](https://packagephobia.now.sh/badge?p=detect-gpu)](https://packagephobia.now.sh/result?p=detect-gpu)
 
 Classifies GPUs based on their 3D rendering benchmark score allowing the developer to provide sensible default settings for graphically intensive applications. Think of it like a user-agent detection for the GPU but more powerful.
