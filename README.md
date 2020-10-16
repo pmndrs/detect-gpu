@@ -5,7 +5,7 @@
 [![gzip size](https://img.badgesize.io/https:/unpkg.com/detect-gpu/dist/detect-gpu.umd.js?compression=gzip)](https://unpkg.com/detect-gpu)
 [![install size](https://packagephobia.now.sh/badge?p=detect-gpu)](https://packagephobia.now.sh/result?p=detect-gpu)
 
-Classifies GPU's based on their 3D rendering benchmark score allowing the developer to provide sensible default settings for graphically intensive applications. Think of it like a user-agent detection for the GPU but more powerful.
+Classifies GPUs based on their 3D rendering benchmark score allowing the developer to provide sensible default settings for graphically intensive applications. Think of it like a user-agent detection for the GPU but more powerful.
 
 ## Demo
 
