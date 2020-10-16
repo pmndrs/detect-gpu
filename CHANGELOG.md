@@ -1,5 +1,9 @@
 # CHANGELOG
 
+# 2.0.3
+
+- Update README.md
+
 # 2.0.2
 
 - Fixed package publishing issue
