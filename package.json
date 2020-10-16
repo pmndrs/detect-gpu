@@ -1,13 +1,35 @@
 {
   "name": "detect-gpu",
-  "license": "MIT",
   "version": "2.0.3",
   "description": "Classify GPU's based on their benchmark score in order to provide an adaptive experience.",
+  "author": "Tim van Scherpenzeel",
+  "license": "MIT",
   "main": "dist/detect-gpu.umd.js",
   "module": "dist/detect-gpu.esm.js",
   "types": "dist/src/index.d.ts",
+  "homepage": "https://github.com/TimvanScherpenzeel/detect-gpu#readme",
+  "bugs": {
+    "url": "https://github.com/TimvanScherpenzeel/detect-gpu/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TimvanScherpenzeel/detect-gpu.git"
+  },
   "files": [
     "dist"
+  ],
+  "keywords": [
+    "gpu",
+    "detect",
+    "webgl",
+    "webgl2",
+    "three.js",
+    "babylonjs",
+    "three",
+    "babylon",
+    "3d",
+    "typescript",
+    "javascript"
   ],
   "scripts": {
     "start": "rollup -c rollup/config.lib.js -w",
@@ -21,7 +43,6 @@
     "parse-analytics": "node ./scripts/analytics_parser.js",
     "update-benchmarks": "rimraf benchmarks && mkdir -p benchmarks && ts-node -O '{\"module\":\"commonjs\"}' ./scripts/update_benchmarks.ts && tar -czvf benchmarks.tar.gz benchmarks/*.json"
   },
-  "author": "Tim van Scherpenzeel",
   "dependencies": {
     "webgl-constants": "^1.1.1"
   },
