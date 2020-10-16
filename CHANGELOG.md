@@ -1,5 +1,9 @@
 # CHANGELOG
 
+# 2.0.1
+
+- Fixed issue with wrong path to types in `package.json`
+
 # 2.0.0
 
 ## API
