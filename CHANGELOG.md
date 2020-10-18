@@ -1,5 +1,9 @@
 # CHANGELOG
 
+# 2.0.4
+
+- Update package.json to provide more information when published on NPM
+
 # 2.0.3
 
 - Update README.md
