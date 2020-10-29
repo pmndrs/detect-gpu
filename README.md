@@ -5,6 +5,9 @@
 [![gzip size](https://img.badgesize.io/https:/unpkg.com/detect-gpu/dist/detect-gpu.esm.js?compression=gzip)](https://unpkg.com/detect-gpu)
 [![install size](https://packagephobia.now.sh/badge?p=detect-gpu)](https://packagephobia.now.sh/result?p=detect-gpu)
 
+[![ETH](https://img.shields.io/badge/ETH-0xDd324578a724Af06B9c39E3351C3627Cb85D85cA-f5f5f5?logo=ethereum)](https://blockchain.com/eth/address/0xDd324578a724Af06B9c39E3351C3627Cb85D85cA)
+[![BTC](https://img.shields.io/badge/BTC-3JK7LX5JsSYTKja16eGmDtjKfyTexVwB8z-f5f5f5?logo=bitcoin)](https://blockchain.com/btc/address/3JK7LX5JsSYTKja16eGmDtjKfyTexVwB8z)
+
 Classifies GPUs based on their 3D rendering benchmark score allowing the developer to provide sensible default settings for graphically intensive applications. Think of it like a user-agent detection for the GPU but more powerful.
 
 ## Demo
