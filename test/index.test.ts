@@ -21,7 +21,7 @@ const getTier = ({
     override: {
       isIpad,
       isMobile,
-      loadBenchmarks: async (file: string): Promise<ModelEntry[] | undefined> =>
+      loadBenchmarks: async (file: string): Promise<ModelEntry[]> =>
         (await import(`../benchmarks/${file}`)).default,
       renderer,
     },
@@ -279,6 +279,9 @@ test(`Bottom tier desktop: ${bottomTierDesktop}`, async () => {
     },
   },
   {
+    expected: {
+      gpu: 'google swiftshader',
+    },
     input: {
       renderer: 'Google SwiftShader',
     },
@@ -293,16 +296,34 @@ test(`Bottom tier desktop: ${bottomTierDesktop}`, async () => {
       renderer: 'NVIDIA GeForce GT 120 OpenGL Engine',
     },
   },
-].map(({ input }) => {
+].map(({ expected = {}, input }) => {
   test(`${input.renderer} should return BLOCKLISTED`, async () => {
     expectGPUResults(
       {
+        ...expected,
         tier: 0,
         type: 'BLOCKLISTED',
       },
       await getTier(input)
     );
   });
+});
+
+test(`When queryBenchmarks throws, FALLBACK is returned`, async () => {
+  expectGPUResults(
+    {
+      tier: 1,
+      type: 'FALLBACK',
+    },
+  await getGPUTier({
+      override: {
+        loadBenchmarks: async (file: string): Promise<ModelEntry[]> => {
+          throw new Error();
+        },
+        renderer: bottomTierDesktop,
+      },
+    })
+  );
 });
 
 const expectGPUResults = (

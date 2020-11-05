@@ -21,7 +21,7 @@ export interface GetGPUTier {
     isIpad?: boolean;
     isMobile?: boolean;
     screenSize?: { width: number; height: number };
-    loadBenchmarks?: (file: string) => Promise<ModelEntry[] | undefined>;
+    loadBenchmarks?: (file: string) => Promise<ModelEntry[]>;
   };
   benchmarksURL?: string;
 }
@@ -50,7 +50,7 @@ const debug = false ? console.log : undefined;
 
 const isSSR = typeof window === 'undefined';
 
-const queryCache: { [k: string]: Promise<ModelEntry[] | undefined> } = {};
+const queryCache: { [k: string]: Promise<ModelEntry[]> } = {};
 
 export const getGPUTier = async ({
   mobileTiers = [0, 15, 30, 60],
@@ -75,32 +75,25 @@ export const getGPUTier = async ({
 
   const queryBenchmarks = async (
     loadBenchmarks = async (file: string) => {
-      try {
-        const data: ModelEntry[] = await fetch(
-          `${benchmarksURL}/${file}`
-        ).then((response) => response.json());
+      const data: ModelEntry[] = await fetch(
+        `${benchmarksURL}/${file}`
+      ).then((response) => response.json());
 
-        // Remove version tag
-        data.shift();
+      // Remove version tag
+      data.shift();
 
-        return data;
-      } catch (err) {
-        console.error(err);
-        return undefined;
-      }
+      return data;
     },
 
     renderer: string
-  ): Promise<[number, number, string, string | undefined] | []> => {
+  ): Promise<[number, number, string, string | undefined] | undefined> => {
     const types = isMobile
       ? ['adreno', 'apple', 'mali-t', 'mali', 'nvidia', 'powervr']
       : ['intel', 'amd', 'radeon', 'nvidia', 'geforce'];
 
     let type: string | undefined;
 
-    for (let i = 0; i < types.length; i++) {
-      const typesType = types[i];
-
+    for (const typesType of types) {
       if (renderer.indexOf(typesType) > -1) {
         type = typesType;
         break;
@@ -108,28 +101,28 @@ export const getGPUTier = async ({
     }
 
     if (!type) {
-      return [];
+      return;
     }
 
     debug?.('queryBenchmarks - found type:', { type });
 
     const benchmarkFile = `${isMobile ? 'm' : 'd'}-${type}.json`;
 
-    const benchmark: Promise<ModelEntry[] | undefined> = (queryCache[
-      benchmarkFile
-    ] = queryCache[benchmarkFile] || loadBenchmarks(benchmarkFile));
-
-    const benchmarks = await benchmark;
-
-    if (!benchmarks) {
-      return [];
+    const benchmark = (queryCache[benchmarkFile] =
+      queryCache[benchmarkFile] || loadBenchmarks(benchmarkFile));
+    let benchmarks: ModelEntry[];
+    try {
+      benchmarks = await benchmark;
+    } catch(error) {
+      console.log(error)
+      return;
     }
 
     const version = getGPUVersion(renderer);
 
     const isApple = type === 'apple';
 
-    let matched: ModelEntry[] = benchmarks.filter(
+    let matched = benchmarks.filter(
       ([, modelVersion]) => modelVersion === version
     );
 
@@ -154,7 +147,7 @@ export const getGPUTier = async ({
     const count = matched.length;
 
     if (count === 0) {
-      return [];
+      return;
     }
 
     // eslint-disable-next-line prefer-const
@@ -190,8 +183,7 @@ export const getGPUTier = async ({
       );
     }
 
-    for (let i = 0; i < fpsesByPixelCount.length; i++) {
-      const match = fpsesByPixelCount[i];
+    for (const match of fpsesByPixelCount) {
       const [width, height] = match;
       const entryPixelCount = width * height;
       const distance = Math.abs(pixelCount - entryPixelCount);
@@ -251,31 +243,24 @@ export const getGPUTier = async ({
     renderers = [renderer];
   }
 
-  const results = await Promise.all(
-    renderers.map(
-      (
-        renderer: string
-      ): Promise<[number, number, string, string | undefined] | []> =>
-        queryBenchmarks(loadBenchmarks, renderer)
+  const results = (
+    await Promise.all(
+      renderers.map((renderer) => queryBenchmarks(loadBenchmarks, renderer))
     )
-  );
+  ).filter((result): result is Exclude<typeof result, undefined> => !!result);
 
-  const result =
-    results.length === 1
-      ? results[0]
-      : results.sort(
-          ([aDis = Number.MAX_VALUE], [bDis = Number.MAX_VALUE]) => aDis - bDis
-        )[0];
-
-  if (result.length === 0) {
-    return BLOCKLISTED_GPU.filter(
-      (blocklistedModel) => (renderer?.indexOf(blocklistedModel) as number) > -1
-    )[0]
-      ? toResult(0, 'BLOCKLISTED', renderer)
-      : toResult(1, 'FALLBACK', renderer);
+  if (!results.length) {
+    const blocklistedModel: string | undefined = BLOCKLISTED_GPU.filter(
+      (blocklistedModel) => renderer!.indexOf(blocklistedModel) > -1
+    )[0];
+    return blocklistedModel
+      ? toResult(0, 'BLOCKLISTED', blocklistedModel)
+      : toResult(1, 'FALLBACK');
   }
 
-  const [, fps, model, device] = result;
+  const [, fps, model, device] = results.sort(
+    ([aDis = Number.MAX_VALUE], [bDis = Number.MAX_VALUE]) => aDis - bDis
+  )[0];
 
   if (fps === -1) {
     return toResult(0, 'BLOCKLISTED', model, fps, device);
