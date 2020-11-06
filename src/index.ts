@@ -1,5 +1,5 @@
 // Data
-import pkg from '../package.json';
+import { version } from '../package.json';
 
 // Internal
 import { BLOCKLISTED_GPUS } from './internal/blocklistedGPUS';
@@ -62,7 +62,7 @@ export const getGPUTier = async ({
   } = {},
   glContext,
   failIfMajorPerformanceCaveat = false,
-  benchmarksURL = `https://unpkg.com/detect-gpu@${pkg.version}/dist/benchmarks`,
+  benchmarksURL = `https://unpkg.com/detect-gpu@${version}/dist/benchmarks`,
 }: GetGPUTier = {}): Promise<TierResult> => {
   const queryCache: { [k: string]: Promise<ModelEntry[]> } = {};
   if (isSSR) {
