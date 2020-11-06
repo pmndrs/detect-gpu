@@ -2,7 +2,8 @@
 import { RENDERER_DESKTOP, RENDERER_MOBILE, RENDERER_TABLET } from './data';
 
 // Application
-import { getGPUTier, GetGPUTier, ModelEntry, TierResult } from '../src';
+import { ModelEntry } from '../src';
+import { expectGPUResults, getTier } from './utils';
 
 const isDebug = !!process.env.DEBUG;
 
@@ -267,32 +268,32 @@ test(`Bottom tier desktop: ${bottomTierDesktop}`, async () => {
 [
   {
     input: {
-      renderer: 'ANGLE (ATI Radeon HD 5670 Direct3D11 vs_5_0 ps_5_0)',
-      isMobile: false
+      isMobile: false,
+      renderer: 'ANGLE (ATI Radeon HD 5670 Direct3D11 vs_5_0 ps_5_0)'
     },
   },
   {
     input: {
-      renderer: 'AMD Radeon HD 6970M OpenGL Engine',
-      isMobile: false
+      isMobile: false,
+      renderer: 'AMD Radeon HD 6970M OpenGL Engine'
     },
   },
   {
     input: {
-      renderer: 'ANGLE (NVIDIA Quadro FX 1500 Direct3D9Ex vs_3_0 ps_3_0)',
-      isMobile: false
+      isMobile: false,
+      renderer: 'ANGLE (NVIDIA Quadro FX 1500 Direct3D9Ex vs_3_0 ps_3_0)'
     },
   },
   {
     input: {
-      renderer: 'Intel(R) G45/G43 Express Chipset',
-      isMobile: false
+      isMobile: false,
+      renderer: 'Intel(R) G45/G43 Express Chipset'
     },
   },
   {
     input: {
-      renderer: 'PowerVR SGX 543',
-      isMobile: false
+      isMobile: false,
+      renderer: 'PowerVR SGX 543'
     },
   },
   {
@@ -300,20 +301,20 @@ test(`Bottom tier desktop: ${bottomTierDesktop}`, async () => {
       gpu: 'google swiftshader',
     },
     input: {
-      renderer: 'Google SwiftShader',
-      isMobile: false
+      isMobile: false,
+      renderer: 'Google SwiftShader'
     },
   },
   {
     input: {
-      renderer: 'Intel GMA X3100 OpenGL Engine',
-      isMobile: false
+      isMobile: false,
+      renderer: 'Intel GMA X3100 OpenGL Engine'
     },
   },
   {
     input: {
-      renderer: 'NVIDIA GeForce GT 120 OpenGL Engine',
-      isMobile: false
+      isMobile: false,
+      renderer: 'NVIDIA GeForce GT 120 OpenGL Engine'
     },
   },
 ].map(({ expected = {}, input }) => {
@@ -336,40 +337,10 @@ test(`When queryBenchmarks throws, FALLBACK is returned`, async () => {
       type: 'FALLBACK',
     },
     await getTier({
-      loadBenchmarks: async (file: string): Promise<ModelEntry[]> => {
+      loadBenchmarks: async (): Promise<ModelEntry[]> => {
         throw new Error();
       },
       renderer: bottomTierDesktop
     })
   );
 });
-
-function getTier(override: GetGPUTier['override']) {
-  return getGPUTier({
-    desktopTiers: [0, 15, 30, 60],
-    mobileTiers: [0, 15, 30, 60],
-    override: {
-      loadBenchmarks: async (file: string): Promise<ModelEntry[]> =>
-        (await import(`../benchmarks/${file}`)).default,
-      ...override,
-    },
-  });
-}
-
-function expectGPUResults(expected: Partial<TierResult>, result: TierResult) {
-  if (expected.type) {
-    expect(result.type).toBe(expected.type);
-  }
-
-  if (expected.tier !== undefined) {
-    expect(result.tier).toBe(expected.tier);
-  }
-
-  if (expected.isMobile !== undefined) {
-    expect(result.isMobile).toBe(expected.isMobile);
-  }
-
-  if (expected.gpu !== undefined) {
-    expect(result.gpu).toBe(expected.gpu);
-  }
-}

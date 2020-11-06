@@ -9,6 +9,7 @@ import { deviceInfo } from './internal/deviceInfo';
 import { getLevenshteinDistance } from './internal/getLevenshteinDistance';
 import { getGPUVersion } from './internal/getGPUVersion';
 import { getWebGLContext } from './internal/getWebGLContext';
+import { isSSR } from './internal/ssr';
 
 // Types
 export interface GetGPUTier {
@@ -27,7 +28,7 @@ export interface GetGPUTier {
 }
 
 export type TierType =
-  | 'IS_SRR'
+  | 'SSR'
   | 'WEBGL_UNSUPPORTED'
   | 'BLOCKLISTED'
   | 'FALLBACK'
@@ -48,18 +49,10 @@ export type ModelEntry = [string, string, 0 | 1, ModelEntryScreen[]];
 
 const debug = false ? console.log : undefined;
 
-const isSSR = typeof window === 'undefined';
-
 export const getGPUTier = async ({
   mobileTiers = [0, 15, 30, 60],
   desktopTiers = [0, 15, 30, 60],
-  override: {
-    renderer,
-    isIpad = Boolean(deviceInfo?.isIpad),
-    isMobile = Boolean(deviceInfo?.isMobile),
-    screenSize = window.screen,
-    loadBenchmarks,
-  } = {},
+  override = {},
   glContext,
   failIfMajorPerformanceCaveat = false,
   benchmarksURL = `https://unpkg.com/detect-gpu@${version}/dist/benchmarks`,
@@ -68,11 +61,14 @@ export const getGPUTier = async ({
   if (isSSR) {
     return {
       tier: 0,
-      type: 'IS_SRR',
+      type: 'SSR',
     };
   }
 
-  const queryBenchmarks = async (
+  const {
+    isIpad = !!deviceInfo?.isIpad,
+    isMobile = !!deviceInfo?.isMobile,
+    screenSize = window.screen,
     loadBenchmarks = async (file: string) => {
       const data: ModelEntry[] = await fetch(
         `${benchmarksURL}/${file}`
@@ -83,22 +79,21 @@ export const getGPUTier = async ({
 
       return data;
     },
-
-    renderer: string
-  ): Promise<[number, number, string, string | undefined] | undefined> => {
+  } = override;
+  let { renderer } = override;
+  const getGpuType = (renderer: string) => {
     const types = isMobile
-      ? ['adreno', 'apple', 'mali-t', 'mali', 'nvidia', 'powervr']
-      : ['intel', 'amd', 'radeon', 'nvidia', 'geforce'];
-
-    let type: string | undefined;
-
-    for (const typesType of types) {
-      if (renderer.indexOf(typesType) > -1) {
-        type = typesType;
-        break;
+      ? (['adreno', 'apple', 'mali-t', 'mali', 'nvidia', 'powervr'] as const)
+      : (['intel', 'amd', 'radeon', 'nvidia', 'geforce'] as const);
+    for (const type of types) {
+      if (renderer.indexOf(type) > -1) {
+        return type;
       }
     }
+  };
 
+  const queryBenchmarks = async (renderer: string) => {
+    const type = getGpuType(renderer);
     if (!type) {
       return;
     }
@@ -112,8 +107,8 @@ export const getGPUTier = async ({
     let benchmarks: ModelEntry[];
     try {
       benchmarks = await benchmark;
-    } catch(error) {
-      console.log(error)
+    } catch (error) {
+      console.log(error);
       return;
     }
 
@@ -196,7 +191,7 @@ export const getGPUTier = async ({
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const [, , fps, device] = closest!;
 
-    return [minDistance, fps, gpu, device];
+    return [minDistance, fps, gpu, device] as const;
   };
 
   const toResult = (
@@ -242,18 +237,17 @@ export const getGPUTier = async ({
     renderers = [renderer];
   }
 
-  const results = (
-    await Promise.all(
-      renderers.map((renderer) => queryBenchmarks(loadBenchmarks, renderer))
-    )
-  ).filter((result): result is Exclude<typeof result, undefined> => !!result);
+  const results = (await Promise.all(renderers.map(queryBenchmarks))).filter(
+    (result): result is Exclude<typeof result, undefined> => !!result
+  );
 
   if (!results.length) {
-    const blocklistedModel: string | undefined = BLOCKLISTED_GPUS.filter(
-      (blocklistedModel) => renderer!.indexOf(blocklistedModel) > -1
+    const blacklistedModel: string | undefined = BLOCKLISTED_GPUS.filter(
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+      blacklistedModel => renderer!.indexOf(blacklistedModel) > -1
     )[0];
-    return blocklistedModel
-      ? toResult(0, 'BLOCKLISTED', blocklistedModel)
+    return blacklistedModel
+      ? toResult(0, 'BLOCKLISTED', blacklistedModel)
       : toResult(1, 'FALLBACK');
   }
 
