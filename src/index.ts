@@ -50,8 +50,6 @@ const debug = false ? console.log : undefined;
 
 const isSSR = typeof window === 'undefined';
 
-const queryCache: { [k: string]: Promise<ModelEntry[]> } = {};
-
 export const getGPUTier = async ({
   mobileTiers = [0, 15, 30, 60],
   desktopTiers = [0, 15, 30, 60],
@@ -66,6 +64,7 @@ export const getGPUTier = async ({
   failIfMajorPerformanceCaveat = false,
   benchmarksURL = `https://unpkg.com/detect-gpu@${pkg.version}/dist/benchmarks`,
 }: GetGPUTier = {}): Promise<TierResult> => {
+  const queryCache: { [k: string]: Promise<ModelEntry[]> } = {};
   if (isSSR) {
     return {
       tier: 0,
