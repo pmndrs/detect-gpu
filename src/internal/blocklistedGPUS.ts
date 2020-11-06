@@ -1,7 +1,7 @@
 // GPU blocklist
 // SEE: https://chromium.googlesource.com/chromium/src/+/master/gpu/config/software_rendering_list.json
 // SEE: https://hg.mozilla.org/mozilla-central/raw-file/tip/services/settings/dumps/blocklists/gfx.json
-export const BLOCKLISTED_GPU = [
+export const BLOCKLISTED_GPUS = [
   'geforce 320m',
   'geforce 8600',
   'geforce 8600m gt',

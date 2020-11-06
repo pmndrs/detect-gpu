@@ -5,7 +5,7 @@ import puppeteer from 'puppeteer';
 import fs from 'fs';
 
 // Application
-import { BLOCKLISTED_GPU } from '../src/internal/GPUBlocklist';
+import { BLOCKLISTED_GPUS } from '../src/internal/GPUBlocklist';
 import { getGPUVersion } from '../src/internal/getGPUVersion';
 
 // Package
@@ -132,7 +132,7 @@ const outputFile = async (name: string, content: any) => {
           .filter(([{ gpu }]) => gpu.includes(type))
           .map((rows) => {
             const { gpu } = rows[0];
-            const isBlocklisted = BLOCKLISTED_GPU.find((blocklistedModel) =>
+            const isBlocklisted = BLOCKLISTED_GPUS.find((blocklistedModel) =>
               gpu.includes(blocklistedModel)
             );
 

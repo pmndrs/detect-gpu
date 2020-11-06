@@ -2,7 +2,7 @@
 import pkg from '../package.json';
 
 // Internal
-import { BLOCKLISTED_GPU } from './internal/GPUBlocklist';
+import { BLOCKLISTED_GPUS } from './internal/blocklistedGPUS';
 import { cleanRenderer } from './internal/cleanRenderer';
 import { deobfuscateRenderer } from './internal/deobfuscateRenderer';
 import { deviceInfo } from './internal/deviceInfo';
@@ -249,7 +249,7 @@ export const getGPUTier = async ({
   ).filter((result): result is Exclude<typeof result, undefined> => !!result);
 
   if (!results.length) {
-    const blocklistedModel: string | undefined = BLOCKLISTED_GPU.filter(
+    const blocklistedModel: string | undefined = BLOCKLISTED_GPUS.filter(
       (blocklistedModel) => renderer!.indexOf(blocklistedModel) > -1
     )[0];
     return blocklistedModel
