@@ -282,12 +282,12 @@ export const getGPUTier = async ({
   );
 
   if (!results.length) {
-    const blacklistedModel: string | undefined = BLOCKLISTED_GPUS.filter(
+    const blocklistedModel: string | undefined = BLOCKLISTED_GPUS.filter(
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      blacklistedModel => renderer!.indexOf(blacklistedModel) > -1
+      blocklistedModel => renderer!.indexOf(blocklistedModel) > -1
     )[0];
-    return blacklistedModel
-      ? toResult(0, 'BLOCKLISTED', blacklistedModel)
+    return blocklistedModel
+      ? toResult(0, 'BLOCKLISTED', blocklistedModel)
       : toResult(1, 'FALLBACK');
   }
 
