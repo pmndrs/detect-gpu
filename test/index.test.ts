@@ -339,7 +339,7 @@ test(`When queryBenchmarks throws, FALLBACK is returned`, async () => {
       loadBenchmarks: async (file: string): Promise<ModelEntry[]> => {
         throw new Error();
       },
-      renderer: bottomTierDesktop,
+      renderer: bottomTierDesktop
     })
   );
 });
