@@ -162,7 +162,7 @@ const outputFile = async (name: string, content: any) => {
                     ? ([width, height, fps, device] as const)
                     : ([width, height, fps] as const);
                 })
-                .sort(([, aW, aH], [, bW, bH]) => aW * aH - bW * bH),
+                .sort(([aW, aH], [bW, bH]) => aW * aH - bW * bH),
             ];
           });
 
