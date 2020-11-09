@@ -48,10 +48,7 @@ const outputFile = async (name: string, content: any) => {
 (async () => {
   const browser = await puppeteer.launch({ headless: true });
   const benchmarks = await getBenchmarks();
-
-  await Promise.all(
-    [true, false].map((mobile) => exportBenchmarks(benchmarks, mobile))
-  );
+  await Promise.all([true, false].map(exportBenchmarks));
   await browser.close();
 
   async function getBenchmarks() {
@@ -108,11 +105,11 @@ const outputFile = async (name: string, content: any) => {
     });
   }
 
-  async function exportBenchmarks(rows: BenchmarkRow[], isMobile: boolean) {
+  async function exportBenchmarks(isMobile: boolean) {
     const getOutputFilename = (type: string) =>
       `${isMobile ? 'm' : 'd'}-${type}.json`;
 
-    rows = rows.filter(
+    const rows = benchmarks.filter(
       ({ mobile, gpu }) =>
         mobile === isMobile &&
         TYPES.filter((type): boolean => gpu.includes(type)).length > 0
