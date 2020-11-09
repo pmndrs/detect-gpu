@@ -5,7 +5,7 @@ import puppeteer from 'puppeteer';
 import fs from 'fs';
 
 // Application
-import { BLOCKLISTED_GPUS } from '../src/internal/GPUBlocklist';
+import { BLOCKLISTED_GPUS } from '../src/internal/blocklistedGPUS';
 import { getGPUVersion } from '../src/internal/getGPUVersion';
 
 // Package
