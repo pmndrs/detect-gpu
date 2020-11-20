@@ -269,31 +269,31 @@ test(`Bottom tier desktop: ${bottomTierDesktop}`, async () => {
   {
     input: {
       isMobile: false,
-      renderer: 'ANGLE (ATI Radeon HD 5670 Direct3D11 vs_5_0 ps_5_0)'
+      renderer: 'ANGLE (ATI Radeon HD 5670 Direct3D11 vs_5_0 ps_5_0)',
     },
   },
   {
     input: {
       isMobile: false,
-      renderer: 'AMD Radeon HD 6970M OpenGL Engine'
+      renderer: 'AMD Radeon HD 6970M OpenGL Engine',
     },
   },
   {
     input: {
       isMobile: false,
-      renderer: 'ANGLE (NVIDIA Quadro FX 1500 Direct3D9Ex vs_3_0 ps_3_0)'
+      renderer: 'ANGLE (NVIDIA Quadro FX 1500 Direct3D9Ex vs_3_0 ps_3_0)',
     },
   },
   {
     input: {
       isMobile: false,
-      renderer: 'Intel(R) G45/G43 Express Chipset'
+      renderer: 'Intel(R) G45/G43 Express Chipset',
     },
   },
   {
     input: {
       isMobile: false,
-      renderer: 'PowerVR SGX 543'
+      renderer: 'PowerVR SGX 543',
     },
   },
   {
@@ -302,19 +302,19 @@ test(`Bottom tier desktop: ${bottomTierDesktop}`, async () => {
     },
     input: {
       isMobile: false,
-      renderer: 'Google SwiftShader'
+      renderer: 'Google SwiftShader',
     },
   },
   {
     input: {
       isMobile: false,
-      renderer: 'Intel GMA X3100 OpenGL Engine'
+      renderer: 'Intel GMA X3100 OpenGL Engine',
     },
   },
   {
     input: {
       isMobile: false,
-      renderer: 'NVIDIA GeForce GT 120 OpenGL Engine'
+      renderer: 'NVIDIA GeForce GT 120 OpenGL Engine',
     },
   },
 ].map(({ expected = {}, input }) => {
@@ -340,7 +340,7 @@ test(`When queryBenchmarks throws, FALLBACK is returned`, async () => {
       loadBenchmarks: async (): Promise<ModelEntry[]> => {
         throw new Error();
       },
-      renderer: bottomTierDesktop
+      renderer: bottomTierDesktop,
     })
   );
 });

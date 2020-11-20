@@ -12,7 +12,10 @@ export function getTier(override: GetGPUTier['override'] = {}) {
   });
 }
 
-export function expectGPUResults(expected: Partial<TierResult>, result: TierResult) {
+export function expectGPUResults(
+  expected: Partial<TierResult>,
+  result: TierResult
+) {
   if (expected.type) {
     expect(result.type).toBe(expected.type);
   }
