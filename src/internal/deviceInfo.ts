@@ -1,4 +1,7 @@
+import { isSSR } from './ssr';
+
 export const deviceInfo = (() => {
+  if (isSSR) return;
   const { userAgent, platform, maxTouchPoints } = window.navigator;
 
   const isIOS = /(iphone|ipod|ipad)/i.test(userAgent);

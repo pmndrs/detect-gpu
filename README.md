@@ -37,20 +37,7 @@ Make sure you have [Node.js](http://nodejs.org/) installed.
 import { getGPUTier } from 'detect-gpu';
 
 (async () => {
-  const gpuTier = await getGPUTier({
-    benchmarksURL?: string; // (Default, "https://unpkg.com/detect-gpu@${PKG_VERSION}/dist/benchmarks") Provide location of where to access benchmark data
-    failIfMajorPerformanceCaveat?: boolean; // (Default, false) Fail to detect if the WebGL implementation determines the performance would be dramatically lower than the equivalent OpenGL
-    glContext?: WebGLRenderingContext | WebGL2RenderingContext; // (Default, undefined) Optionally pass in a WebGL context to avoid creating a temporary one internally
-    desktopTiers?: number[]; // (Default, [0, 15, 30, 60]) Framerate per tier
-    mobileTiers?: number[]; // (Default, [0, 15, 30, 60]) Framerate per tier
-    override?: { // (Default, false) Override specific functionality, useful for development
-      renderer?: string; // Manually override reported GPU renderer string
-      isIpad?: boolean; // Manually report device as being an iPad
-      isMobile?: boolean; // Manually report device as being a mobile device
-      screenSize?: { width: number; height: number }; // Manually adjust reported screenSize
-      loadBenchmarks?: (file: string) => Promise<TModelEntry[] | undefined>; // Optionally modify method for loading benchmark data
-    };
-  })
+  const gpuTier = await getGPUTier();
 
   // Example output:
   // {
@@ -66,6 +53,65 @@ import { getGPUTier } from 'detect-gpu';
 `detect-gpu` uses rendering benchmark scores (framerate, normalized by resolution) in order to determine what tier should be assigned to the user's GPU. If no `WebGLContext` can be created, the GPU is blocklisted or the GPU has reported to render on less than `15 fps` `tier: 0` is assigned. One should provide a fallback to a non-WebGL experience.
 
 Based on the reported `fps` the GPU is then classified into either `tier: 1 (>= 15 fps)`, `tier: 2 (>= 30 fps)` or `tier: 3 (>= 60 fps)`. The higher the tier the more graphically intensive workload you can offer to the user.
+
+## API
+
+```ts
+getGPUTier({
+  /**
+   * URL of directory where benchmark data is hosted.
+   *
+   * @default https://unpkg.com/detect-gpu@{version}/dist/benchmarks
+   */
+  benchmarksURL?: string;
+  /**
+   * Optionally pass in a WebGL context to avoid creating a temporary one
+   * internally.
+   */
+  glContext?: WebGLRenderingContext | WebGL2RenderingContext;
+  /**
+   * Whether to fail if the system performance is low or if no hardware GPU is
+   * available.
+   *
+   * @default true
+   */
+  failIfMajorPerformanceCaveat?: boolean;
+  /**
+   * Framerate per tier for mobile devices.
+   *
+   * @defaultValue [0, 15, 30, 60]
+   */
+  mobileTiers?: number[];
+  /**
+   * Framerate per tier for desktop devices.
+   *
+   * @defaultValue [0, 15, 30, 60]
+   */
+  desktopTiers?: number[];
+  /**
+   * Optionally override specific parameters. Used mainly for testing.
+   */
+  override?: {
+    renderer?: string;
+    /**
+     * Override whether device is an iPad.
+     */
+    isIpad?: boolean;
+    /**
+     * Override whether device is a mobile device.
+     */
+    isMobile?: boolean;
+    /**
+     * Override device screen size.
+     */
+    screenSize?: { width: number; height: number };
+    /**
+     * Override how benchmark data is loaded
+     */
+    loadBenchmarks?: (file: string) => Promise<ModelEntry[]>;
+  };
+})
+```
 
 ## Support
 

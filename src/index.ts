@@ -1,33 +1,74 @@
 // Data
-import pkg from '../package.json';
+import { version } from '../package.json';
 
 // Internal
-import { BLOCKLISTED_GPU } from './internal/GPUBlocklist';
+import { BLOCKLISTED_GPUS } from './internal/blocklistedGPUS';
 import { cleanRenderer } from './internal/cleanRenderer';
 import { deobfuscateRenderer } from './internal/deobfuscateRenderer';
 import { deviceInfo } from './internal/deviceInfo';
 import { getLevenshteinDistance } from './internal/getLevenshteinDistance';
 import { getGPUVersion } from './internal/getGPUVersion';
 import { getWebGLContext } from './internal/getWebGLContext';
+import { isSSR } from './internal/ssr';
 
 // Types
 export interface GetGPUTier {
+  /**
+   * URL of directory where benchmark data is hosted.
+   *
+   * @default https://unpkg.com/detect-gpu@{version}/dist/benchmarks
+   */
+  benchmarksURL?: string;
+  /**
+   * Optionally pass in a WebGL context to avoid creating a temporary one
+   * internally.
+   */
   glContext?: WebGLRenderingContext | WebGL2RenderingContext;
+  /**
+   * Whether to fail if the system performance is low or if no hardware GPU is
+   * available.
+   *
+   * @default true
+   */
   failIfMajorPerformanceCaveat?: boolean;
+  /**
+   * Framerate per tier for mobile devices.
+   *
+   * @defaultValue [0, 15, 30, 60]
+   */
   mobileTiers?: number[];
+  /**
+   * Framerate per tier for desktop devices.
+   *
+   * @defaultValue [0, 15, 30, 60]
+   */
   desktopTiers?: number[];
+  /**
+   * Optionally override specific parameters. Used mainly for testing.
+   */
   override?: {
     renderer?: string;
+    /**
+     * Override whether device is an iPad.
+     */
     isIpad?: boolean;
+    /**
+     * Override whether device is a mobile device.
+     */
     isMobile?: boolean;
+    /**
+     * Override device screen size.
+     */
     screenSize?: { width: number; height: number };
-    loadBenchmarks?: (file: string) => Promise<ModelEntry[] | undefined>;
+    /**
+     * Override how benchmark data is loaded
+     */
+    loadBenchmarks?: (file: string) => Promise<ModelEntry[]>;
   };
-  benchmarksURL?: string;
 }
 
 export type TierType =
-  | 'IS_SRR'
+  | 'SSR'
   | 'WEBGL_UNSUPPORTED'
   | 'BLOCKLISTED'
   | 'FALLBACK'
@@ -48,88 +89,74 @@ export type ModelEntry = [string, string, 0 | 1, ModelEntryScreen[]];
 
 const debug = false ? console.log : undefined;
 
-const isSSR = typeof window === 'undefined';
-
-const queryCache: { [k: string]: Promise<ModelEntry[] | undefined> } = {};
-
 export const getGPUTier = async ({
   mobileTiers = [0, 15, 30, 60],
   desktopTiers = [0, 15, 30, 60],
-  override: {
-    renderer,
-    isIpad = Boolean(deviceInfo?.isIpad),
-    isMobile = Boolean(deviceInfo?.isMobile),
-    screenSize = window.screen,
-    loadBenchmarks,
-  } = {},
+  override = {},
   glContext,
   failIfMajorPerformanceCaveat = false,
-  benchmarksURL = `https://unpkg.com/detect-gpu@${pkg.version}/dist/benchmarks`,
+  benchmarksURL = `https://unpkg.com/detect-gpu@${version}/dist/benchmarks`,
 }: GetGPUTier = {}): Promise<TierResult> => {
+  const queryCache: { [k: string]: Promise<ModelEntry[]> } = {};
   if (isSSR) {
     return {
       tier: 0,
-      type: 'IS_SRR',
+      type: 'SSR',
     };
   }
 
-  const queryBenchmarks = async (
+  const {
+    isIpad = !!deviceInfo?.isIpad,
+    isMobile = !!deviceInfo?.isMobile,
+    screenSize = window.screen,
     loadBenchmarks = async (file: string) => {
-      try {
-        const data: ModelEntry[] = await fetch(
-          `${benchmarksURL}/${file}`
-        ).then((response) => response.json());
+      const data: ModelEntry[] = await fetch(
+        `${benchmarksURL}/${file}`
+      ).then((response) => response.json());
 
-        // Remove version tag
-        data.shift();
+      // Remove version tag
+      data.shift();
 
-        return data;
-      } catch (err) {
-        console.error(err);
-        return undefined;
-      }
+      return data;
     },
-
-    renderer: string
-  ): Promise<[number, number, string, string | undefined] | []> => {
+  } = override;
+  let { renderer } = override;
+  const getGpuType = (renderer: string) => {
     const types = isMobile
-      ? ['adreno', 'apple', 'mali-t', 'mali', 'nvidia', 'powervr']
-      : ['intel', 'amd', 'radeon', 'nvidia', 'geforce'];
-
-    let type: string | undefined;
-
-    for (let i = 0; i < types.length; i++) {
-      const typesType = types[i];
-
-      if (renderer.indexOf(typesType) > -1) {
-        type = typesType;
-        break;
+      ? (['adreno', 'apple', 'mali-t', 'mali', 'nvidia', 'powervr'] as const)
+      : (['intel', 'amd', 'radeon', 'nvidia', 'geforce'] as const);
+    for (const type of types) {
+      if (renderer.indexOf(type) > -1) {
+        return type;
       }
     }
+  };
 
+  const queryBenchmarks = async (renderer: string) => {
+    const type = getGpuType(renderer);
     if (!type) {
-      return [];
+      return;
     }
 
     debug?.('queryBenchmarks - found type:', { type });
 
     const benchmarkFile = `${isMobile ? 'm' : 'd'}-${type}.json`;
 
-    const benchmark: Promise<ModelEntry[] | undefined> = (queryCache[
-      benchmarkFile
-    ] = queryCache[benchmarkFile] || loadBenchmarks(benchmarkFile));
-
-    const benchmarks = await benchmark;
-
-    if (!benchmarks) {
-      return [];
+    const benchmark = (queryCache[benchmarkFile] =
+      queryCache[benchmarkFile] || loadBenchmarks(benchmarkFile));
+    let benchmarks: ModelEntry[];
+    try {
+      benchmarks = await benchmark;
+    } catch (error) {
+      console.log(error);
+      return;
     }
 
     const version = getGPUVersion(renderer);
 
     const isApple = type === 'apple';
 
-    let matched: ModelEntry[] = benchmarks.filter(
+    let matched = benchmarks.filter(
       ([, modelVersion]) => modelVersion === version
     );
 
@@ -154,7 +181,7 @@ export const getGPUTier = async ({
     const count = matched.length;
 
     if (count === 0) {
-      return [];
+      return;
     }
 
     // eslint-disable-next-line prefer-const
@@ -190,8 +217,7 @@ export const getGPUTier = async ({
       );
     }
 
-    for (let i = 0; i < fpsesByPixelCount.length; i++) {
-      const match = fpsesByPixelCount[i];
+    for (const match of fpsesByPixelCount) {
       const [width, height] = match;
       const entryPixelCount = width * height;
       const distance = Math.abs(pixelCount - entryPixelCount);
@@ -205,7 +231,7 @@ export const getGPUTier = async ({
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const [, , fps, device] = closest!;
 
-    return [minDistance, fps, gpu, device];
+    return [minDistance, fps, gpu, device] as const;
   };
 
   const toResult = (
@@ -251,31 +277,23 @@ export const getGPUTier = async ({
     renderers = [renderer];
   }
 
-  const results = await Promise.all(
-    renderers.map(
-      (
-        renderer: string
-      ): Promise<[number, number, string, string | undefined] | []> =>
-        queryBenchmarks(loadBenchmarks, renderer)
-    )
+  const results = (await Promise.all(renderers.map(queryBenchmarks))).filter(
+    (result): result is Exclude<typeof result, undefined> => !!result
   );
 
-  const result =
-    results.length === 1
-      ? results[0]
-      : results.sort(
-          ([aDis = Number.MAX_VALUE], [bDis = Number.MAX_VALUE]) => aDis - bDis
-        )[0];
-
-  if (result.length === 0) {
-    return BLOCKLISTED_GPU.filter(
-      (blocklistedModel) => (renderer?.indexOf(blocklistedModel) as number) > -1
-    )[0]
-      ? toResult(0, 'BLOCKLISTED', renderer)
-      : toResult(1, 'FALLBACK', renderer);
+  if (!results.length) {
+    const blocklistedModel: string | undefined = BLOCKLISTED_GPUS.filter(
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+      blocklistedModel => renderer!.indexOf(blocklistedModel) > -1
+    )[0];
+    return blocklistedModel
+      ? toResult(0, 'BLOCKLISTED', blocklistedModel)
+      : toResult(1, 'FALLBACK');
   }
 
-  const [, fps, model, device] = result;
+  const [, fps, model, device] = results.sort(
+    ([aDis = Number.MAX_VALUE], [bDis = Number.MAX_VALUE]) => aDis - bDis
+  )[0];
 
   if (fps === -1) {
     return toResult(0, 'BLOCKLISTED', model, fps, device);

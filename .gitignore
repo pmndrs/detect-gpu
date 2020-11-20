@@ -70,3 +70,4 @@ node_modules
 # Directories
 dist
 /example/build/*
+/coverage

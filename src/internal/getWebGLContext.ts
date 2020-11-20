@@ -24,7 +24,7 @@ export const getWebGLContext = (
     delete attributes.powerPreference;
   }
 
-  const canvas = document.createElement('canvas');
+  const canvas = window.document.createElement('canvas');
 
   const gl = (canvas.getContext('webgl', attributes) ||
     canvas.getContext(
@@ -32,5 +32,5 @@ export const getWebGLContext = (
       attributes
     )) as WebGLRenderingContext | null;
 
-  return gl || undefined;
+  return gl ?? undefined;
 };
