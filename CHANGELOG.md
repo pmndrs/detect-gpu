@@ -1,5 +1,12 @@
 # CHANGELOG
 
+# 3.0.0
+
+- Fixed SSR functionality
+- Changed 'IS_SRR' tier type to 'SSR' __BREAKING CHANGE__
+- Fixed issue where errors were being thrown when running in non-browser environments
+- Removed undefined from return type of `loadBenchmarks` override
+
 # 2.0.4
 
 - Update package.json to provide more information when published on NPM

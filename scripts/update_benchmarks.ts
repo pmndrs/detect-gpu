@@ -5,7 +5,7 @@ import puppeteer from 'puppeteer';
 import fs from 'fs';
 
 // Application
-import { BLOCKLISTED_GPU } from '../src/internal/GPUBlocklist';
+import { BLOCKLISTED_GPUS } from '../src/internal/blocklistedGPUS';
 import { getGPUVersion } from '../src/internal/getGPUVersion';
 
 // Package
@@ -48,10 +48,7 @@ const outputFile = async (name: string, content: any) => {
 (async () => {
   const browser = await puppeteer.launch({ headless: true });
   const benchmarks = await getBenchmarks();
-
-  await Promise.all(
-    [true, false].map((mobile) => exportBenchmarks(benchmarks, mobile))
-  );
+  await Promise.all([true, false].map(exportBenchmarks));
   await browser.close();
 
   async function getBenchmarks() {
@@ -108,11 +105,11 @@ const outputFile = async (name: string, content: any) => {
     });
   }
 
-  async function exportBenchmarks(rows: BenchmarkRow[], isMobile: boolean) {
+  async function exportBenchmarks(isMobile: boolean) {
     const getOutputFilename = (type: string) =>
       `${isMobile ? 'm' : 'd'}-${type}.json`;
 
-    rows = rows.filter(
+    const rows = benchmarks.filter(
       ({ mobile, gpu }) =>
         mobile === isMobile &&
         TYPES.filter((type): boolean => gpu.includes(type)).length > 0
@@ -132,7 +129,7 @@ const outputFile = async (name: string, content: any) => {
           .filter(([{ gpu }]) => gpu.includes(type))
           .map((rows) => {
             const { gpu } = rows[0];
-            const isBlocklisted = BLOCKLISTED_GPU.find((blocklistedModel) =>
+            const isBlocklisted = BLOCKLISTED_GPUS.find((blocklistedModel) =>
               gpu.includes(blocklistedModel)
             );
 
@@ -162,7 +159,7 @@ const outputFile = async (name: string, content: any) => {
                     ? ([width, height, fps, device] as const)
                     : ([width, height, fps] as const);
                 })
-                .sort(([, aW, aH], [, bW, bH]) => aW * aH - bW * bH),
+                .sort(([aW, aH], [bW, bH]) => aW * aH - bW * bH),
             ];
           });
 
