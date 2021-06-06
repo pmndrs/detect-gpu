@@ -101,7 +101,12 @@ export const deobfuscateAppleGPU = (
           // iPhone 8, 8 Plus (Apple A11 GPU)
           '801621810': deviceInfo?.isIpad
             ? ['apple a12x gpu']
-            : ['apple a11 gpu', 'apple a12 gpu', 'apple a13 gpu'],
+            : [
+                'apple a11 gpu',
+                'apple a12 gpu',
+                'apple a13 gpu',
+                'apple a14 gpu',
+              ],
           // iPhone SE, 6S, 6S Plus (Apple A9 GPU)
           // iPhone 7, 7 Plus (Apple A10 GPU)
           // iPad Pro (Apple A10X GPU)

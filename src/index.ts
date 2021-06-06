@@ -284,7 +284,7 @@ export const getGPUTier = async ({
   if (!results.length) {
     const blocklistedModel: string | undefined = BLOCKLISTED_GPUS.filter(
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      blocklistedModel => renderer!.indexOf(blocklistedModel) > -1
+      (blocklistedModel) => renderer!.indexOf(blocklistedModel) > -1
     )[0];
     return blocklistedModel
       ? toResult(0, 'BLOCKLISTED', blocklistedModel)
