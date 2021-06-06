@@ -19,7 +19,7 @@ export const getWebGLContext = (
   };
 
   // Workaround for Safari 12, which otherwise crashes with powerPreference set
-  // to high-performance: https://github.com/TimvanScherpenzeel/detect-gpu/issues/5
+  // to high-performance: https://github.com/pmndrs/detect-gpu/issues/5
   if (isSafari12) {
     delete attributes.powerPreference;
   }
