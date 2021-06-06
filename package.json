@@ -7,13 +7,13 @@
   "main": "dist/detect-gpu.umd.js",
   "module": "dist/detect-gpu.esm.js",
   "types": "dist/src/index.d.ts",
-  "homepage": "https://github.com/TimvanScherpenzeel/detect-gpu#readme",
+  "homepage": "https://github.com/pmndrs/detect-gpu#readme",
   "bugs": {
-    "url": "https://github.com/TimvanScherpenzeel/detect-gpu/issues"
+    "url": "https://github.com/pmndrs/detect-gpu/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/TimvanScherpenzeel/detect-gpu.git"
+    "url": "https://github.com/pmndrs/detect-gpu.git"
   },
   "files": [
     "dist"
