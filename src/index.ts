@@ -201,7 +201,7 @@ export const getGPUTier = async ({
     );
 
     let minDistance = Number.MAX_VALUE;
-    let closest: ModelEntryScreen;
+    let closest: ModelEntryScreen | undefined;
     const { devicePixelRatio } = window;
     const pixelCount =
       screenSize.width *
@@ -226,6 +226,10 @@ export const getGPUTier = async ({
         minDistance = distance;
         closest = match;
       }
+    }
+
+    if (!closest) {
+      return undefined;
     }
 
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
@@ -276,7 +280,6 @@ export const getGPUTier = async ({
     renderer = cleanRenderer(renderer);
     renderers = [renderer];
   }
-
   const results = (await Promise.all(renderers.map(queryBenchmarks))).filter(
     (result): result is Exclude<typeof result, undefined> => !!result
   );

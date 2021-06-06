@@ -7,6 +7,8 @@ import fs from 'fs';
 // Application
 import { BLOCKLISTED_GPUS } from '../src/internal/blocklistedGPUS';
 import { getGPUVersion } from '../src/internal/getGPUVersion';
+import { internalBenchmarkResults } from './internalBenchmarkResults';
+import { BenchmarkRow } from './types';
 
 // Package
 import { version } from '../package.json';
@@ -27,15 +29,6 @@ const TYPES = [
   'geforce',
 ];
 
-type BenchmarkRow = {
-  date: string;
-  device: string;
-  gpu: string;
-  fps: number;
-  mobile: boolean;
-  resolution: string;
-};
-
 type Optional<T, K extends keyof T> = Pick<Partial<T>, K> & Omit<T, K>;
 
 const outputFile = async (name: string, content: any) => {
@@ -47,7 +40,26 @@ const outputFile = async (name: string, content: any) => {
 
 (async () => {
   const browser = await puppeteer.launch({ headless: true });
-  const benchmarks = await getBenchmarks();
+  let benchmarks = await getBenchmarks();
+  benchmarks.push(...internalBenchmarkResults);
+  benchmarks = benchmarks
+    .map((benchmark) => {
+      benchmark.gpu = benchmark.gpu
+        .toLowerCase()
+        .replace(/\s*\([^\)]+(\))/g, '')
+        .replace(/([0-9]+)\/[^ ]+/, '$1')
+        .replace(
+          /x\.org |inc\. |open source technology center |imagination technologies |™ |nvidia corporation |apple inc\. |advanced micro devices, inc\. | series$| edition$| graphics$/g,
+          ''
+        )
+        .replace(/(qualcomm|adreno)[^ ] /g, 'qualcomm ')
+        .replace(/qualcomm (qualcomm )+/g, 'qualcomm ')
+        .trim();
+      benchmark.device = benchmark.device.toLowerCase();
+      return benchmark;
+    })
+    .sort((a, b) => a.date.localeCompare(b.date));
+
   await Promise.all([true, false].map(exportBenchmarks));
   await browser.close();
 
@@ -88,19 +100,11 @@ const outputFile = async (name: string, content: any) => {
               fpses[index] === ''
                 ? undefined
                 : Math.round(Number(fpses[index].replace(/[^0-9.]+/g, ''))),
-            gpu: gpuNameLookup[gpuIndex]
-              .toLowerCase()
-              .replace(/\s*\([^\)]+(\))/g, '')
-              .replace(/([0-9]+)\/[^ ]+/, '$1')
-              .replace(
-                /x\.org |inc\. |open source technology center |imagination technologies |™ |nvidia corporation |apple inc\. |advanced micro devices, inc\. | series$| edition$| graphics$/g,
-                ''
-              ),
+            gpu: gpuNameLookup[gpuIndex],
             mobile: formFactorLookup[formFactor[index]].includes('mobile'),
             resolution: screenSizeLookup[screenSizes[index]],
           })
         )
-        .sort((a, b) => a.date.localeCompare(b.date))
         .filter((row): row is BenchmarkRow => row.fps !== undefined);
     });
   }
