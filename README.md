@@ -19,7 +19,7 @@ Classifies GPUs based on their 3D rendering benchmark score allowing the develop
 
 ## Demo
 
-[Live demo](https://timvanscherpenzeel.github.io/detect-gpu/)
+[Live demo](https://codesandbox.io/s/jolly-clarke-cjxb3?file=/src/index.js)
 
 ## Installation
 
