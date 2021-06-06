@@ -1,9 +1,14 @@
 # CHANGELOG
 
+# 3.0.1
+
+- Update README.md
+- Update benchmarks
+
 # 3.0.0
 
 - Fixed SSR functionality
-- Changed 'IS_SRR' tier type to 'SSR' __BREAKING CHANGE__
+- Changed 'IS_SRR' tier type to 'SSR' **BREAKING CHANGE**
 - Fixed issue where errors were being thrown when running in non-browser environments
 - Removed undefined from return type of `loadBenchmarks` override
 
