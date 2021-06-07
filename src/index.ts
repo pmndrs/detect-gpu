@@ -28,7 +28,7 @@ export interface GetGPUTier {
    * Whether to fail if the system performance is low or if no hardware GPU is
    * available.
    *
-   * @default true
+   * @default false
    */
   failIfMajorPerformanceCaveat?: boolean;
   /**
@@ -110,9 +110,9 @@ export const getGPUTier = async ({
     isMobile = !!deviceInfo?.isMobile,
     screenSize = window.screen,
     loadBenchmarks = async (file: string) => {
-      const data: ModelEntry[] = await fetch(
-        `${benchmarksURL}/${file}`
-      ).then((response) => response.json());
+      const data: ModelEntry[] = await fetch(`${benchmarksURL}/${file}`).then(
+        (response) => response.json()
+      );
 
       // Remove version tag
       data.shift();
