@@ -1,21 +1,11 @@
 # Detect GPU
 
-[![Build Status](https://travis-ci.com/TimvanScherpenzeel/detect-gpu.svg?branch=master)](https://travis-ci.com/TimvanScherpenzeel/detect-gpu)
+[![Build Status](https://travis-ci.com/pmndrs/detect-gpu.svg?branch=master)](https://travis-ci.com/pmndrs/detect-gpu)
 [![npm version](https://badge.fury.io/js/detect-gpu.svg)](https://badge.fury.io/js/detect-gpu)
 [![gzip size](https://img.badgesize.io/https:/unpkg.com/detect-gpu/dist/detect-gpu.esm.js?compression=gzip)](https://unpkg.com/detect-gpu)
 [![install size](https://packagephobia.now.sh/badge?p=detect-gpu)](https://packagephobia.now.sh/result?p=detect-gpu)
 
 Classifies GPUs based on their 3D rendering benchmark score allowing the developer to provide sensible default settings for graphically intensive applications. Think of it like a user-agent detection for the GPU but more powerful.
-
-## Sponsor
-
-[![BTC](https://img.shields.io/badge/BTC-3JK7LX5JsSYTKja16eGmDtjKfyTexVwB8z-f5f5f5?logo=bitcoin)](https://blockchain.com/btc/address/3JK7LX5JsSYTKja16eGmDtjKfyTexVwB8z)
-
-[![ETH](https://img.shields.io/badge/ETH-0xDd324578a724Af06B9c39E3351C3627Cb85D85cA-f5f5f5?logo=ethereum)](https://blockchain.com/eth/address/0xDd324578a724Af06B9c39E3351C3627Cb85D85cA)
-
-[![DASH](https://img.shields.io/badge/DASH-XpwH46HxvfNsvtopc4734vSdQdjhounzX7-f5f5f5?logo=dash)](https://explorer.dash.org/insight/address/XpwH46HxvfNsvtopc4734vSdQdjhounzX7)
-
-[![LTC](https://img.shields.io/badge/LTC-METUJrwmejUVFGdrzgVU6i6f1jxxyrKRTc-f5f5f5?logo=litecoin)](https://live.blockcypher.com/ltc/address/METUJrwmejUVFGdrzgVU6i6f1jxxyrKRTc/)
 
 ## Demo
 
@@ -23,7 +13,7 @@ Classifies GPUs based on their 3D rendering benchmark score allowing the develop
 
 ## Installation
 
-By default we use the [UNPKG](https://unpkg.com) CDN to host the benchmark data. If you would like to serve the benchmark data yourself download the required benchmarking data from [benchmarks.tar.gz](https://github.com/TimvanScherpenzeel/detect-gpu/raw/master/benchmarks.tar.gz) and serve it from a public directory.
+By default we use the [UNPKG](https://unpkg.com) CDN to host the benchmark data. If you would like to serve the benchmark data yourself download the required benchmarking data from [benchmarks.tar.gz](https://github.com/pmndrs/detect-gpu/raw/master/benchmarks.tar.gz) and serve it from a public directory.
 
 Make sure you have [Node.js](http://nodejs.org/) installed.
 
@@ -123,6 +113,6 @@ Special care has been taken to make sure all browsers that support `WebGL` are a
 
 ## Licence
 
-My work is released under the [MIT license](https://raw.githubusercontent.com/TimvanScherpenzeel/detect-gpu/master/LICENSE).
+My work is released under the [MIT license](https://raw.githubusercontent.com/pmndrs/detect-gpu/master/LICENSE).
 
 `detect-gpu` uses both mobile and desktop benchmarking scores from [https://gfxbench.com](https://gfxbench.com).

@@ -1,5 +1,5 @@
 export const getGPUVersion = (model: string) => {
-  model = model.replace(/\([^\)]+\)/, '');
+  model = model.replace(/\([^)]+\)/, '');
 
   const matches =
     // First set of digits
