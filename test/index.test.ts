@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 // Data
 import { RENDERER_DESKTOP, RENDERER_MOBILE, RENDERER_TABLET } from './data';
 
