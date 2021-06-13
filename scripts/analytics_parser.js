@@ -22,7 +22,7 @@ function getRendererData(type, renderers) {
 }
 
 function parseAnalytics(file) {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     csv({ noheader: true })
       .fromFile(file)
       .then((data) => {
@@ -39,9 +39,9 @@ function parseAnalytics(file) {
         const desktopData = getRendererData('desktop', entries);
 
         resolve({
+          desktopData,
           mobileData,
           tabletData,
-          desktopData,
         });
       });
   });
