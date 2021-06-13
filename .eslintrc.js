@@ -8,8 +8,14 @@ module.exports = {
   },
   extends: [
     'plugin:@typescript-eslint/recommended',
-    'prettier/@typescript-eslint',
+    'prettier',
   ],
+  overrides: [{
+    files: ['*.js'],
+    rules: {
+      '@typescript-eslint/no-var-requires': 'off'
+    }
+  }],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 2018,
@@ -26,6 +32,6 @@ module.exports = {
         caseSensitive: true,
         natural: false,
       },
-    ],
-  },
+    ]
+  }
 };

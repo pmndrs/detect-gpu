@@ -33,7 +33,7 @@
   ],
   "scripts": {
     "start": "rollup -c rollup/config.lib.js -w",
-    "lint": "eslint \"src/**/*.ts\" \"test/**/*.ts\" \"rollup/**/*.ts\" --fix --cache --cache-location ~/.eslintcache/eslintcache",
+    "lint": "eslint \"src/**/*.ts\" \"test/**/*.ts\" \"test/**/*.test.ts\" \"rollup/**/*.ts\" \"scripts/**/*.ts\" \"scripts/**/*.js\" --fix --cache --cache-location ~/.eslintcache/eslintcache",
     "test": "jest --verbose=false",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
