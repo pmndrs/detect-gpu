@@ -1,9 +1,10 @@
 # CHANGELOG
 
-# 3.0.1
+# 3.1.0
 
 - Update README.md
-- Update benchmarks
+- Update benchmarks (added support for RTX 3060 / RTX 3070)
+- Fixed test suite
 
 # 3.0.0
 
