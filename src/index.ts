@@ -148,7 +148,7 @@ export const getGPUTier = async ({
     try {
       benchmarks = await benchmark;
     } catch (error) {
-      console.log(error);
+      debug?.("queryBenchmarks - couldn't load benchmark:", { error });
       return;
     }
 

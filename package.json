@@ -37,6 +37,7 @@
     "test": "jest --verbose=false",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
+    "test:debug": "node --inspect-brk ./node_modules/jest/bin/jest --runInBand --no-cache --watch",
     "prebuild": "rimraf dist",
     "build": "rollup -c rollup/config.lib.js",
     "example": "rollup -w -c rollup/config.dev.ts",
