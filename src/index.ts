@@ -291,7 +291,7 @@ export const getGPUTier = async ({
     )[0];
     return blocklistedModel
       ? toResult(0, 'BLOCKLISTED', blocklistedModel)
-      : toResult(1, 'FALLBACK');
+      : toResult(1, 'FALLBACK', renderer);
   }
 
   const [, fps, model, device] = results.sort(
