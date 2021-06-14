@@ -1,6 +1,10 @@
 # CHANGELOG
 
-# 3.1.2
+# 3.1.3
+
+- Build files included the wrong benchmark version number
+
+# 3.1.2 (IGNORE)
 
 - iPhone 12 Pro Max was being reported as iPhone 11 Pro Max due to wrong resolution in `scripts/internalBenchmarkResults.ts`
 
