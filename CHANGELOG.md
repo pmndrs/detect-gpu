@@ -1,5 +1,9 @@
 # CHANGELOG
 
+# 3.1.1
+
+- Return raw renderer string if WebGL renderer has been found but is not included in the benchmarks
+
 # 3.1.0
 
 - Update README.md
