@@ -49,11 +49,12 @@ export const getWebGLFeatures = (gl: WebGLRenderingContext) => {
   if (debugShader) {
     gl.shaderSource(
       debugShader,
-      `#version ${gl instanceof WebGLRenderingContext ? '100' : '300 es'}
-          void main() {
-            gl_Position = vec4(__VERSION__, 1.0, 1.0, 1.0);
-          }
-        `
+      // __VERSION__ is a predefined macro in WebGL ES
+      /* glsl */ `
+        void main() {
+          gl_Position = vec4(__VERSION__, 1.0, 1.0, 1.0);
+        }
+      `
     );
 
     gl.compileShader(debugShader);
