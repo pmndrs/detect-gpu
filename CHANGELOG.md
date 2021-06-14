@@ -3,6 +3,7 @@
 # 3.1.3
 
 - Build files included the wrong benchmark version number
+- Removed unused Travis build file
 
 # 3.1.2 (IGNORE)
 
