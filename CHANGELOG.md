@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 3.1.3
+
+- Build files included the wrong benchmark version number
+- Removed unused Travis build file
+
+# 3.1.2 (IGNORE)
+
+- iPhone 12 Pro Max was being reported as iPhone 11 Pro Max due to wrong resolution in `scripts/internalBenchmarkResults.ts`
+
 # 3.1.1
 
 - Return raw renderer string if WebGL renderer has been found but is not included in the benchmarks
