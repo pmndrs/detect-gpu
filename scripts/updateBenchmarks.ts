@@ -7,7 +7,9 @@ import fs from 'fs';
 // Application
 import { BLOCKLISTED_GPUS } from '../src/internal/blocklistedGPUS';
 import { getGPUVersion } from '../src/internal/getGPUVersion';
-import { internalBenchmarkResults } from './internalBenchmarkResults';
+import { manualBenchmarkResults } from './manualBenchmarkResults';
+
+// Types
 import { BenchmarkRow } from './types';
 
 // Package
@@ -41,7 +43,7 @@ const outputFile = async (name: string, content: any) => {
 (async () => {
   const browser = await puppeteer.launch({ headless: true });
   let benchmarks = await getBenchmarks();
-  benchmarks.push(...internalBenchmarkResults);
+  benchmarks.push(...manualBenchmarkResults);
   benchmarks = benchmarks
     .map((benchmark) => {
       benchmark.gpu = benchmark.gpu
@@ -79,7 +81,7 @@ const outputFile = async (name: string, content: any) => {
         gpuName,
         formFactorLookup,
         formFactor,
-      } = (window as unknown) as {
+      } = window as unknown as {
         firstResult: string[];
         deviceName: string[];
         fpses: string[];

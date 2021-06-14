@@ -1,6 +1,7 @@
+// Types
 import { BenchmarkRow } from './types';
 
-export const internalBenchmarkResults: BenchmarkRow[] = [
+export const manualBenchmarkResults: BenchmarkRow[] = [
   {
     date: '2021.01.29',
     device: 'ONEPLUS A6003',

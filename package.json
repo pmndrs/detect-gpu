@@ -42,7 +42,7 @@
     "build": "rollup -c rollup/config.lib.js",
     "example": "rollup -w -c rollup/config.dev.ts",
     "parse-analytics": "node ./scripts/analytics_parser.js",
-    "update-benchmarks": "rimraf benchmarks && mkdir -p benchmarks && ts-node -O '{\"module\":\"commonjs\"}' ./scripts/update_benchmarks.ts && tar -czvf benchmarks.tar.gz benchmarks/*.json"
+    "update-benchmarks": "rimraf benchmarks && mkdir -p benchmarks && ts-node -O '{\"module\":\"commonjs\"}' ./scripts/updateBenchmarks.ts && tar -czvf benchmarks.tar.gz benchmarks/*.json"
   },
   "dependencies": {
     "webgl-constants": "^1.1.1"
