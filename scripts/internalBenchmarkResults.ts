@@ -95,7 +95,7 @@ export const internalBenchmarkResults: BenchmarkRow[] = [
     fps: 60,
     gpu: 'Apple A14 GPU',
     mobile: true,
-    resolution: '2688 x 1242',
+    resolution: '2778 x 1284',
   },
   {
     date: '2021.01.29',
