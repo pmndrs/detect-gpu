@@ -254,6 +254,7 @@ export const getGPUTier = async ({
   });
 
   let renderers: string[];
+  let rawRenderer = '';
 
   if (!renderer) {
     const gl =
@@ -274,6 +275,7 @@ export const getGPUTier = async ({
       return toResult(1, 'FALLBACK');
     }
 
+    rawRenderer = renderer;
     renderer = cleanRenderer(renderer);
     renderers = deobfuscateRenderer(gl, renderer, isMobile);
   } else {
@@ -291,7 +293,7 @@ export const getGPUTier = async ({
     )[0];
     return blocklistedModel
       ? toResult(0, 'BLOCKLISTED', blocklistedModel)
-      : toResult(1, 'FALLBACK', renderer);
+      : toResult(1, 'FALLBACK', `${renderer} (${rawRenderer})`);
   }
 
   const [, fps, model, device] = results.sort(
