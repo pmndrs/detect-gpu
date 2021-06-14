@@ -8,7 +8,8 @@ Classifies GPUs based on their 3D rendering benchmark score allowing the develop
 
 ## Demo
 
-[Live demo](https://codesandbox.io/s/jolly-clarke-cjxb3?file=/src/index.js)
+- [Github demo](https://pmndrs.github.io/detect-gpu/)
+- [Sandbox demo](https://codesandbox.io/s/jolly-clarke-cjxb3?file=/src/index.js)
 
 ## Installation
 
