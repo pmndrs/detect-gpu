@@ -1,5 +1,9 @@
 # CHANGELOG
 
+# 3.1.2
+
+- iPhone 12 Pro Max was being reported as iPhone 11 Pro Max due to wrong resolution in `scripts/internalBenchmarkResults.ts`
+
 # 3.1.1
 
 - Return raw renderer string if WebGL renderer has been found but is not included in the benchmarks
