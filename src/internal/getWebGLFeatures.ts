@@ -41,6 +41,7 @@ export const getWebGLFeatures = (gl: WebGLRenderingContext) => {
   const glDrawBufferExtension = gl.getExtension('WEBGL_draw_buffers');
   const debugShaderExtension = gl.getExtension('WEBGL_debug_shaders');
 
+  // SEE: https://github.com/luruke/gl-backend
   const debugShader = gl.createShader(gl.VERTEX_SHADER);
   let debugShaderSource = '';
 
