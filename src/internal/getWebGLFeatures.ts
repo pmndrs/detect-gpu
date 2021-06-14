@@ -4,6 +4,7 @@ import {
   GL_ALIASED_POINT_SIZE_RANGE,
   GL_ALPHA_BITS,
   GL_BLUE_BITS,
+  GL_COMPILE_STATUS,
   GL_DEPTH_BITS,
   GL_FRAGMENT_SHADER,
   GL_GREEN_BITS,
@@ -42,7 +43,7 @@ export const getWebGLFeatures = (gl: WebGLRenderingContext) => {
   const debugShaderExtension = gl.getExtension('WEBGL_debug_shaders');
 
   // SEE: https://github.com/luruke/gl-backend
-  const debugShader = gl.createShader(gl.VERTEX_SHADER);
+  const debugShader = gl.createShader(GL_VERTEX_SHADER);
   let debugShaderSource = '';
 
   if (debugShader) {
@@ -57,7 +58,7 @@ export const getWebGLFeatures = (gl: WebGLRenderingContext) => {
 
     gl.compileShader(debugShader);
 
-    if (!gl.getShaderParameter(debugShader, gl.COMPILE_STATUS)) {
+    if (!gl.getShaderParameter(debugShader, GL_COMPILE_STATUS)) {
       return console.error('invalid shader', gl.getShaderInfoLog(debugShader));
     }
 
