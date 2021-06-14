@@ -94,27 +94,29 @@ export const deobfuscateAppleGPU = (
       gl.deleteBuffer(vertexArray);
 
       renderers =
-        ({
-          // iPhone 11, 11 Pro, 11 Pro Max (Apple A13 GPU)
-          // iPad Pro (Apple A12X GPU)
-          // iPhone XS, XS Max, XR (Apple A12 GPU)
-          // iPhone 8, 8 Plus (Apple A11 GPU)
-          '801621810': deviceInfo?.isIpad
-            ? ['apple a12x gpu']
-            : [
-                'apple a11 gpu',
-                'apple a12 gpu',
-                'apple a13 gpu',
-                'apple a14 gpu',
-              ],
-          // iPhone SE, 6S, 6S Plus (Apple A9 GPU)
-          // iPhone 7, 7 Plus (Apple A10 GPU)
-          // iPad Pro (Apple A10X GPU)
-          '8016218135': deviceInfo?.isIpad
-            ? ['apple a9x gpu', 'apple a10 gpu', 'apple a10x gpu']
-            : ['apple a9 gpu', 'apple a10 gpu'],
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        } as any)[pixels.join('')] || renderers;
+        (
+          {
+            // iPhone 11, 11 Pro, 11 Pro Max (Apple A13 GPU)
+            // iPad Pro (Apple A12X GPU)
+            // iPhone XS, XS Max, XR (Apple A12 GPU)
+            // iPhone 8, 8 Plus (Apple A11 GPU)
+            '801621810': deviceInfo?.isIpad
+              ? ['apple a12x gpu']
+              : [
+                  'apple a11 gpu',
+                  'apple a12 gpu',
+                  'apple a13 gpu',
+                  'apple a14 gpu',
+                ],
+            // iPhone SE, 6S, 6S Plus (Apple A9 GPU)
+            // iPhone 7, 7 Plus (Apple A10 GPU)
+            // iPad Pro (Apple A10X GPU)
+            '8016218135': deviceInfo?.isIpad
+              ? ['apple a9x gpu', 'apple a10 gpu', 'apple a10x gpu']
+              : ['apple a9 gpu', 'apple a10 gpu'],
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          } as any
+        )[pixels.join('')] || renderers;
 
       debug?.(
         `iOS 12.2+ obfuscates its GPU type and version, using closest matches: ${renderers}`

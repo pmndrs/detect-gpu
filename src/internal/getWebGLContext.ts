@@ -15,7 +15,7 @@ export const getWebGLContext = (
     depth: false,
     failIfMajorPerformanceCaveat,
     powerPreference: 'high-performance',
-    stencil: false,
+    stencil: true,
   };
 
   // Workaround for Safari 12, which otherwise crashes with powerPreference set

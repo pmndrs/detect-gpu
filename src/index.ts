@@ -9,6 +9,7 @@ import { deviceInfo } from './internal/deviceInfo';
 import { getLevenshteinDistance } from './internal/getLevenshteinDistance';
 import { getGPUVersion } from './internal/getGPUVersion';
 import { getWebGLContext } from './internal/getWebGLContext';
+import { getWebGLFeatures } from './internal/getWebGLFeatures';
 import { isSSR } from './internal/ssr';
 
 // Types
@@ -238,14 +239,23 @@ export const getGPUTier = async ({
     return [minDistance, fps, gpu, device] as const;
   };
 
-  const toResult = (
-    tier: number,
-    type: TierType,
-    gpu?: string,
-    fps?: number,
-    device?: string
-  ) => ({
+  const toResult = ({
     device,
+    features,
+    fps,
+    gpu,
+    tier,
+    type,
+  }: {
+    device?: string;
+    features?: any;
+    fps?: number;
+    gpu?: string;
+    tier: number;
+    type: TierType;
+  }) => ({
+    device,
+    features,
     fps,
     gpu,
     isMobile,
@@ -253,6 +263,7 @@ export const getGPUTier = async ({
     type,
   });
 
+  let features: any = {};
   let renderers: string[];
   let rawRenderer = '';
 
@@ -262,7 +273,7 @@ export const getGPUTier = async ({
       getWebGLContext(deviceInfo?.isSafari12, failIfMajorPerformanceCaveat);
 
     if (!gl) {
-      return toResult(0, 'WEBGL_UNSUPPORTED');
+      return toResult({ tier: 0, type: 'WEBGL_UNSUPPORTED' });
     }
 
     const debugRendererInfo = gl.getExtension('WEBGL_debug_renderer_info');
@@ -272,8 +283,10 @@ export const getGPUTier = async ({
     }
 
     if (!renderer) {
-      return toResult(1, 'FALLBACK');
+      return toResult({ tier: 1, type: 'FALLBACK' });
     }
+
+    features = getWebGLFeatures(gl);
 
     rawRenderer = renderer;
     renderer = cleanRenderer(renderer);
@@ -282,6 +295,7 @@ export const getGPUTier = async ({
     renderer = cleanRenderer(renderer);
     renderers = [renderer];
   }
+
   const results = (await Promise.all(renderers.map(queryBenchmarks))).filter(
     (result): result is Exclude<typeof result, undefined> => !!result
   );
@@ -292,8 +306,18 @@ export const getGPUTier = async ({
       (blocklistedModel) => renderer!.indexOf(blocklistedModel) > -1
     )[0];
     return blocklistedModel
-      ? toResult(0, 'BLOCKLISTED', blocklistedModel)
-      : toResult(1, 'FALLBACK', `${renderer} (${rawRenderer})`);
+      ? toResult({
+          features,
+          gpu: blocklistedModel,
+          tier: 0,
+          type: 'BLOCKLISTED',
+        })
+      : toResult({
+          features,
+          gpu: `${renderer} (${rawRenderer})`,
+          tier: 1,
+          type: 'FALLBACK',
+        });
   }
 
   const [, fps, model, device] = results.sort(
@@ -301,7 +325,14 @@ export const getGPUTier = async ({
   )[0];
 
   if (fps === -1) {
-    return toResult(0, 'BLOCKLISTED', model, fps, device);
+    return toResult({
+      device,
+      features,
+      fps,
+      gpu: model,
+      tier: 0,
+      type: 'BLOCKLISTED',
+    });
   }
 
   const tiers = isMobile ? mobileTiers : desktopTiers;
@@ -313,5 +344,12 @@ export const getGPUTier = async ({
     }
   }
 
-  return toResult(tier, 'BENCHMARK', model, fps, device);
+  return toResult({
+    device,
+    features,
+    fps,
+    gpu: model,
+    tier,
+    type: 'BENCHMARK',
+  });
 };
