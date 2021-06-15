@@ -6,7 +6,7 @@ on:
 
 jobs:
   auto-update:
-    name: Automated benchmarks updaet
+    name: Automated benchmarks update
     runs-on: Ubuntu-20.04
 
     steps:
