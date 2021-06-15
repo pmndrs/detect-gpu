@@ -29,15 +29,15 @@ jobs:
       - run: yarn install --prefers-offline
         if: ${{ steps.yarn-cache.outputs.cache-hit == 'true' }}
 
+      - name: Bump patch
+        run: npm version patch
+
       - name: Update
         id: update
         run: yarn run update-benchmarks
 
       - name: Build final result
         run: yarn build
-
-      - name: Bump patch
-        run: npm version patch
 
       - uses: JS-DevTools/npm-publish@v1
         with:
