@@ -33,6 +33,17 @@ jobs:
         id: update
         run: yarn run update-benchmarks
 
+      - name: Build final result
+        run: yarn build
+
+      - name: Bump patch
+        run: npm version patch
+
+      - uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+          access: public
+
       - name: Push Changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
