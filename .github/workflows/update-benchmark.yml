@@ -30,7 +30,7 @@ jobs:
         if: ${{ steps.yarn-cache.outputs.cache-hit == 'true' }}
 
       - name: Bump patch
-        run: npm version patch
+        run: GIT_AUTHOR_EMAIL="actions@github.com" && GIT_AUTHOR_NAME="GitHub Actions" && npm version patch
 
       - name: Update
         id: update
