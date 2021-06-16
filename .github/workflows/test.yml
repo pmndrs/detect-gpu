@@ -1,0 +1,38 @@
+name: Run actions on Pull Request or Push
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+    types:
+      - opened
+      - synchronize
+      - reopened
+      - ready_for_review
+
+jobs:
+  test:
+    name: Run test & lint
+    runs-on: Ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16.x'
+      - uses: actions/cache@v2
+        id: yarn-cache
+        with:
+          path: |
+            node_modules
+            */*/node_modules
+          key: ${{ runner.os }}-install-${{ hashFiles('**/yarn.lock') }}
+      - run: yarn install
+        if: ${{ steps.yarn-cache.outputs.cache-hit != 'true' }}
+
+      - run: yarn install --prefers-offline
+        if: ${{ steps.yarn-cache.outputs.cache-hit == 'true' }}
+
+      - run: yarn run test
+      - run: yarn run lint

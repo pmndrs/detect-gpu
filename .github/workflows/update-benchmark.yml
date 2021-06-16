@@ -1,0 +1,52 @@
+name: Weekly update
+on:
+  schedule:
+    - cron: "0 0 * * 0"
+  workflow_dispatch:
+
+jobs:
+  auto-update:
+    name: Automated benchmarks update
+    runs-on: Ubuntu-20.04
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref }}
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16.x'
+      - uses: actions/cache@v2
+        id: yarn-cache
+        with:
+          path: |
+            node_modules
+            */*/node_modules
+          key: ${{ runner.os }}-install-${{ hashFiles('**/yarn.lock') }}
+      - run: yarn install
+        if: ${{ steps.yarn-cache.outputs.cache-hit != 'true' }}
+
+      - run: yarn install --prefers-offline
+        if: ${{ steps.yarn-cache.outputs.cache-hit == 'true' }}
+
+      - name: Bump patch
+        run: npm version patch
+
+      - name: Update
+        id: update
+        run: yarn run update-benchmarks
+
+      - name: Build final result
+        run: yarn build
+
+      - uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+          access: public
+
+      - name: Push Changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Automated weekly update of the benchmark.
+          skip_dirty_check: true
+          skip_fetch: true
