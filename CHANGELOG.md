@@ -1,5 +1,7 @@
 # CHANGELOG
 
+Patch version updates, unless noted otherwise, are automated benchmark updates ran weekly by our CI.
+
 # 3.1.3
 
 - Build files included the wrong benchmark version number
