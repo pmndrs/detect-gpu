@@ -11,7 +11,7 @@ export const cleanRenderer = (renderer: string) => {
     // Strip off [number]gb & strip off direct3d and after - for example:
     // 'Radeon (TM) RX 470 Series Direct3D11 vs_5_0 ps_5_0' becomes
     // 'Radeon (TM) RX 470 Series'
-    .replace(/\s(\d{1,2}gb|direct3d)|\(r\)| \([^)]+\)$/g, '');
+    .replace(/\s(\d{1,2}gb|direct3d.+$)|\(r\)| \([^)]+\)$/g, '');
 
   debug?.('cleanRenderer - renderer cleaned to', { renderer });
 
