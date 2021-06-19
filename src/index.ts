@@ -89,6 +89,12 @@ export type ModelEntry = [string, string, 0 | 1, ModelEntryScreen[]];
 
 const debug = false ? console.log : undefined;
 
+if (!String.prototype.includes) {
+  String.prototype.includes = function(search, start) {
+    return this.indexOf(search, start) !== -1;
+  }
+}
+
 export const getGPUTier = async ({
   mobileTiers = [0, 15, 30, 60],
   desktopTiers = [0, 15, 30, 60],
@@ -307,9 +313,9 @@ export const getGPUTier = async ({
   const tiers = isMobile ? mobileTiers : desktopTiers;
   let tier = 0;
 
-  for (const [index, tierFPS] of tiers.entries()) {
-    if (fps >= tierFPS) {
-      tier = index;
+  for (let i = 0; i < tiers.length; i++) {
+    if (fps >= tiers[i]) {
+      tier = i;
     }
   }
 

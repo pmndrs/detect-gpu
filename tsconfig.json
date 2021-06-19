@@ -14,7 +14,6 @@
     "declarationDir": "dist/types",
     "outDir": "dist/lib",
     "typeRoots": ["node_modules/@types"],
-    "downlevelIteration": true,
   },
   "include": ["src/**/*.ts"],
   "exclude": ["node_modules"]
