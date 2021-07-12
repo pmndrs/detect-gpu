@@ -89,12 +89,6 @@ export type ModelEntry = [string, string, 0 | 1, ModelEntryScreen[]];
 
 const debug = false ? console.log : undefined;
 
-if (!String.prototype.includes) {
-  String.prototype.includes = function(search, start) {
-    return this.indexOf(search, start) !== -1;
-  }
-}
-
 export const getGPUTier = async ({
   mobileTiers = [0, 15, 30, 60],
   desktopTiers = [0, 15, 30, 60],
