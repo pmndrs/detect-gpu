@@ -1,6 +1,6 @@
 {
   "name": "detect-gpu",
-  "version": "3.1.8",
+  "version": "3.1.9",
   "description": "Classify GPU's based on their benchmark score in order to provide an adaptive experience.",
   "author": "Tim van Scherpenzeel",
   "license": "MIT",
