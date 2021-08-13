@@ -92,29 +92,63 @@ export const deobfuscateAppleGPU = (
 
       gl.deleteProgram(program);
       gl.deleteBuffer(vertexArray);
-
-      renderers =
-        ({
+      const id = pixels.join('');
+      const { older, newer } = deviceInfo?.isIpad
+        ? {
+          newer: [
+            'apple a12 gpu', // ipad 8th gen / ipad air 3rd gen / ipad mini 5th gen
+            'apple a12x gpu', // pro 11 1st gen / pro 12.9 3rd gen
+            'apple a12z gpu', // pro 12.9 4th gen / pro 11 2nd gen
+            'apple a14 gpu', // ipad air 4th gen
+            'apple m1 gpu' // ipad pro 11 2nd gen / 12.9 5th gen
+          ],
+          older: [
+              // Commented out because they don't support ios version >= 13
+              // 'apple a4 gpu', // ipad 1st gen
+              // 'apple a5 gpu', // ipad 2 / ipad mini 1st gen
+              // 'apple a5x gpu', // ipad 3rd gen
+              // 'apple a6x gpu', // ipad 4th gen
+              'apple a8 gpu', // pad mini 4
+              'apple a8x gpu', // ipad air 2
+              'apple a9 gpu', // ipad 5th gen
+              'apple a9x gpu', // pro 9.7 2016 / pro 12.9 2015
+              'apple a10 gpu', // ipad 7th gen / ipad 6th gen
+              'apple a10x gpu' // pro 10.5 2017 / pro 12.9 2nd gen, 2017
+            ]
+          }
+        : {
+            newer: [
+              'apple a11 gpu', // 8 / 8 plus / X
+              'apple a12 gpu', // XS / XS Max / XR
+              'apple a13 gpu', // 11 / 11 pro / 11 pro max / se 2nd gen
+              'apple a14 gpu' // 12 / 12 mini / 12 pro / 12 pro max
+            ],
+            older: [
+              // Commented out because they don't support ios version >= 13
+              // 'apple a4 gpu', // 4 / ipod touch 4th gen
+              // 'apple a5 gpu', // 4S / ipod touch 5th gen
+              // 'apple a6 gpu', // 5 / 5C
+              // 'apple a7 gpu', // 5S
+              // 'aple a8 gpu', // 6 / 6 plus / ipod touch 6th gen
+              'apple a9 gpu', // 6s / 6s plus/ se 1st gen
+              'apple a10 gpu' // 7 / 7 plus / iPod Touch 7th gen
+            ]
+          };
+      renderers = (
+        {
           // iPhone 11, 11 Pro, 11 Pro Max (Apple A13 GPU)
           // iPad Pro (Apple A12X GPU)
           // iPhone XS, XS Max, XR (Apple A12 GPU)
           // iPhone 8, 8 Plus (Apple A11 GPU)
-          '801621810': deviceInfo?.isIpad
-            ? ['apple a12x gpu']
-            : [
-                'apple a11 gpu',
-                'apple a12 gpu',
-                'apple a13 gpu',
-                'apple a14 gpu',
-              ],
+          '801621810': newer,
+          '80162181255': newer,
           // iPhone SE, 6S, 6S Plus (Apple A9 GPU)
           // iPhone 7, 7 Plus (Apple A10 GPU)
           // iPad Pro (Apple A10X GPU)
-          '8016218135': deviceInfo?.isIpad
-            ? ['apple a9x gpu', 'apple a10 gpu', 'apple a10x gpu']
-            : ['apple a9 gpu', 'apple a10 gpu'],
+          '8016218135': older,
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        } as any)[pixels.join('')] || renderers;
+        } as any
+      )[id] ?? [...newer, ...older];
 
       debug?.(
         `iOS 12.2+ obfuscates its GPU type and version, using closest matches: ${renderers}`
