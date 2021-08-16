@@ -1,4 +1,4 @@
-export const getGPUVersion = (model: string) => {
+export function getGPUVersion(model: string) {
   model = model.replace(/\([^)]+\)/, '');
 
   const matches =
@@ -10,4 +10,4 @@ export const getGPUVersion = (model: string) => {
   // Remove any non-word characters and also remove 'amd' which could be matched
   // in the clause above
   return matches?.join('').replace(/\W|amd/g, '') ?? '';
-};
+}

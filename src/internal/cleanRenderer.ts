@@ -1,6 +1,6 @@
 const debug = false ? console.log : undefined;
 
-export const cleanRenderer = (renderer: string) => {
+export function cleanRenderer(renderer: string) {
   debug?.('cleanRenderer', { renderer });
 
   renderer = renderer

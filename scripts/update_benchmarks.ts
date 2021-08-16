@@ -31,16 +31,8 @@ const TYPES = [
 
 type Optional<T, K extends keyof T> = Pick<Partial<T>, K> & Omit<T, K>;
 
-const outputFile = async (name: string, content: any) => {
-  const file = `./benchmarks/${name}`;
-  const data = JSON.stringify(content);
-  await fs.promises.writeFile(file, data);
-  console.log(`Exported ${file}`);
-};
-
 (async () => {
-  const browser = await puppeteer.launch({ headless: true });
-  let benchmarks = await getBenchmarks();
+  let benchmarks = await fetchBenchmarks();
   benchmarks.push(...internalBenchmarkResults);
   benchmarks = benchmarks
     .map((benchmark) => {
@@ -61,58 +53,8 @@ const outputFile = async (name: string, content: any) => {
     .sort((a, b) => a.date.localeCompare(b.date));
 
   await Promise.all([true, false].map(exportBenchmarks));
-  await browser.close();
 
-  async function getBenchmarks() {
-    const page = await browser.newPage();
-
-    await page.goto(BENCHMARK_URL, { waitUntil: 'networkidle2' });
-
-    return await page.evaluate((): BenchmarkRow[] => {
-      const {
-        firstResult,
-        deviceName,
-        fpses,
-        gpuNameLookup,
-        screenSizeLookup,
-        screenSizes,
-        gpuName,
-        formFactorLookup,
-        formFactor,
-      } = (window as unknown) as {
-        firstResult: string[];
-        deviceName: string[];
-        fpses: string[];
-        gpuNameLookup: string[];
-        screenSizeLookup: string[];
-        screenSizes: number[];
-        gpuName: number[];
-        formFactorLookup: string[];
-        formFactor: number[];
-      };
-
-      return gpuName
-        .map(
-          (gpuIndex, index): Optional<BenchmarkRow, 'fps'> => ({
-            date: firstResult[index],
-            device: deviceName[index].toLowerCase(),
-            fps:
-              fpses[index] === ''
-                ? undefined
-                : Math.round(Number(fpses[index].replace(/[^\d.]+/g, ''))),
-            gpu: gpuNameLookup[gpuIndex],
-            mobile: formFactorLookup[formFactor[index]].includes('mobile'),
-            resolution: screenSizeLookup[screenSizes[index]],
-          })
-        )
-        .filter((row): row is BenchmarkRow => row.fps !== undefined);
-    });
-  }
-
-  async function exportBenchmarks(isMobile: boolean) {
-    const getOutputFilename = (type: string) =>
-      `${isMobile ? 'm' : 'd'}-${type}.json`;
-
+  async function exportBenchmarks(isMobile: boolean): Promise<any> {
     const rows = benchmarks.filter(
       ({ mobile, gpu }) =>
         mobile === isMobile &&
@@ -128,52 +70,97 @@ const outputFile = async (name: string, content: any) => {
     );
 
     return Promise.all([
-      ...TYPES.map((type) => {
-        const typeModels = rowsByGpu
+      ...TYPES.map(async (type) => {
+        const devicesByGpu = rowsByGpu
           .filter(([{ gpu }]) => gpu.includes(type))
           .map((rows) => {
             const { gpu } = rows[0];
-            const isBlocklisted = BLOCKLISTED_GPUS.find((blocklistedModel) =>
+            const blocklisted = BLOCKLISTED_GPUS.find((blocklistedModel) =>
               gpu.includes(blocklistedModel)
             );
-
-            return [
-              gpu,
-              getGPUVersion(gpu),
-              isBlocklisted ? 1 : 0,
-              Object.entries(
-                rows.reduce(
-                  (
-                    fpsByResolution: { [k: string]: [string, number] },
-                    { resolution, fps, device }
-                  ) => {
-                    fpsByResolution[resolution] = [
-                      device,
-                      isBlocklisted ? -1 : fps,
-                    ];
-                    return fpsByResolution;
-                  },
-                  {}
-                )
+            const devices = Object.entries(
+              rows.reduce(
+                (
+                  fpsByResolution: { [k: string]: [string, number] },
+                  { resolution, fps, device }
+                ) => {
+                  fpsByResolution[resolution] = [
+                    device,
+                    blocklisted ? -1 : fps,
+                  ];
+                  return fpsByResolution;
+                },
+                {}
               )
-                .map(([resolution, [device, fps]]) => {
-                  const [width, height] = resolution.split(' x ').map(Number);
-
-                  return isMobile
-                    ? ([width, height, fps, device] as const)
-                    : ([width, height, fps] as const);
-                })
-                .sort(([aW, aH], [bW, bH]) => aW * aH - bW * bH),
-            ];
+            )
+              .map(([resolution, [device, fps]]) => {
+                const [width, height] = resolution.split(' x ').map(Number);
+                return { width, height, fps, device };
+              })
+              .sort(
+                ({ width: aW, height: aH }, { width: bW, height: bH }) =>
+                  aW * aH - bW * bH
+              );
+            return {
+              blocklisted,
+              devices,
+              gpu,
+              gpuVersion: getGPUVersion(gpu),
+            };
           });
 
-        if (typeModels.length === 0) {
+        if (devicesByGpu.length === 0) {
           return Promise.resolve();
         }
+        const outputFile = async (
+          type: string,
+          models: typeof devicesByGpu
+        ) => {
+          const serializedModels = models.map(
+            ({ gpu, gpuVersion, blocklisted, devices }) => [
+              gpu,
+              gpuVersion,
+              blocklisted ? 1 : 0,
+              devices.map(({ width, height, fps, device }) =>
+                isMobile ? [width, height, fps, device] : [width, height, fps]
+              ),
+            ]
+          );
+          const file = `./benchmarks/${isMobile ? 'm' : 'd'}-${type}.json`;
+          const data = JSON.stringify([version, ...serializedModels]);
+          await fs.promises.writeFile(file, data);
+          console.log(`Exported ${file}`);
+        };
 
-        const output = [version, ...typeModels];
-
-        return outputFile(getOutputFilename(type), output);
+        // Output ipads seperately from other ios devices:
+        if (type === 'apple' && isMobile) {
+          await Promise.all([
+            outputFile(
+              'apple-ipad',
+              devicesByGpu
+                .map((gpu) => ({
+                  ...gpu,
+                  devices: gpu.devices.filter(({ device }) =>
+                    device.includes('ipad')
+                  ),
+                }))
+                .filter(({ devices }) => devices.length > 0)
+            ),
+            outputFile(
+              'apple',
+              devicesByGpu
+                .map((gpu) => ({
+                  ...gpu,
+                  devices: gpu.devices.filter(
+                    ({ device }) => !device.includes('ipad')
+                  ),
+                }))
+                .filter(({ devices }) => devices.length > 0)
+            ),
+          ]);
+        } else {
+          await outputFile(type, devicesByGpu);
+        }
       }),
       // outputFile(getOutputFilename(`all-${isMobile ? 'm' : 'd'}`), rowsByGpu),
     ]);
@@ -181,3 +168,52 @@ const outputFile = async (name: string, content: any) => {
 })().catch((err) => {
   throw err;
 });
+
+async function fetchBenchmarks() {
+  const browser = await puppeteer.launch({ headless: true });
+  const page = await browser.newPage();
+
+  await page.goto(BENCHMARK_URL, { waitUntil: 'networkidle2' });
+
+  const benchmarks = await page.evaluate((): BenchmarkRow[] => {
+    const {
+      firstResult,
+      deviceName,
+      fpses,
+      gpuNameLookup,
+      screenSizeLookup,
+      screenSizes,
+      gpuName,
+      formFactorLookup,
+      formFactor,
+    } = window as unknown as {
+      firstResult: string[];
+      deviceName: string[];
+      fpses: string[];
+      gpuNameLookup: string[];
+      screenSizeLookup: string[];
+      screenSizes: number[];
+      gpuName: number[];
+      formFactorLookup: string[];
+      formFactor: number[];
+    };
+
+    return gpuName
+      .map(
+        (gpuIndex, index): Optional<BenchmarkRow, 'fps'> => ({
+          date: firstResult[index],
+          device: deviceName[index].toLowerCase(),
+          fps:
+            fpses[index] === ''
+              ? undefined
+              : Math.round(Number(fpses[index].replace(/[^\d.]+/g, ''))),
+          gpu: gpuNameLookup[gpuIndex],
+          mobile: formFactorLookup[formFactor[index]].includes('mobile'),
+          resolution: screenSizeLookup[screenSizes[index]],
+        })
+      )
+      .filter((row): row is BenchmarkRow => row.fps !== undefined);
+  });
+  await browser.close();
+  return benchmarks;
+}

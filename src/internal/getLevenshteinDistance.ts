@@ -5,7 +5,7 @@ const charCodeCache: number[] = [];
 // Compute the difference (distance) between two strings
 // SEE: https://en.wikipedia.org/wiki/Levenshtein_distance
 // CREDIT: https://github.com/sindresorhus/leven (version 3.1.0)
-export const getLevenshteinDistance = (left: string, right: string): number => {
+export function getLevenshteinDistance(left: string, right: string): number {
   if (left === right) {
     return 0;
   }
@@ -26,10 +26,8 @@ export const getLevenshteinDistance = (left: string, right: string): number => {
   // We can linearly drop suffix common to both strings since they
   // don't increase distance at all
   // Note: `~-` is the bitwise way to perform a `- 1` operation
-  while (
-    leftLength > 0 &&
-    left.charCodeAt(~-leftLength) === right.charCodeAt(~-rightLength)
-  ) {
+  while (leftLength > 0 &&
+    left.charCodeAt(~-leftLength) === right.charCodeAt(~-rightLength)) {
     leftLength--;
     rightLength--;
   }
@@ -39,10 +37,8 @@ export const getLevenshteinDistance = (left: string, right: string): number => {
   // don't increase distance at all
   let start = 0;
 
-  while (
-    start < leftLength &&
-    left.charCodeAt(start) === right.charCodeAt(start)
-  ) {
+  while (start < leftLength &&
+    left.charCodeAt(start) === right.charCodeAt(start)) {
     start++;
   }
 
@@ -80,10 +76,10 @@ export const getLevenshteinDistance = (left: string, right: string): number => {
             ? result + 1
             : temp2
           : temp2 > temp
-          ? temp + 1
-          : temp2;
+            ? temp + 1
+            : temp2;
     }
   }
 
   return result;
-};
+}
