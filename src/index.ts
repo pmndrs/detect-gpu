@@ -118,7 +118,8 @@ export const getGPUTier = async ({
 
       // Remove version tag and check version is supported
       const version = parseInt(
-        (data.shift() as unknown as string).split('.')[0]
+        (data.shift() as unknown as string).split('.')[0],
+        10
       );
       if (version < 4) {
         throw new OutdatedBenchmarksError(
