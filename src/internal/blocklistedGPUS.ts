@@ -47,7 +47,6 @@ export const BLOCKLISTED_GPUS = [
   'radeon hd 6750m',
   'radeon hd 6770m',
   'radeon hd 6970m',
-  'radeon r9 200',
   'sgx 543',
   'sgx543',
 ];
