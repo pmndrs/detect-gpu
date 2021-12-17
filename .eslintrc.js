@@ -24,14 +24,6 @@ module.exports = {
   rules: {
     '@typescript-eslint/ban-ts-ignore': OFF,
     '@typescript-eslint/explicit-module-boundary-types': OFF,
-    '@typescript-eslint/no-explicit-any': WARN,
-    'sort-keys': [
-      ERROR,
-      'asc',
-      {
-        caseSensitive: true,
-        natural: false,
-      },
-    ]
+    '@typescript-eslint/no-explicit-any': WARN
   }
 };

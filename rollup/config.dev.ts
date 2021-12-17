@@ -21,7 +21,7 @@ export default {
     livereload({
       exts: ['ts', 'html', 'js', 'css'],
       verbose: true,
-      watch: './example/**',
+      watch: '.',
     }),
     typescript(),
     resolve(),

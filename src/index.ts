@@ -10,6 +10,8 @@ import { getLevenshteinDistance } from './internal/getLevenshteinDistance';
 import { getGPUVersion } from './internal/getGPUVersion';
 import { getWebGLContext } from './internal/getWebGLContext';
 import { isSSR } from './internal/ssr';
+import { isDefined } from './internal/util';
+import { OutdatedBenchmarksError } from './internal/error';
 
 // Types
 export interface GetGPUTier {
@@ -114,9 +116,16 @@ export const getGPUTier = async ({
         (response) => response.json()
       );
 
-      // Remove version tag
-      data.shift();
-
+      // Remove version tag and check version is supported
+      const version = parseInt(
+        (data.shift() as unknown as string).split('.')[0],
+        10
+      );
+      if (version < 4) {
+        throw new OutdatedBenchmarksError(
+          'Detect GPU benchmark data is out of date. Please update to version 4x'
+        );
+      }
       return data;
     },
   } = override;
@@ -140,21 +149,24 @@ export const getGPUTier = async ({
 
     debug?.('queryBenchmarks - found type:', { type });
 
-    const benchmarkFile = `${isMobile ? 'm' : 'd'}-${type}.json`;
+    const benchmarkFile = `${isMobile ? 'm' : 'd'}-${type}${
+      isIpad ? '-ipad' : ''
+    }.json`;
 
     const benchmark = (queryCache[benchmarkFile] =
-      queryCache[benchmarkFile] || loadBenchmarks(benchmarkFile));
+      queryCache[benchmarkFile] ?? loadBenchmarks(benchmarkFile));
     let benchmarks: ModelEntry[];
     try {
       benchmarks = await benchmark;
     } catch (error) {
+      if (error instanceof OutdatedBenchmarksError) {
+        throw error;
+      }
       debug?.("queryBenchmarks - couldn't load benchmark:", { error });
       return;
     }
 
     const version = getGPUVersion(renderer);
-
-    const isApple = type === 'apple';
 
     let matched = benchmarks.filter(
       ([, modelVersion]) => modelVersion === version
@@ -178,15 +190,15 @@ export const getGPUTier = async ({
       );
     }
 
-    const count = matched.length;
+    const matchCount = matched.length;
 
-    if (count === 0) {
+    if (matchCount === 0) {
       return;
     }
 
     // eslint-disable-next-line prefer-const
     let [gpu, , , fpsesByPixelCount] =
-      count > 1
+      matchCount > 1
         ? matched
             .map(
               (match) =>
@@ -206,16 +218,8 @@ export const getGPUTier = async ({
     const pixelCount =
       screenSize.width *
       devicePixelRatio *
-      (screenSize.height * devicePixelRatio);
-
-    // Extra step for apple devices to distinguish between ipad and iphone
-    // devices (which often share screen resolutions):
-    if (isApple && isMobile) {
-      fpsesByPixelCount = fpsesByPixelCount.filter(
-        ([, , , device]) =>
-          (device?.indexOf(isIpad ? 'ipad' : 'iphone') ?? -1) > -1
-      );
-    }
+      screenSize.height *
+      devicePixelRatio;
 
     for (const match of fpsesByPixelCount) {
       const [width, height] = match;
@@ -282,10 +286,12 @@ export const getGPUTier = async ({
     renderer = cleanRenderer(renderer);
     renderers = [renderer];
   }
-  const results = (await Promise.all(renderers.map(queryBenchmarks))).filter(
-    (result): result is Exclude<typeof result, undefined> => !!result
-  );
 
+  const results = (await Promise.all(renderers.map(queryBenchmarks)))
+    .filter(isDefined)
+    .sort(([aDis = Number.MAX_VALUE, aFps], [bDis = Number.MAX_VALUE, bFps]) =>
+      aDis === bDis ? aFps - bFps : aDis - bDis
+    );
   if (!results.length) {
     const blocklistedModel: string | undefined = BLOCKLISTED_GPUS.find(
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
@@ -296,9 +302,7 @@ export const getGPUTier = async ({
       : toResult(1, 'FALLBACK', `${renderer} (${rawRenderer})`);
   }
 
-  const [, fps, model, device] = results.sort(
-    ([aDis = Number.MAX_VALUE], [bDis = Number.MAX_VALUE]) => aDis - bDis
-  )[0];
+  const [, fps, model, device] = results[0];
 
   if (fps === -1) {
     return toResult(0, 'BLOCKLISTED', model, fps, device);
