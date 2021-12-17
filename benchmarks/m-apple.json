@@ -1,1 +1,216 @@
-["4.0.0",["apple a7 gpu","7",0,[[1136,640,32,"apple iphone 5s"]]],["apple a8 gpu","8",0,[[1136,640,40,"apple ipod touch 6"],[1334,750,36,"apple iphone 6"],[1920,1080,21,"apple iphone 6 plus"]]],["apple a9 gpu","9",0,[[1136,640,90,"apple iphone se"],[1334,750,72,"apple iphone 6s"],[1920,1080,42,"apple iphone 6s plus"]]],["apple a10 gpu","10",0,[[1334,750,104,"apple iphone 7"],[1920,1080,60,"apple iphone 7 plus"],[2001,1125,59,"apple iphone x"]]],["apple a11 gpu","11",0,[[1334,750,64,"apple iphone 8"],[1920,1080,78,"apple iphone 8 plus"]]],["apple a12 gpu","12",0,[[1792,828,61,"apple iphone xr"],[2436,1125,59,"apple iphone xs"],[2208,1242,60,"apple iphone xs max"]]],["apple a13 gpu","13",0,[[1334,750,64,"apple iphone se (2nd gen)"],[1792,828,63,"apple iphone 11"],[2436,1125,60,"apple iphone 11 pro"],[2688,1242,60,"apple iphone 11 pro max"]]],["apple a14 gpu","14",0,[[2338,1080,60,"apple iphone 12 mini"],[2436,1125,60,"apple iphone 12"],[2778,1284,60,"apple iphone 12 pro max"]]],["apple a15 gpu","15",0,[[2338,1080,62,"apple iphone 13 mini"],[2436,1125,60,"apple iphone 13 pro"],[2688,1242,60,"apple iphone 13 pro max"]]]]
+[
+  "4.0.0",
+  [
+    "apple a10 gpu",
+    "10",
+    0,
+    [
+      [
+        1334,
+        750,
+        104,
+        "apple iphone 7"
+      ],
+      [
+        1920,
+        1080,
+        60,
+        "apple iphone 7 plus"
+      ],
+      [
+        2001,
+        1125,
+        59,
+        "apple iphone x"
+      ]
+    ]
+  ],
+  [
+    "apple a11 gpu",
+    "11",
+    0,
+    [
+      [
+        1334,
+        750,
+        64,
+        "apple iphone 8"
+      ],
+      [
+        1920,
+        1080,
+        78,
+        "apple iphone 8 plus"
+      ]
+    ]
+  ],
+  [
+    "apple a12 gpu",
+    "12",
+    0,
+    [
+      [
+        1792,
+        828,
+        61,
+        "apple iphone xr"
+      ],
+      [
+        2436,
+        1125,
+        59,
+        "apple iphone xs"
+      ],
+      [
+        2208,
+        1242,
+        60,
+        "apple iphone xs max"
+      ]
+    ]
+  ],
+  [
+    "apple a13 gpu",
+    "13",
+    0,
+    [
+      [
+        1334,
+        750,
+        61,
+        "apple iphone se (2nd gen)"
+      ],
+      [
+        1792,
+        828,
+        63,
+        "apple iphone 11"
+      ],
+      [
+        2436,
+        1125,
+        60,
+        "apple iphone 11 pro"
+      ],
+      [
+        2688,
+        1242,
+        60,
+        "apple iphone 11 pro max"
+      ]
+    ]
+  ],
+  [
+    "apple a14 gpu",
+    "14",
+    0,
+    [
+      [
+        2338,
+        1080,
+        60,
+        "apple iphone 12 mini"
+      ],
+      [
+        2436,
+        1125,
+        60,
+        "apple iphone 12"
+      ],
+      [
+        2778,
+        1284,
+        60,
+        "apple iphone 12 pro max"
+      ]
+    ]
+  ],
+  [
+    "apple a15 gpu",
+    "15",
+    0,
+    [
+      [
+        2338,
+        1080,
+        62,
+        "apple iphone 13 mini"
+      ],
+      [
+        2436,
+        1125,
+        60,
+        "apple iphone 13 pro"
+      ],
+      [
+        2688,
+        1242,
+        60,
+        "apple iphone 13 pro max"
+      ]
+    ]
+  ],
+  [
+    "apple a7 gpu",
+    "7",
+    0,
+    [
+      [
+        1136,
+        640,
+        32,
+        "apple iphone 5s"
+      ]
+    ]
+  ],
+  [
+    "apple a8 gpu",
+    "8",
+    0,
+    [
+      [
+        1136,
+        640,
+        40,
+        "apple ipod touch 6"
+      ],
+      [
+        1334,
+        750,
+        36,
+        "apple iphone 6"
+      ],
+      [
+        1920,
+        1080,
+        21,
+        "apple iphone 6 plus"
+      ]
+    ]
+  ],
+  [
+    "apple a9 gpu",
+    "9",
+    0,
+    [
+      [
+        1136,
+        640,
+        90,
+        "apple iphone se"
+      ],
+      [
+        1334,
+        750,
+        72,
+        "apple iphone 6s"
+      ],
+      [
+        1920,
+        1080,
+        42,
+        "apple iphone 6s plus"
+      ]
+    ]
+  ]
+]

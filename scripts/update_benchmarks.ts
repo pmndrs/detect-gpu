@@ -50,7 +50,7 @@ type Optional<T, K extends keyof T> = Pick<Partial<T>, K> & Omit<T, K>;
       benchmark.device = benchmark.device.toLowerCase();
       return benchmark;
     })
-    .sort((a, b) => a.date.localeCompare(b.date));
+    .sort((a, b) => a.gpu.localeCompare(b.gpu));
 
   await Promise.all([true, false].map(exportBenchmarks));
 
@@ -126,10 +126,16 @@ type Optional<T, K extends keyof T> = Pick<Partial<T>, K> & Omit<T, K>;
               ),
             ]
           );
-          const file = `./benchmarks/${isMobile ? 'm' : 'd'}-${type}.json`;
-          const data = JSON.stringify([version, ...serializedModels]);
-          await fs.promises.writeFile(file, data);
-          console.log(`Exported ${file}`);
+          const data = [version, ...serializedModels]
+          await Promise.all([true, false].map(async (minified) => {
+            const file = `./benchmarks${minified ? '-min' : ''}/${isMobile ? 'm' : 'd'}-${type}.json`;
+            const json = JSON.stringify(data, null, minified ? undefined : 2);
+            await fs.promises.writeFile(file, json);
+            if (!minified) {
+              console.log(`Exported ${file}`);
+            }
+          }))
+
         };
 
         // Output ipads seperately from other ios devices:
