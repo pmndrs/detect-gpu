@@ -2,6 +2,14 @@
 
 Patch version updates, unless noted otherwise, are automated benchmark updates ran weekly by our CI.
 
+# 4.0.0
+
+- Split apple mobile benchmark data into two files (apple and apple-ipad) **BREAKING CHANGE**
+- Throw when benchmark data is incompatible with library **BREAKING CHANGE**
+- Improved iOS device deobfuscation / detection (see https://github.com/pmndrs/detect-gpu/issues/77)
+- With multiple results of the same resolution, the one with the lowest fps is picked
+- Fixed detection of M1 desktop gpus on non Safari browsers (see https://github.com/pmndrs/detect-gpu/issues/84)
+
 # 3.1.3
 
 - Build files included the wrong benchmark version number
