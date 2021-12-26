@@ -1,5 +1,5 @@
 [
-  "4.0.1",
+  "4.0.2",
   [
     "apple a10 gpu",
     "10",
@@ -52,14 +52,14 @@
       [
         1792,
         828,
-        61,
+        60,
         "apple iphone xr"
       ],
       [
         2436,
         1125,
-        60,
-        "apple iphone xs max"
+        58,
+        "apple iphone xs"
       ],
       [
         2208,
@@ -77,13 +77,13 @@
       [
         1334,
         750,
-        60,
+        64,
         "apple iphone se (2nd gen)"
       ],
       [
         1792,
         828,
-        60,
+        64,
         "apple iphone 11"
       ],
       [
@@ -95,7 +95,7 @@
       [
         2688,
         1242,
-        61,
+        60,
         "apple iphone 11 pro max"
       ]
     ]
@@ -133,7 +133,7 @@
       [
         2338,
         1080,
-        62,
+        60,
         "apple iphone 13 mini"
       ],
       [
@@ -145,12 +145,6 @@
       [
         2688,
         1242,
-        60,
-        "apple iphone 13 pro max"
-      ],
-      [
-        2780,
-        1284,
         60,
         "apple iphone 13 pro max"
       ]
