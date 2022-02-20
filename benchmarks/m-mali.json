@@ -1,5 +1,5 @@
 [
-  "4.0.9",
+  "4.0.10",
   [
     "arm mali-g31",
     "31",
@@ -268,7 +268,7 @@
         2759,
         1440,
         57,
-        "samsung galaxy note 10+ (mali-g76, sm-n975x)"
+        "samsung galaxy note 10+ 5g (mali-g76, sm-n976x)"
       ]
     ]
   ],
