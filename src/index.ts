@@ -141,7 +141,7 @@ export const getGPUTier = async ({
     }
   };
 
-  const queryBenchmarks = async (renderer: string) => {
+  async function queryBenchmarks(renderer: string) {
     const type = getGpuType(renderer);
     if (!type) {
       return;
