@@ -126,10 +126,6 @@ for (const { input, expected } of [
       isIpad: true,
       isMobile: true,
       renderer: 'Apple A12X GPU',
-      screen: {
-        height: 1668,
-        width: 2224,
-      },
     },
   },
   {
