@@ -11,7 +11,11 @@ export function cleanRenderer(renderer: string) {
     // Strip off [number]gb & strip off direct3d and after - for example:
     // 'Radeon (TM) RX 470 Series Direct3D11 vs_5_0 ps_5_0' becomes
     // 'Radeon (TM) RX 470 Series'
-    .replace(/\s(\d{1,2}gb|direct3d.+$)|\(r\)| \([^)]+\)$/g, '');
+    .replace(/\s(\d{1,2}gb|direct3d.+$)|\(r\)| \([^)]+\)$/g, '')
+    // Strip off Vulkan x.x.x () - for example:
+    // 'vulkan 1.2.175 (nvidia nvidia geforce gtx 970 (0x000013c2))'
+    // becomes 'nvidia nvidia geforce gtx 970 (0x000013c2)'
+    .replace(/vulkan \d+\.\d+\.\d+ \((.*)\)/, '$1')
 
   debug?.('cleanRenderer - renderer cleaned to', { renderer });
 

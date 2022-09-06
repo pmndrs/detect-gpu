@@ -229,6 +229,15 @@ for (const { input, expected } of [
       renderer: 'Mali-G51',
     },
   },
+  {
+    expected: {
+      gpu: 'nvidia evga geforce gtx 970',
+    },
+    input: {
+      isMobile: false,
+      renderer: 'ANGLE (NVIDIA, Vulkan 1.2.175 (NVIDIA NVIDIA GeForce GTX 970 (0x000013C2)), NVIDIA)',
+    },
+  },
 ]) {
   test(`${input.renderer} should find ${expected.gpu}`, async () => {
     expectGPUResults(
