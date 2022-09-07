@@ -12,10 +12,12 @@ export function cleanRenderer(renderer: string) {
     // 'Radeon (TM) RX 470 Series Direct3D11 vs_5_0 ps_5_0' becomes
     // 'Radeon (TM) RX 470 Series'
     .replace(/\s(\d{1,2}gb|direct3d.+$)|\(r\)| \([^)]+\)$/g, '')
-    // Strip off Vulkan x.x.x () - for example:
-    // 'vulkan 1.2.175 (nvidia nvidia geforce gtx 970 (0x000013c2))'
+    // Strip out graphics API. The one Vulkan example we've seen includes
+    // the GPU in parens after the Vulkan version so this also keeps that
+    // eg. 'vulkan 1.2.175 (nvidia nvidia geforce gtx 970 (0x000013c2))'
     // becomes 'nvidia nvidia geforce gtx 970 (0x000013c2)'
-    .replace(/vulkan \d+\.\d+\.\d+ \((.*)\)/, '$1')
+    // `OpenGL 4.5.0` gets removed all together
+    .replace(/(?:vulkan|opengl) \d+\.\d+(?:\.\d+)?(?: \((.*)\))?/, '$1')
 
   debug?.('cleanRenderer - renderer cleaned to', { renderer });
 

@@ -238,6 +238,15 @@ for (const { input, expected } of [
       renderer: 'ANGLE (NVIDIA, Vulkan 1.2.175 (NVIDIA NVIDIA GeForce GTX 970 (0x000013C2)), NVIDIA)',
     },
   },
+  {
+    expected: {
+      gpu: 'amd renoir',
+    },
+    input: {
+      isMobile: false,
+      renderer: 'amd, amd renoir (llvm 14.0.6), opengl 4.6)',
+    },
+  },
 ]) {
   test(`${input.renderer} should find ${expected.gpu}`, async () => {
     expectGPUResults(
