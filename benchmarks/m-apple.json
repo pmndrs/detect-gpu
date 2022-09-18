@@ -1,5 +1,5 @@
 [
-  "4.0.39",
+  "4.0.40",
   [
     "apple a10 gpu",
     "10",
@@ -52,7 +52,7 @@
       [
         1792,
         828,
-        65,
+        60,
         "apple iphone xr"
       ],
       [
@@ -89,13 +89,13 @@
       [
         2436,
         1125,
-        61,
+        60,
         "apple iphone 11 pro"
       ],
       [
         2688,
         1242,
-        61,
+        60,
         "apple iphone 11 pro max"
       ]
     ]
@@ -139,7 +139,7 @@
       [
         2338,
         1080,
-        62,
+        60,
         "apple iphone 13 mini"
       ],
       [
@@ -152,13 +152,32 @@
         2532,
         1170,
         60,
-        "apple iphone 13 pro"
+        "apple iphone 13"
       ],
       [
         2778,
         1284,
         60,
         "apple iphone 13 pro max"
+      ]
+    ]
+  ],
+  [
+    "apple a16 gpu",
+    "16",
+    0,
+    [
+      [
+        2532,
+        1170,
+        60,
+        "apple iphone 14 pro"
+      ],
+      [
+        2778,
+        1284,
+        60,
+        "apple iphone 14 pro max"
       ]
     ]
   ],
