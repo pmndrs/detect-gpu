@@ -1,5 +1,5 @@
 [
-  "4.0.41",
+  "4.0.42",
   [
     "arm mali-g31",
     "31",
@@ -92,6 +92,19 @@
         1080,
         20,
         "huawei y9a frl-l22"
+      ]
+    ]
+  ],
+  [
+    "arm mali-g57 mc2",
+    "57",
+    0,
+    [
+      [
+        2160,
+        1080,
+        32,
+        "samsung galaxy a22 5g"
       ]
     ]
   ],
@@ -211,9 +224,9 @@
         "huawei honor view 10 (v10, bkl-xxx)"
       ],
       [
-        2312,
-        1041,
-        23,
+        2186,
+        1080,
+        24,
         "samsung galaxy a51 (sm-a515f)"
       ],
       [
@@ -306,6 +319,12 @@
         1440,
         59,
         "samsung galaxy note 10+ 5g (mali-g76, sm-n976x)"
+      ],
+      [
+        2861,
+        1440,
+        48,
+        "huawei mate 20 pro"
       ]
     ]
   ],

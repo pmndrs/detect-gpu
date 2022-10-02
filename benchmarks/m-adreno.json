@@ -1,5 +1,5 @@
 [
-  "4.0.41",
+  "4.0.42",
   [
     "adreno 506",
     "506",
@@ -1679,7 +1679,7 @@
         "vivo x20a"
       ],
       [
-        2151,
+        2131,
         1080,
         20,
         "xiaomi redmi note 7"
@@ -1880,9 +1880,9 @@
     0,
     [
       [
-        2040,
+        2220,
         1080,
-        28,
+        26,
         "google pixel 3a xl"
       ],
       [
@@ -2025,6 +2025,19 @@
     ]
   ],
   [
+    "qualcomm adreno 644",
+    "644",
+    0,
+    [
+      [
+        2161,
+        1080,
+        60,
+        "oppo reno8 pro (pgam10)"
+      ]
+    ]
+  ],
+  [
     "qualcomm adreno 650",
     "650",
     0,
@@ -2044,14 +2057,33 @@
     ]
   ],
   [
+    "qualcomm adreno 660",
+    "660",
+    0,
+    [
+      [
+        2190,
+        1080,
+        92,
+        "samsung galaxy s21 ultra 5g (sm-g998u1)"
+      ]
+    ]
+  ],
+  [
     "qualcomm adreno 730",
     "730",
     0,
     [
       [
+        2115,
+        1080,
+        68,
+        "samsung galaxy s22 5g (sm-s901e)"
+      ],
+      [
         2988,
-        1384,
-        62,
+        1440,
+        49,
         "samsung galaxy s22 ultra (sm-s908e)"
       ],
       [
