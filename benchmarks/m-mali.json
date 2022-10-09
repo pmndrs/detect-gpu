@@ -1,5 +1,5 @@
 [
-  "4.0.42",
+  "4.0.43",
   [
     "arm mali-g31",
     "31",
@@ -267,6 +267,18 @@
         "samsung galaxy s10 plus sm-g975n"
       ],
       [
+        2047,
+        1080,
+        56,
+        "samsung sm-g975f"
+      ],
+      [
+        2050,
+        1080,
+        55,
+        "samsung galaxy s10 5g (sm-g977n)"
+      ],
+      [
         2064,
         1080,
         60,
@@ -277,6 +289,12 @@
         1080,
         28,
         "huawei nova 5t (yal-l21)"
+      ],
+      [
+        2148,
+        1080,
+        40,
+        "huawei p30 pro"
       ],
       [
         2159,
@@ -353,9 +371,15 @@
         "samsung galaxy s20 fe (sm-g780f)"
       ],
       [
+        2173,
+        1080,
+        57,
+        "samsung galaxy note 20 (sm-n980f)"
+      ],
+      [
         2178,
         1080,
-        60,
+        62,
         "samsung galaxy s20 5g (sm-g981b)"
       ],
       [
@@ -382,6 +406,12 @@
         1080,
         69,
         "oneplus nord 2 5g"
+      ],
+      [
+        2304,
+        1036,
+        61,
+        "xiaomi poco x3 gt (21061110ag)"
       ],
       [
         2293,
