@@ -1,5 +1,5 @@
 [
-  "4.0.43",
+  "4.0.44",
   [
     "adreno 506",
     "506",
@@ -1687,7 +1687,7 @@
       [
         2131,
         1080,
-        20,
+        21,
         "xiaomi redmi note 7"
       ]
     ]
@@ -1933,14 +1933,26 @@
       [
         2138,
         1080,
-        36,
-        "xiaomi mi note 10"
+        38,
+        "xiaomi mi note 10 lite"
       ],
       [
         2183,
         1080,
         38,
         "samsung galaxy a71 (sm-a715f)"
+      ],
+      [
+        2298,
+        1036,
+        38,
+        "xiaomi redmi note 9 pro"
+      ],
+      [
+        2210,
+        1080,
+        31,
+        "xiaomi mi 9t"
       ],
       [
         2274,
@@ -2024,10 +2036,22 @@
         "xiaomi redmi k20 pro premium edition"
       ],
       [
+        2214,
+        1080,
+        60,
+        "asus rog phone ii (i001de zs660kl)"
+      ],
+      [
         2048,
         1410,
         59,
         "samsung galaxy fold 5g (adreno 640, sm-f900x)"
+      ],
+      [
+        2560,
+        1494,
+        63,
+        "xiaomi pad 5"
       ],
       [
         2723,
@@ -2131,9 +2155,15 @@
       ],
       [
         2241,
-        1038,
-        92,
+        1041,
+        89,
         "samsung galaxy s22 (sm-s908u)"
+      ],
+      [
+        2400,
+        1080,
+        144,
+        "nubia red magic 7 (nx679j)"
       ],
       [
         2988,
