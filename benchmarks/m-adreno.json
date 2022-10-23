@@ -1,5 +1,5 @@
 [
-  "4.0.44",
+  "4.0.45",
   [
     "adreno 506",
     "506",
@@ -1888,8 +1888,8 @@
       [
         2198,
         1080,
-        20,
-        "samsung galaxy a70 sm-a705fn"
+        19,
+        "samsung galaxy a70 sm-a705mn"
       ]
     ]
   ],
@@ -1949,9 +1949,9 @@
         "xiaomi redmi note 9 pro"
       ],
       [
-        2210,
-        1080,
-        31,
+        2340,
+        1036,
+        33,
         "xiaomi mi 9t"
       ],
       [
@@ -2048,12 +2048,6 @@
         "samsung galaxy fold 5g (adreno 640, sm-f900x)"
       ],
       [
-        2560,
-        1494,
-        63,
-        "xiaomi pad 5"
-      ],
-      [
         2723,
         1440,
         55,
@@ -2070,6 +2064,12 @@
         1440,
         56,
         "samsung galaxy note 10+ (adreno 640, sm-n975x)"
+      ],
+      [
+        2560,
+        1564,
+        60,
+        "xiaomi pad 5"
       ],
       [
         2901,
@@ -2126,6 +2126,12 @@
         1387,
         50,
         "samsung galaxy s20 ultra 5g (sm-g988u1)"
+      ],
+      [
+        3103,
+        1440,
+        50,
+        "samsung galaxy s20+ 5g (sm-g986n)"
       ]
     ]
   ],
@@ -2150,7 +2156,7 @@
       [
         2115,
         1080,
-        68,
+        112,
         "samsung galaxy s22 5g (sm-s901e)"
       ],
       [
@@ -2168,7 +2174,7 @@
       [
         2988,
         1384,
-        62,
+        75,
         "samsung galaxy s22 ultra (sm-s908e)"
       ],
       [

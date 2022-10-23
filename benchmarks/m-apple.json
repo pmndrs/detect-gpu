@@ -1,5 +1,5 @@
 [
-  "4.0.44",
+  "4.0.45",
   [
     "apple a10 gpu",
     "10",
@@ -77,7 +77,7 @@
       [
         1334,
         750,
-        60,
+        75,
         "apple iphone se (2nd gen)"
       ],
       [
@@ -89,7 +89,7 @@
       [
         2436,
         1125,
-        61,
+        59,
         "apple iphone 11 pro"
       ],
       [
@@ -139,7 +139,7 @@
       [
         2338,
         1080,
-        62,
+        60,
         "apple iphone 13 mini"
       ],
       [
@@ -152,13 +152,13 @@
         2532,
         1170,
         60,
-        "apple iphone 14"
+        "apple iphone 13 pro"
       ],
       [
         2778,
         1284,
         60,
-        "apple iphone 14 plus"
+        "apple iphone 13 pro max"
       ]
     ]
   ],
