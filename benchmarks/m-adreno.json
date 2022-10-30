@@ -1,5 +1,5 @@
 [
-  "4.0.45",
+  "4.0.46",
   [
     "adreno 506",
     "506",
@@ -1937,16 +1937,16 @@
         "xiaomi mi note 10 lite"
       ],
       [
+        2168,
+        1080,
+        38,
+        "xiaomi redmi note 9 pro"
+      ],
+      [
         2183,
         1080,
         38,
         "samsung galaxy a71 (sm-a715f)"
-      ],
-      [
-        2298,
-        1036,
-        38,
-        "xiaomi redmi note 9 pro"
       ],
       [
         2340,
@@ -1959,6 +1959,19 @@
         1080,
         37,
         "samsung galaxy a80 sm-a805f"
+      ]
+    ]
+  ],
+  [
+    "qualcomm adreno 619",
+    "619",
+    0,
+    [
+      [
+        2150,
+        1080,
+        43,
+        "oppo reno7 z 5g"
       ]
     ]
   ],
@@ -2016,6 +2029,12 @@
         1014,
         78,
         "google pixel 4"
+      ],
+      [
+        2144,
+        1080,
+        57,
+        "lg g8 thinq"
       ],
       [
         2181,
@@ -2145,6 +2164,25 @@
         1080,
         92,
         "samsung galaxy s21 ultra 5g (sm-g998u1)"
+      ],
+      [
+        3063,
+        1440,
+        66,
+        "xiaomi m11 (m2011k2c)"
+      ]
+    ]
+  ],
+  [
+    "qualcomm adreno 702",
+    "702",
+    0,
+    [
+      [
+        1160,
+        720,
+        18,
+        "sony nw-a300series"
       ]
     ]
   ],
