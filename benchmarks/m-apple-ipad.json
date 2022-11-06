@@ -1,5 +1,5 @@
 [
-  "4.0.46",
+  "4.0.47",
   [
     "apple a10 gpu",
     "10",
@@ -14,7 +14,7 @@
       [
         2160,
         1620,
-        38,
+        37,
         "apple ipad (10.2-inch) (7th generation)"
       ]
     ]
@@ -33,13 +33,13 @@
       [
         2224,
         1668,
-        69,
+        60,
         "apple ipad pro (10.5-inch)"
       ],
       [
         2732,
         2048,
-        46,
+        38,
         "apple ipad pro (12.9-inch, 2nd gen)"
       ]
     ]
@@ -90,7 +90,7 @@
       [
         2388,
         1668,
-        113,
+        98,
         "apple ipad pro (11-inch) (2rd generation)"
       ],
       [
@@ -237,7 +237,7 @@
       [
         2388,
         1668,
-        119,
+        120,
         "apple ipad pro (11-inch) (3rd generation)"
       ],
       [
@@ -263,7 +263,7 @@
         2732,
         2048,
         120,
-        "apple ipad pro 12.9 inch (6th gen)"
+        "apple ipad pro 12.9-inch (6th generation)"
       ]
     ]
   ]

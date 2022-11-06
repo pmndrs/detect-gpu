@@ -1,5 +1,5 @@
 [
-  "4.0.46",
+  "4.0.47",
   [
     "adreno 506",
     "506",
@@ -613,7 +613,7 @@
         1280,
         752,
         4,
-        "huawei mediapad t1 10 (t1-a21)"
+        "kyocera smile tablet 3 (szj-js201)"
       ],
       [
         1216,
@@ -1982,8 +1982,8 @@
     [
       [
         2264,
-        1038,
-        44,
+        1017,
+        49,
         "google pixel 5a 5g"
       ]
     ]
@@ -2067,6 +2067,12 @@
         "samsung galaxy fold 5g (adreno 640, sm-f900x)"
       ],
       [
+        2560,
+        1494,
+        63,
+        "xiaomi pad 5"
+      ],
+      [
         2723,
         1440,
         55,
@@ -2083,12 +2089,6 @@
         1440,
         56,
         "samsung galaxy note 10+ (adreno 640, sm-n975x)"
-      ],
-      [
-        2560,
-        1564,
-        60,
-        "xiaomi pad 5"
       ],
       [
         2901,
@@ -2194,8 +2194,8 @@
       [
         2115,
         1080,
-        112,
-        "samsung galaxy s22 5g (sm-s901e)"
+        116,
+        "samsung galaxy s22 5g (sm-s901u)"
       ],
       [
         2241,
