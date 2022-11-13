@@ -1,5 +1,5 @@
 [
-  "4.0.47",
+  "4.0.48",
   [
     "arm mali-g31",
     "31",
@@ -243,6 +243,12 @@
         "samsung galaxy a51 (sm-a515f)"
       ],
       [
+        2218,
+        1080,
+        21,
+        "motorola one vision"
+      ],
+      [
         2560,
         1440,
         43,
@@ -293,12 +299,6 @@
         "samsung galaxy s10 plus sm-g975n"
       ],
       [
-        2047,
-        1080,
-        56,
-        "samsung sm-g975f"
-      ],
-      [
         2050,
         1080,
         55,
@@ -311,16 +311,16 @@
         "samsung galaxy note 10 5g (mali-g76, sm-n971x)"
       ],
       [
+        2173,
+        1041,
+        59,
+        "samsung sm-g975f"
+      ],
+      [
         2111,
         1080,
         40,
         "huawei nova 5t (yal-l21)"
-      ],
-      [
-        2148,
-        1080,
-        40,
-        "huawei p30 pro"
       ],
       [
         2159,
@@ -333,6 +333,12 @@
         1080,
         59,
         "huawei honor 20 pro yal-l41"
+      ],
+      [
+        2265,
+        1080,
+        59,
+        "huawei p30 pro"
       ],
       [
         2328,
@@ -436,7 +442,7 @@
       [
         2304,
         1036,
-        98,
+        105,
         "xiaomi poco x3 gt (21061110ag)"
       ],
       [
@@ -964,6 +970,12 @@
         1136,
         4,
         "asus zenpad 10 (p028 z301m)"
+      ],
+      [
+        2712,
+        1440,
+        45,
+        "lenovo tab 2 501lv (softbank)"
       ]
     ]
   ],
