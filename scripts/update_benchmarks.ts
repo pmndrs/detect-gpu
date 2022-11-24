@@ -7,6 +7,7 @@ import fs from 'fs';
 // Application
 import { BLOCKLISTED_GPUS } from '../src/internal/blocklistedGPUS';
 import { getGPUVersion } from '../src/internal/getGPUVersion';
+import { tokenizeForLevenshteinDistance } from '../src/internal/getLevenshteinDistance';
 import { internalBenchmarkResults } from './internalBenchmarkResults';
 import { BenchmarkRow } from './types';
 
@@ -120,6 +121,7 @@ type Optional<T, K extends keyof T> = Pick<Partial<T>, K> & Omit<T, K>;
             ({ gpu, gpuVersion, blocklisted, devices }) => [
               gpu,
               gpuVersion,
+              tokenizeForLevenshteinDistance(gpu),
               blocklisted ? 1 : 0,
               devices.map(({ width, height, fps, device }) =>
                 isMobile ? [width, height, fps, device] : [width, height, fps]

@@ -92,7 +92,7 @@ for (const { input, expected } of [
   },
   {
     expected: {
-      gpu: 'nvidia geforce rtx 2080 ti rev. a',
+      gpu: 'nvidia geforce rtx 2080 ti',
     },
     input: {
       isMobile: false,
@@ -168,7 +168,7 @@ for (const { input, expected } of [
   },
   {
     expected: {
-      gpu: 'nvidia geforce gtx 750 ti',
+      gpu: 'nvidia geforce gtx 750',
     },
     input: {
       isMobile: false,
@@ -231,7 +231,7 @@ for (const { input, expected } of [
   },
   {
     expected: {
-      gpu: 'nvidia evga geforce gtx 970',
+      gpu: 'nvidia geforce gtx 970',
     },
     input: {
       isMobile: false,
