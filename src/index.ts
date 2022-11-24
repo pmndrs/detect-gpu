@@ -6,12 +6,12 @@ import { BLOCKLISTED_GPUS } from './internal/blocklistedGPUS';
 import { cleanRenderer } from './internal/cleanRenderer';
 import { deobfuscateRenderer } from './internal/deobfuscateRenderer';
 import { deviceInfo } from './internal/deviceInfo';
-import { getLevenshteinDistance } from './internal/getLevenshteinDistance';
+import { OutdatedBenchmarksError } from './internal/error';
 import { getGPUVersion } from './internal/getGPUVersion';
+import { getLevenshteinDistance, tokenizeForLevenshteinDistance } from './internal/getLevenshteinDistance';
 import { getWebGLContext } from './internal/getWebGLContext';
 import { isSSR } from './internal/ssr';
 import { isDefined } from './internal/util';
-import { OutdatedBenchmarksError } from './internal/error';
 
 // Types
 export interface GetGPUTier {
@@ -196,13 +196,20 @@ export const getGPUTier = async ({
       return;
     }
 
+    const tokenizedRenderer = tokenizeForLevenshteinDistance(renderer)
     // eslint-disable-next-line prefer-const
     let [gpu, , , fpsesByPixelCount] =
       matchCount > 1
         ? matched
             .map(
               (match) =>
-                [match, getLevenshteinDistance(renderer, match[0])] as const
+                [
+                  match,
+                  getLevenshteinDistance(
+                    tokenizedRenderer,
+                    tokenizeForLevenshteinDistance(match[0])
+                  ),
+                ] as const
             )
             .sort(([, a], [, b]) => a - b)[0][0]
         : matched[0];

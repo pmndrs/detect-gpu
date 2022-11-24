@@ -83,3 +83,12 @@ export function getLevenshteinDistance(left: string, right: string): number {
 
   return result;
 }
+
+export function tokenizeForLevenshteinDistance(str: string): string {
+  return str
+    .split(/[.,()/\s]/g)
+    .sort()
+    // Remove duplicates
+    .filter((item, pos, arr) => pos === 0 || item !== arr[pos - 1])
+    .join(' ');
+}
