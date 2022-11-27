@@ -1,5 +1,5 @@
 [
-  "4.0.49",
+  "4.0.50",
   [
     "apple a10 gpu",
     "10",
@@ -14,7 +14,7 @@
       [
         2160,
         1620,
-        38,
+        34,
         "apple ipad (10.2-inch) (7th generation)"
       ]
     ]
@@ -60,6 +60,12 @@
         1620,
         57,
         "apple ipad 8th gen (wifi+cellular)"
+      ],
+      [
+        2224,
+        1668,
+        59,
+        "apple ipad air (2019)"
       ]
     ]
   ],
@@ -123,7 +129,7 @@
         2360,
         1640,
         60,
-        "apple ipad air (10th generation)"
+        "apple ipad (10th generation)"
       ],
       [
         2388,
