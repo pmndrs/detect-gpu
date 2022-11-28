@@ -1,8 +1,9 @@
 [
-  "4.0.50",
+  "5.0.0",
   [
     "nvidia tegra",
     "",
+    "nvidia tegra",
     0,
     [
       [
@@ -16,6 +17,7 @@
   [
     "nvidia tegra k1",
     "1",
+    "k1 nvidia tegra",
     0,
     [
       [
@@ -59,6 +61,7 @@
   [
     "nvidia tegra x1",
     "1",
+    "nvidia tegra x1",
     0,
     [
       [

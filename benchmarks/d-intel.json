@@ -1,8 +1,9 @@
 [
-  "4.0.50",
+  "5.0.0",
   [
     "intel",
     "",
+    "intel",
     0,
     [
       [
@@ -15,6 +16,7 @@
   [
     "intel 0x496e74656c2048442047726170686963000732034343",
     "0",
+    "0x496e74656c2048442047726170686963000732034343 intel",
     0,
     [
       [
@@ -27,6 +29,7 @@
   [
     "intel arc a350m",
     "350",
+    "a350m arc intel",
     0,
     [
       [
@@ -39,6 +42,7 @@
   [
     "intel arc a370m",
     "370",
+    "a370m arc intel",
     0,
     [
       [
@@ -56,6 +60,7 @@
   [
     "intel arc a380",
     "380",
+    "a380 arc intel",
     0,
     [
       [
@@ -73,6 +78,7 @@
   [
     "intel arc a550m",
     "550",
+    "a550m arc intel",
     0,
     [
       [
@@ -85,6 +91,7 @@
   [
     "intel arc a580",
     "580",
+    "a580 arc intel",
     0,
     [
       [
@@ -97,6 +104,7 @@
   [
     "intel arc a730m",
     "730",
+    "a730m arc intel",
     0,
     [
       [
@@ -109,6 +117,7 @@
   [
     "intel arc a750",
     "750",
+    "a750 arc intel",
     0,
     [
       [
@@ -121,6 +130,7 @@
   [
     "intel arc a770",
     "770",
+    "a770 arc intel",
     0,
     [
       [
@@ -138,6 +148,7 @@
   [
     "intel arc a770m",
     "770",
+    "a770m arc intel",
     0,
     [
       [
@@ -150,6 +161,7 @@
   [
     "intel broxton-p hd",
     "p",
+    "broxton-p hd intel",
     0,
     [
       [
@@ -162,6 +174,7 @@
   [
     "intel cherryview hd",
     "hd",
+    "cherryview hd intel",
     0,
     [
       [
@@ -174,6 +187,7 @@
   [
     "intel coffee lake uhd",
     "uhd",
+    "coffee intel lake uhd",
     0,
     [
       [
@@ -186,6 +200,7 @@
   [
     "intel coffeelake-h gt2 [uhd graphics 630]",
     "2",
+    " 630 coffeelake-h graphics gt2 intel uhd",
     0,
     [
       [
@@ -198,6 +213,7 @@
   [
     "intel cometlake uhd graphics 630",
     "630",
+    "630 cometlake graphics intel uhd",
     0,
     [
       [
@@ -210,6 +226,7 @@
   [
     "intel corporation 2nd gen core processor family integrated graphics controller",
     "2",
+    "2nd controller core corporation family gen graphics integrated intel processor",
     0,
     [
       [
@@ -222,6 +239,7 @@
   [
     "intel corporation 2nd generation core processor family integrated graphics controller",
     "2",
+    "2nd controller core corporation family generation graphics integrated intel processor",
     0,
     [
       [
@@ -234,6 +252,7 @@
   [
     "intel corporation 3rd gen core processor graphics controller",
     "3",
+    "3rd controller core corporation gen graphics intel processor",
     0,
     [
       [
@@ -246,6 +265,7 @@
   [
     "intel corporation 8th gen core processor gaussian mixture model",
     "8",
+    "8th core corporation gaussian gen intel mixture model processor",
     0,
     [
       [
@@ -258,6 +278,7 @@
   [
     "intel corporation atom processor z36xxx/z37xxx series graphics & display",
     "36",
+    "& atom corporation display graphics intel processor series z36xxx z37xxx",
     0,
     [
       [
@@ -275,6 +296,7 @@
   [
     "intel corporation atom/celeron/pentium processor n4200 series integrated graphics controller",
     "4200",
+    "atom celeron controller corporation graphics integrated intel n4200 pentium processor series",
     0,
     [
       [
@@ -287,6 +309,7 @@
   [
     "intel corporation atom/celeron/pentium processor x5-e8000 integrated graphics controller",
     "5",
+    "atom celeron controller corporation graphics integrated intel pentium processor x5-e8000",
     0,
     [
       [
@@ -299,6 +322,7 @@
   [
     "intel corporation atom/celeron/pentium processor x5-e8000 series pci configuration registers",
     "5",
+    "atom celeron configuration corporation intel pci pentium processor registers series x5-e8000",
     0,
     [
       [
@@ -311,6 +335,7 @@
   [
     "intel corporation broadwell-u integrated",
     "u",
+    "broadwell-u corporation integrated intel",
     0,
     [
       [
@@ -323,6 +348,7 @@
   [
     "intel corporation celeron n3350 n4200/atom e3900 series integrated graphics controller",
     "3350",
+    "atom celeron controller corporation e3900 graphics integrated intel n3350 n4200 series",
     0,
     [
       [
@@ -335,6 +361,7 @@
   [
     "intel corporation coffeelake-h gt2 [uhd graphics 630]",
     "2",
+    " 630 coffeelake-h corporation graphics gt2 intel uhd",
     0,
     [
       [
@@ -347,6 +374,7 @@
   [
     "intel corporation cometlake-h gt2 [uhd graphics]",
     "2",
+    " cometlake-h corporation graphics gt2 intel uhd",
     0,
     [
       [
@@ -359,6 +387,7 @@
   [
     "intel corporation cometlake-s gt2 [uhd graphics 630]",
     "2",
+    " 630 cometlake-s corporation graphics gt2 intel uhd",
     0,
     [
       [
@@ -371,6 +400,7 @@
   [
     "intel corporation cometlake-u gt2 [uhd graphics]",
     "2",
+    " cometlake-u corporation graphics gt2 intel uhd",
     0,
     [
       [
@@ -383,6 +413,7 @@
   [
     "intel corporation device",
     "",
+    "corporation device intel",
     0,
     [
       [
@@ -395,6 +426,7 @@
   [
     "intel corporation geminilake [uhd graphics 600]",
     "600",
+    " 600 corporation geminilake graphics intel uhd",
     0,
     [
       [
@@ -407,6 +439,7 @@
   [
     "intel corporation haswell-ult integrated graphics controller",
     "ult",
+    "controller corporation graphics haswell-ult integrated intel",
     0,
     [
       [
@@ -419,6 +452,7 @@
   [
     "intel corporation hd",
     "hd",
+    "corporation hd intel",
     0,
     [
       [
@@ -431,6 +465,7 @@
   [
     "intel corporation hd graphics 500",
     "500",
+    "500 corporation graphics hd intel",
     0,
     [
       [
@@ -443,6 +478,7 @@
   [
     "intel corporation hd graphics 510",
     "510",
+    "510 corporation graphics hd intel",
     0,
     [
       [
@@ -455,6 +491,7 @@
   [
     "intel corporation hd graphics 515",
     "515",
+    "515 corporation graphics hd intel",
     0,
     [
       [
@@ -467,6 +504,7 @@
   [
     "intel corporation hd graphics 520",
     "520",
+    "520 corporation graphics hd intel",
     0,
     [
       [
@@ -479,6 +517,7 @@
   [
     "intel corporation hd graphics 530",
     "530",
+    "530 corporation graphics hd intel",
     0,
     [
       [
@@ -491,6 +530,7 @@
   [
     "intel corporation hd graphics 5300",
     "5300",
+    "5300 corporation graphics hd intel",
     0,
     [
       [
@@ -503,6 +543,7 @@
   [
     "intel corporation hd graphics 5500",
     "5500",
+    "5500 corporation graphics hd intel",
     0,
     [
       [
@@ -515,6 +556,7 @@
   [
     "intel corporation hd graphics 610",
     "610",
+    "610 corporation graphics hd intel",
     0,
     [
       [
@@ -527,6 +569,7 @@
   [
     "intel corporation hd graphics 620",
     "620",
+    "620 corporation graphics hd intel",
     0,
     [
       [
@@ -544,6 +587,7 @@
   [
     "intel corporation hd graphics 630",
     "630",
+    "630 corporation graphics hd intel",
     0,
     [
       [
@@ -556,6 +600,7 @@
   [
     "intel corporation iris graphics 540",
     "540",
+    "540 corporation graphics intel iris",
     0,
     [
       [
@@ -568,6 +613,7 @@
   [
     "intel corporation iris graphics 6100",
     "6100",
+    "6100 corporation graphics intel iris",
     0,
     [
       [
@@ -580,6 +626,7 @@
   [
     "intel corporation iris plus graphics 650",
     "650",
+    "650 corporation graphics intel iris plus",
     0,
     [
       [
@@ -592,6 +639,7 @@
   [
     "intel corporation iris plus graphics 655",
     "655",
+    "655 corporation graphics intel iris plus",
     0,
     [
       [
@@ -604,6 +652,7 @@
   [
     "intel corporation iris plus graphics g1",
     "1",
+    "corporation g1 graphics intel iris plus",
     0,
     [
       [
@@ -616,6 +665,7 @@
   [
     "intel corporation iris plus graphics g7",
     "7",
+    "corporation g7 graphics intel iris plus",
     0,
     [
       [
@@ -628,6 +678,7 @@
   [
     "intel corporation iris pro graphics 580",
     "580",
+    "580 corporation graphics intel iris pro",
     0,
     [
       [
@@ -640,6 +691,7 @@
   [
     "intel corporation iris pro graphics 6200",
     "6200",
+    "6200 corporation graphics intel iris pro",
     0,
     [
       [
@@ -652,6 +704,7 @@
   [
     "intel corporation iris xe",
     "xe",
+    "corporation intel iris xe",
     0,
     [
       [
@@ -664,6 +717,7 @@
   [
     "intel corporation sky lake integrated",
     "sky",
+    "corporation integrated intel lake sky",
     0,
     [
       [
@@ -676,6 +730,7 @@
   [
     "intel corporation skylake gt2 [hd graphics 520]",
     "2",
+    " 520 corporation graphics gt2 hd intel skylake",
     0,
     [
       [
@@ -693,6 +748,7 @@
   [
     "intel corporation skylake integrated",
     "",
+    "corporation integrated intel skylake",
     0,
     [
       [
@@ -705,6 +761,7 @@
   [
     "intel corporation tigerlake gt2 [iris xe graphics]",
     "2",
+    " corporation graphics gt2 intel iris tigerlake xe",
     0,
     [
       [
@@ -717,6 +774,7 @@
   [
     "intel corporation tigerlake-lp gt2 [iris xe graphics]",
     "2",
+    " corporation graphics gt2 intel iris tigerlake-lp xe",
     0,
     [
       [
@@ -729,6 +787,7 @@
   [
     "intel corporation uhd",
     "uhd",
+    "corporation intel uhd",
     0,
     [
       [
@@ -741,6 +800,7 @@
   [
     "intel corporation uhd graphics 605",
     "605",
+    "605 corporation graphics intel uhd",
     0,
     [
       [
@@ -753,6 +813,7 @@
   [
     "intel corporation uhd graphics 615",
     "615",
+    "615 corporation graphics intel uhd",
     0,
     [
       [
@@ -765,6 +826,7 @@
   [
     "intel corporation uhd graphics 620",
     "620",
+    "620 corporation graphics intel uhd",
     0,
     [
       [
@@ -777,6 +839,7 @@
   [
     "intel corporation uhd graphics 630",
     "630",
+    "630 corporation graphics intel uhd",
     0,
     [
       [
@@ -789,6 +852,7 @@
   [
     "intel corporation whiskeylake-u gt2 [uhd graphics 620]",
     "2",
+    " 620 corporation graphics gt2 intel uhd whiskeylake-u",
     0,
     [
       [
@@ -801,6 +865,7 @@
   [
     "intel corporation xeon e3-1200 v2 gen core processor graphics controller",
     "3",
+    "controller core corporation e3-1200 gen graphics intel processor v2 xeon",
     0,
     [
       [
@@ -813,6 +878,7 @@
   [
     "intel corporation xeon e3-1200 v3 gen core processor integrated graphics controller",
     "3",
+    "controller core corporation e3-1200 gen graphics integrated intel processor v3 xeon",
     0,
     [
       [
@@ -840,6 +906,7 @@
   [
     "intel corporation, series chipset iris plus graphics 655",
     "655",
+    " 655 chipset corporation graphics intel iris plus series",
     0,
     [
       [
@@ -852,6 +919,7 @@
   [
     "intel geforce gtx 960",
     "960",
+    "960 geforce gtx intel",
     0,
     [
       [
@@ -864,6 +932,7 @@
   [
     "intel gen12 desktop graphics controller",
     "12",
+    "controller desktop gen12 graphics intel",
     0,
     [
       [
@@ -876,6 +945,7 @@
   [
     "intel graphics gfx-driver-user-feature_dg1_poweron-27723 dch releaseinternal",
     "1",
+    "dch gfx-driver-user-feature_dg1_poweron-27723 graphics intel releaseinternal",
     0,
     [
       [
@@ -888,6 +958,7 @@
   [
     "intel hd",
     "hd",
+    "hd intel",
     0,
     [
       [
@@ -935,6 +1006,7 @@
   [
     "intel hd 4000",
     "4000",
+    "4000 hd intel",
     0,
     [
       [
@@ -947,6 +1019,7 @@
   [
     "intel hd 530",
     "530",
+    "530 hd intel",
     0,
     [
       [
@@ -959,6 +1032,7 @@
   [
     "intel hd graphics 3000",
     "3000",
+    "3000 graphics hd intel",
     0,
     [
       [
@@ -976,6 +1050,7 @@
   [
     "intel hd graphics 4000",
     "4000",
+    "4000 graphics hd intel",
     0,
     [
       [
@@ -1018,6 +1093,7 @@
   [
     "intel hd graphics 4000,,,,,,,",
     "4000",
+    " 4000 graphics hd intel",
     0,
     [
       [
@@ -1030,6 +1106,7 @@
   [
     "intel hd graphics 4400",
     "4400",
+    "4400 graphics hd intel",
     0,
     [
       [
@@ -1062,6 +1139,7 @@
   [
     "intel hd graphics 4600",
     "4600",
+    "4600 graphics hd intel",
     0,
     [
       [
@@ -1114,6 +1192,7 @@
   [
     "intel hd graphics 500",
     "500",
+    "500 graphics hd intel",
     0,
     [
       [
@@ -1131,6 +1210,7 @@
   [
     "intel hd graphics 5000",
     "5000",
+    "5000 graphics hd intel",
     0,
     [
       [
@@ -1173,6 +1253,7 @@
   [
     "intel hd graphics 505",
     "505",
+    "505 graphics hd intel",
     0,
     [
       [
@@ -1190,6 +1271,7 @@
   [
     "intel hd graphics 510",
     "510",
+    "510 graphics hd intel",
     0,
     [
       [
@@ -1217,6 +1299,7 @@
   [
     "intel hd graphics 515",
     "515",
+    "515 graphics hd intel",
     0,
     [
       [
@@ -1264,6 +1347,7 @@
   [
     "intel hd graphics 520",
     "520",
+    "520 graphics hd intel",
     0,
     [
       [
@@ -1291,6 +1375,7 @@
   [
     "intel hd graphics 530",
     "530",
+    "530 graphics hd intel",
     0,
     [
       [
@@ -1328,6 +1413,7 @@
   [
     "intel hd graphics 5300",
     "5300",
+    "5300 graphics hd intel",
     0,
     [
       [
@@ -1350,6 +1436,7 @@
   [
     "intel hd graphics 5500",
     "5500",
+    "5500 graphics hd intel",
     0,
     [
       [
@@ -1367,6 +1454,7 @@
   [
     "intel hd graphics 5600",
     "5600",
+    "5600 graphics hd intel",
     0,
     [
       [
@@ -1389,6 +1477,7 @@
   [
     "intel hd graphics 6000",
     "6000",
+    "6000 graphics hd intel",
     0,
     [
       [
@@ -1411,6 +1500,7 @@
   [
     "intel hd graphics 610",
     "610",
+    "610 graphics hd intel",
     0,
     [
       [
@@ -1438,6 +1528,7 @@
   [
     "intel hd graphics 615",
     "615",
+    "615 graphics hd intel",
     0,
     [
       [
@@ -1480,12 +1571,13 @@
   [
     "intel hd graphics 620",
     "620",
+    "620 graphics hd intel",
     0,
     [
       [
         1920,
         1080,
-        26
+        37
       ],
       [
         2736,
@@ -1507,6 +1599,7 @@
   [
     "intel hd graphics 620 macos",
     "620",
+    "620 graphics hd intel macos",
     0,
     [
       [
@@ -1519,6 +1612,7 @@
   [
     "intel hd graphics 630",
     "630",
+    "630 graphics hd intel",
     0,
     [
       [
@@ -1556,6 +1650,7 @@
   [
     "intel hd graphics 630 gt2",
     "630",
+    "630 graphics gt2 hd intel",
     0,
     [
       [
@@ -1573,6 +1668,7 @@
   [
     "intel hd graphics cfl crb",
     "hdcfl",
+    "cfl crb graphics hd intel",
     0,
     [
       [
@@ -1585,6 +1681,7 @@
   [
     "intel hd graphics family",
     "hd",
+    "family graphics hd intel",
     0,
     [
       [
@@ -1597,6 +1694,7 @@
   [
     "intel hd graphics icl rvp",
     "hdicl",
+    "graphics hd icl intel rvp",
     0,
     [
       [
@@ -1609,6 +1707,7 @@
   [
     "intel hd graphics icl rvp bigsur",
     "hdicl",
+    "bigsur graphics hd icl intel rvp",
     0,
     [
       [
@@ -1621,6 +1720,7 @@
   [
     "intel hd graphics kbl crb",
     "hdkbl",
+    "crb graphics hd intel kbl",
     0,
     [
       [
@@ -1638,6 +1738,7 @@
   [
     "intel hd graphics p4600",
     "4600",
+    "graphics hd intel p4600",
     0,
     [
       [
@@ -1660,6 +1761,7 @@
   [
     "intel hd graphics p530",
     "530",
+    "graphics hd intel p530",
     0,
     [
       [
@@ -1677,6 +1779,7 @@
   [
     "intel hd graphics p630",
     "630",
+    "graphics hd intel p630",
     0,
     [
       [
@@ -1694,6 +1797,7 @@
   [
     "intel hd graphics, gen10",
     "10",
+    " gen10 graphics hd intel",
     0,
     [
       [
@@ -1706,6 +1810,7 @@
   [
     "intel hd5500 broadwell pg7",
     "5500",
+    "broadwell hd5500 intel pg7",
     0,
     [
       [
@@ -1718,6 +1823,7 @@
   [
     "intel hd5500 graphics pg7",
     "5500",
+    "graphics hd5500 intel pg7",
     0,
     [
       [
@@ -1730,6 +1836,7 @@
   [
     "intel iris",
     "",
+    "intel iris",
     0,
     [
       [
@@ -1757,6 +1864,7 @@
   [
     "intel iris graphics 5100",
     "5100",
+    "5100 graphics intel iris",
     0,
     [
       [
@@ -1774,6 +1882,7 @@
   [
     "intel iris graphics 540",
     "540",
+    "540 graphics intel iris",
     0,
     [
       [
@@ -1806,6 +1915,7 @@
   [
     "intel iris graphics 550",
     "550",
+    "550 graphics intel iris",
     0,
     [
       [
@@ -1838,6 +1948,7 @@
   [
     "intel iris graphics 6100",
     "6100",
+    "6100 graphics intel iris",
     0,
     [
       [
@@ -1860,6 +1971,7 @@
   [
     "intel iris graphics 6200",
     "6200",
+    "6200 graphics intel iris",
     0,
     [
       [
@@ -1872,6 +1984,7 @@
   [
     "intel iris graphics 640",
     "640",
+    "640 graphics intel iris",
     0,
     [
       [
@@ -1889,6 +2002,7 @@
   [
     "intel iris graphics 650",
     "650",
+    "650 graphics intel iris",
     0,
     [
       [
@@ -1901,6 +2015,7 @@
   [
     "intel iris graphics p580",
     "580",
+    "graphics intel iris p580",
     0,
     [
       [
@@ -1913,6 +2028,7 @@
   [
     "intel iris plus",
     "",
+    "intel iris plus",
     0,
     [
       [
@@ -1950,6 +2066,7 @@
   [
     "intel iris plus graphics 640",
     "640",
+    "640 graphics intel iris plus",
     0,
     [
       [
@@ -2002,6 +2119,7 @@
   [
     "intel iris plus graphics 645",
     "645",
+    "645 graphics intel iris plus",
     0,
     [
       [
@@ -2024,6 +2142,7 @@
   [
     "intel iris plus graphics 650",
     "650",
+    "650 graphics intel iris plus",
     0,
     [
       [
@@ -2051,6 +2170,7 @@
   [
     "intel iris plus graphics 655",
     "655",
+    "655 graphics intel iris plus",
     0,
     [
       [
@@ -2078,6 +2198,7 @@
   [
     "intel iris plus graphics g1",
     "1",
+    "g1 graphics intel iris plus",
     0,
     [
       [
@@ -2090,6 +2211,7 @@
   [
     "intel iris plus graphics g7",
     "7",
+    "g7 graphics intel iris plus",
     0,
     [
       [
@@ -2102,6 +2224,7 @@
   [
     "intel iris pro",
     "pro",
+    "intel iris pro",
     0,
     [
       [
@@ -2114,6 +2237,7 @@
   [
     "intel iris pro graphics 5200",
     "5200",
+    "5200 graphics intel iris pro",
     0,
     [
       [
@@ -2141,6 +2265,7 @@
   [
     "intel iris pro graphics 580",
     "580",
+    "580 graphics intel iris pro",
     0,
     [
       [
@@ -2168,6 +2293,7 @@
   [
     "intel iris pro graphics 6200",
     "6200",
+    "6200 graphics intel iris pro",
     0,
     [
       [
@@ -2200,6 +2326,7 @@
   [
     "intel iris pro graphics p580",
     "580",
+    "graphics intel iris p580 pro",
     0,
     [
       [
@@ -2222,6 +2349,7 @@
   [
     "intel iris pro graphics p6300",
     "6300",
+    "graphics intel iris p6300 pro",
     0,
     [
       [
@@ -2244,6 +2372,7 @@
   [
     "intel iris xe",
     "xe",
+    "intel iris xe",
     0,
     [
       [
@@ -2256,6 +2385,7 @@
   [
     "intel iris xe graphics releaseinternal",
     "xe",
+    "graphics intel iris releaseinternal xe",
     0,
     [
       [
@@ -2268,6 +2398,7 @@
   [
     "intel iris xe graphics ri",
     "xeri",
+    "graphics intel iris ri xe",
     0,
     [
       [
@@ -2280,6 +2411,7 @@
   [
     "intel iris xe max",
     "xe",
+    "intel iris max xe",
     0,
     [
       [
@@ -2297,6 +2429,7 @@
   [
     "intel kabylake hd graphics ult gt2",
     "2",
+    "graphics gt2 hd intel kabylake ult",
     0,
     [
       [
@@ -2309,6 +2442,7 @@
   [
     "intel kabylake hd graphics ulx gt2",
     "2",
+    "graphics gt2 hd intel kabylake ulx",
     0,
     [
       [
@@ -2326,6 +2460,7 @@
   [
     "intel kbl unknown",
     "kbl",
+    "intel kbl unknown",
     0,
     [
       [
@@ -2338,6 +2473,7 @@
   [
     "intel mesa dri intel bay trail",
     "dribay",
+    "bay dri intel mesa trail",
     0,
     [
       [
@@ -2350,6 +2486,7 @@
   [
     "intel mesa dri intel haswell mobile",
     "dri",
+    "dri haswell intel mesa mobile",
     0,
     [
       [
@@ -2362,6 +2499,7 @@
   [
     "intel mesa dri intel hd",
     "drihd",
+    "dri hd intel mesa",
     0,
     [
       [
@@ -2374,6 +2512,7 @@
   [
     "intel mesa dri intel hd graphics 400",
     "400",
+    "400 dri graphics hd intel mesa",
     0,
     [
       [
@@ -2386,6 +2525,7 @@
   [
     "intel mesa dri intel hd graphics 505",
     "505",
+    "505 dri graphics hd intel mesa",
     0,
     [
       [
@@ -2398,6 +2538,7 @@
   [
     "intel mesa dri intel hd graphics 520",
     "520",
+    "520 dri graphics hd intel mesa",
     0,
     [
       [
@@ -2415,6 +2556,7 @@
   [
     "intel mesa dri intel hd graphics 530",
     "530",
+    "530 dri graphics hd intel mesa",
     0,
     [
       [
@@ -2427,6 +2569,7 @@
   [
     "intel mesa dri intel hd graphics 5500",
     "5500",
+    "5500 dri graphics hd intel mesa",
     0,
     [
       [
@@ -2439,6 +2582,7 @@
   [
     "intel mesa dri intel hd graphics 620",
     "620",
+    "620 dri graphics hd intel mesa",
     0,
     [
       [
@@ -2451,6 +2595,7 @@
   [
     "intel mesa dri intel hd graphics 630",
     "630",
+    "630 dri graphics hd intel mesa",
     0,
     [
       [
@@ -2463,6 +2608,7 @@
   [
     "intel mesa dri intel hd graphics p4000",
     "4000",
+    "dri graphics hd intel mesa p4000",
     0,
     [
       [
@@ -2475,6 +2621,7 @@
   [
     "intel mesa dri intel iris graphics 540",
     "540",
+    "540 dri graphics intel iris mesa",
     0,
     [
       [
@@ -2487,6 +2634,7 @@
   [
     "intel mesa dri intel ivybridge desktop",
     "dri",
+    "desktop dri intel ivybridge mesa",
     0,
     [
       [
@@ -2499,6 +2647,7 @@
   [
     "intel mesa dri intel ivybridge mobile",
     "dri",
+    "dri intel ivybridge mesa mobile",
     0,
     [
       [
@@ -2511,6 +2660,7 @@
   [
     "intel mesa dri intel kabylake gt2",
     "2",
+    "dri gt2 intel kabylake mesa",
     0,
     [
       [
@@ -2523,6 +2673,7 @@
   [
     "intel mesa dri intel sandybridge desktop",
     "dri",
+    "desktop dri intel mesa sandybridge",
     0,
     [
       [
@@ -2535,6 +2686,7 @@
   [
     "intel mesa dri intel sandybridge mobile",
     "dri",
+    "dri intel mesa mobile sandybridge",
     0,
     [
       [
@@ -2547,6 +2699,7 @@
   [
     "intel mesa dri intel uhd graphics 620",
     "620",
+    "620 dri graphics intel mesa uhd",
     0,
     [
       [
@@ -2559,6 +2712,7 @@
   [
     "intel mesa dri intel uhd graphics 630",
     "630",
+    "630 dri graphics intel mesa uhd",
     0,
     [
       [
@@ -2571,6 +2725,7 @@
   [
     "intel mesa intel hd graphics 520",
     "520",
+    "520 graphics hd intel mesa",
     0,
     [
       [
@@ -2583,6 +2738,7 @@
   [
     "intel mesa intel hd graphics 530",
     "530",
+    "530 graphics hd intel mesa",
     0,
     [
       [
@@ -2595,6 +2751,7 @@
   [
     "intel phdgd ivy 4",
     "4",
+    "4 intel ivy phdgd",
     0,
     [
       [
@@ -2607,6 +2764,7 @@
   [
     "intel radeon pro vega 16",
     "16",
+    "16 intel pro radeon vega",
     0,
     [
       [
@@ -2619,6 +2777,7 @@
   [
     "intel radeong 0.4 on amd bonaire",
     "0",
+    "0 4 amd bonaire intel on radeong",
     0,
     [
       [
@@ -2631,6 +2790,7 @@
   [
     "intel radeong 0.4 on amd cape verde",
     "0",
+    "0 4 amd cape intel on radeong verde",
     0,
     [
       [
@@ -2643,6 +2803,7 @@
   [
     "intel radeong 0.4 on amd polaris10",
     "0",
+    "0 4 amd intel on polaris10 radeong",
     0,
     [
       [
@@ -2655,6 +2816,7 @@
   [
     "intel radeong 0.4 on amd tonga",
     "0",
+    "0 4 amd intel on radeong tonga",
     0,
     [
       [
@@ -2667,6 +2829,7 @@
   [
     "intel skl unknown",
     "skl",
+    "intel skl unknown",
     0,
     [
       [
@@ -2679,6 +2842,7 @@
   [
     "intel skylake gt2 [hd graphics 520]",
     "2",
+    " 520 graphics gt2 hd intel skylake",
     0,
     [
       [
@@ -2691,6 +2855,7 @@
   [
     "intel uhd",
     "uhd",
+    "intel uhd",
     0,
     [
       [
@@ -2723,6 +2888,7 @@
   [
     "intel uhd 630",
     "630",
+    "630 intel uhd",
     0,
     [
       [
@@ -2735,6 +2901,7 @@
   [
     "intel uhd graphics 600",
     "600",
+    "600 graphics intel uhd",
     0,
     [
       [
@@ -2767,6 +2934,7 @@
   [
     "intel uhd graphics 600 universal",
     "600",
+    "600 graphics intel uhd universal",
     0,
     [
       [
@@ -2779,6 +2947,7 @@
   [
     "intel uhd graphics 605",
     "605",
+    "605 graphics intel uhd",
     0,
     [
       [
@@ -2796,6 +2965,7 @@
   [
     "intel uhd graphics 610",
     "610",
+    "610 graphics intel uhd",
     0,
     [
       [
@@ -2823,6 +2993,7 @@
   [
     "intel uhd graphics 615",
     "615",
+    "615 graphics intel uhd",
     0,
     [
       [
@@ -2845,6 +3016,7 @@
   [
     "intel uhd graphics 617",
     "617",
+    "617 graphics intel uhd",
     0,
     [
       [
@@ -2872,6 +3044,7 @@
   [
     "intel uhd graphics 620",
     "620",
+    "620 graphics intel uhd",
     0,
     [
       [
@@ -2894,6 +3067,7 @@
   [
     "intel uhd graphics 630",
     "630",
+    "630 graphics intel uhd",
     0,
     [
       [
@@ -2946,6 +3120,7 @@
   [
     "intel uhd graphics 730",
     "730",
+    "730 graphics intel uhd",
     0,
     [
       [
@@ -2958,6 +3133,7 @@
   [
     "intel uhd graphics 750",
     "750",
+    "750 graphics intel uhd",
     0,
     [
       [
@@ -2975,6 +3151,7 @@
   [
     "intel uhd graphics 770",
     "770",
+    "770 graphics intel uhd",
     0,
     [
       [
@@ -2992,6 +3169,7 @@
   [
     "intel uhd graphics gfx-driver-user-comp_core-23599",
     "23599",
+    "gfx-driver-user-comp_core-23599 graphics intel uhd",
     0,
     [
       [
@@ -3004,6 +3182,7 @@
   [
     "intel uhd graphics p630",
     "630",
+    "graphics intel p630 uhd",
     0,
     [
       [
@@ -3021,6 +3200,7 @@
   [
     "intel uhd graphics releaseinternal",
     "uhd",
+    "graphics intel releaseinternal uhd",
     0,
     [
       [
@@ -3038,6 +3218,7 @@
   [
     "intel uhd graphics ri",
     "uhdri",
+    "graphics intel ri uhd",
     0,
     [
       [
@@ -3050,6 +3231,7 @@
   [
     "intel uhd graphics, gen11 lp",
     "11",
+    " gen11 graphics intel lp uhd",
     0,
     [
       [
@@ -3062,6 +3244,7 @@
   [
     "intel uhd graphics, gen12 lp releaseinternal",
     "12",
+    " gen12 graphics intel lp releaseinternal uhd",
     0,
     [
       [
@@ -3074,6 +3257,7 @@
   [
     "intel uhd graphics, lkf",
     "uhdlkf",
+    " graphics intel lkf uhd",
     0,
     [
       [
@@ -3086,6 +3270,7 @@
   [
     "intel unknown",
     "",
+    "intel unknown",
     0,
     [
       [
@@ -3098,6 +3283,7 @@
   [
     "intel xe",
     "xe",
+    "intel xe",
     0,
     [
       [
@@ -3115,6 +3301,7 @@
   [
     "intel xe graphics releaseinternal",
     "xe",
+    "graphics intel releaseinternal xe",
     0,
     [
       [
@@ -3127,6 +3314,7 @@
   [
     "intel xeon e3-1200 v3 gen core processor integrated graphics controller",
     "3",
+    "controller core e3-1200 gen graphics integrated intel processor v3 xeon",
     0,
     [
       [

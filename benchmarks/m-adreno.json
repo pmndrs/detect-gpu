@@ -1,8 +1,9 @@
 [
-  "4.0.50",
+  "5.0.0",
   [
     "adreno 506",
     "506",
+    "506 adreno",
     0,
     [
       [
@@ -16,6 +17,7 @@
   [
     "adreno 530",
     "530",
+    "530 adreno",
     0,
     [
       [
@@ -35,6 +37,7 @@
   [
     "adreno 615",
     "615",
+    "615 adreno",
     0,
     [
       [
@@ -48,6 +51,7 @@
   [
     "adreno 618",
     "618",
+    "618 adreno",
     0,
     [
       [
@@ -61,6 +65,7 @@
   [
     "adreno 620",
     "620",
+    "620 adreno",
     0,
     [
       [
@@ -74,6 +79,7 @@
   [
     "adreno 630",
     "630",
+    "630 adreno",
     0,
     [
       [
@@ -87,6 +93,7 @@
   [
     "adreno 640",
     "640",
+    "640 adreno",
     0,
     [
       [
@@ -100,6 +107,7 @@
   [
     "qualcomm adreno 205",
     "205",
+    "205 adreno qualcomm",
     0,
     [
       [
@@ -113,6 +121,7 @@
   [
     "qualcomm adreno 304",
     "304",
+    "304 adreno qualcomm",
     0,
     [
       [
@@ -240,6 +249,7 @@
   [
     "qualcomm adreno 305",
     "305",
+    "305 adreno qualcomm",
     0,
     [
       [
@@ -481,6 +491,7 @@
   [
     "qualcomm adreno 306",
     "306",
+    "306 adreno qualcomm",
     0,
     [
       [
@@ -650,6 +661,7 @@
   [
     "qualcomm adreno 308",
     "308",
+    "308 adreno qualcomm",
     0,
     [
       [
@@ -747,6 +759,7 @@
   [
     "qualcomm adreno 320",
     "320",
+    "320 adreno qualcomm",
     0,
     [
       [
@@ -826,6 +839,7 @@
   [
     "qualcomm adreno 330",
     "330",
+    "330 adreno qualcomm",
     0,
     [
       [
@@ -983,6 +997,7 @@
   [
     "qualcomm adreno 405",
     "405",
+    "405 adreno qualcomm",
     0,
     [
       [
@@ -1110,6 +1125,7 @@
   [
     "qualcomm adreno 418",
     "418",
+    "418 adreno qualcomm",
     0,
     [
       [
@@ -1171,6 +1187,7 @@
   [
     "qualcomm adreno 420",
     "420",
+    "420 adreno qualcomm",
     0,
     [
       [
@@ -1226,6 +1243,7 @@
   [
     "qualcomm adreno 430",
     "430",
+    "430 adreno qualcomm",
     0,
     [
       [
@@ -1293,6 +1311,7 @@
   [
     "qualcomm adreno 505",
     "505",
+    "505 adreno qualcomm",
     0,
     [
       [
@@ -1414,6 +1433,7 @@
   [
     "qualcomm adreno 506",
     "506",
+    "506 adreno qualcomm",
     0,
     [
       [
@@ -1511,6 +1531,7 @@
   [
     "qualcomm adreno 508",
     "508",
+    "508 adreno qualcomm",
     0,
     [
       [
@@ -1542,6 +1563,7 @@
   [
     "qualcomm adreno 509",
     "509",
+    "509 adreno qualcomm",
     0,
     [
       [
@@ -1561,6 +1583,7 @@
   [
     "qualcomm adreno 510",
     "510",
+    "510 adreno qualcomm",
     0,
     [
       [
@@ -1652,6 +1675,7 @@
   [
     "qualcomm adreno 512",
     "512",
+    "512 adreno qualcomm",
     0,
     [
       [
@@ -1695,6 +1719,7 @@
   [
     "qualcomm adreno 530",
     "530",
+    "530 adreno qualcomm",
     0,
     [
       [
@@ -1786,6 +1811,7 @@
   [
     "qualcomm adreno 540",
     "540",
+    "540 adreno qualcomm",
     0,
     [
       [
@@ -1883,6 +1909,7 @@
   [
     "qualcomm adreno 612",
     "612",
+    "612 adreno qualcomm",
     0,
     [
       [
@@ -1896,6 +1923,7 @@
   [
     "qualcomm adreno 615",
     "615",
+    "615 adreno qualcomm",
     0,
     [
       [
@@ -1915,6 +1943,7 @@
   [
     "qualcomm adreno 616",
     "616",
+    "616 adreno qualcomm",
     0,
     [
       [
@@ -1928,6 +1957,7 @@
   [
     "qualcomm adreno 618",
     "618",
+    "618 adreno qualcomm",
     0,
     [
       [
@@ -1949,10 +1979,16 @@
         "samsung galaxy a71 (sm-a715f)"
       ],
       [
-        2340,
-        1036,
-        33,
+        2210,
+        1080,
+        32,
         "xiaomi mi 9t"
+      ],
+      [
+        2314,
+        1044,
+        31,
+        "samsung galaxy a72 (sm-a725m)"
       ],
       [
         2274,
@@ -1965,6 +2001,7 @@
   [
     "qualcomm adreno 619",
     "619",
+    "619 adreno qualcomm",
     0,
     [
       [
@@ -1978,6 +2015,7 @@
   [
     "qualcomm adreno 620",
     "620",
+    "620 adreno qualcomm",
     0,
     [
       [
@@ -1991,6 +2029,7 @@
   [
     "qualcomm adreno 630",
     "630",
+    "630 adreno qualcomm",
     0,
     [
       [
@@ -2010,6 +2049,7 @@
   [
     "qualcomm adreno 640",
     "640",
+    "640 adreno qualcomm",
     0,
     [
       [
@@ -2101,6 +2141,7 @@
   [
     "qualcomm adreno 642l",
     "642",
+    "642l adreno qualcomm",
     0,
     [
       [
@@ -2114,6 +2155,7 @@
   [
     "qualcomm adreno 644",
     "644",
+    "644 adreno qualcomm",
     0,
     [
       [
@@ -2127,6 +2169,7 @@
   [
     "qualcomm adreno 650",
     "650",
+    "650 adreno qualcomm",
     0,
     [
       [
@@ -2176,6 +2219,7 @@
   [
     "qualcomm adreno 660",
     "660",
+    "660 adreno qualcomm",
     0,
     [
       [
@@ -2195,6 +2239,7 @@
   [
     "qualcomm adreno 702",
     "702",
+    "702 adreno qualcomm",
     0,
     [
       [
@@ -2208,6 +2253,7 @@
   [
     "qualcomm adreno 730",
     "730",
+    "730 adreno qualcomm",
     0,
     [
       [

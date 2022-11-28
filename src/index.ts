@@ -135,7 +135,15 @@ export const getGPUTier = async ({
   let { renderer } = override;
   const getGpuType = (renderer: string) => {
     const types = isMobile
-      ? (['adreno', 'apple', 'mali-t', 'mali', 'nvidia', 'powervr'] as const)
+      ? ([
+          'adreno',
+          'apple',
+          'mali-t',
+          'mali',
+          'nvidia',
+          'powervr',
+          'samsung',
+        ] as const)
       : (['intel', 'apple', 'amd', 'radeon', 'nvidia', 'geforce'] as const);
     for (const type of types) {
       if (renderer.includes(type)) {

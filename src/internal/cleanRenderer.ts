@@ -6,8 +6,9 @@ export function cleanRenderer(renderer: string) {
   renderer = renderer
     .toLowerCase()
     // Strip off ANGLE() - for example:
-    // 'ANGLE (NVIDIA TITAN Xp)' becomes 'NVIDIA TITAN Xp'':
-    .replace(/^angle ?\((.+)\)*$/, '$1')
+    // 'ANGLE (NVIDIA TITAN Xp)' becomes 'NVIDIA TITAN Xp',
+    // 'Samsung Electronics Co., Ltd. ANGLE (Samsung Xclipse 920) on Vulkan 1.1.179' becomes 'Samsung Xclipse 920':
+    .replace(/.*angle ?\((.+)\)(?: on vulkan [0-9.]+)?$/i, '$1')
     // Strip off [number]gb & strip off direct3d and after - for example:
     // 'Radeon (TM) RX 470 Series Direct3D11 vs_5_0 ps_5_0' becomes
     // 'Radeon (TM) RX 470 Series'

@@ -1,11 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 // Vendor
-import puppeteer from 'puppeteer';
 import fs from 'fs';
+import puppeteer from 'puppeteer';
 
 // Application
 import { BLOCKLISTED_GPUS } from '../src/internal/blocklistedGPUS';
+import { cleanRenderer } from '../src/internal/cleanRenderer';
 import { getGPUVersion } from '../src/internal/getGPUVersion';
 import { tokenizeForLevenshteinDistance } from '../src/internal/getLevenshteinDistance';
 import { internalBenchmarkResults } from './internalBenchmarkResults';
@@ -28,6 +29,7 @@ const TYPES = [
   'radeon',
   'nvidia',
   'geforce',
+  'samsung'
 ];
 
 type Optional<T, K extends keyof T> = Pick<Partial<T>, K> & Omit<T, K>;
@@ -37,8 +39,7 @@ type Optional<T, K extends keyof T> = Pick<Partial<T>, K> & Omit<T, K>;
   benchmarks.push(...internalBenchmarkResults);
   benchmarks = benchmarks
     .map((benchmark) => {
-      benchmark.gpu = benchmark.gpu
-        .toLowerCase()
+      benchmark.gpu = cleanRenderer(benchmark.gpu)
         .replace(/\s*\([^)]+(\))/g, '')
         .replace(/(\d+)\/[^ ]+/, '$1')
         .replace(
@@ -128,16 +129,19 @@ type Optional<T, K extends keyof T> = Pick<Partial<T>, K> & Omit<T, K>;
               ),
             ]
           );
-          const data = [version, ...serializedModels]
-          await Promise.all([true, false].map(async (minified) => {
-            const file = `./benchmarks${minified ? '-min' : ''}/${isMobile ? 'm' : 'd'}-${type}.json`;
-            const json = JSON.stringify(data, null, minified ? undefined : 2);
-            await fs.promises.writeFile(file, json);
-            if (!minified) {
-              console.log(`Exported ${file}`);
-            }
-          }))
-
+          const data = [version, ...serializedModels];
+          await Promise.all(
+            [true, false].map(async (minified) => {
+              const file = `./benchmarks${minified ? '-min' : ''}/${
+                isMobile ? 'm' : 'd'
+              }-${type}.json`;
+              const json = JSON.stringify(data, null, minified ? undefined : 2);
+              await fs.promises.writeFile(file, json);
+              if (!minified) {
+                console.log(`Exported ${file}`);
+              }
+            })
+          );
         };
 
         // Output ipads seperately from other ios devices:

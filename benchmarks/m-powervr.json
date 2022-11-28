@@ -1,8 +1,9 @@
 [
-  "4.0.50",
+  "5.0.0",
   [
     "powervr rogue g6110",
     "6110",
+    "g6110 powervr rogue",
     0,
     [
       [
@@ -58,6 +59,7 @@
   [
     "powervr rogue g6200",
     "6200",
+    "g6200 powervr rogue",
     0,
     [
       [
@@ -119,6 +121,7 @@
   [
     "powervr rogue g6230",
     "6230",
+    "g6230 powervr rogue",
     0,
     [
       [
@@ -150,6 +153,7 @@
   [
     "powervr rogue g6400",
     "6400",
+    "g6400 powervr rogue",
     0,
     [
       [
@@ -169,6 +173,7 @@
   [
     "powervr rogue g6430",
     "6430",
+    "g6430 powervr rogue",
     0,
     [
       [
@@ -230,6 +235,7 @@
   [
     "powervr rogue ge8100",
     "8100",
+    "ge8100 powervr rogue",
     0,
     [
       [
@@ -261,6 +267,7 @@
   [
     "powervr rogue ge8300",
     "8300",
+    "ge8300 powervr rogue",
     0,
     [
       [
@@ -286,6 +293,7 @@
   [
     "powervr rogue gx6250",
     "6250",
+    "gx6250 powervr rogue",
     0,
     [
       [
@@ -359,6 +367,7 @@
   [
     "powervr rogue gx6650",
     "6650",
+    "gx6650 powervr rogue",
     0,
     [
       [
@@ -378,6 +387,7 @@
   [
     "powervr rogue han",
     "han",
+    "han powervr rogue",
     0,
     [
       [
@@ -409,6 +419,7 @@
   [
     "powervr rogue hood",
     "",
+    "hood powervr rogue",
     0,
     [
       [
@@ -434,6 +445,7 @@
   [
     "powervr rogue lando",
     "",
+    "lando powervr rogue",
     0,
     [
       [
@@ -447,6 +459,7 @@
   [
     "powervr rogue marlowe",
     "",
+    "marlowe powervr rogue",
     0,
     [
       [

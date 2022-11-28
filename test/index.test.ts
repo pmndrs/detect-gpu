@@ -231,6 +231,15 @@ for (const { input, expected } of [
   },
   {
     expected: {
+      gpu: 'samsung xclipse 920',
+    },
+    input: {
+      isMobile: true,
+      renderer: 'ANGLE (Samsung Xclipse 920) on Vulkan 1.1.179',
+    },
+  },
+  {
+    expected: {
       gpu: 'nvidia geforce gtx 970',
     },
     input: {
