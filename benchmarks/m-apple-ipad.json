@@ -1,5 +1,5 @@
 [
-  "5.0.0",
+  "5.0.1",
   [
     "apple a10 gpu",
     "10",
@@ -101,8 +101,8 @@
       [
         2388,
         1668,
-        112,
-        "apple ipad pro (11-inch) (2rd generation)"
+        115,
+        "apple ipad pro (11-inch) (2nd generation)"
       ],
       [
         2732,
@@ -136,7 +136,7 @@
         2360,
         1640,
         60,
-        "apple ipad (10th generation)"
+        "apple ipad air (4th generation)"
       ],
       [
         2388,
