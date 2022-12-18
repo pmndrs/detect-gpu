@@ -1,5 +1,5 @@
 [
-  "5.0.2",
+  "5.0.3",
   [
     "powervr rogue g6110",
     "6110",
@@ -287,6 +287,20 @@
         1128,
         5,
         "acer b3-a40 fhd iconia one 10"
+      ]
+    ]
+  ],
+  [
+    "powervr rogue ge8320",
+    "8320",
+    "ge8320 powervr rogue",
+    0,
+    [
+      [
+        1510,
+        720,
+        21,
+        "samsung galaxy a04e"
       ]
     ]
   ],
