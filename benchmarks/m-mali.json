@@ -1,5 +1,5 @@
 [
-  "5.0.3",
+  "5.0.4",
   [
     "arm mali-g31",
     "31",
@@ -241,6 +241,20 @@
     ]
   ],
   [
+    "arm mali-g715-immortalis mc11",
+    "715",
+    "arm mali-g715-immortalis mc11",
+    0,
+    [
+      [
+        2311,
+        1080,
+        120,
+        "vivo x90"
+      ]
+    ]
+  ],
+  [
     "arm mali-g72",
     "72",
     "arm mali-g72",
@@ -251,12 +265,6 @@
         1080,
         55,
         "huawei mate 10 pro (bla-xxx)"
-      ],
-      [
-        2076,
-        1080,
-        44,
-        "samsung galaxy note 9"
       ],
       [
         2160,
@@ -291,8 +299,8 @@
       [
         2792,
         1440,
-        47,
-        "samsung galaxy s9+ (mali-g72, sm-g965)"
+        27,
+        "samsung galaxy note 9"
       ]
     ]
   ],
@@ -445,6 +453,12 @@
         1080,
         67,
         "samsung galaxy s20 ultra 5g (sm-g988b)"
+      ],
+      [
+        2327,
+        1038,
+        57,
+        "samsung galaxy s20+ 5g (sm-g986b)"
       ],
       [
         2304,
