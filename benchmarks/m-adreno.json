@@ -1,5 +1,5 @@
 [
-  "5.0.5",
+  "5.0.6",
   [
     "adreno 506",
     "506",
@@ -1515,6 +1515,12 @@
         "vestel v tab 1090 lte"
       ],
       [
+        2043,
+        1080,
+        9,
+        "xiaomi mi a2 lite (redmi 6 pro)"
+      ],
+      [
         2094,
         1080,
         9,
@@ -2203,6 +2209,12 @@
         "samsung galaxy s20 5g (sm-g981n)"
       ],
       [
+        2214,
+        1080,
+        117,
+        "asus rog phone 3"
+      ],
+      [
         2250,
         1080,
         114,
@@ -2219,6 +2231,18 @@
         1080,
         60,
         "xiaomi poco f2 pro"
+      ],
+      [
+        2560,
+        1510,
+        60,
+        "samsung galaxy tab s7"
+      ],
+      [
+        2923,
+        1440,
+        41,
+        "samsung galaxy s20+ 5g (sm-g986u)"
       ],
       [
         3101,
