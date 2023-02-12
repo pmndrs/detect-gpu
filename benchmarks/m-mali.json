@@ -1,5 +1,5 @@
 [
-  "5.0.10",
+  "5.0.11",
   [
     "arm mali-g31",
     "31",
@@ -349,6 +349,12 @@
         "samsung galaxy s10 plus sm-g975n"
       ],
       [
+        2047,
+        1080,
+        57,
+        "samsung sm-g975f"
+      ],
+      [
         2050,
         1080,
         55,
@@ -359,12 +365,6 @@
         1080,
         60,
         "samsung galaxy note 10 5g (mali-g76, sm-n971x)"
-      ],
-      [
-        2173,
-        1041,
-        59,
-        "samsung sm-g975f"
       ],
       [
         2111,
@@ -464,7 +464,7 @@
         2178,
         1080,
         65,
-        "samsung galaxy s20 (sm-g980f)"
+        "samsung galaxy s20 5g (sm-g981b)"
       ],
       [
         2200,
