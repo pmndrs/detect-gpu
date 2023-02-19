@@ -1,5 +1,5 @@
 [
-  "5.0.11",
+  "5.0.12",
   [
     "adreno 506",
     "506",
@@ -2209,10 +2209,16 @@
         "samsung galaxy s20 fe 5g (sm-g781u)"
       ],
       [
+        2178,
+        1080,
+        85,
+        "samsung galaxy s20 5g (sm-g981n)"
+      ],
+      [
         2196,
         1080,
-        73,
-        "samsung galaxy s20 5g (sm-g981n)"
+        116,
+        "lenovo l79031"
       ],
       [
         2214,
@@ -2253,7 +2259,7 @@
       [
         3101,
         1387,
-        50,
+        51,
         "samsung galaxy s20 ultra 5g (sm-g988u1)"
       ],
       [
