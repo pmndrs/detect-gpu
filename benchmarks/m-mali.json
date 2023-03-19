@@ -1,5 +1,5 @@
 [
-  "5.0.15",
+  "5.0.16",
   [
     "arm mali-g31",
     "31",
@@ -133,16 +133,16 @@
         "samsung galaxy a22 5g"
       ],
       [
+        2177,
+        1080,
+        34,
+        "xiaomi poco m4 pro"
+      ],
+      [
         2304,
         1036,
         38,
         "poco m4 pro 5g (21091116ag)"
-      ],
-      [
-        2307,
-        1036,
-        34,
-        "xiaomi poco m4 pro"
       ]
     ]
   ],
@@ -287,6 +287,12 @@
         "huawei mate 10 pro (bla-xxx)"
       ],
       [
+        2094,
+        1080,
+        57,
+        "samsung galaxy note 9"
+      ],
+      [
         2160,
         1080,
         56,
@@ -319,8 +325,8 @@
       [
         2792,
         1440,
-        27,
-        "samsung galaxy note 9"
+        47,
+        "samsung galaxy s9+ (mali-g72, sm-g965)"
       ]
     ]
   ],
@@ -507,9 +513,9 @@
         "oneplus nord 2 5g"
       ],
       [
-        2304,
-        1036,
-        105,
+        2174,
+        1080,
+        106,
         "xiaomi poco x3 gt (21061110ag)"
       ],
       [
