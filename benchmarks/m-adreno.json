@@ -1,5 +1,5 @@
 [
-  "5.0.18",
+  "5.0.19",
   [
     "adreno 506",
     "506",
@@ -1907,6 +1907,20 @@
     ]
   ],
   [
+    "qualcomm adreno 610",
+    "610",
+    "610 adreno qualcomm",
+    0,
+    [
+      [
+        1557,
+        678,
+        33,
+        "motorola moto g30"
+      ]
+    ]
+  ],
+  [
     "qualcomm adreno 612",
     "612",
     "612 adreno qualcomm",
@@ -1951,6 +1965,12 @@
         1080,
         31,
         "meizu x8"
+      ],
+      [
+        2161,
+        1080,
+        30,
+        "xiaomi mi 9 lite"
       ]
     ]
   ],
@@ -1965,6 +1985,12 @@
         1080,
         38,
         "xiaomi mi note 10"
+      ],
+      [
+        2304,
+        1006,
+        38,
+        "motorola moto g9 plus"
       ],
       [
         2168,
