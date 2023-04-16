@@ -1,5 +1,5 @@
 [
-  "5.0.19",
+  "5.0.20",
   [
     "apple a10 gpu",
     "10",
@@ -67,7 +67,7 @@
       [
         2224,
         1668,
-        58,
+        59,
         "apple ipad air (2019)"
       ]
     ]
@@ -136,7 +136,7 @@
         2360,
         1640,
         60,
-        "apple ipad (10th generation)"
+        "apple ipad air (4th generation)"
       ],
       [
         2388,
