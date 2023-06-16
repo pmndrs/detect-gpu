@@ -62,7 +62,7 @@ getGPUTier({
    * Whether to fail if the system performance is low or if no hardware GPU is
    * available.
    *
-   * @default true
+   * @default false
    */
   failIfMajorPerformanceCaveat?: boolean;
   /**
