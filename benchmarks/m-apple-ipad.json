@@ -1,5 +1,5 @@
 [
-  "5.0.28",
+  "5.0.29",
   [
     "apple a10 gpu",
     "10",
@@ -35,7 +35,7 @@
       [
         2224,
         1668,
-        43,
+        44,
         "apple ipad pro (10.5-inch)"
       ],
       [
@@ -55,7 +55,7 @@
       [
         2048,
         1536,
-        59,
+        60,
         "apple ipad mini (2019)"
       ],
       [
@@ -283,14 +283,14 @@
       [
         2730,
         2048,
-        120,
+        119,
         "apple ipad pro 12.9-inch (6th generation)"
       ],
       [
         2732,
         2048,
-        120,
-        "apple ipad pro 12.9-inch (6th generation)"
+        117,
+        "apple ipad pro 12.9 inch (6th gen)"
       ]
     ]
   ]
