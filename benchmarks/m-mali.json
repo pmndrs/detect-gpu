@@ -1,5 +1,5 @@
 [
-  "5.0.35",
+  "5.0.36",
   [
     "arm mali-g31",
     "31",
@@ -493,16 +493,16 @@
         "samsung galaxy s20+ 5g (sm-g986b)"
       ],
       [
+        2256,
+        1080,
+        110,
+        "samsung galaxy s20 fe (sm-g780f)"
+      ],
+      [
         2304,
         1080,
         55,
         "oppo pdcm00"
-      ],
-      [
-        2312,
-        1080,
-        64,
-        "samsung galaxy s20 fe (sm-g780f)"
       ]
     ]
   ],
