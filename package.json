@@ -77,22 +77,24 @@
     "typescript": "^5.1.6"
   },
   "jest": {
-    "testURL": "http://localhost",
+    "testEnvironmentOptions": {
+      "url": "http://localhost"
+    },
     "moduleFileExtensions": [
       "js",
       "ts"
     ],
-    "globals": {
-      "ts-jest": {
-        "tsconfig": "tsconfig.json"
-      }
-    },
     "testMatch": [
       "**/test/**/*.test.ts"
     ],
     "testPathIgnorePatterns": [
       "<rootDir>/test/data.ts"
     ],
-    "preset": "ts-jest"
+    "preset": "ts-jest",
+    "transform": {
+      "^.+\\.tsx?$": ["ts-jest", {
+        "tsconfig": "tsconfig.json"
+      }]
+    }
   }
 }
