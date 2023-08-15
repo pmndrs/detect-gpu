@@ -1,10 +1,10 @@
 // Vendor
-import { ModuleFormat, RollupOptions } from 'rollup';
-import copy from 'rollup-plugin-copy';
-import commonjs from 'rollup-plugin-commonjs';
 import json from '@rollup/plugin-json';
-import filesize from 'rollup-plugin-filesize';
 import resolve from '@rollup/plugin-node-resolve';
+import { ModuleFormat, RollupOptions } from 'rollup';
+import commonjs from 'rollup-plugin-commonjs';
+import copy from 'rollup-plugin-copy';
+import filesize from 'rollup-plugin-filesize';
 import sourcemaps from 'rollup-plugin-sourcemaps';
 import { terser } from 'rollup-plugin-terser';
 import typescript from 'rollup-plugin-typescript2';

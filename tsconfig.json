@@ -15,6 +15,6 @@
     "outDir": "dist/lib",
     "typeRoots": ["node_modules/@types"]
   },
-  "include": ["src/**/*.ts"],
+  "include": ["src/**/*.ts", "rollup/*.ts", "example/**/*.ts"],
   "exclude": ["node_modules"]
 }
