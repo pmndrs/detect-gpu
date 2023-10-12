@@ -291,6 +291,8 @@ export const getGPUTier = async ({
 
     if (debugRendererInfo) {
       renderer = gl.getParameter(debugRendererInfo.UNMASKED_RENDERER_WEBGL);
+    } else {
+      renderer = gl.getParameter(gl.RENDERER);
     }
 
     if (!renderer) {
