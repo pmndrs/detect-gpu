@@ -1,5 +1,5 @@
 [
-  "5.0.37",
+  "5",
   [
     "arm mali-g31",
     "31",
@@ -141,7 +141,7 @@
       [
         2208,
         1080,
-        34,
+        35,
         "samsung galaxy a22 5g"
       ],
       [
@@ -177,6 +177,26 @@
         1080,
         60,
         "realme gt neo 3 150w"
+      ]
+    ]
+  ],
+  [
+    "arm mali-g68 mc4",
+    "68",
+    "arm mali-g68 mc4",
+    0,
+    [
+      [
+        2153,
+        1080,
+        56,
+        "oppo reno6 5g"
+      ],
+      [
+        2944,
+        1712,
+        31,
+        "lenovo tab p12"
       ]
     ]
   ],
@@ -351,6 +371,20 @@
     ]
   ],
   [
+    "arm mali-g720-immortalis mc12",
+    "720",
+    "arm mali-g720-immortalis mc12",
+    0,
+    [
+      [
+        2680,
+        1260,
+        120,
+        "vivo x100"
+      ]
+    ]
+  ],
+  [
     "arm mali-g76",
     "76",
     "arm mali-g76",
@@ -387,6 +421,12 @@
         "huawei nova 5t (yal-l21)"
       ],
       [
+        2159,
+        1080,
+        47,
+        "samsung galaxy a51 5g"
+      ],
+      [
         2176,
         1080,
         54,
@@ -403,12 +443,6 @@
         1080,
         59,
         "huawei p30 pro"
-      ],
-      [
-        2312,
-        1080,
-        27,
-        "samsung galaxy a51 5g"
       ],
       [
         2328,
@@ -438,7 +472,7 @@
         2759,
         1440,
         59,
-        "samsung galaxy note 10+ 5g (mali-g76, sm-n976x)"
+        "samsung galaxy note 10+ (mali-g76, sm-n975x)"
       ],
       [
         2861,
@@ -469,9 +503,15 @@
     0,
     [
       [
+        2168,
+        1080,
+        93,
+        "samsung galaxy s20 fe (sm-g780f)"
+      ],
+      [
         2173,
         1080,
-        57,
+        58,
         "samsung galaxy note 20 (sm-n980f)"
       ],
       [
@@ -483,7 +523,7 @@
       [
         2200,
         1080,
-        67,
+        95,
         "samsung galaxy s20 ultra 5g (sm-g988b)"
       ],
       [
@@ -491,12 +531,6 @@
         1038,
         57,
         "samsung galaxy s20+ 5g (sm-g986b)"
-      ],
-      [
-        2256,
-        1080,
-        110,
-        "samsung galaxy s20 fe (sm-g780f)"
       ],
       [
         2304,

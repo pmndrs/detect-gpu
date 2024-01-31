@@ -1,6 +1,6 @@
 {
   "name": "detect-gpu",
-  "version": "5.0.37",
+  "version": "5.0.38",
   "description": "Classify GPU's based on their benchmark score in order to provide an adaptive experience.",
   "author": "Tim van Scherpenzeel",
   "license": "MIT",
@@ -92,9 +92,12 @@
     ],
     "preset": "ts-jest",
     "transform": {
-      "^.+\\.tsx?$": ["ts-jest", {
-        "tsconfig": "tsconfig.json"
-      }]
+      "^.+\\.tsx?$": [
+        "ts-jest",
+        {
+          "tsconfig": "tsconfig.json"
+        }
+      ]
     }
   }
 }

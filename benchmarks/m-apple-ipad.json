@@ -1,5 +1,5 @@
 [
-  "5.0.37",
+  "5",
   [
     "apple a10 gpu",
     "10",
@@ -15,7 +15,7 @@
       [
         2160,
         1620,
-        37,
+        36,
         "apple ipad (10.2-inch) (7th generation)"
       ]
     ]
@@ -35,13 +35,13 @@
       [
         2224,
         1668,
-        43,
+        1596,
         "apple ipad pro (10.5-inch)"
       ],
       [
         2732,
         2048,
-        48,
+        44,
         "apple ipad pro (12.9-inch, 2nd gen)"
       ]
     ]
@@ -61,13 +61,13 @@
       [
         2160,
         1620,
-        55,
+        58,
         "apple ipad 8th gen (wifi+cellular)"
       ],
       [
         2224,
         1668,
-        59,
+        58,
         "apple ipad air (2019)"
       ]
     ]
@@ -101,8 +101,8 @@
       [
         2388,
         1668,
-        115,
-        "apple ipad pro (11-inch) (2nd generation)"
+        107,
+        "apple ipad pro (11-inch) (2rd generation)"
       ],
       [
         2732,
@@ -136,7 +136,7 @@
         2360,
         1640,
         60,
-        "apple ipad (10th generation)"
+        "apple ipad air (4th generation)"
       ],
       [
         2388,
@@ -281,10 +281,16 @@
         "apple ipad pro 11 inch (4th gen)"
       ],
       [
+        2730,
+        2048,
+        117,
+        "apple ipad pro 12.9-inch (6th generation)"
+      ],
+      [
         2732,
         2048,
-        119,
-        "apple ipad pro 12.9-inch (6th generation)"
+        120,
+        "apple ipad pro 12.9 inch (6th gen)"
       ]
     ]
   ]

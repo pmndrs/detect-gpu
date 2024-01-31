@@ -1,11 +1,17 @@
 [
-  "5.0.37",
+  "5",
   [
     "apple a10 gpu",
     "10",
     "a10 apple gpu",
     0,
     [
+      [
+        1136,
+        640,
+        59,
+        "apple ipod touch (7th gen)"
+      ],
       [
         1334,
         750,
@@ -55,14 +61,14 @@
       [
         1792,
         828,
-        60,
+        65,
         "apple iphone xr"
       ],
       [
         2436,
         1125,
         60,
-        "apple iphone xs max"
+        "apple iphone xs"
       ],
       [
         2208,
@@ -81,13 +87,13 @@
       [
         1334,
         750,
-        75,
+        60,
         "apple iphone se (2nd gen)"
       ],
       [
         1792,
         828,
-        60,
+        66,
         "apple iphone 11"
       ],
       [
@@ -99,7 +105,7 @@
       [
         2688,
         1242,
-        60,
+        70,
         "apple iphone 11 pro max"
       ]
     ]
@@ -139,7 +145,7 @@
       [
         1334,
         750,
-        118,
+        60,
         "apple iphone se (2022)"
       ],
       [
@@ -152,7 +158,7 @@
         2532,
         1170,
         60,
-        "apple iphone 13"
+        "apple iphone 14"
       ],
       [
         2778,
@@ -179,6 +185,26 @@
         1284,
         60,
         "apple iphone 14 pro max"
+      ]
+    ]
+  ],
+  [
+    "apple a17 pro gpu",
+    "17",
+    "a17 apple gpu pro",
+    0,
+    [
+      [
+        2532,
+        1170,
+        60,
+        "apple iphone 15 pro"
+      ],
+      [
+        2778,
+        1284,
+        122,
+        "apple iphone 15 pro max"
       ]
     ]
   ],
