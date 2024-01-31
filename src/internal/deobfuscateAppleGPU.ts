@@ -29,12 +29,13 @@ export function deobfuscateAppleGPU(
   const codeA = '801621810' as const;
   const codeB = '8016218135' as const;
   const codeC = '80162181161' as const;
+  const codeFB = '80162181255';
 
   // All chipsets that support at least iOS 12:
   const possibleChipsets: [
     string,
     typeof codeA | typeof codeB | typeof codeC,
-    number
+    number,
   ][] = deviceInfo?.isIpad
     ? [
         // ['a4', 5], // ipad 1st gen
@@ -66,12 +67,15 @@ export function deobfuscateAppleGPU(
         ['a12', codeA, 15], // XS / XS Max / XR
         ['a13', codeA, 15], // 11 / 11 pro / 11 pro max / se 2nd gen
         ['a14', codeA, 15], // 12 / 12 mini / 12 pro / 12 pro max
+        ['a15', codeA, 15], // 13 / 13 mini / 13 pro / 13 pro max / se 3rd gen / 14 / 14 plus
+        ['a16', codeA, 15], // 14 pro / 14 pro max / 15 / 15 plus
+        ['a17', codeA, 15], // 15 pro / 15 pro max
       ];
   let chipsets: typeof possibleChipsets;
 
   // In iOS 14.x Apple started normalizing the outcome of this hack,
   // we use this fact to limit the list to devices that support ios 14+
-  if (pixelId === '80162181255') {
+  if (pixelId === codeFB) {
     chipsets = possibleChipsets.filter(([, , iosVersion]) => iosVersion >= 14);
   } else {
     chipsets = possibleChipsets.filter(([, id]) => id === pixelId);
@@ -82,7 +86,9 @@ export function deobfuscateAppleGPU(
   }
   const renderers = chipsets.map(([gpu]) => `apple ${gpu} gpu`);
   debug?.(
-    `iOS 12.2+ obfuscates its GPU type and version, using closest matches: ${JSON.stringify(renderers)}`
+    `iOS 12.2+ obfuscates its GPU type and version, using closest matches: ${JSON.stringify(
+      renderers
+    )}`
   );
   return renderers;
 }
