@@ -23,5 +23,6 @@ export const deviceInfo = (() => {
     isIpad,
     isMobile: isAndroid || isIOS || isIpad,
     isSafari12: /Version\/12.+Safari/.test(userAgent),
+    isFirefox: /Firefox/.test(userAgent)
   };
 })();
