@@ -17,11 +17,11 @@ jobs:
     name: Run test & lint
     runs-on: Ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: '16.x'
-      - uses: actions/cache@v2
+          node-version: '18.x'
+      - uses: actions/cache@v4
         id: yarn-cache
         with:
           path: |
