@@ -10,7 +10,7 @@ import { OutdatedBenchmarksError } from './internal/error';
 import { getGPUVersion } from './internal/getGPUVersion';
 import {
   getLevenshteinDistance,
-  tokenizeForLevenshteinDistance
+  tokenizeForLevenshteinDistance,
 } from './internal/getLevenshteinDistance';
 import { getWebGLContext } from './internal/getWebGLContext';
 import { isSSR } from './internal/ssr';
@@ -144,7 +144,15 @@ export const getGPUTier = async ({
           'powervr',
           'samsung',
         ] as const)
-      : (['intel', 'apple', 'amd', 'radeon', 'nvidia', 'geforce'] as const);
+      : ([
+          'intel',
+          'apple',
+          'amd',
+          'radeon',
+          'nvidia',
+          'geforce',
+          'adreno',
+        ] as const);
     for (const type of types) {
       if (renderer.includes(type)) {
         return type;
@@ -216,10 +224,7 @@ export const getGPUTier = async ({
               (match) =>
                 [
                   match,
-                  getLevenshteinDistance(
-                    tokenizedRenderer,
-                    match[2]
-                  ),
+                  getLevenshteinDistance(tokenizedRenderer, match[2]),
                 ] as const
             )
             .sort(([, a], [, b]) => a - b)[0][0]
@@ -287,7 +292,9 @@ export const getGPUTier = async ({
       return toResult(0, 'WEBGL_UNSUPPORTED');
     }
 
-    const debugRendererInfo = deviceInfo?.isFirefox ? null : gl.getExtension('WEBGL_debug_renderer_info');
+    const debugRendererInfo = deviceInfo?.isFirefox
+      ? null
+      : gl.getExtension('WEBGL_debug_renderer_info');
 
     renderer = debugRendererInfo
       ? gl.getParameter(debugRendererInfo.UNMASKED_RENDERER_WEBGL)
