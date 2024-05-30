@@ -50,10 +50,12 @@ export function deobfuscateAppleGPU(
         ['a10', codeB, 15], // ipad 7th gen / ipad 6th gen
         ['a10x', codeB, 15], // pro 10.5 2017 / pro 12.9 2nd gen, 2017
         ['a12', codeA, 15], // ipad 8th gen / ipad air 3rd gen / ipad mini 5th gen
-        ['a12x', codeA, 15], // pro 11 1st gen / pro 12.9 3rd gen
-        ['a12z', codeA, 15], // pro 12.9 4th gen / pro 11 2nd gen
+        ['a12x', codeA, 15], // ipad pro 11 3st gen / ipad pro 12.9 3rd gen
+        ['a12z', codeA, 15], // ipad pro 11 4nd gen / ipad pro 12.9 4th gen
         ['a14', codeA, 15], // ipad air 4th gen
-        ['m1', codeA, 15], // ipad pro 11 2nd gen / 12.9 5th gen
+        ['a15', codeA, 15], // ipad mini 6th gen / ipad 10th gen
+        ['m1', codeA, 15], // ipad pro 11 5nd gen / ipad pro 12.9 5th gen / ipad air 5th gen
+        ['m2', codeA, 15], // ipad pro 11 6nd gen / ipad pro 12.9 6th gen
       ]
     : [
         // ['a4', 7], // 4 / ipod touch 4th gen
