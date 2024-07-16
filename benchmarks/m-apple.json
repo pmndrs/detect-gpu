@@ -9,7 +9,7 @@
       [
         1136,
         640,
-        59,
+        60,
         "apple ipod touch (7th gen)"
       ],
       [
@@ -68,7 +68,7 @@
         2436,
         1125,
         60,
-        "apple iphone xs"
+        "apple iphone xs max"
       ],
       [
         2208,
@@ -105,7 +105,7 @@
       [
         2688,
         1242,
-        70,
+        60,
         "apple iphone 11 pro max"
       ]
     ]
@@ -145,20 +145,20 @@
       [
         1334,
         750,
-        60,
+        118,
         "apple iphone se (2022)"
       ],
       [
         2338,
         1080,
-        60,
+        62,
         "apple iphone 13 mini"
       ],
       [
         2532,
         1170,
         60,
-        "apple iphone 14"
+        "apple iphone 13"
       ],
       [
         2778,
@@ -184,7 +184,7 @@
         2778,
         1284,
         60,
-        "apple iphone 14 pro max"
+        "apple iphone 15 plus"
       ]
     ]
   ],
