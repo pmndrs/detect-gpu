@@ -1641,12 +1641,6 @@
         "jide remix pro"
       ],
       [
-        2048,
-        1536,
-        11,
-        "asus zenpad z10 (p00i zt500kl)"
-      ],
-      [
         2368,
         1440,
         10,
@@ -2029,12 +2023,6 @@
         "samsung galaxy a72 (sm-a725m)"
       ],
       [
-        2268,
-        1080,
-        36,
-        "xiaomi mi note 10 lite"
-      ],
-      [
         2274,
         1080,
         37,
@@ -2255,7 +2243,7 @@
       [
         2178,
         1080,
-        85,
+        108,
         "samsung galaxy s20 5g (sm-g981n)"
       ],
       [
@@ -2295,16 +2283,16 @@
         "samsung galaxy tab s7"
       ],
       [
-        2923,
-        1440,
-        41,
-        "samsung galaxy s20+ 5g (sm-g986u)"
-      ],
-      [
         2933,
         1440,
-        52,
+        57,
         "samsung galaxy s20 ultra 5g (sm-g988u1)"
+      ],
+      [
+        2935,
+        1440,
+        57,
+        "samsung galaxy s20+ 5g (sm-g986u)"
       ],
       [
         3103,
@@ -2375,7 +2363,7 @@
       [
         2183,
         1080,
-        61,
+        103,
         "xiaomi 12"
       ],
       [
@@ -2411,8 +2399,8 @@
     0,
     [
       [
-        2266,
-        1038,
+        2131,
+        1080,
         120,
         "samsung galaxy s23+"
       ],
@@ -2421,6 +2409,38 @@
         1080,
         121,
         "xiaomi 13"
+      ]
+    ]
+  ],
+  [
+    "qualcomm adreno 750",
+    "750",
+    "750 adreno qualcomm",
+    0,
+    [
+      [
+        2109,
+        1080,
+        120,
+        "samsung galaxy s24"
+      ],
+      [
+        2129,
+        1080,
+        120,
+        "samsung galaxy s24 ultra"
+      ],
+      [
+        2290,
+        1038,
+        120,
+        "xiaomi 14 pro"
+      ],
+      [
+        2554,
+        1152,
+        121,
+        "xiaomi 14"
       ]
     ]
   ]
