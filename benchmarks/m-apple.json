@@ -67,8 +67,8 @@
       [
         2436,
         1125,
-        60,
-        "apple iphone xs max"
+        58,
+        "apple iphone xs"
       ],
       [
         2208,
@@ -87,7 +87,7 @@
       [
         1334,
         750,
-        75,
+        60,
         "apple iphone se (2nd gen)"
       ],
       [
@@ -105,7 +105,7 @@
       [
         2688,
         1242,
-        70,
+        59,
         "apple iphone 11 pro max"
       ]
     ]
@@ -145,7 +145,7 @@
       [
         1334,
         750,
-        118,
+        60,
         "apple iphone se (2022)"
       ],
       [
@@ -184,7 +184,7 @@
         2778,
         1284,
         60,
-        "apple iphone 14 pro max"
+        "apple iphone 15 plus"
       ]
     ]
   ],
@@ -205,6 +205,20 @@
         1284,
         122,
         "apple iphone 15 pro max"
+      ]
+    ]
+  ],
+  [
+    "apple a18 pro gpu",
+    "18",
+    "a18 apple gpu pro",
+    0,
+    [
+      [
+        2778,
+        1284,
+        60,
+        "apple iphone 16 (iphone17,2)"
       ]
     ]
   ],
