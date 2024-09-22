@@ -159,6 +159,19 @@
     ]
   ],
   [
+    "qualcomm adreno x1-45 gpu",
+    "1",
+    "adreno gpu qualcomm x1-45",
+    0,
+    [
+      [
+        2880,
+        1800,
+        58
+      ]
+    ]
+  ],
+  [
     "qualcomm mi pad 5 adreno 640 gpu",
     "5",
     "5 640 adreno gpu mi pad qualcomm",
