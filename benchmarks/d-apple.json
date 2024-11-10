@@ -172,6 +172,37 @@
     ]
   ],
   [
+    "apple m4",
+    "4",
+    "apple m4",
+    0,
+    [
+      [
+        6016,
+        3384,
+        59
+      ]
+    ]
+  ],
+  [
+    "apple m4 pro",
+    "4",
+    "apple m4 pro",
+    0,
+    [
+      [
+        3024,
+        1964,
+        120
+      ],
+      [
+        4112,
+        2658,
+        120
+      ]
+    ]
+  ],
+  [
     "apple paravirtual device",
     "",
     "apple device paravirtual",
