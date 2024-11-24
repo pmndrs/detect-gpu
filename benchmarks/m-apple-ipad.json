@@ -121,7 +121,7 @@
       [
         2160,
         1620,
-        60,
+        59,
         "apple ipad 9th gen"
       ]
     ]
@@ -135,8 +135,8 @@
       [
         2360,
         1640,
-        40,
-        "apple ipad air (4th generation)"
+        60,
+        "apple ipad (10th generation)"
       ],
       [
         2388,
@@ -176,7 +176,7 @@
         2266,
         1488,
         60,
-        "apple ipad mini (a17)"
+        "apple ipad mini 7th gen cellular (a17)"
       ]
     ]
   ],
@@ -271,7 +271,7 @@
       [
         2388,
         1668,
-        113,
+        119,
         "apple ipad pro (11-inch) (3rd generation)"
       ],
       [
@@ -318,12 +318,12 @@
         2420,
         1668,
         120,
-        "apple ipad pro 11 inch 5th gen"
+        "apple ipad pro 11-inch (m4)"
       ],
       [
         2752,
         2064,
-        120,
+        121,
         "apple ipad pro 12.9 inch 7th gen"
       ]
     ]
