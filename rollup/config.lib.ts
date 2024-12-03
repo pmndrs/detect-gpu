@@ -33,7 +33,7 @@ export default formats.map(
           : {
               tsconfigOverride: {
                 compilerOptions: {
-                  target: 'es5',
+                  target: 'es6',
                 },
               },
             }
