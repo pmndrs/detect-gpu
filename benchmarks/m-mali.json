@@ -193,6 +193,20 @@
     ]
   ],
   [
+    "arm mali-g68",
+    "68",
+    "arm mali-g68",
+    0,
+    [
+      [
+        2207,
+        1080,
+        57,
+        "samsung galaxy m33"
+      ]
+    ]
+  ],
+  [
     "arm mali-g68 mc4",
     "68",
     "arm mali-g68 mc4",
