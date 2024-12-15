@@ -101,8 +101,8 @@
       [
         2388,
         1668,
-        115,
-        "apple ipad pro (11-inch) (2nd generation)"
+        113,
+        "apple ipad pro (11-inch) (2rd generation)"
       ],
       [
         2732,
@@ -279,6 +279,12 @@
         2048,
         60,
         "apple ipad pro (12.9-inch) (5th generation)"
+      ],
+      [
+        2752,
+        2064,
+        114,
+        "apple ipad pro (12.9-inch) (5th generation)"
       ]
     ]
   ],
@@ -323,7 +329,7 @@
       [
         2752,
         2064,
-        120,
+        121,
         "apple ipad pro 12.9 inch 7th gen"
       ]
     ]
