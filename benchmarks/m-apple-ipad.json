@@ -15,7 +15,7 @@
       [
         2160,
         1620,
-        36,
+        38,
         "apple ipad (10.2-inch) (7th generation)"
       ]
     ]
@@ -41,7 +41,7 @@
       [
         2732,
         2048,
-        48,
+        36,
         "apple ipad pro (12.9-inch, 2nd gen)"
       ]
     ]
@@ -136,7 +136,7 @@
         2360,
         1640,
         60,
-        "apple ipad air (4th generation)"
+        "apple ipad (10th generation)"
       ],
       [
         2388,
@@ -265,7 +265,7 @@
       [
         2360,
         1640,
-        120,
+        60,
         "apple ipad air (5th generation)"
       ],
       [
@@ -318,12 +318,12 @@
         2420,
         1668,
         120,
-        "apple ipad pro 11 inch 5th gen"
+        "apple ipad pro 11-inch (m4)"
       ],
       [
         2752,
         2064,
-        120,
+        121,
         "apple ipad pro 12.9 inch 7th gen"
       ]
     ]
