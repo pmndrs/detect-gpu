@@ -99,7 +99,7 @@
       [
         2436,
         1125,
-        61,
+        59,
         "apple iphone 11 pro"
       ],
       [
@@ -151,17 +151,11 @@
       [
         2338,
         1080,
-        62,
+        60,
         "apple iphone 13 mini"
       ],
       [
         2532,
-        1170,
-        56,
-        "apple iphone 13 pro"
-      ],
-      [
-        2533,
         1170,
         60,
         "apple iphone 13"
@@ -189,7 +183,7 @@
       [
         2778,
         1284,
-        59,
+        60,
         "apple iphone 14 pro max"
       ]
     ]
@@ -209,7 +203,7 @@
       [
         2778,
         1284,
-        122,
+        50,
         "apple iphone 15 pro max"
       ]
     ]
@@ -224,11 +218,17 @@
         2532,
         1170,
         60,
-        "apple iphone 16 (iphone17,3)"
+        "apple iphone 16 (iphone17,5)"
       ],
       [
         2778,
         1284,
+        60,
+        "apple iphone 16 (iphone17,4)"
+      ],
+      [
+        2793,
+        1290,
         60,
         "apple iphone 16 (iphone17,4)"
       ]
