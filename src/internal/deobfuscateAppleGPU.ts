@@ -56,6 +56,7 @@ export function deobfuscateAppleGPU(
         ['a15', codeA, 15], // ipad mini 6th gen / ipad 10th gen
         ['m1', codeA, 15], // ipad pro 11 5nd gen / ipad pro 12.9 5th gen / ipad air 5th gen
         ['m2', codeA, 15], // ipad pro 11 6nd gen / ipad pro 12.9 6th gen
+        ['m4', codeA, 15], // ipad pro 11 7nd gen / ipad pro 13 7th gen
       ]
     : [
         // ['a4', 7], // 4 / ipod touch 4th gen
@@ -72,6 +73,7 @@ export function deobfuscateAppleGPU(
         ['a15', codeA, 15], // 13 / 13 mini / 13 pro / 13 pro max / se 3rd gen / 14 / 14 plus
         ['a16', codeA, 15], // 14 pro / 14 pro max / 15 / 15 plus
         ['a17', codeA, 15], // 15 pro / 15 pro max
+        ['a18', codeA, 15], // 16 / 16 plus / 16 pro / 16 pro max
       ];
   let chipsets: typeof possibleChipsets;
 
