@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPU Detection Test</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+        }
+        .result {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            border: 1px solid #dee2e6;
+            margin-top: 20px;
+        }
+        .result h2 {
+            margin-top: 0;
+            color: #495057;
+            font-size: 18px;
+        }
+        pre {
+            margin: 0;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .loading {
+            color: #6c757d;
+            font-style: italic;
+        }
+        .error {
+            color: #dc3545;
+            background: #f8d7da;
+            border-color: #f5c6cb;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .info {
+            background: #d1ecf1;
+            border: 1px solid #bee5eb;
+            color: #0c5460;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>GPU Detection Test</h1>
+        
+        <div class="info">
+            <strong>Browser:</strong> <span id="browser-info"></span><br>
+            <strong>Platform:</strong> <span id="platform-info"></span>
+        </div>
+
+        <button onclick="detectGPU()">Run GPU Detection</button>
+
+        <div id="result" class="result" style="display: none;">
+            <h2>Detection Result:</h2>
+            <pre id="result-json"></pre>
+        </div>
+
+        <div id="webgl-info" class="result" style="display: none; margin-top: 20px;">
+            <h2>WebGL Information:</h2>
+            <pre id="webgl-json"></pre>
+        </div>
+    </div>
+
+    <script type="module">
+        import { getGPUTier } from './dist/detect-gpu.esm.js';
+        
+        // Display browser info
+        document.getElementById('browser-info').textContent = navigator.userAgent;
+        document.getElementById('platform-info').textContent = navigator.platform;
+
+        window.detectGPU = async function() {
+            const resultDiv = document.getElementById('result');
+            const resultJson = document.getElementById('result-json');
+            const webglDiv = document.getElementById('webgl-info');
+            const webglJson = document.getElementById('webgl-json');
+            
+            resultDiv.style.display = 'block';
+            resultDiv.className = 'result loading';
+            resultJson.textContent = 'Detecting GPU...';
+            
+            try {
+                // Run GPU detection
+                const result = await getGPUTier();
+                
+                // Display result
+                resultDiv.className = 'result';
+                resultJson.textContent = JSON.stringify(result, null, 2);
+                
+                // Get WebGL debug info
+                const canvas = document.createElement('canvas');
+                const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+                
+                if (gl) {
+                    const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+                    const webglInfo = {
+                        vendor: gl.getParameter(gl.VENDOR),
+                        renderer: gl.getParameter(gl.RENDERER),
+                        webglVersion: gl.getParameter(gl.VERSION)
+                    };
+                    
+                    if (debugInfo) {
+                        webglInfo.unmaskedVendor = gl.getParameter(debugInfo.UNMASKED_VENDOR_WEBGL);
+                        webglInfo.unmaskedRenderer = gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
+                    }
+                    
+                    // Add some capability info
+                    webglInfo.capabilities = {
+                        maxTextureSize: gl.getParameter(gl.MAX_TEXTURE_SIZE),
+                        maxVertexUniformVectors: gl.getParameter(gl.MAX_VERTEX_UNIFORM_VECTORS),
+                        maxFragmentUniformVectors: gl.getParameter(gl.MAX_FRAGMENT_UNIFORM_VECTORS),
+                        maxVaryingVectors: gl.getParameter(gl.MAX_VARYING_VECTORS),
+                        maxRenderbufferSize: gl.getParameter(gl.MAX_RENDERBUFFER_SIZE)
+                    };
+                    
+                    webglDiv.style.display = 'block';
+                    webglJson.textContent = JSON.stringify(webglInfo, null, 2);
+                }
+                
+            } catch (error) {
+                resultDiv.className = 'result error';
+                resultJson.textContent = 'Error: ' + error.message;
+                console.error(error);
+            }
+        }
+        
+        // Auto-run detection on load
+        window.addEventListener('load', () => {
+            detectGPU();
+        });
+    </script>
+</body>
+</html>

@@ -13,6 +13,7 @@ import {
 
 // Internal
 import { deviceInfo } from './deviceInfo';
+import { getAppleGPUFromCapabilities } from './getAppleGPUFromCapabilities';
 
 const debug = false ? console.warn : undefined;
 
@@ -21,22 +22,41 @@ export function deobfuscateAppleGPU(
   renderer: string,
   isMobileTier: boolean
 ) {
-  if (!isMobileTier) {
-    debug?.('Safari 14+ obfuscates its GPU type and version, using fallback');
-    return [renderer];
-  }
   const pixelId = calculateMagicPixelId(gl);
   const codeA = '801621810' as const;
   const codeB = '8016218135' as const;
   const codeC = '80162181161' as const;
   const codeFB = '80162181255';
+  const codeM = '80162181255' as const; // Observed on Apple Silicon Macs
+
+  // Desktop Apple Silicon chipsets
+  const desktopChipsets: [
+    string,
+    typeof codeA | typeof codeB | typeof codeC | typeof codeM,
+    number,
+  ][] = [
+    ['m1', codeM, 11],        // Released with macOS 11 Big Sur
+    ['m1 pro', codeM, 12],    // Released with macOS 12 Monterey
+    ['m1 max', codeM, 12],    // Released with macOS 12 Monterey
+    ['m1 ultra', codeM, 12],  // Released with macOS 12 Monterey
+    ['m2', codeM, 12],        // Released with macOS 12 Monterey
+    ['m2 pro', codeM, 13],    // Released with macOS 13 Ventura
+    ['m2 max', codeM, 13],    // Released with macOS 13 Ventura
+    ['m2 ultra', codeM, 13],  // Released with macOS 13 Ventura
+    ['m3', codeM, 14],        // Released with macOS 14 Sonoma
+    ['m3 pro', codeM, 14],    // Released with macOS 14 Sonoma
+    ['m3 max', codeM, 14],    // Released with macOS 14 Sonoma
+    ['m4', codeM, 14],        // First on iPad, then Mac with macOS 14
+    ['m4 pro', codeM, 15],    // Released with macOS 15 Sequoia
+    ['m4 max', codeM, 15],    // Released with macOS 15 Sequoia
+  ];
 
   // All chipsets that support at least iOS 12:
   const possibleChipsets: [
     string,
-    typeof codeA | typeof codeB | typeof codeC,
+    typeof codeA | typeof codeB | typeof codeC | typeof codeM,
     number,
-  ][] = deviceInfo?.isIpad
+  ][] = !isMobileTier ? desktopChipsets : deviceInfo?.isIpad
     ? [
         // ['a4', 5], // ipad 1st gen
         // ['a5', 9], // ipad 2 / ipad mini 1st gen
@@ -86,9 +106,21 @@ export function deobfuscateAppleGPU(
       chipsets = possibleChipsets;
     }
   }
-  const renderers = chipsets.map(([gpu]) => `apple ${gpu} gpu`);
+  
+  // For desktop, if we only have generic matches, use capability-based detection
+  if (!isMobileTier && chipsets.length === desktopChipsets.length) {
+    const capabilityBasedGPUs = getAppleGPUFromCapabilities(gl);
+    debug?.(
+      `Using capability-based detection for desktop Safari, possible GPUs: ${JSON.stringify(
+        capabilityBasedGPUs
+      )}`
+    );
+    return capabilityBasedGPUs;
+  }
+  
+  const renderers = chipsets.map(([gpu]) => !isMobileTier ? `apple ${gpu}` : `apple ${gpu} gpu`);
   debug?.(
-    `iOS 12.2+ obfuscates its GPU type and version, using closest matches: ${JSON.stringify(
+    `${isMobileTier ? 'iOS 12.2+' : 'Safari 14+'} obfuscates its GPU type and version, using closest matches: ${JSON.stringify(
       renderers
     )}`
   );
