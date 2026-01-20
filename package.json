@@ -59,6 +59,7 @@
   "devDependencies": {
     "@eslint/js": "^9.0.0",
     "@types/jest": "^29.5.3",
+    "@types/node": "^20.0.0",
     "@types/tar": "^6.1.0",
     "csvtojson": "^2.0.10",
     "eslint": "^9.0.0",
