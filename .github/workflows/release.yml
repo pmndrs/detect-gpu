@@ -35,13 +35,16 @@ jobs:
           ref: ${{ github.head_ref }}
           fetch-depth: 0
 
+      - name: Enable Corepack
+        run: corepack enable
+
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
           registry-url: 'https://registry.npmjs.org'
           cache: 'yarn'
 
-      - run: yarn install --frozen-lockfile
+      - run: yarn install --immutable
 
       - name: Update benchmarks
         if: ${{ github.event_name == 'schedule' || inputs.update_benchmarks }}

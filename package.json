@@ -1,6 +1,7 @@
 {
   "name": "@pmndrs/detect-gpu",
   "version": "6.0.0",
+  "packageManager": "yarn@4.12.0",
   "description": "Classify GPU's based on their benchmark score in order to provide an adaptive experience.",
   "author": "Tim van Scherpenzeel",
   "license": "MIT",
