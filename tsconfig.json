@@ -12,8 +12,8 @@
     "noImplicitAny": true,
     "resolveJsonModule": true,
     "outDir": "dist",
-    "typeRoots": ["node_modules/@types"]
+    "types": ["jest", "node"]
   },
-  "include": ["src/**/*.ts"],
+  "include": ["src/**/*.ts", "test/**/*.ts"],
   "exclude": ["node_modules", "dist"]
 }
