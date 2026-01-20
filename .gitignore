@@ -71,3 +71,18 @@ node_modules
 dist
 /example/build/*
 /coverage
+
+# Benchmark build artifacts
+benchmarks-min/
+benchmarks.tar.gz
+
+# Yarn v2+ artifacts
+.yarn/
+.yarnrc.yml
+.pnp.*
+*.install-state.gz
+
+# Editor/Tool artifacts
+.eslintcache
+.claude/
+plan.md

@@ -2,7 +2,9 @@
 
 // Vendor
 import fs from 'fs';
+import path from 'path';
 import puppeteer from 'puppeteer';
+import * as tar from 'tar';
 
 // Application
 import { BLOCKLISTED_GPUS } from '../src/internal/blocklistedGPUS';
@@ -16,6 +18,34 @@ import { BenchmarkRow } from './types';
 import { version } from '../package.json';
 
 const libraryMajorVersion = version.split('.')[0];
+
+//* Directory Setup ==============================
+const BENCHMARKS_DIR = path.resolve('./benchmarks');
+const BENCHMARKS_MIN_DIR = path.resolve('./benchmarks-min');
+
+// Ensure directories exist (cross-platform mkdir -p)
+function ensureDirectories() {
+  fs.rmSync(BENCHMARKS_DIR, { recursive: true, force: true });
+  fs.rmSync(BENCHMARKS_MIN_DIR, { recursive: true, force: true });
+  fs.mkdirSync(BENCHMARKS_DIR, { recursive: true });
+  fs.mkdirSync(BENCHMARKS_MIN_DIR, { recursive: true });
+}
+
+// Create tar.gz archive and cleanup (cross-platform)
+async function createArchiveAndCleanup() {
+  await tar.create(
+    {
+      gzip: true,
+      file: 'benchmarks.tar.gz',
+      cwd: '.',
+    },
+    [path.basename(BENCHMARKS_MIN_DIR)]
+  );
+  console.log('Created benchmarks.tar.gz');
+  
+  // Cleanup benchmarks-min directory
+  fs.rmSync(BENCHMARKS_MIN_DIR, { recursive: true, force: true });
+}
 
 const BENCHMARK_URL = `https://gfxbench.com/result.jsp?benchmark=gfx50&test=544&text-filter=&order=median&ff-lmobile=true&ff-smobile=true&os-Android_gl=true&os-Android_vulkan=true&os-iOS_gl=true&os-iOS_metal=true&os-Linux_gl=true&os-OS_X_gl=true&os-OS_X_metal=true&os-Windows_dx=true&os-Windows_dx12=true&os-Windows_gl=true&os-Windows_vulkan=true&pu-dGPU=true&pu-iGPU=true&pu-GPU=true&arch-ARM=true&arch-unknown=true&arch-x86=true&base=device`;
 
@@ -37,6 +67,9 @@ const TYPES = [
 type Optional<T, K extends keyof T> = Pick<Partial<T>, K> & Omit<T, K>;
 
 (async () => {
+  // Setup directories (cross-platform)
+  ensureDirectories();
+  
   let benchmarks = await fetchBenchmarks();
   benchmarks.push(...internalBenchmarkResults);
   benchmarks = benchmarks
@@ -57,6 +90,9 @@ type Optional<T, K extends keyof T> = Pick<Partial<T>, K> & Omit<T, K>;
     .sort((a, b) => a.gpu.localeCompare(b.gpu));
 
   await Promise.all([true, false].map(exportBenchmarks));
+  
+  // Create archive and cleanup (cross-platform)
+  await createArchiveAndCleanup();
 
   async function exportBenchmarks(isMobile: boolean): Promise<any> {
     const rows = benchmarks.filter(
@@ -190,7 +226,25 @@ async function fetchBenchmarks() {
   });
   const page = await browser.newPage();
 
+  // Set a realistic user agent to avoid bot detection
+  await page.setUserAgent(
+    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+  );
+
   await page.goto(BENCHMARK_URL, { waitUntil: 'networkidle2' });
+
+  // Wait for the data to be available on window (max 30 seconds)
+  await page.waitForFunction(() => typeof (window as any).gpuName !== 'undefined', {
+    timeout: 30000,
+  }).catch(async () => {
+    // Debug: log what's available on the page
+    const availableVars = await page.evaluate(() => {
+      const vars = ['gpuName', 'deviceName', 'fpses', 'gpuNameLookup', 'firstResult', 'formFactor'];
+      return vars.map((v) => `${v}: ${typeof (window as any)[v]}`).join(', ');
+    });
+    console.error('Expected window variables not found. Available:', availableVars);
+    throw new Error('Benchmark data not available on page. The website structure may have changed.');
+  });
 
   const benchmarks = await page.evaluate((): BenchmarkRow[] => {
     const {

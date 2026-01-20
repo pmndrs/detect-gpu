@@ -21,7 +21,7 @@ export interface GetGPUTier {
   /**
    * URL of directory where benchmark data is hosted.
    *
-   * @default https://unpkg.com/detect-gpu@{version}/dist/benchmarks
+   * @default https://unpkg.com/@pmndrs/detect-gpu@{version}/dist/benchmarks
    */
   benchmarksURL?: string;
   /**
@@ -100,7 +100,7 @@ export const getGPUTier = async ({
   override = {},
   glContext,
   failIfMajorPerformanceCaveat = false,
-  benchmarksURL = `https://unpkg.com/detect-gpu@${version}/dist/benchmarks`,
+  benchmarksURL = `https://unpkg.com/@pmndrs/detect-gpu@${version}/dist/benchmarks`,
 }: GetGPUTier = {}): Promise<TierResult> => {
   const queryCache: { [k: string]: Promise<ModelEntry[]> } = {};
   if (isSSR) {
@@ -259,7 +259,7 @@ export const getGPUTier = async ({
       return;
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+     
     const [, , fps, device] = closest!;
 
     return [minDistance, fps, gpu, device] as const;
@@ -319,7 +319,7 @@ export const getGPUTier = async ({
     );
   if (!results.length) {
     const blocklistedModel: string | undefined = BLOCKLISTED_GPUS.find(
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+       
       (blocklistedModel) => renderer!.includes(blocklistedModel)
     );
     return blocklistedModel
