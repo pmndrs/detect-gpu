@@ -1,4 +1,5 @@
-name: Run actions on Pull Request or Push
+name: CI
+
 on:
   push:
     branches:
@@ -14,25 +15,20 @@ on:
 
 jobs:
   test:
-    name: Run test & lint
-    runs-on: Ubuntu-20.04
+    name: Test & Lint
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-node@v4
         with:
-          node-version: '18.x'
-      - uses: actions/cache@v4
-        id: yarn-cache
-        with:
-          path: |
-            node_modules
-            */*/node_modules
-          key: ${{ runner.os }}-install-${{ hashFiles('**/yarn.lock') }}
-      - run: yarn install
-        if: ${{ steps.yarn-cache.outputs.cache-hit != 'true' }}
+          node-version: '20'
+          cache: 'yarn'
 
-      - run: yarn install --prefers-offline
-        if: ${{ steps.yarn-cache.outputs.cache-hit == 'true' }}
+      - run: yarn install --frozen-lockfile
 
-      - run: yarn run test
-      - run: yarn run lint
+      - run: yarn build
+
+      - run: yarn test
+
+      - run: yarn lint

@@ -69,7 +69,7 @@ export function getLevenshteinDistance(left: string, right: string): number {
     for (i = 0; i < leftLength; i++) {
       temp2 = bCharCode === charCodeCache[i] ? temp : temp + 1;
       temp = array[i];
-      // eslint-disable-next-line no-multi-assign
+       
       result = array[i] =
         temp > result
           ? temp2 > result

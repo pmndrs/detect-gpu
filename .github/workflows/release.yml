@@ -1,0 +1,83 @@
+name: Release
+
+on:
+  schedule:
+    - cron: "0 0 * * 0"
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version bump type (patch for benchmarks, minor/major for features)'
+        required: false
+        default: 'patch'
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+      update_benchmarks:
+        description: 'Update benchmarks before release'
+        required: false
+        default: true
+        type: boolean
+
+permissions:
+  contents: write
+  id-token: write
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          registry-url: 'https://registry.npmjs.org'
+          cache: 'yarn'
+
+      - run: yarn install --frozen-lockfile
+
+      - name: Update benchmarks
+        if: ${{ github.event_name == 'schedule' || inputs.update_benchmarks }}
+        run: yarn update-benchmarks
+
+      - name: Build
+        run: yarn build
+
+      - name: Test
+        run: yarn test
+
+      - name: Bump version
+        run: npm version ${{ inputs.version || 'patch' }} --no-git-tag-version
+
+      - name: Get version
+        id: version
+        run: echo "VERSION=$(node -p "require('./package.json').version")" >> $GITHUB_OUTPUT
+
+      - name: Publish to npm
+        run: npm publish --access public --provenance
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "chore: release v${{ steps.version.outputs.VERSION }}"
+          git tag "v${{ steps.version.outputs.VERSION }}"
+          git push
+          git push --tags
+
+      - name: Create GitHub Release
+        if: ${{ inputs.version == 'minor' || inputs.version == 'major' }}
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: v${{ steps.version.outputs.VERSION }}
+          generate_release_notes: true

@@ -2,6 +2,46 @@
 
 Patch version updates, unless noted otherwise, are automated benchmark updates ran weekly by our CI.
 
+# 6.0.0
+
+## Breaking Changes
+
+- **Package renamed** to `@pmndrs/detect-gpu` (scoped under pmndrs organization)
+- **ESM-only** - CommonJS is no longer supported
+- **Minimum Node.js version** is now 18+
+- **Updated benchmark URL** defaults to `https://unpkg.com/@pmndrs/detect-gpu@{version}/dist/benchmarks`
+
+## Changed
+
+- Migrated build system from Rollup to unbuild
+- Updated to ESLint 9 with flat config
+- Updated all dependencies to latest versions
+- Consolidated GitHub Actions into single `release.yml` workflow with npm trusted publisher support
+- Added `--provenance` for npm publish (supply chain attestation)
+
+## Migration from detect-gpu
+
+```bash
+# Uninstall old package
+npm uninstall detect-gpu
+
+# Install new scoped package
+npm install @pmndrs/detect-gpu
+```
+
+Update your imports:
+
+```diff
+- import { getGPUTier } from 'detect-gpu';
++ import { getGPUTier } from '@pmndrs/detect-gpu';
+```
+
+If using CommonJS, switch to ESM or use dynamic import:
+
+```js
+const { getGPUTier } = await import('@pmndrs/detect-gpu');
+```
+
 # 4.0.0
 
 - Split apple mobile benchmark data into two files (apple and apple-ipad) **BREAKING CHANGE**

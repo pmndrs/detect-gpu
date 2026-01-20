@@ -81,3 +81,8 @@ benchmarks.tar.gz
 .yarnrc.yml
 .pnp.*
 *.install-state.gz
+
+# Editor/Tool artifacts
+.eslintcache
+.claude/
+plan.md
