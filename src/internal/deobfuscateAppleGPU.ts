@@ -58,7 +58,7 @@ export function deobfuscateAppleGPU(
         ['m2', codeA, 15], // ipad pro 11 6nd gen / ipad pro 12.9 6th gen
         ['m3', codeA, 15], // ipad air 11-inch (m3, 2025) / ipad air 13-inch (m3, 2025)
         ['m4', codeA, 15], // ipad pro 11-inch (m4, 2024) / ipad pro 13-inch (m4, 2024)
-        ['m5', codeA, 15], // expected next-generation ipad pro / ipad air models
+        ['m5', codeA, 15], // ipad pro 11-inch (m5, 2025) / ipad pro 13-inch (m5, 2025)
       ]
     : [
         // ['a4', 7], // 4 / ipod touch 4th gen
@@ -75,10 +75,10 @@ export function deobfuscateAppleGPU(
         ['a15', codeA, 15], // 13 / 13 mini / 13 pro / 13 pro max / se 3rd gen / 14 / 14 plus
         ['a16', codeA, 15], // 14 pro / 14 pro max / 15 / 15 plus
         ['a17', codeA, 15], // 15 pro / 15 pro max
-        ['a18', codeA, 15], // iphone 16 / iphone 16 plus
+        ['a18', codeA, 15], // iphone 16 / iphone 16 plus / iphone 16e
         ['a18 pro', codeA, 15], // iphone 16 pro / iphone 16 pro max
-        ['a19', codeA, 15], // expected next-generation base iphone models
-        ['a19 pro', codeA, 15], // expected next-generation iphone pro models
+        ['a19', codeA, 15], // iphone 17
+        ['a19 pro', codeA, 15], // iphone 17 air / iphone 17 pro / iphone 17 pro max
       ];
   let chipsets: typeof possibleChipsets;
 
