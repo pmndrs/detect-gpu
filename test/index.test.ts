@@ -155,6 +155,42 @@ for (const { input, expected } of [
   },
   {
     expected: {
+      gpu: 'apple a18 gpu',
+    },
+    input: {
+      isMobile: true,
+      renderer: 'Apple a18 GPU',
+    },
+  },
+  {
+    expected: {
+      gpu: 'apple a18 pro gpu',
+    },
+    input: {
+      isMobile: true,
+      renderer: 'Apple a18 pro GPU',
+    },
+  },
+  {
+    expected: {
+      gpu: 'apple m3',
+    },
+    input: {
+      isMobile: false,
+      renderer: 'Apple M3',
+    },
+  },
+  {
+    expected: {
+      gpu: 'apple m4',
+    },
+    input: {
+      isMobile: false,
+      renderer: 'Apple M4',
+    },
+  },
+  {
+    expected: {
       gpu: 'intel mesa dri intel uhd graphics 630',
     },
     input: {
@@ -274,6 +310,22 @@ for (const { input, expected } of [
   {
     isMobile: false,
     renderer: 'this renderer does not exist',
+  },
+  {
+    isMobile: true,
+    renderer: 'Apple a19 GPU',
+  },
+  {
+    isMobile: true,
+    renderer: 'Apple a19 pro GPU',
+  },
+  {
+    isMobile: true,
+    renderer: 'Apple a19pro GPU',
+  },
+  {
+    isMobile: false,
+    renderer: 'Apple M5',
   },
 ].map((settings) => {
   test(`${settings.renderer} should return FALLBACK`, async () => {
