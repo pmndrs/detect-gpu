@@ -25,10 +25,9 @@ export function getLevenshteinDistance(left: string, right: string): number {
   // Performing suffix trimming:
   // We can linearly drop suffix common to both strings since they
   // don't increase distance at all
-  // Note: `~-` is the bitwise way to perform a `- 1` operation
   while (
     leftLength > 0 &&
-    left.charCodeAt(~-leftLength) === right.charCodeAt(~-rightLength)
+    left.charCodeAt(leftLength - 1) === right.charCodeAt(rightLength - 1)
   ) {
     leftLength--;
     rightLength--;
