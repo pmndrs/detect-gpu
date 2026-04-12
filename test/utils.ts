@@ -6,7 +6,7 @@ export function getTier(override: GetGPUTier['override'] = {}) {
     mobileTiers: [0, 15, 30, 60],
     override: {
       loadBenchmarks: async (file: string): Promise<ModelEntry[]> =>
-        (await import(`../benchmarks/${file}`)).default,
+        (await import(/* @vite-ignore */ `../benchmarks/${file}`)).default,
       ...override,
     },
   });

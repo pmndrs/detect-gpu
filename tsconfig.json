@@ -12,7 +12,7 @@
     "noImplicitAny": true,
     "resolveJsonModule": true,
     "outDir": "dist",
-    "types": ["jest", "node"]
+    "types": ["node", "vitest/globals"]
   },
   "include": ["src/**/*.ts", "test/**/*.ts"],
   "exclude": ["node_modules", "dist"]
