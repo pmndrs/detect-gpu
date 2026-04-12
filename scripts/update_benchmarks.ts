@@ -106,15 +106,8 @@ const TYPES = [
     );
 
     const rowsByGpu = Object.values(
-      rows.reduce(
-        (groupedByKey, row) => {
-          const groupKey = row.gpu;
-          (groupedByKey[groupKey] = groupedByKey[groupKey] || []).push(row);
-          return groupedByKey;
-        },
-        {} as Record<string, BenchmarkRow[]>
-      )
-    );
+      Object.groupBy(rows, (row) => row.gpu)
+    ).filter((a) => a !== undefined);
 
     return Promise.all(
       TYPES.map(async (type) => {
@@ -238,10 +231,7 @@ async function downloadCsvIfMissing() {
       `Failed to download CSV: ${response.status} ${response.statusText}`
     );
   }
-  await pipeline(
-    response.body as unknown as NodeJS.ReadableStream,
-    fs.createWriteStream(CACHE_FILE)
-  );
+  await pipeline(response.body, fs.createWriteStream(CACHE_FILE));
   console.log(`Cached CSV at ${CACHE_FILE}`);
 }
 

@@ -115,15 +115,12 @@ export const getGPUTier = async ({
     isMobile = !!deviceInfo?.isMobile,
     screenSize = window.screen,
     loadBenchmarks = async (file: string) => {
-      const data: ModelEntry[] = await fetch(`${benchmarksURL}/${file}`).then(
-        (response) => response.json()
-      );
+      const [versionTag, ...data]: [string, ...ModelEntry[]] = await fetch(
+        `${benchmarksURL}/${file}`
+      ).then((response) => response.json());
 
-      // Remove version tag and check version is supported
-      const version = parseInt(
-        (data.shift() as unknown as string).split('.')[0],
-        10
-      );
+      // Check version is supported
+      const version = parseInt(versionTag.split('.')[0], 10);
       if (version < 4) {
         throw new OutdatedBenchmarksError(
           'Detect GPU benchmark data is out of date. Please update to version 4x'
