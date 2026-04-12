@@ -29,9 +29,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "engines": {
-    "node": ">=24"
-  },
   "pnpm": {
     "onlyBuiltDependencies": [
       "esbuild"
@@ -60,8 +57,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
-    "prebuild": "rimraf dist",
-    "build": "unbuild",
+    "build": "tsdown",
     "update-benchmarks": "node ./scripts/update_benchmarks.ts"
   },
   "dependencies": {
@@ -75,10 +71,9 @@
     "jsdom": "^29.0.2",
     "oxfmt": "^0.44.0",
     "oxlint": "^1.59.0",
-    "rimraf": "^6.1.3",
     "tar": "^7.0.0",
+    "tsdown": "^0.21.7",
     "typescript": "^6.0.2",
-    "unbuild": "^3.6.1",
     "vitest": "^4.1.4"
   }
 }
