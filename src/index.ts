@@ -213,8 +213,7 @@ export const getGPUTier = async ({
     }
 
     const tokenizedRenderer = tokenizeForLevenshteinDistance(renderer);
-    // eslint-disable-next-line prefer-const
-    let [gpu, , , , fpsesByPixelCount] =
+    const [gpu, , , , fpsesByPixelCount] =
       matchCount > 1
         ? matched
             .map(
@@ -331,9 +330,10 @@ export const getGPUTier = async ({
   const tiers = isMobile ? mobileTiers : desktopTiers;
   let tier = 0;
 
-  for (let i = 0; i < tiers.length; i++) {
+  for (let i = tiers.length - 1; i >= 0; i--) {
     if (fps >= tiers[i]) {
       tier = i;
+      break;
     }
   }
 

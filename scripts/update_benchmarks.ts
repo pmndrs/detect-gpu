@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
 // Vendor
 import fs, { createReadStream } from 'fs';
 import path from 'path';
@@ -98,7 +96,7 @@ const TYPES = [
   // Create archive and cleanup (cross-platform)
   await createArchiveAndCleanup();
 
-  async function exportBenchmarks(isMobile: boolean): Promise<any> {
+  async function exportBenchmarks(isMobile: boolean): Promise<void> {
     const rows = benchmarks.filter(
       ({ mobile, gpu }) =>
         mobile === isMobile &&
