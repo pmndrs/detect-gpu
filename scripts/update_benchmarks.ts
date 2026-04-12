@@ -44,7 +44,7 @@ async function createArchiveAndCleanup() {
     [path.basename(BENCHMARKS_MIN_DIR)]
   );
   console.log('Created benchmarks.tar.gz');
-  
+
   // Cleanup benchmarks-min directory
   fs.rmSync(BENCHMARKS_MIN_DIR, { recursive: true, force: true });
 }
@@ -67,15 +67,13 @@ const TYPES = [
   'radeon',
   'nvidia',
   'geforce',
-  'samsung'
+  'samsung',
 ];
-
-type Optional<T, K extends keyof T> = Pick<Partial<T>, K> & Omit<T, K>;
 
 (async () => {
   // Setup directories (cross-platform)
   ensureDirectories();
-  
+
   let benchmarks = await fetchBenchmarks();
   benchmarks.push(...internalBenchmarkResults);
   benchmarks = benchmarks
@@ -96,7 +94,7 @@ type Optional<T, K extends keyof T> = Pick<Partial<T>, K> & Omit<T, K>;
     .sort((a, b) => a.gpu.localeCompare(b.gpu));
 
   await Promise.all([true, false].map(exportBenchmarks));
-  
+
   // Create archive and cleanup (cross-platform)
   await createArchiveAndCleanup();
 
@@ -108,15 +106,18 @@ type Optional<T, K extends keyof T> = Pick<Partial<T>, K> & Omit<T, K>;
     );
 
     const rowsByGpu = Object.values(
-      rows.reduce((groupedByKey, row) => {
-        const groupKey = row.gpu;
-        (groupedByKey[groupKey] = groupedByKey[groupKey] || []).push(row);
-        return groupedByKey;
-      }, {} as Record<string, BenchmarkRow[]>)
+      rows.reduce(
+        (groupedByKey, row) => {
+          const groupKey = row.gpu;
+          (groupedByKey[groupKey] = groupedByKey[groupKey] || []).push(row);
+          return groupedByKey;
+        },
+        {} as Record<string, BenchmarkRow[]>
+      )
     );
 
-    return Promise.all([
-      ...TYPES.map(async (type) => {
+    return Promise.all(
+      TYPES.map(async (type) => {
         const devicesByGpu = rowsByGpu
           .filter(([{ gpu }]) => gpu.includes(type))
           .map((rows) => {
@@ -217,9 +218,8 @@ type Optional<T, K extends keyof T> = Pick<Partial<T>, K> & Omit<T, K>;
         } else {
           await outputFile(type, devicesByGpu);
         }
-      }),
-      // outputFile(getOutputFilename(`all-${isMobile ? 'm' : 'd'}`), rowsByGpu),
-    ]);
+      })
+    );
   }
 })().catch((err) => {
   throw err;

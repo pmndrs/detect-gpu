@@ -51,7 +51,9 @@
     "javascript"
   ],
   "scripts": {
-    "lint": "eslint src test scripts --fix --cache",
+    "lint": "oxlint --fix",
+    "format": "oxfmt",
+    "format:check": "oxfmt --check",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
@@ -63,20 +65,16 @@
     "webgl-constants": "^1.1.1"
   },
   "devDependencies": {
-    "@eslint/js": "^10.0.1",
     "@types/node": "^25.6.0",
     "@types/tar": "^7.0.87",
     "@vitest/coverage-v8": "^4.1.4",
     "csv-parse": "^6.2.1",
-    "eslint": "^10.2.0",
-    "eslint-config-prettier": "^10.1.8",
-    "globals": "^17.5.0",
     "jsdom": "^29.0.2",
-    "prettier": "^3.0.1",
+    "oxfmt": "^0.44.0",
+    "oxlint": "^1.59.0",
     "rimraf": "^6.1.3",
     "tar": "^7.0.0",
     "typescript": "^6.0.2",
-    "typescript-eslint": "^8.0.0",
     "unbuild": "^3.6.1",
     "vitest": "^4.1.4"
   }

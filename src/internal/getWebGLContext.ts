@@ -1,5 +1,7 @@
-export function getWebGLContext(isSafari12?: boolean,
-  failIfMajorPerformanceCaveat = false) {
+export function getWebGLContext(
+  isSafari12?: boolean,
+  failIfMajorPerformanceCaveat = false
+) {
   const attributes: {
     alpha: boolean;
     antialias: boolean;

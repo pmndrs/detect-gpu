@@ -26,8 +26,10 @@ export function getLevenshteinDistance(left: string, right: string): number {
   // We can linearly drop suffix common to both strings since they
   // don't increase distance at all
   // Note: `~-` is the bitwise way to perform a `- 1` operation
-  while (leftLength > 0 &&
-    left.charCodeAt(~-leftLength) === right.charCodeAt(~-rightLength)) {
+  while (
+    leftLength > 0 &&
+    left.charCodeAt(~-leftLength) === right.charCodeAt(~-rightLength)
+  ) {
     leftLength--;
     rightLength--;
   }
@@ -37,8 +39,10 @@ export function getLevenshteinDistance(left: string, right: string): number {
   // don't increase distance at all
   let start = 0;
 
-  while (start < leftLength &&
-    left.charCodeAt(start) === right.charCodeAt(start)) {
+  while (
+    start < leftLength &&
+    left.charCodeAt(start) === right.charCodeAt(start)
+  ) {
     start++;
   }
 
@@ -69,7 +73,7 @@ export function getLevenshteinDistance(left: string, right: string): number {
     for (i = 0; i < leftLength; i++) {
       temp2 = bCharCode === charCodeCache[i] ? temp : temp + 1;
       temp = array[i];
-       
+
       result = array[i] =
         temp > result
           ? temp2 > result
@@ -85,10 +89,12 @@ export function getLevenshteinDistance(left: string, right: string): number {
 }
 
 export function tokenizeForLevenshteinDistance(str: string): string {
-  return str
-    .split(/[.,()\[\]/\s]/g)
-    .sort()
-    // Remove duplicates
-    .filter((item, pos, arr) => pos === 0 || item !== arr[pos - 1])
-    .join(' ');
+  return (
+    str
+      .split(/[.,()[\]/\s]/g)
+      .sort()
+      // Remove duplicates
+      .filter((item, pos, arr) => pos === 0 || item !== arr[pos - 1])
+      .join(' ')
+  );
 }

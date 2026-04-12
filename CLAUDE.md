@@ -43,6 +43,7 @@ detect-gpu is a library that classifies GPUs into performance tiers (0-3) based 
 ### Benchmark Data Structure
 
 Benchmark JSON files are stored in `benchmarks/` with naming convention `{m|d}-{gpu-type}.json`:
+
 - `m-` prefix for mobile, `d-` prefix for desktop
 - Types: `adreno`, `apple`, `mali`, `mali-t`, `nvidia`, `powervr`, `samsung`, `intel`, `amd`, `radeon`, `geforce`
 - Special case: `m-apple-ipad.json` for iPad-specific data

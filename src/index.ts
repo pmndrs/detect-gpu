@@ -259,7 +259,6 @@ export const getGPUTier = async ({
       return;
     }
 
-     
     const [, , fps, device] = closest!;
 
     return [minDistance, fps, gpu, device] as const;
@@ -319,7 +318,6 @@ export const getGPUTier = async ({
     );
   if (!results.length) {
     const blocklistedModel: string | undefined = BLOCKLISTED_GPUS.find(
-       
       (blocklistedModel) => renderer!.includes(blocklistedModel)
     );
     return blocklistedModel

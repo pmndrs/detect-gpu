@@ -5,6 +5,7 @@
 [![gzip size](https://img.badgesize.io/https:/unpkg.com/@pmndrs/detect-gpu/dist/index.mjs?compression=gzip)](https://unpkg.com/@pmndrs/detect-gpu)
 
 > **Migrating from `detect-gpu`?** This package has moved to `@pmndrs/detect-gpu`. Update your imports:
+>
 > ```diff
 > - import { getGPUTier } from 'detect-gpu';
 > + import { getGPUTier } from '@pmndrs/detect-gpu';
