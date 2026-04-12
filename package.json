@@ -50,7 +50,6 @@
     "test:debug": "node --inspect-brk ./node_modules/jest/bin/jest --runInBand --no-cache --watch",
     "prebuild": "rimraf dist",
     "build": "unbuild",
-    "parse-analytics": "node ./scripts/analytics_parser.js",
     "update-benchmarks": "tsx ./scripts/update_benchmarks.ts"
   },
   "dependencies": {
@@ -62,7 +61,6 @@
     "@types/node": "^20.0.0",
     "@types/tar": "^6.1.0",
     "csv-parse": "^6.2.1",
-    "csvtojson": "^2.0.10",
     "eslint": "^9.0.0",
     "eslint-config-prettier": "^9.0.0",
     "globals": "^15.0.0",
