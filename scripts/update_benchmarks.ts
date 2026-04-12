@@ -1,9 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 // Vendor
-import fs from 'fs';
+import fs, { createReadStream } from 'fs';
 import path from 'path';
-import puppeteer from 'puppeteer';
+import { pipeline } from 'stream/promises';
+import { parse } from 'csv-parse';
 import * as tar from 'tar';
 
 // Application
@@ -47,7 +48,11 @@ async function createArchiveAndCleanup() {
   fs.rmSync(BENCHMARKS_MIN_DIR, { recursive: true, force: true });
 }
 
-const BENCHMARK_URL = `https://gfxbench.com/result.jsp?benchmark=gfx50&test=544&text-filter=&order=median&ff-lmobile=true&ff-smobile=true&os-Android_gl=true&os-Android_vulkan=true&os-iOS_gl=true&os-iOS_metal=true&os-Linux_gl=true&os-OS_X_gl=true&os-OS_X_metal=true&os-Windows_dx=true&os-Windows_dx12=true&os-Windows_gl=true&os-Windows_vulkan=true&pu-dGPU=true&pu-iGPU=true&pu-GPU=true&arch-ARM=true&arch-unknown=true&arch-x86=true&base=device`;
+const CSV_URL =
+  'https://raw.githubusercontent.com/Kishonti-Opensource/GFXBench_and_CompuBench_results/main/GFXBench-5.0-results.csv';
+const CACHE_DIR = path.resolve('./scripts/.cache');
+const CACHE_FILE = path.join(CACHE_DIR, 'gfxbench-5.0.csv');
+const MANHATTAN_TEST_ID = '544';
 
 const TYPES = [
   'adreno',
@@ -219,72 +224,61 @@ type Optional<T, K extends keyof T> = Pick<Partial<T>, K> & Omit<T, K>;
   throw err;
 });
 
-async function fetchBenchmarks() {
-  const browser = await puppeteer.launch({
-    headless: true,
-    args: ['--no-sandbox', '--disable-setuid-sandbox'],
-  });
-  const page = await browser.newPage();
+async function downloadCsvIfMissing() {
+  if (fs.existsSync(CACHE_FILE)) {
+    console.log(`Using cached CSV at ${CACHE_FILE}`);
+    return;
+  }
+  fs.mkdirSync(CACHE_DIR, { recursive: true });
+  console.log(`Downloading ${CSV_URL}`);
+  const response = await fetch(CSV_URL);
+  if (!response.ok || !response.body) {
+    throw new Error(
+      `Failed to download CSV: ${response.status} ${response.statusText}`
+    );
+  }
+  await pipeline(
+    response.body as unknown as NodeJS.ReadableStream,
+    fs.createWriteStream(CACHE_FILE)
+  );
+  console.log(`Cached CSV at ${CACHE_FILE}`);
+}
 
-  // Set a realistic user agent to avoid bot detection
-  await page.setUserAgent(
-    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+async function fetchBenchmarks(): Promise<BenchmarkRow[]> {
+  await downloadCsvIfMissing();
+
+  const parser = createReadStream(CACHE_FILE).pipe(
+    parse({ columns: true, skip_empty_lines: true, relax_quotes: true })
   );
 
-  await page.goto(BENCHMARK_URL, { waitUntil: 'networkidle2' });
+  const rows: BenchmarkRow[] = [];
+  for await (const record of parser) {
+    if (record['test id'] !== MANHATTAN_TEST_ID) continue;
 
-  // Wait for the data to be available on window (max 30 seconds)
-  await page.waitForFunction(() => typeof (window as any).gpuName !== 'undefined', {
-    timeout: 30000,
-  }).catch(async () => {
-    // Debug: log what's available on the page
-    const availableVars = await page.evaluate(() => {
-      const vars = ['gpuName', 'deviceName', 'fpses', 'gpuNameLookup', 'firstResult', 'formFactor'];
-      return vars.map((v) => `${v}: ${typeof (window as any)[v]}`).join(', ');
+    const formatted = record['best result (formatted)'] ?? '';
+    if (formatted.startsWith('Failed')) continue;
+
+    const fps = Math.round(Number(record['median result (fps)']));
+    if (!Number.isFinite(fps) || fps <= 0) continue;
+
+    const resolution = record['screen size'];
+    if (!resolution || resolution.startsWith('-1')) continue;
+
+    const hardwareName = record['hardware name'];
+    const deviceName = record['device name'];
+    const formFactor = record['form factor'] ?? '';
+    if (!hardwareName || !deviceName) continue;
+
+    rows.push({
+      date: '',
+      device: deviceName.toLowerCase(),
+      fps,
+      gpu: hardwareName,
+      mobile: formFactor.includes('mobile'),
+      resolution,
     });
-    console.error('Expected window variables not found. Available:', availableVars);
-    throw new Error('Benchmark data not available on page. The website structure may have changed.');
-  });
+  }
 
-  const benchmarks = await page.evaluate((): BenchmarkRow[] => {
-    const {
-      firstResult,
-      deviceName,
-      fpses,
-      gpuNameLookup,
-      screenSizeLookup,
-      screenSizes,
-      gpuName,
-      formFactorLookup,
-      formFactor,
-    } = window as unknown as {
-      firstResult: string[];
-      deviceName: string[];
-      fpses: string[];
-      gpuNameLookup: string[];
-      screenSizeLookup: string[];
-      screenSizes: number[];
-      gpuName: number[];
-      formFactorLookup: string[];
-      formFactor: number[];
-    };
-
-    return gpuName
-      .map(
-        (gpuIndex, index): Optional<BenchmarkRow, 'fps'> => ({
-          date: firstResult[index],
-          device: deviceName[index].toLowerCase(),
-          fps:
-            fpses[index] === ''
-              ? undefined
-              : Math.round(Number(fpses[index].replace(/[^\d.]+/g, ''))),
-          gpu: gpuNameLookup[gpuIndex],
-          mobile: formFactorLookup[formFactor[index]].includes('mobile'),
-          resolution: screenSizeLookup[screenSizes[index]],
-        })
-      )
-      .filter((row): row is BenchmarkRow => row.fps !== undefined);
-  });
-  await browser.close();
-  return benchmarks;
+  console.log(`Parsed ${rows.length} Manhattan benchmark rows from CSV`);
+  return rows;
 }

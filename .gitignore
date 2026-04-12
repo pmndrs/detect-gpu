@@ -71,6 +71,7 @@ node_modules
 dist
 /example/build/*
 /coverage
+scripts/.cache/
 
 # Benchmark build artifacts
 benchmarks-min/
