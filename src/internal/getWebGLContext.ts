@@ -2,14 +2,7 @@ export function getWebGLContext(
   isSafari12?: boolean,
   failIfMajorPerformanceCaveat = false
 ) {
-  const attributes: {
-    alpha: boolean;
-    antialias: boolean;
-    depth: boolean;
-    failIfMajorPerformanceCaveat: boolean;
-    powerPreference?: string;
-    stencil: boolean;
-  } = {
+  const attributes: WebGLContextAttributes = {
     alpha: false,
     antialias: false,
     depth: false,
@@ -25,12 +18,5 @@ export function getWebGLContext(
   }
 
   const canvas = window.document.createElement('canvas');
-
-  const gl = (canvas.getContext('webgl', attributes) ||
-    canvas.getContext(
-      'experimental-webgl',
-      attributes
-    )) as WebGLRenderingContext | null;
-
-  return gl ?? undefined;
+  return canvas.getContext('webgl', attributes) ?? undefined;
 }
