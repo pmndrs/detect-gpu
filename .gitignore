@@ -83,4 +83,6 @@ benchmarks.tar.gz
 # Editor/Tool artifacts
 .eslintcache
 .claude/
+.agents/
+skills-lock.json
 plan.md
