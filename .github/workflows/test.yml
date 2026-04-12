@@ -26,12 +26,12 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
-          cache: 'yarn'
+          cache: 'pnpm'
 
-      - run: yarn install --immutable
+      - run: pnpm install --frozen-lockfile
 
-      - run: yarn build
+      - run: pnpm build
 
-      - run: yarn test
+      - run: pnpm test
 
-      - run: yarn lint
+      - run: pnpm lint

@@ -42,19 +42,19 @@ jobs:
         with:
           node-version: '24'
           registry-url: 'https://registry.npmjs.org'
-          cache: 'yarn'
+          cache: 'pnpm'
 
-      - run: yarn install --immutable
+      - run: pnpm install --frozen-lockfile
 
       - name: Update benchmarks
         if: ${{ github.event_name == 'schedule' || inputs.update_benchmarks }}
-        run: yarn update-benchmarks
+        run: pnpm update-benchmarks
 
       - name: Build
-        run: yarn build
+        run: pnpm build
 
       - name: Test
-        run: yarn test
+        run: pnpm test
 
       - name: Bump version
         run: npm version ${{ inputs.version || 'patch' }} --no-git-tag-version

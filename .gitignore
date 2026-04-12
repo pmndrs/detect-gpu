@@ -77,11 +77,8 @@ scripts/.cache/
 benchmarks-min/
 benchmarks.tar.gz
 
-# Yarn v2+ artifacts
-.yarn/
-.yarnrc.yml
-.pnp.*
-*.install-state.gz
+# pnpm
+.pnpm-store/
 
 # Editor/Tool artifacts
 .eslintcache
