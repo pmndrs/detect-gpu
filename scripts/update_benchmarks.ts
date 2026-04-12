@@ -8,15 +8,16 @@ import { parse } from 'csv-parse';
 import * as tar from 'tar';
 
 // Application
-import { BLOCKLISTED_GPUS } from '../src/internal/blocklistedGPUS';
-import { cleanRenderer } from '../src/internal/cleanRenderer';
-import { getGPUVersion } from '../src/internal/getGPUVersion';
-import { tokenizeForLevenshteinDistance } from '../src/internal/getLevenshteinDistance';
-import { internalBenchmarkResults } from './internalBenchmarkResults';
-import { BenchmarkRow } from './types';
+import { BLOCKLISTED_GPUS } from '../src/internal/blocklistedGPUS.ts';
+import { cleanRenderer } from '../src/internal/cleanRenderer.ts';
+import { getGPUVersion } from '../src/internal/getGPUVersion.ts';
+import { tokenizeForLevenshteinDistance } from '../src/internal/getLevenshteinDistance.ts';
+import { internalBenchmarkResults } from './internalBenchmarkResults.ts';
+import type { BenchmarkRow } from './types.ts';
 
 // Package
-import { version } from '../package.json';
+import pkg from '../package.json' with { type: 'json' };
+const { version } = pkg;
 
 const libraryMajorVersion = version.split('.')[0];
 

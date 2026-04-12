@@ -57,7 +57,7 @@
     "test:coverage": "vitest run --coverage",
     "prebuild": "rimraf dist",
     "build": "unbuild",
-    "update-benchmarks": "tsx ./scripts/update_benchmarks.ts"
+    "update-benchmarks": "node ./scripts/update_benchmarks.ts"
   },
   "dependencies": {
     "webgl-constants": "^1.1.1"
@@ -75,7 +75,6 @@
     "prettier": "^3.0.1",
     "rimraf": "^6.1.3",
     "tar": "^7.0.0",
-    "tsx": "^4.7.0",
     "typescript": "^6.0.2",
     "typescript-eslint": "^8.0.0",
     "unbuild": "^3.6.1",
