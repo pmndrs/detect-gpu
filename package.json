@@ -58,6 +58,9 @@
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
     "build": "tsdown",
+    "dev": "pnpm run --parallel /^dev:/",
+    "dev:build": "tsdown --watch",
+    "dev:serve": "echo 'open http://localhost:8000/local.html' && python3 -m http.server 8000",
     "update-benchmarks": "node ./scripts/update_benchmarks.ts"
   },
   "devDependencies": {

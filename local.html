@@ -2,12 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <script>
-      // During `pnpm dev` the static server runs on :8000; redirect to the
-      // local-dist page so refreshes pick up uncommitted source changes.
-      if (location.port === '8000') location.replace('./local.html');
-    </script>
-    <title>detect-gpu</title>
+    <title>detect-gpu (local)</title>
     <style>
       body {
         font-family: system-ui, sans-serif;
@@ -19,8 +14,8 @@
   <body>
     <pre id="root">Detecting GPU…</pre>
     <script type="module">
-      import { getGPUTier } from 'https://esm.sh/@pmndrs/detect-gpu';
-      const result = await getGPUTier();
+      import { getGPUTier } from './dist/index.mjs';
+      const result = await getGPUTier({ benchmarksURL: './dist/benchmarks' });
       document.getElementById('root').textContent = JSON.stringify(
         result,
         null,
