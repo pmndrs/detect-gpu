@@ -316,9 +316,22 @@ export const getGPUTier = async ({
     const blocklistedModel: string | undefined = BLOCKLISTED_GPUS.find(
       (blocklistedModel) => renderer!.includes(blocklistedModel)
     );
-    return blocklistedModel
-      ? toResult(0, 'BLOCKLISTED', blocklistedModel)
-      : toResult(1, 'FALLBACK', `${renderer} (${rawRenderer})`);
+    if (blocklistedModel) return toResult(0, 'BLOCKLISTED', blocklistedModel);
+
+    // Apple Silicon on desktop Safari: the renderer string is the generic
+    // "Apple GPU" and Safari reports identical WebGL capabilities across
+    // M1–M5 (verified empirically on M1 Max / M2 / M4), so no web-facing
+    // signal can identify the specific chip. The floor of the M-series
+    // (base M1) sustains 60fps in our benchmark scene, which maps to the
+    // top bin under the default `desktopTiers: [0, 15, 30, 60]` — so
+    // tier 3 is a true lower bound for every Apple Silicon Mac, not a
+    // guess. iPhone/iPad take an earlier path (deobfuscateAppleGPU fans
+    // out to chip candidates), so this only fires on desktop.
+    if (!isMobile && renderer === 'apple gpu') {
+      return toResult(3, 'FALLBACK', 'apple gpu', 60);
+    }
+
+    return toResult(1, 'FALLBACK', `${renderer} (${rawRenderer})`);
   }
 
   const [, fps, model, device] = results[0];
