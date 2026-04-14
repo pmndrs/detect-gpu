@@ -1,7 +1,3 @@
-/**
- * @jest-environment jsdom
- */
-
 // Data
 import { RENDERER_DESKTOP, RENDERER_MOBILE, RENDERER_TABLET } from './data';
 
@@ -244,7 +240,8 @@ for (const { input, expected } of [
     },
     input: {
       isMobile: false,
-      renderer: 'ANGLE (NVIDIA, Vulkan 1.2.175 (NVIDIA NVIDIA GeForce GTX 970 (0x000013C2)), NVIDIA)',
+      renderer:
+        'ANGLE (NVIDIA, Vulkan 1.2.175 (NVIDIA NVIDIA GeForce GTX 970 (0x000013C2)), NVIDIA)',
     },
   },
   {

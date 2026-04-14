@@ -2,7 +2,7 @@ name: Release
 
 on:
   schedule:
-    - cron: "0 0 * * 0"
+    - cron: '0 0 * * 0'
   workflow_dispatch:
     inputs:
       version:
@@ -30,31 +30,36 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           ref: ${{ github.head_ref }}
           fetch-depth: 0
 
-      - name: Enable Corepack
-        run: corepack enable
+      - uses: pnpm/action-setup@v5
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
-          node-version: '20'
+          node-version: '24'
           registry-url: 'https://registry.npmjs.org'
-          cache: 'yarn'
+          cache: 'pnpm'
 
-      - run: yarn install --immutable
+      - run: pnpm install --frozen-lockfile
 
       - name: Update benchmarks
         if: ${{ github.event_name == 'schedule' || inputs.update_benchmarks }}
-        run: yarn update-benchmarks
+        run: pnpm update-benchmarks
+
+      - name: Lint
+        run: pnpm lint
+
+      - name: Format check
+        run: pnpm format:check
 
       - name: Build
-        run: yarn build
+        run: pnpm build
 
       - name: Test
-        run: yarn test
+        run: pnpm test
 
       - name: Bump version
         run: npm version ${{ inputs.version || 'patch' }} --no-git-tag-version

@@ -18,20 +18,21 @@ jobs:
     name: Test & Lint
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
-      - name: Enable Corepack
-        run: corepack enable
+      - uses: pnpm/action-setup@v5
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
-          node-version: '20'
-          cache: 'yarn'
+          node-version: '24'
+          cache: 'pnpm'
 
-      - run: yarn install --immutable
+      - run: pnpm install --frozen-lockfile
 
-      - run: yarn build
+      - run: pnpm lint
 
-      - run: yarn test
+      - run: pnpm format:check
 
-      - run: yarn lint
+      - run: pnpm build
+
+      - run: pnpm test

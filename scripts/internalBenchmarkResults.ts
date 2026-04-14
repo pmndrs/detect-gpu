@@ -1,4 +1,4 @@
-import { BenchmarkRow } from './types';
+import type { BenchmarkRow } from './types.ts';
 
 export const internalBenchmarkResults: BenchmarkRow[] = [
   {

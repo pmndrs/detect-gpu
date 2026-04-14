@@ -1,7 +1,10 @@
 {
   "name": "@pmndrs/detect-gpu",
   "version": "6.0.0",
-  "packageManager": "yarn@4.12.0",
+  "packageManager": "pnpm@10.13.1",
+  "engines": {
+    "node": ">=24"
+  },
   "description": "Classify GPU's based on their benchmark score in order to provide an adaptive experience.",
   "author": "Tim van Scherpenzeel",
   "license": "MIT",
@@ -26,6 +29,11 @@
   "publishConfig": {
     "access": "public"
   },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
+  },
   "files": [
     "dist"
   ],
@@ -43,67 +51,29 @@
     "javascript"
   ],
   "scripts": {
-    "lint": "eslint src test scripts --fix --cache",
-    "test": "jest --verbose=false",
-    "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage",
-    "test:debug": "node --inspect-brk ./node_modules/jest/bin/jest --runInBand --no-cache --watch",
-    "prebuild": "rimraf dist",
-    "build": "unbuild",
-    "parse-analytics": "node ./scripts/analytics_parser.js",
-    "update-benchmarks": "tsx ./scripts/update_benchmarks.ts"
+    "lint": "oxlint --fix",
+    "format": "oxfmt",
+    "format:check": "oxfmt --check",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "build": "tsdown",
+    "update-benchmarks": "node ./scripts/update_benchmarks.ts"
   },
   "dependencies": {
     "webgl-constants": "^1.1.1"
   },
   "devDependencies": {
-    "@eslint/js": "^9.0.0",
-    "@types/jest": "^29.5.3",
-    "@types/node": "^20.0.0",
-    "@types/tar": "^6.1.0",
-    "csvtojson": "^2.0.10",
-    "eslint": "^9.0.0",
-    "eslint-config-prettier": "^9.0.0",
-    "globals": "^15.0.0",
-    "jest": "^29.6.2",
-    "jest-environment-jsdom": "^29.6.2",
-    "prettier": "^3.0.1",
-    "puppeteer": "^23.0.0",
-    "rimraf": "^5.0.1",
+    "@types/node": "^25.6.0",
+    "@types/tar": "^7.0.87",
+    "@vitest/coverage-v8": "^4.1.4",
+    "csv-parse": "^6.2.1",
+    "jsdom": "^29.0.2",
+    "oxfmt": "^0.44.0",
+    "oxlint": "^1.59.0",
     "tar": "^7.0.0",
-    "ts-jest": "^29.1.1",
-    "tsx": "^4.7.0",
-    "typescript": "^5.5.4",
-    "typescript-eslint": "^8.0.0",
-    "unbuild": "^2.0.0"
-  },
-  "jest": {
-    "testEnvironment": "jsdom",
-    "testEnvironmentOptions": {
-      "url": "http://localhost"
-    },
-    "moduleFileExtensions": [
-      "js",
-      "ts"
-    ],
-    "testMatch": [
-      "**/test/**/*.test.ts"
-    ],
-    "testPathIgnorePatterns": [
-      "<rootDir>/test/data.ts"
-    ],
-    "preset": "ts-jest",
-    "transform": {
-      "^.+\\.tsx?$": [
-        "ts-jest",
-        {
-          "tsconfig": "tsconfig.json",
-          "useESM": true
-        }
-      ]
-    },
-    "extensionsToTreatAsEsm": [
-      ".ts"
-    ]
+    "tsdown": "^0.21.7",
+    "typescript": "^6.0.2",
+    "vitest": "^4.1.4"
   }
 }

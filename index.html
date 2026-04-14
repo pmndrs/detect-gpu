@@ -1,105 +1,26 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <meta charset="utf-8" />
     <title>detect-gpu</title>
     <style>
       body {
-        font-size: 2em;
+        font-family: system-ui, sans-serif;
+        font-size: 1.25em;
+        padding: 2rem;
       }
     </style>
   </head>
-
   <body>
-    <div id="root"></div>
-    <script src="https://cdn.jsdelivr.net/npm/babel-regenerator-runtime@6.5.0/runtime.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.js"></script>
-    <script src="https://unpkg.com/detect-gpu@latest/dist/detect-gpu.umd.js"></script>
-    <script>
-      'use strict';
-
-      function asyncGeneratorStep(
-        gen,
-        resolve,
-        reject,
-        _next,
-        _throw,
-        key,
-        arg
-      ) {
-        try {
-          var info = gen[key](arg);
-          var value = info.value;
-        } catch (error) {
-          reject(error);
-          return;
-        }
-        if (info.done) {
-          resolve(value);
-        } else {
-          Promise.resolve(value).then(_next, _throw);
-        }
-      }
-
-      function _asyncToGenerator(fn) {
-        return function () {
-          var self = this,
-            args = arguments;
-          return new Promise(function (resolve, reject) {
-            var gen = fn.apply(self, args);
-            function _next(value) {
-              asyncGeneratorStep(
-                gen,
-                resolve,
-                reject,
-                _next,
-                _throw,
-                'next',
-                value
-              );
-            }
-            function _throw(err) {
-              asyncGeneratorStep(
-                gen,
-                resolve,
-                reject,
-                _next,
-                _throw,
-                'throw',
-                err
-              );
-            }
-            _next(undefined);
-          });
-        };
-      }
-
-      _asyncToGenerator(
-        /*#__PURE__*/ regeneratorRuntime.mark(function _callee() {
-          var data;
-          return regeneratorRuntime.wrap(function _callee$(_context) {
-            while (1) {
-              switch ((_context.prev = _context.next)) {
-                case 0:
-                  _context.next = 2;
-                  return DetectGPU.getGPUTier();
-
-                case 2:
-                  data = _context.sent;
-                  document.getElementById('root').innerHTML = '<pre>'.concat(
-                    JSON.stringify(data, null, 2),
-                    '</pre>'
-                  );
-
-                case 4:
-                case 'end':
-                  return _context.stop();
-              }
-            }
-          }, _callee);
-        })
-      )();
+    <pre id="root">Detecting GPU…</pre>
+    <script type="module">
+      import { getGPUTier } from 'https://esm.sh/@pmndrs/detect-gpu';
+      const result = await getGPUTier();
+      document.getElementById('root').textContent = JSON.stringify(
+        result,
+        null,
+        2
+      );
     </script>
   </body>
 </html>

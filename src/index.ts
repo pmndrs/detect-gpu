@@ -115,15 +115,12 @@ export const getGPUTier = async ({
     isMobile = !!deviceInfo?.isMobile,
     screenSize = window.screen,
     loadBenchmarks = async (file: string) => {
-      const data: ModelEntry[] = await fetch(`${benchmarksURL}/${file}`).then(
-        (response) => response.json()
-      );
+      const [versionTag, ...data]: [string, ...ModelEntry[]] = await fetch(
+        `${benchmarksURL}/${file}`
+      ).then((response) => response.json());
 
-      // Remove version tag and check version is supported
-      const version = parseInt(
-        (data.shift() as unknown as string).split('.')[0],
-        10
-      );
+      // Check version is supported
+      const version = parseInt(versionTag.split('.')[0], 10);
       if (version < 4) {
         throw new OutdatedBenchmarksError(
           'Detect GPU benchmark data is out of date. Please update to version 4x'
@@ -216,8 +213,7 @@ export const getGPUTier = async ({
     }
 
     const tokenizedRenderer = tokenizeForLevenshteinDistance(renderer);
-    // eslint-disable-next-line prefer-const
-    let [gpu, , , , fpsesByPixelCount] =
+    const [gpu, , , , fpsesByPixelCount] =
       matchCount > 1
         ? matched
             .map(
@@ -259,7 +255,6 @@ export const getGPUTier = async ({
       return;
     }
 
-     
     const [, , fps, device] = closest!;
 
     return [minDistance, fps, gpu, device] as const;
@@ -319,7 +314,6 @@ export const getGPUTier = async ({
     );
   if (!results.length) {
     const blocklistedModel: string | undefined = BLOCKLISTED_GPUS.find(
-       
       (blocklistedModel) => renderer!.includes(blocklistedModel)
     );
     return blocklistedModel
@@ -336,9 +330,10 @@ export const getGPUTier = async ({
   const tiers = isMobile ? mobileTiers : desktopTiers;
   let tier = 0;
 
-  for (let i = 0; i < tiers.length; i++) {
+  for (let i = tiers.length - 1; i >= 0; i--) {
     if (fps >= tiers[i]) {
       tier = i;
+      break;
     }
   }
 

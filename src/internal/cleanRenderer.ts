@@ -18,9 +18,9 @@ export function cleanRenderer(renderer: string) {
     // eg. 'vulkan 1.2.175 (nvidia nvidia geforce gtx 970 (0x000013c2))'
     // becomes 'nvidia nvidia geforce gtx 970 (0x000013c2)'
     // `OpenGL 4.5.0` gets removed all together
-    .replace(/(?:vulkan|opengl) \d+\.\d+(?:\.\d+)?(?: \((.*)\))?/, '$1')
+    .replace(/(?:vulkan|opengl) \d+\.\d+(?:\.\d+)?(?: \((.*)\))?/, '$1');
 
   debug?.('cleanRenderer - renderer cleaned to', { renderer });
 
   return renderer;
-};
+}

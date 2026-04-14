@@ -1,88 +1,32 @@
-# ============================================================================ #
-# Operating System Files
-# ============================================================================ #
-
-# Windows
-web.config
-ehthumbs.db
-ehthumbs_vista.db
-[Tt]humbs.db
-Desktop.ini
-$RECYCLE.BIN/
-
-# MacOS / Mac OS X
-._*
+# OS
 .DS_Store
-.DS_Store?
-.AppleDouble
-.LSOverride
-.Spotlight-V100
-.Trashes
-Icon?
-
-# Linux
-*~
-.directory
-
-# ============================================================================ #
-# Logs
-# ============================================================================ #
+Thumbs.db
 
 # Logs
 *.log
 
-# ============================================================================ #
-# IDE / Editor
-# ============================================================================ #
-
-# Sublime Text
-*.tmlanguage.cache
-*.tmPreferences.cache
-*.stTheme.cache
-*.sublime-workspace
-*.sublime-project
-sftp-config.json
-
-# Visual Studio Code
+# Editors
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
 
-# Visual Studio
-.vs
-
-# XCode
-xcuserdata/
-
-# ============================================================================ #
-# Languages
-# ============================================================================ #
-
-# Typescript
+# Dependencies
 node_modules
 
-# ============================================================================ #
-# Application
-# ============================================================================ #
-
-# Directories
+# Build output
 dist
-/example/build/*
-/coverage
-
-# Benchmark build artifacts
+coverage
+scripts/.cache/
 benchmarks-min/
 benchmarks.tar.gz
 
-# Yarn v2+ artifacts
-.yarn/
-.yarnrc.yml
-.pnp.*
-*.install-state.gz
+# Tool caches
+.pnpm-store/
 
-# Editor/Tool artifacts
-.eslintcache
+# Agent artifacts
 .claude/
+.agents/
+skills-lock.json
 plan.md
