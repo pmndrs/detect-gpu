@@ -324,6 +324,33 @@ for (const { input, expected } of [
   });
 });
 
+test('Apple Silicon desktop Safari — conservative tier-3 FALLBACK', async () => {
+  // Safari returns 'Apple GPU' uniformly for M1–M5 with no chip-level
+  // discrimination available from WebGL. Since base M1 already hits the
+  // tier-3 fps floor in our benchmarks, the conservative guess is tier 3.
+  const result = await getTier({
+    isMobile: false,
+    renderer: 'Apple GPU',
+  });
+  expectGPUResults(
+    { type: 'FALLBACK', tier: 3, gpu: 'apple gpu', isMobile: false },
+    result
+  );
+  expect(result.fps).toBe(60);
+});
+
+test('Apple GPU on mobile does NOT take the desktop tier-3 path', async () => {
+  // iPhone/iPad route through deobfuscateAppleGPU and resolve to specific
+  // chip benchmarks. The desktop tier-3 fallback must not fire on mobile,
+  // even with the same masked renderer string.
+  const result = await getTier({
+    isMobile: true,
+    renderer: 'Apple GPU',
+  });
+  expect(result.tier).not.toBe(3);
+  expect(result.gpu).not.toBe('apple gpu');
+});
+
 // expect BLOCKLISTED results:
 [
   {
