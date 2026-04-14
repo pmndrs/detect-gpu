@@ -37,6 +37,7 @@ for (const renderers of [RENDERER_MOBILE, RENDERER_TABLET, RENDERER_DESKTOP]) {
         'BLOCKLISTED',
         'FALLBACK',
         'BENCHMARK',
+        'BENCHMARK_FETCH_FAILED',
       ]).toContain(type);
     });
   }
@@ -339,6 +340,22 @@ test('Apple Silicon desktop Safari — conservative tier-3 FALLBACK', async () =
   expect(result.fps).toBe(60);
 });
 
+test('benchmark fetch failure surfaces as BENCHMARK_FETCH_FAILED, not silent FALLBACK', async () => {
+  // Silent degradation to tier-1 FALLBACK misrepresents fast hardware as
+  // slow whenever the benchmark CDN is blocked (CSP, CORS, unpkg outage).
+  // Consumers need a way to detect the condition so they can retry.
+  const result = await getTier({
+    isMobile: false,
+    renderer:
+      'ANGLE (NVIDIA, NVIDIA GeForce RTX 3060 Laptop GPU (0x00002520) Direct3D11 vs_5_0 ps_5_0, D3D11)',
+    loadBenchmarks: async () => {
+      throw new Error('simulated network failure');
+    },
+  });
+  expect(result.type).toBe('BENCHMARK_FETCH_FAILED');
+  expect(result.tier).toBe(1);
+});
+
 test('Apple GPU on mobile does NOT take the desktop tier-3 path', async () => {
   // iPhone/iPad route through deobfuscateAppleGPU and resolve to specific
   // chip benchmarks. The desktop tier-3 fallback must not fire on mobile,
@@ -417,11 +434,11 @@ test('Apple GPU on mobile does NOT take the desktop tier-3 path', async () => {
   });
 });
 
-test(`When queryBenchmarks throws, FALLBACK is returned`, async () => {
+test(`When queryBenchmarks throws, BENCHMARK_FETCH_FAILED is returned`, async () => {
   expectGPUResults(
     {
       tier: 1,
-      type: 'FALLBACK',
+      type: 'BENCHMARK_FETCH_FAILED',
     },
     await getTier({
       loadBenchmarks: async (): Promise<ModelEntry[]> => {
