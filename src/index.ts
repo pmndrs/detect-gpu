@@ -335,8 +335,11 @@ export const getGPUTier = async ({
       aDis === bDis ? aFps - bFps : aDis - bDis
     );
   if (!results.length) {
+    // Commas in cleaned renderers (e.g. "google, swiftshader ...") break
+    // substring matches against blocklist entries — strip them first.
+    const renderForBlocklist = renderer!.replace(/,/g, '');
     const blocklistedModel: string | undefined = BLOCKLISTED_GPUS.find(
-      (blocklistedModel) => renderer!.includes(blocklistedModel)
+      (blocklistedModel) => renderForBlocklist.includes(blocklistedModel)
     );
     if (blocklistedModel) return toResult(0, 'BLOCKLISTED', blocklistedModel);
 

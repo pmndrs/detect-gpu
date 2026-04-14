@@ -17,7 +17,7 @@ export const BLOCKLISTED_GPUS = [
   'geforce gt 130',
   'geforce gt 330m',
   'geforce gtx 285',
-  'google swiftshader',
+  'swiftshader',
   'intel g41',
   'intel g45',
   'intel gma 4500mhd',

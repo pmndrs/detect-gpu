@@ -69,6 +69,8 @@ Based on the reported `fps` the GPU is then classified into either `tier: 1 (>= 
 | `WEBGL_UNSUPPORTED`      | No WebGL context could be created. `tier` is always 0.                              |
 | `SSR`                    | Running server-side — no `window`, detection skipped.                               |
 
+The `fps` field is populated only for `BENCHMARK` results. All other `type` values leave `fps` as `undefined`.
+
 ## API
 
 ```ts

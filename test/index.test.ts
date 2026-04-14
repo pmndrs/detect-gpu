@@ -325,6 +325,19 @@ for (const { input, expected } of [
   });
 });
 
+test('SwiftShader is detected as BLOCKLISTED tier 0', async () => {
+  // SwiftShader is Chrome's CPU-based WebGL fallback — no hardware
+  // acceleration, so consumers should treat it as unusable.
+  const result = await getTier({
+    isMobile: false,
+    renderer:
+      'ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)',
+  });
+  expect(result.type).toBe('BLOCKLISTED');
+  expect(result.tier).toBe(0);
+  expect(result.gpu).toBe('swiftshader');
+});
+
 test('Apple Silicon desktop Safari — tier-3 BENCHMARK with m-series label', async () => {
   // Safari returns 'Apple GPU' uniformly for M1–M5 with no chip-level
   // discrimination available from WebGL. Base M1 already hits the tier-3
@@ -403,7 +416,7 @@ test('Apple GPU on mobile does NOT take the desktop tier-3 path', async () => {
   },
   {
     expected: {
-      gpu: 'google swiftshader',
+      gpu: 'swiftshader',
     },
     input: {
       isMobile: false,
