@@ -56,6 +56,19 @@ const gpuTier = await getGPUTier();
 
 Based on the reported `fps` the GPU is then classified into either `tier: 1 (>= 15 fps)`, `tier: 2 (>= 30 fps)` or `tier: 3 (>= 60 fps)`. The higher the tier the more graphically intensive workload you can offer to the user.
 
+## Result types
+
+`getGPUTier()` returns a `type` field indicating how the result was produced:
+
+| `type`                   | Meaning                                                                             |
+| ------------------------ | ----------------------------------------------------------------------------------- |
+| `BENCHMARK`              | Matched a benchmark entry; `fps` reflects the measured framerate for that GPU.      |
+| `FALLBACK`               | Renderer recognised but no benchmark match found. `tier` is a conservative default. |
+| `BENCHMARK_FETCH_FAILED` | Benchmark fetch failed (CDN outage, strict CSP, offline, etc.). Safe to retry.      |
+| `BLOCKLISTED`            | Renderer is on a known-bad list (drivers with severe issues). `tier` is always 0.   |
+| `WEBGL_UNSUPPORTED`      | No WebGL context could be created. `tier` is always 0.                              |
+| `SSR`                    | Running server-side — no `window`, detection skipped.                               |
+
 ## API
 
 ```ts
