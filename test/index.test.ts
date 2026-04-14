@@ -311,22 +311,6 @@ for (const { input, expected } of [
     isMobile: false,
     renderer: 'this renderer does not exist',
   },
-  {
-    isMobile: true,
-    renderer: 'Apple a19 GPU',
-  },
-  {
-    isMobile: true,
-    renderer: 'Apple a19 pro GPU',
-  },
-  {
-    isMobile: true,
-    renderer: 'Apple a19pro GPU',
-  },
-  {
-    isMobile: false,
-    renderer: 'Apple M5',
-  },
 ].map((settings) => {
   test(`${settings.renderer} should return FALLBACK`, async () => {
     expectGPUResults(

@@ -1,0 +1,518 @@
+[
+  {
+    "ua": "Mozilla/5.0 (iPad; U; CPU OS 3_2 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Version/4.0.4 Mobile/7B367 Safari/531.21.10",
+    "iOSMajor": 3
+  },
+  {
+    "ua": "Mozilla/5.0 (iPod; U; CPU iPhone OS 4_3_2 like Mac OS X; en-us) AppleWebKit/533.17.9 (KHTML, like Gecko) Version/5.0.2 Mobile/8H7 Safari/6533.18.5",
+    "iOSMajor": 4
+  },
+  {
+    "ua": "Mozilla/5.0 (iPod touch; CPU iPhone OS 9_3_2 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Mobile/13F69",
+    "iOSMajor": 9
+  },
+  {
+    "ua": "MQQBrowser/371 Mozilla/5.0 (iPhone 4S; CPU iPhone OS 6_0_1 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Mobile/10A523 Safari/7534.48.3",
+    "iOSMajor": 6
+  },
+  {
+    "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 7_1_1 like Mac OS X) AppleWebKit/537.51.2 (KHTML, like Gecko) OPiOS/8.0.1.80062 Mobile/11D201 Safari/9537.53",
+    "iOSMajor": 7
+  },
+  {
+    "ua": "IUC(U;iOS 5.1.1;Zh-cn;320*480;)/UCWEB7.9.0.94/41/997",
+    "iOSMajor": 5
+  },
+  {
+    "ua": "Mozilla/5.0 (iPhone; U; CPU iPhone 6_1_4 like Mac OS X; en-us) AppleWebKit/528.18 (KHTML, like Gecko) Mobile/7E18 Grindr/1.8.8 (iPhone5,2/6.1.4)",
+    "iOSMajor": 6
+  },
+  {
+    "ua": "Mozilla/5.0 (iPhone; U; CPU iPhone 7_0 like Mac OS X; en-us) AppleWebKit/528.18 (KHTML, like Gecko) Mobile/7E18 Grindr/1.8.8 (iPhone3,1/7.0)",
+    "iOSMajor": 7
+  },
+  {
+    "ua": "iTube 2.15 (iPhone; iPhone OS 7.0; en_US)",
+    "iOSMajor": 7
+  },
+  {
+    "ua": "UCWEB/2.0 (iOS; U; iPad OS 6_1_3; en-US; iPad2,5) U2/1.0.0 UCBrowser/9.0.0.260 U2/1.0.0 Mobile",
+    "iOSMajor": 6
+  },
+  {
+    "ua": "UCWEB/2.0 (iOS; U; iPh OS 5_0_1; zh-CN; iPh4,1) U2/1.0.0 UCBrowser/9.0.1.284 U2/1.0.0 Mobile",
+    "iOSMajor": 5
+  },
+  {
+    "ua": "UCWEB/2.0 (iOS; U; iPh OS 7_0_4; ru; iPh3,1) U2/1.0.0 UCBrowser/9.0.0.260 U2/1.0.0 Mobile",
+    "iOSMajor": 7
+  },
+  {
+    "ua": "UCWEB/2.0 (iOS; U; iPh OS 7_0_4; zh-CN; iPh4,1) U2/1.0.0 UCBrowser/9.0.1.284 U2/1.0.0 Mobile",
+    "iOSMajor": 7
+  },
+  {
+    "ua": "Mail/53 CFNetwork/711.2.23 Darwin/14.0.0",
+    "iOSMajor": 8
+  },
+  {
+    "ua": "DEPoker-iPad/1.0.2 CFNetwork/548.1.4 Darwin/11.0.0",
+    "iOSMajor": 5
+  },
+  {
+    "ua": "JDSports-iPad/1.1 CFNetwork/672.0.8 Darwin/14.0.0",
+    "iOSMajor": 7
+  },
+  {
+    "ua": "AngryBirdsBlack-iPhone/1.1.0 CFNetwork/548.1.4 Darwin/11.0.0",
+    "iOSMajor": 5
+  },
+  {
+    "ua": "Bing for iPad/1.1.2 CFNetwork/485.13.9 Darwin/11.0.0",
+    "iOSMajor": 4
+  },
+  {
+    "ua": "NightstandPaid-iPad/1.3.1 CFNetwork/548.1.4 Darwin/11.0.0",
+    "iOSMajor": 5
+  },
+  {
+    "ua": "Glo-De-iPad/1.4.7 CFNetwork/672.0.2 Darwin/14.0.0",
+    "iOSMajor": 7
+  },
+  {
+    "ua": "Island for iPhone/1.95 CFNetwork/672.0.2 Darwin/14.0.0",
+    "iOSMajor": 7
+  },
+  {
+    "ua": "WormsiPhone-iPad/2.3 CFNetwork/548.1.4 Darwin/11.0.0",
+    "iOSMajor": 5
+  },
+  {
+    "ua": "Rummy LITE iPad/2.3.0 CFNetwork/609.1.4 Darwin/13.0.0",
+    "iOSMajor": 6
+  },
+  {
+    "ua": "MobileRSSFree-iPad/3.1 CFNetwork/467.12 Darwin/10.3.1",
+    "iOSMajor": 4
+  },
+  {
+    "ua": "MobileRSSFree-iPad/3.1.4 CFNetwork/485.13.9 Darwin/11.0.0",
+    "iOSMajor": 4
+  },
+  {
+    "ua": "babbelIndonesian-iPad/4.0.1 CFNetwork/672.0.8 Darwin/14.0.0",
+    "iOSMajor": 7
+  },
+  {
+    "ua": "WeltMobile-iPad/4.2 CFNetwork/609.1.4 Darwin/13.0.0",
+    "iOSMajor": 6
+  },
+  {
+    "ua": "IMPlusFull-iPad/7.9.1 CFNetwork/548.0.4 Darwin/11.0.0",
+    "iOSMajor": 5
+  },
+  {
+    "ua": "Cooliris/1.3 CFNetwork/342.1 Darwin/9.4.1",
+    "iOSMajor": 1
+  },
+  {
+    "ua": "Poof/1.0 CFNetwork/485.12.7 Darwin/10.4.0",
+    "iOSMajor": 4
+  },
+  {
+    "ua": "Parking Mania Free/1.9.5.0 CFNetwork/548.0.4 Darwin/11.0.0",
+    "iOSMajor": 5
+  },
+  {
+    "ua": "Planet Boing!/1.4.8 CFNetwork/609.1.4 Darwin/13.0.0",
+    "iOSMajor": 6
+  },
+  {
+    "ua": "PlayTube/1.7 CFNetwork/672.0.2 Darwin/14.0.0",
+    "iOSMajor": 7
+  },
+  {
+    "ua": "nick/14 CFNetwork/548.0.3 Darwin/11.0.0",
+    "iOSMajor": 5
+  },
+  {
+    "ua": "Parking Mania Free/1.9.5.0 CFNetwork/548.0.4 Darwin/11.0.0",
+    "iOSMajor": 5
+  },
+  {
+    "ua": "JyukenSapuriApp/1.9.0 CFNetwork/609 Darwin/13.0.0",
+    "iOSMajor": 6
+  },
+  {
+    "ua": "DailyBeast/1.1 CFNetwork/672.1.13 Darwin/14.0.0",
+    "iOSMajor": 7
+  },
+  {
+    "ua": "Yelp/8.0.0 CFNetwork/672.1.14 Darwin/14.0.0",
+    "iOSMajor": 7
+  },
+  {
+    "ua": "Yelp/8.0.0 CFNetwork/672.1.15 Darwin/14.0.0",
+    "iOSMajor": 7
+  },
+  {
+    "ua": "Yelp/8.2.1 CFNetwork/705.1 Darwin/14.0.0",
+    "iOSMajor": 8
+  },
+  {
+    "ua": "Yelp/8.2.0 CFNetwork/709.1 Darwin/14.0.0",
+    "iOSMajor": 8
+  },
+  {
+    "ua": "App/1.0.0 CFNetwork/894 Darwin/17.4.0",
+    "iOSMajor": 11
+  },
+  {
+    "ua": "App/1.0.0 CFNetwork/897.15 Darwin/17.5.0",
+    "iOSMajor": 11
+  },
+  {
+    "ua": "App/1.0.0 CFNetwork/901.1 Darwin/17.6.0",
+    "iOSMajor": 11
+  },
+  {
+    "ua": "App/1.0.0 CFNetwork/902.2 Darwin/17.7.0",
+    "iOSMajor": 11
+  },
+  {
+    "ua": "App/1.0.0 CFNetwork/958.1 Darwin/18.0.0",
+    "iOSMajor": 12
+  },
+  {
+    "ua": "App/1.0.0 CFNetwork/976 Darwin/18.2.0",
+    "iOSMajor": 12
+  },
+  {
+    "ua": "App/1.0.0 CFNetwork/978.0.7 Darwin/18.5.0",
+    "iOSMajor": 12
+  },
+  {
+    "ua": "App/1.0.0 CFNetwork/978.0.7 Darwin/18.6.0",
+    "iOSMajor": 12
+  },
+  {
+    "ua": "App/1.0.0 CFNetwork/978.0.7 Darwin/18.7.0",
+    "iOSMajor": 12
+  },
+  {
+    "ua": "App/1.0.0 CFNetwork/1107.1 Darwin/19.0.0",
+    "iOSMajor": 13
+  },
+  {
+    "ua": "App/1.0.0 CFNetwork/1098.7 Darwin/19.0.0",
+    "iOSMajor": 13
+  },
+  {
+    "ua": "App/1.0.0 CFNetwork/1121.2.2 Darwin/19.2.0",
+    "iOSMajor": 13
+  },
+  {
+    "ua": "App/1.0.0 CFNetwork/1121.2.2 Darwin/19.3.0",
+    "iOSMajor": 13
+  },
+  {
+    "ua": "App/1.0.0 CFNetwork/1125.2 Darwin/19.4.0",
+    "iOSMajor": 13
+  },
+  {
+    "ua": "App/1.0.0 CFNetwork/1126 Darwin/19.5.0",
+    "iOSMajor": 13
+  },
+  {
+    "ua": "App/1.0.0 CFNetwork/1128.0.1 Darwin/19.6.0",
+    "iOSMajor": 13
+  },
+  {
+    "ua": "App/1.0.0 CFNetwork/1197 Darwin/20.0.0",
+    "iOSMajor": 14
+  },
+  {
+    "ua": "App/1.0.0 CFNetwork/1179.0.1 Darwin/20.0.0",
+    "iOSMajor": 14
+  },
+  {
+    "ua": "App/1.0.0 CFNetwork/1200.1 Darwin/20.1.0",
+    "iOSMajor": 14
+  },
+  {
+    "ua": "App/1.0.0 CFNetwork/1209 Darwin/20.2.0",
+    "iOSMajor": 14
+  },
+  {
+    "ua": "App/1.0.0 CFNetwork/1220.1 Darwin/20.3.0",
+    "iOSMajor": 14
+  },
+  {
+    "ua": "App/1.0.0 CFNetwork/1237 Darwin/20.4.0",
+    "iOSMajor": 14
+  },
+  {
+    "ua": "App/1.0.0 CFNetwork/1206 Darwin/20.1.0",
+    "iOSMajor": 14
+  },
+  {
+    "ua": "App/1.0.0 CFNetwork/1209 Darwin/20.2.0",
+    "iOSMajor": 14
+  },
+  {
+    "ua": "App/1.0.0 CFNetwork/1220.1 Darwin/20.3.0",
+    "iOSMajor": 14
+  },
+  {
+    "ua": "App/1.0.0 CFNetwork/1236 Darwin/20.4.0",
+    "iOSMajor": 14
+  },
+  {
+    "ua": "App/1.0.0 CFNetwork/1233 Darwin/20.4.0",
+    "iOSMajor": 14
+  },
+  {
+    "ua": "App/0 CFNetwork/1240.0.4 Darwin/20.5.0",
+    "iOSMajor": 14
+  },
+  {
+    "ua": "App/0 CFNetwork/1240.0.4 Darwin/20.6.0",
+    "iOSMajor": 14
+  },
+  {
+    "ua": "App/0 CFNetwork/1300.1 Darwin/21.0.0",
+    "iOSMajor": 15
+  },
+  {
+    "ua": "App/0 CFNetwork/1325.0.1 Darwin/21.1.0",
+    "iOSMajor": 15
+  },
+  {
+    "ua": "App/0 CFNetwork/1327.0.4 Darwin/21.2.0",
+    "iOSMajor": 15
+  },
+  {
+    "ua": "App/0 CFNetwork/1329 Darwin/21.3.0",
+    "iOSMajor": 15
+  },
+  {
+    "ua": "App/0 CFNetwork/1331.0.7 Darwin/21.4.0",
+    "iOSMajor": 15
+  },
+  {
+    "ua": "App/0 CFNetwork/1333.0.3 Darwin/21.5.0",
+    "iOSMajor": 15
+  },
+  {
+    "ua": "App/0 CFNetwork/1333.0.4 Darwin/21.6.0",
+    "iOSMajor": 15
+  },
+  {
+    "ua": "App/0 CFNetwork/1390 Darwin/22.0.0",
+    "iOSMajor": 16
+  },
+  {
+    "ua": "App/0 CFNetwork/1399 Darwin/22.1.0",
+    "iOSMajor": 16
+  },
+  {
+    "ua": "App/0 CFNetwork/1402 Darwin/22.2.0",
+    "iOSMajor": 16
+  },
+  {
+    "ua": "App/0 CFNetwork/1404.0.5 Darwin/22.3.0",
+    "iOSMajor": 16
+  },
+  {
+    "ua": "App/0 CFNetwork/1406.0.4 Darwin/22.4.0",
+    "iOSMajor": 16
+  },
+  {
+    "ua": "App/0 CFNetwork/1442 Darwin/22.5.0",
+    "iOSMajor": 16
+  },
+  {
+    "ua": "App/0 CFNetwork/1442 Darwin/23.0.0",
+    "iOSMajor": 17
+  },
+  {
+    "ua": "App/0 CFNetwork/1442 Darwin/23.1.0",
+    "iOSMajor": 17
+  },
+  {
+    "ua": "App/0 CFNetwork/1442 Darwin/23.2.0",
+    "iOSMajor": 17
+  },
+  {
+    "ua": "App/0 CFNetwork/1442 Darwin/23.3.0",
+    "iOSMajor": 17
+  },
+  {
+    "ua": "App/0 CFNetwork/1442 Darwin/23.4.0",
+    "iOSMajor": 17
+  },
+  {
+    "ua": "App/0 CFNetwork/1442 Darwin/23.5.0",
+    "iOSMajor": 17
+  },
+  {
+    "ua": "App/0 CFNetwork/1442 Darwin/24.0.0",
+    "iOSMajor": 18
+  },
+  {
+    "ua": "App/0 CFNetwork/1442 Darwin/24.1.0",
+    "iOSMajor": 18
+  },
+  {
+    "ua": "Mozilla/5.0 (iPhone; CPU 7_0_6 like Mac OS X; en_GB) AppleWebKit (KHTML, like Gecko) Mobile [OKMagazine/4.0.1 (iOS/7.0.6)] [LiteApps]",
+    "iOSMajor": 7
+  },
+  {
+    "ua": "Appcelerator Titanium/2.1.2.GA (iPhone/6.1.2; iPhone OS; de_DE;)",
+    "iOSMajor": 6
+  },
+  {
+    "ua": "4 Pics 1 Word/3.9 (iPad; iOS 7.0.2; Scale/2.00)",
+    "iOSMajor": 7
+  },
+  {
+    "ua": "4 Pics 1 Word/3.9 (iPhone; iOS 7.0.2; Scale/2.00)",
+    "iOSMajor": 7
+  },
+  {
+    "ua": "server-bag [iPhone OS,6.1,10B144,iPhone3,2]",
+    "iOSMajor": 6
+  },
+  {
+    "ua": "IUC(U;iOS 6.1.2;Zh-cn;320*480;)/UCWEB8.2.1.132/42/997",
+    "iOSMajor": 6
+  },
+  {
+    "ua": "StoreKitUIService/1.0 iOS/7.0 model/iPhone3,1 (4; dt:27)",
+    "iOSMajor": 7
+  },
+  {
+    "ua": "Yahoo!/9184 (iPhone; iOS 7.0.4; Scale/2.00)",
+    "iOSMajor": 7
+  },
+  {
+    "ua": "Mozilla/5.0 (iPhone; U; CPU iPhone OS  7_0 like Mac OS X; tr_TR)",
+    "iOSMajor": 7
+  },
+  {
+    "ua": "Mozilla/5.0 (iPhone; U; CPU iPhone OS  7_0_2 like Mac OS X; de_DE)",
+    "iOSMajor": 7
+  },
+  {
+    "ua": "TestApp/1.0 CFNetwork/758.0.2 Darwin/15.0.0",
+    "iOSMajor": 9
+  },
+  {
+    "ua": "TestApp/1.0 CFNetwork/758.3.15 Darwin/15.4.0",
+    "iOSMajor": 9
+  },
+  {
+    "ua": "TestApp/1.0 CFNetwork/758.4.3 Darwin/15.5.0",
+    "iOSMajor": 9
+  },
+  {
+    "ua": "TestApp/1.0 CFNetwork/758.5.3 Darwin/15.6.0",
+    "iOSMajor": 9
+  },
+  {
+    "ua": "TestApp/1.0 CFNetwork/808.0.2 Darwin/16.0.0",
+    "iOSMajor": 10
+  },
+  {
+    "ua": "TestApp/1.0 CFNetwork/808.1.4 Darwin/16.1.0",
+    "iOSMajor": 10
+  },
+  {
+    "ua": "TestApp/1.0 CFNetwork/808.2.16 Darwin/16.3.0",
+    "iOSMajor": 10
+  },
+  {
+    "ua": "App/1.0.0 CFNetwork/808.3 Darwin/16.3.0",
+    "iOSMajor": 10
+  },
+  {
+    "ua": "Mozilla/5.0+(iPhone;+CPU+iPhone+OS+9_3_1+like+Mac+OS+X)+AppleWebKit/601.1.46+(KHTML,+like+Gecko)+Version/9.0+Mobile/13E238+Safari/601.1",
+    "iOSMajor": 9
+  },
+  {
+    "ua": "Mozilla/5.0+(iPad;+CPU+OS+9_3_1+like+Mac+OS+X)+AppleWebKit/601.1.46+(KHTML,+like+Gecko)+Version/9.0+Mobile/13E238+Safari/601.1",
+    "iOSMajor": 9
+  },
+  {
+    "ua": "Mozilla/5.0 (iPad; CPU iPad OS 14_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148",
+    "iOSMajor": 14
+  },
+  {
+    "ua": "Deezer/4.8.2 (iOS; 7.1; Mobile; de)",
+    "iOSMajor": 7
+  },
+  {
+    "ua": "UCWEB/2.0 (iOS; U; iPd OS 7_0_4; zh-CN; iPd5,1) U2/1.0.0 UCBrowser/9.0.1.284 U2/1.0.0 Mobile",
+    "iOSMajor": 7
+  },
+  {
+    "ua": "Mozilla/5.0 (iPhone; CPU IPhone OS 8_1_3 Like Mac OS X) AppleWebKit/600.1.4 (KHTML, Like Gecko) CriOS/43.0.2357.61 Mobile/12B466 Safari/600.1.4",
+    "iOSMajor": 8
+  },
+  {
+    "ua": "Mozilla/5.0 (iPhone; CPU IPhone OS 9_2_1 Like Mac OS X) AppleWebKit/601.1.46 (KHTML, Like Gecko) Mobile/13D15 [FBAN/FBIOS;FBAV/52.0.0.46.157;FBBV/26424168;FBDV/iPhone6,2;FBMD/iPhone;FBSN/iPhone OS;FBSV/9.2.1;FBSS/2; FBCR/Globe;FBID/phone;FBLC/en_US;FBOP/5]",
+    "iOSMajor": 9
+  },
+  {
+    "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 9_3_4 like Mac OS X) AppleWebKit/601.1 (KHTML, like Gecko) Outlook-iOS-Android/1.0 Mobile/13G35 Safari/601.1.46\")",
+    "iOSMajor": 9
+  },
+  {
+    "ua": "MyApp/1.0 CFNetwork/811.4.18 Darwin/16.5.0",
+    "iOSMajor": 10
+  },
+  {
+    "ua": "MyApp/1.0 CFNetwork/811.5.4 Darwin/16.6.0",
+    "iOSMajor": 10
+  },
+  {
+    "ua": "MyApp/1.0 CFNetwork/811.5.4 Darwin/16.7.0",
+    "iOSMajor": 10
+  },
+  {
+    "ua": "MyApp/1.0 CFNetwork/887 Darwin/17.0.0",
+    "iOSMajor": 11
+  },
+  {
+    "ua": "MyApp/1.0 CFNetwork/889.9 Darwin/17.2.0",
+    "iOSMajor": 11
+  },
+  {
+    "ua": "MyApp/1.0 CFNetwork/893.10 Darwin/17.3.0",
+    "iOSMajor": 11
+  },
+  {
+    "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 11_2_5 like Mac OS X) AppleWebKit/604.5.6 (KHTML, like Gecko) Mobile/15D60 Instagram 33.0.0.11.96 (iPhone9,3; iOS 11_2_5; en_AU; en-AU; scale=2.00; gamut=wide; 750x1334)",
+    "iOSMajor": 11
+  },
+  {
+    "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 11_2_6 like Mac OS X) AppleWebKit/604.5.6 (KHTML, like Gecko) Mobile/15D100 Flipboard/4.2.2",
+    "iOSMajor": 11
+  },
+  {
+    "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Phantom/ios/22.06.08.44",
+    "iOSMajor": 15
+  },
+  {
+    "ua": "ViaFree-DK/3.8.3 (com.MTGx.ViaFree.dk; build:7383; iOS 12.1.0) Alamofire/4.7.0",
+    "iOSMajor": 12
+  },
+  {
+    "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.3 Mobile/15E148 DuckDuckGo/7 Safari/605.1.15",
+    "iOSMajor": 14
+  },
+  {
+    "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 12_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Pandora/1904.1.1",
+    "iOSMajor": 12
+  }
+]
