@@ -60,9 +60,6 @@
     "build": "tsdown",
     "update-benchmarks": "node ./scripts/update_benchmarks.ts"
   },
-  "dependencies": {
-    "webgl-constants": "^1.1.1"
-  },
   "devDependencies": {
     "@types/node": "^25.6.0",
     "@types/tar": "^7.0.87",
