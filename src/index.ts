@@ -314,6 +314,21 @@ export const getGPUTier = async ({
     renderers = [renderer];
   }
 
+  // Apple Silicon Mac on Safari: chip-level detection is impossible from
+  // the web (Safari masks the WebGL renderer to "Apple GPU" and reports
+  // identical capability limits across M1-M5, verified on M1 Max / M2 / M4).
+  // Every M-series chip clears the M1 fps floor in our benchmarks, so
+  // return a deterministic conservative result and skip the fetch entirely.
+  if (!isMobile && renderer === 'apple gpu') {
+    const fps = 60;
+    return toResult(
+      tierForFps(fps, desktopTiers),
+      'BENCHMARK',
+      'apple m-series',
+      fps
+    );
+  }
+
   const results = (await Promise.all(renderers.map(queryBenchmarks)))
     .filter(isDefined)
     .sort(([aDis = Number.MAX_VALUE, aFps], [bDis = Number.MAX_VALUE, bFps]) =>
@@ -337,19 +352,6 @@ export const getGPUTier = async ({
       );
     }
 
-    // Apple Silicon on desktop Safari: the renderer string is the generic
-    // "Apple GPU" and Safari reports identical WebGL capabilities across
-    // M1–M5 (verified empirically on M1 Max / M2 / M4), so no web-facing
-    // signal can identify the specific chip. The floor of the M-series
-    // (base M1) sustains 60fps in our benchmark scene, which maps to the
-    // top bin under the default `desktopTiers: [0, 15, 30, 60]` — so
-    // tier 3 is a true lower bound for every Apple Silicon Mac, not a
-    // guess. iPhone/iPad take an earlier path (deobfuscateAppleGPU fans
-    // out to chip candidates), so this only fires on desktop.
-    if (!isMobile && renderer === 'apple gpu') {
-      return toResult(3, 'FALLBACK', 'apple gpu', 60);
-    }
-
     return toResult(1, 'FALLBACK', `${renderer} (${rawRenderer})`);
   }
 
@@ -359,15 +361,13 @@ export const getGPUTier = async ({
     return toResult(0, 'BLOCKLISTED', model, fps, device);
   }
 
-  const tiers = isMobile ? mobileTiers : desktopTiers;
-  let tier = 0;
-
-  for (let i = tiers.length - 1; i >= 0; i--) {
-    if (fps >= tiers[i]) {
-      tier = i;
-      break;
-    }
-  }
-
+  const tier = tierForFps(fps, isMobile ? mobileTiers : desktopTiers);
   return toResult(tier, 'BENCHMARK', model, fps, device);
 };
+
+function tierForFps(fps: number, tiers: number[]): number {
+  for (let i = tiers.length - 1; i >= 0; i--) {
+    if (fps >= tiers[i]) return i;
+  }
+  return 0;
+}

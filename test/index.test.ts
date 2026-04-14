@@ -325,19 +325,20 @@ for (const { input, expected } of [
   });
 });
 
-test('Apple Silicon desktop Safari — conservative tier-3 FALLBACK', async () => {
+test('Apple Silicon desktop Safari — tier-3 BENCHMARK with m-series label', async () => {
   // Safari returns 'Apple GPU' uniformly for M1–M5 with no chip-level
-  // discrimination available from WebGL. Since base M1 already hits the
-  // tier-3 fps floor in our benchmarks, the conservative guess is tier 3.
+  // discrimination available from WebGL. Base M1 already hits the tier-3
+  // fps floor, so the result is a true lower bound for the whole family.
   const result = await getTier({
     isMobile: false,
     renderer: 'Apple GPU',
   });
   expectGPUResults(
-    { type: 'FALLBACK', tier: 3, gpu: 'apple gpu', isMobile: false },
+    { type: 'BENCHMARK', tier: 3, gpu: 'apple m-series', isMobile: false },
     result
   );
   expect(result.fps).toBe(60);
+  expect(result.device).toBeUndefined();
 });
 
 test('benchmark fetch failure surfaces as BENCHMARK_FETCH_FAILED, not silent FALLBACK', async () => {
