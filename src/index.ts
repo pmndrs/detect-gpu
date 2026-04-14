@@ -77,7 +77,8 @@ export type TierType =
   | 'WEBGL_UNSUPPORTED'
   | 'BLOCKLISTED'
   | 'FALLBACK'
-  | 'BENCHMARK';
+  | 'BENCHMARK'
+  | 'BENCHMARK_FETCH_FAILED';
 
 export type TierResult = {
   tier: number;
@@ -103,6 +104,11 @@ export const getGPUTier = async ({
   benchmarksURL = `https://unpkg.com/@pmndrs/detect-gpu@${version}/dist/benchmarks`,
 }: GetGPUTier = {}): Promise<TierResult> => {
   const queryCache: { [k: string]: Promise<ModelEntry[]> } = {};
+  // Set when any loadBenchmarks() call rejects with a non-OutdatedBenchmarksError
+  // (e.g. network failure, CORS, CSP blocking unpkg). Consulted only when the
+  // benchmark result list is empty, so a successful renderer match trumps a
+  // failed sibling fetch on a different benchmark file.
+  let benchmarkFetchFailed = false;
   if (isSSR) {
     return {
       tier: 0,
@@ -178,6 +184,7 @@ export const getGPUTier = async ({
       if (error instanceof OutdatedBenchmarksError) {
         throw error;
       }
+      benchmarkFetchFailed = true;
       debug?.("queryBenchmarks - couldn't load benchmark:", { error });
       return;
     }
@@ -317,6 +324,18 @@ export const getGPUTier = async ({
       (blocklistedModel) => renderer!.includes(blocklistedModel)
     );
     if (blocklistedModel) return toResult(0, 'BLOCKLISTED', blocklistedModel);
+
+    // Distinguish "couldn't reach the benchmark CDN" from "GPU is genuinely
+    // unknown". Silent tier-1 FALLBACK misrepresents fast hardware as slow
+    // whenever a network/CSP/CORS issue blocks the benchmarks fetch; this
+    // branch lets consumers detect the condition and retry.
+    if (benchmarkFetchFailed) {
+      return toResult(
+        1,
+        'BENCHMARK_FETCH_FAILED',
+        `${renderer} (${rawRenderer})`
+      );
+    }
 
     // Apple Silicon on desktop Safari: the renderer string is the generic
     // "Apple GPU" and Safari reports identical WebGL capabilities across
