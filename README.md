@@ -21,8 +21,6 @@ Classifies GPUs based on their 3D rendering benchmark score allowing the develop
 
 ## Installation
 
-By default we use the [UNPKG](https://unpkg.com) CDN to host the benchmark data. If you would like to serve the benchmark data yourself download the required benchmarking data from [benchmarks.tar.gz](https://github.com/pmndrs/detect-gpu/raw/master/benchmarks.tar.gz) and serve it from a public directory.
-
 ```sh
 pnpm add @pmndrs/detect-gpu
 ```
@@ -34,6 +32,21 @@ npm install @pmndrs/detect-gpu
 ```sh
 yarn add @pmndrs/detect-gpu
 ```
+
+## Self-hosting benchmark data
+
+By default benchmark data is loaded from the [UNPKG](https://unpkg.com) CDN (`https://unpkg.com/@pmndrs/detect-gpu@{version}/dist/benchmarks`). To serve it yourself (e.g. for offline environments, strict CSP, or to avoid a third-party CDN):
+
+1. Download [benchmarks.tar.gz](https://github.com/pmndrs/detect-gpu/raw/master/benchmarks.tar.gz) and extract it into a publicly served directory — for example `public/benchmarks/` in your app.
+2. Point `getGPUTier` at that URL via the `benchmarksURL` option:
+
+```ts
+const gpuTier = await getGPUTier({
+  benchmarksURL: '/benchmarks',
+});
+```
+
+The directory must be served at the exact URL passed in — `detect-gpu` appends filenames like `/benchmarks-d-*.json` to it when fetching.
 
 ## Usage
 
