@@ -51,7 +51,7 @@
     "javascript"
   ],
   "scripts": {
-    "lint": "oxlint --fix",
+    "lint": "oxlint --type-aware --fix",
     "format": "oxfmt",
     "format:check": "oxfmt --check",
     "test": "vitest run",
@@ -71,6 +71,7 @@
     "jsdom": "^29.0.2",
     "oxfmt": "^0.44.0",
     "oxlint": "^1.59.0",
+    "oxlint-tsgolint": "^0.21.1",
     "tar": "^7.0.0",
     "tsdown": "^0.21.7",
     "typescript": "^6.0.2",
