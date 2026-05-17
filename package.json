@@ -1,6 +1,6 @@
 {
   "name": "@pmndrs/detect-gpu",
-  "version": "6.0.4",
+  "version": "6.0.5",
   "packageManager": "pnpm@10.13.1",
   "engines": {
     "node": ">=24"
