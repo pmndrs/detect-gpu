@@ -11,13 +11,13 @@
   "type": "module",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
+      "types": "./dist/index.d.mts",
       "import": "./dist/index.mjs"
     }
   },
   "main": "./dist/index.mjs",
   "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
+  "types": "./dist/index.d.mts",
   "homepage": "https://github.com/pmndrs/detect-gpu#readme",
   "bugs": {
     "url": "https://github.com/pmndrs/detect-gpu/issues"
