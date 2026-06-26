@@ -145,7 +145,6 @@ getGPUTier({
 
 ## Requirements
 
-- Node.js 24+
 - ESM only (CommonJS is not supported)
 
 ## Support
