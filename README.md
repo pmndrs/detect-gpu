@@ -65,6 +65,37 @@ const gpuTier = await getGPUTier();
 // }
 ```
 
+### WebGPU Device Info & Capabilities
+
+You can inspect WebGPU device information, architecture, supported features (e.g. `texture-compression-bc`, `shader-f16`), limits, and fallback status:
+
+```ts
+import { getGPUTier, getWebGPUInfo } from '@pmndrs/detect-gpu';
+
+// 1. Attached to GPU tier detection:
+const gpuTier = await getGPUTier({ webgpu: true });
+console.log(gpuTier.webgpu);
+// {
+//   supported: true,
+//   adapter: {
+//     vendor: 'nvidia',
+//     architecture: 'ampere',
+//     device: 'GeForce RTX 3080',
+//     description: 'NVIDIA GeForce RTX 3080 Direct3D12 backend',
+//     isFallbackAdapter: false
+//   },
+//   features: ['texture-compression-bc', 'shader-f16', 'timestamp-query', ...],
+//   limits: { maxTextureDimension2D: 16384, maxBufferSize: 1073741824, ... }
+// }
+
+// 2. Standalone WebGPU inspection:
+const webgpuInfo = await getWebGPUInfo();
+if (webgpuInfo.supported) {
+  console.log('WebGPU Architecture:', webgpuInfo.adapter?.architecture);
+  console.log('Features:', webgpuInfo.features);
+}
+```
+
 `detect-gpu` uses rendering benchmark scores (framerate, normalized by resolution) in order to determine what tier should be assigned to the user's GPU. If no `WebGLContext` can be created, the GPU is blocklisted or the GPU has reported to render on less than `15 fps` `tier: 0` is assigned. One should provide a fallback to a non-WebGL experience.
 
 Based on the reported `fps` the GPU is then classified into either `tier: 1 (>= 15 fps)`, `tier: 2 (>= 30 fps)` or `tier: 3 (>= 60 fps)`. The higher the tier the more graphically intensive workload you can offer to the user.
@@ -99,6 +130,13 @@ getGPUTier({
    * internally.
    */
   glContext?: WebGLRenderingContext | WebGL2RenderingContext;
+  /**
+   * Whether to query WebGPU for extended adapter info, limits, and supported features.
+   * Can be a boolean or GetWebGPUInfoOptions.
+   *
+   * @default false
+   */
+  webgpu?: boolean | GetWebGPUInfoOptions;
   /**
    * Whether to fail if the system performance is low or if no hardware GPU is
    * available.
