@@ -13,8 +13,22 @@ import {
   tokenizeForLevenshteinDistance,
 } from './internal/getLevenshteinDistance';
 import { getWebGLContext } from './internal/getWebGLContext';
+import {
+  getWebGPUInfo,
+  type GetWebGPUInfoOptions,
+  type WebGPUAdapterInfo,
+  type WebGPUInfo,
+} from './internal/getWebGPUInfo';
 import { isSSR } from './internal/ssr';
 import { isDefined } from './internal/util';
+
+// Exports
+export {
+  getWebGPUInfo,
+  type GetWebGPUInfoOptions,
+  type WebGPUAdapterInfo,
+  type WebGPUInfo,
+};
 
 // Types
 export interface GetGPUTier {
@@ -29,6 +43,13 @@ export interface GetGPUTier {
    * internally.
    */
   glContext?: WebGLRenderingContext | WebGL2RenderingContext;
+  /**
+   * Whether to query WebGPU for extended adapter info, limits, and supported features.
+   * Can be a boolean or GetWebGPUInfoOptions.
+   *
+   * @default false
+   */
+  webgpu?: boolean | GetWebGPUInfoOptions;
   /**
    * Whether to fail if the system performance is low or if no hardware GPU is
    * available.
@@ -87,6 +108,7 @@ export type TierResult = {
   fps?: number;
   gpu?: string;
   device?: string;
+  webgpu?: WebGPUInfo;
 };
 
 export type ModelEntryScreen = [number, number, number, string | undefined];
@@ -102,6 +124,7 @@ export const getGPUTier = async ({
   glContext,
   failIfMajorPerformanceCaveat = false,
   benchmarksURL = `https://unpkg.com/@pmndrs/detect-gpu@${version}/dist/benchmarks`,
+  webgpu = false,
 }: GetGPUTier = {}): Promise<TierResult> => {
   const queryCache: { [k: string]: Promise<ModelEntry[]> } = {};
   // Set when any loadBenchmarks() call rejects with a non-OutdatedBenchmarksError
@@ -114,6 +137,12 @@ export const getGPUTier = async ({
       tier: 0,
       type: 'SSR',
     };
+  }
+
+  let webgpuInfo: WebGPUInfo | undefined;
+  if (webgpu) {
+    const webgpuOpts = typeof webgpu === 'object' ? webgpu : {};
+    webgpuInfo = await getWebGPUInfo(webgpuOpts);
   }
 
   const {
@@ -273,14 +302,20 @@ export const getGPUTier = async ({
     gpu?: string,
     fps?: number,
     device?: string
-  ) => ({
-    device,
-    fps,
-    gpu,
-    isMobile,
-    tier,
-    type,
-  });
+  ): TierResult => {
+    const res: TierResult = {
+      device,
+      fps,
+      gpu,
+      isMobile,
+      tier,
+      type,
+    };
+    if (webgpuInfo) {
+      res.webgpu = webgpuInfo;
+    }
+    return res;
+  };
 
   let renderers: string[];
   let rawRenderer = '';
@@ -290,25 +325,42 @@ export const getGPUTier = async ({
       glContext ||
       getWebGLContext(deviceInfo?.isSafari12, failIfMajorPerformanceCaveat);
 
-    if (!gl) {
-      return toResult(0, 'WEBGL_UNSUPPORTED');
+    if (gl) {
+      const debugRendererInfo = deviceInfo?.isFirefox
+        ? null
+        : gl.getExtension('WEBGL_debug_renderer_info');
+
+      renderer = debugRendererInfo
+        ? gl.getParameter(debugRendererInfo.UNMASKED_RENDERER_WEBGL)
+        : gl.getParameter(gl.RENDERER);
     }
 
-    const debugRendererInfo = deviceInfo?.isFirefox
-      ? null
-      : gl.getExtension('WEBGL_debug_renderer_info');
-
-    renderer = debugRendererInfo
-      ? gl.getParameter(debugRendererInfo.UNMASKED_RENDERER_WEBGL)
-      : gl.getParameter(gl.RENDERER);
+    if (!renderer) {
+      if (!webgpuInfo && typeof navigator !== 'undefined' && 'gpu' in navigator) {
+        webgpuInfo = await getWebGPUInfo();
+      }
+      if (webgpuInfo?.adapter) {
+        const candidate = webgpuInfo.adapter.description || webgpuInfo.adapter.device;
+        if (candidate) {
+          rawRenderer = candidate;
+          renderer = cleanRenderer(candidate);
+          renderers = [renderer];
+        }
+      }
+    }
 
     if (!renderer) {
+      if (!gl) {
+        return toResult(0, 'WEBGL_UNSUPPORTED');
+      }
       return toResult(1, 'FALLBACK');
     }
 
-    rawRenderer = renderer;
-    renderer = cleanRenderer(renderer);
-    renderers = deobfuscateRenderer(gl, renderer, isMobile);
+    if (!renderers!) {
+      rawRenderer = renderer;
+      renderer = cleanRenderer(renderer);
+      renderers = deobfuscateRenderer(gl!, renderer, isMobile);
+    }
   } else {
     renderer = cleanRenderer(renderer);
     renderers = [renderer];
